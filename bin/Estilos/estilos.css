@@ -1,0 +1,28 @@
+.controles{
+	-fx-alignment: center ;
+	-fx-background-color:transparent;
+	-fx-border-color: transparent; 
+	-fx-border-width: 0 0 2 0;
+	-fx-pref-height:25px;
+	-fx-pref-width:25px;
+}
+.controles:hover{
+	-fx-border-color: #808080; 
+	-fx-border-width: 0 0 2 0;
+}
+.rosa{
+	-fx-background-color:#ff7070;
+}
+.botonesPanel{
+	-fx-background-color:#fff;
+}
+JFXTextField{
+	-fx-text-inner-color: #808080;
+	-fx-prompt-text-fill: #bbb
+}
+.textfieldGerente{
+	 -fx-prompt-text-fill: #bbb;
+	 -jfx-unfocus-color: #ff7070;
+	 -jfx-focus-color:#808080;
+
+}

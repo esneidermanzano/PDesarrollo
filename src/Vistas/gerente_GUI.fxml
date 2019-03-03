@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane fx:id="panelRaiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" style="-fx-background-color: #fff;" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlRaizGerente">
+   <left>
+      <Pane prefHeight="499.0" prefWidth="300.0" styleClass="rosa" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="67.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/adminstrador.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="botonRegistro" layoutX="43.0" layoutY="207.0" onAction="#registrarPersonal" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Registro de Personal" textFill="GREY" />
+            <JFXButton fx:id="registrar" layoutX="43.0" layoutY="246.0" onAction="#cambio" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Registro de Sedes" textFill="GREY" />
+            <Label contentDisplay="CENTER" layoutX="43.0" layoutY="168.0" prefHeight="22.0" prefWidth="69.0" text="Gerente" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Text fx:id="nombreGerente" fill="WHITE" layoutX="112.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="155.3919906616211">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </left>
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="950.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="30.0" prefWidth="300.0" styleClass="rosa" />
+            <Pane onMouseDragged="#moverPanel" onMousePressed="#copiarCoordenadas" prefHeight="200.0" prefWidth="650.0">
+               <children>
+                  <Button fx:id="cerrar" layoutX="616.0" layoutY="2.0" mnemonicParsing="false" onAction="#cerrarAplicacion" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/close.png');" styleClass="controles" />
+                  <Button fx:id="minimizar" layoutX="581.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimizarAplicacion" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/minimize.png');" styleClass="controles" />
+                  
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

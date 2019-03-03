@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlLogin">
+   <children>
+      <Pane fx:id="panelLogin" layoutX="1.0" prefHeight="590.0" prefWidth="460.0" style="-fx-background-color: #333;">
+         <children>
+            <ImageView fitHeight="590.0" fitWidth="460.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/fondo.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="55.0" layoutY="113.0" opacity="0.37" prefHeight="304.0" prefWidth="350.0" style="-fx-background-color: #fff;" />
+            <JFXTextField fx:id="campoUsuarioLogin" focusColor="#31af91" layoutX="107.0" layoutY="174.0" prefHeight="42.0" prefWidth="270.0" unFocusColor="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font></JFXTextField>
+            <ImageView fitHeight="24.0" fitWidth="16.0" layoutX="79.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/password2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="22.0" fitWidth="18.0" layoutX="79.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/user2.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="botonLogin" layoutX="80.0" layoutY="348.0" onAction="#consultarUsuario" prefHeight="42.0" prefWidth="299.0" style="-fx-background-color: #31af91;" text="Ingresar" textFill="WHITE" />
+            <JFXPasswordField fx:id="campoPasswordLogin" focusColor="#31af91" layoutX="108.0" layoutY="255.0" prefHeight="42.0" prefWidth="270.0" unFocusColor="WHITE" />
+            <ImageView fitHeight="130.0" fitWidth="130.0" layoutX="155.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/userlogin.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="535.0" prefHeight="31.0" prefWidth="341.0" style="-fx-border-color: white; -fx-border-width: 1 0 0 0;" text="YXZ S.A. Sitema de Gestion del Talento Humano 1.0" textFill="WHITE" />
+         </children></Pane>
+   </children>
+</AnchorPane>

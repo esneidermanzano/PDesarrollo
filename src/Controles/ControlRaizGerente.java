@@ -32,13 +32,19 @@ public class ControlRaizGerente {
     private Button registrar;
     @FXML
     private BorderPane panelRaiz;
-    
     @FXML
     private Text nombreGerente;
+    @FXML
+    private JFXButton actualizacionPersonal; 
 
 	public void initialize(String nombre){
 		nombreGerente.setText(nombre);
 	}
+	
+    public void setStage(Stage escenario) {
+    	this.escenario = escenario;
+    }
+    
     @FXML
     void registrarPersonal(ActionEvent event) throws IOException {
     	FXMLLoader loader1 = new FXMLLoader();
@@ -48,8 +54,7 @@ public class ControlRaizGerente {
     }
 
     @FXML
-    void cambio(ActionEvent event) {
-		
+    void cambio(ActionEvent event) {		
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/Vistas/gerente_registro_sedes.fxml"));
 		try {
@@ -62,8 +67,34 @@ public class ControlRaizGerente {
 		}
 		//primaryStage.setScene(escenario1);
     }
-    public void setStage(Stage escenario) {
-    	this.escenario = escenario;
+    
+    @FXML
+    void cambioActualizar(ActionEvent event) {
+    	
+    	FXMLLoader loader2 = new FXMLLoader();
+		loader2.setLocation(getClass().getResource("/Vistas/gerente_actualizar_sede1.fxml"));
+		try {
+		Parent gui3 = (Parent)loader2.load();
+		panelRaiz.setCenter(gui3);
+		
+    	} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    @FXML
+    void cargarInterfazAP1(ActionEvent event) {
+    	FXMLLoader cargador = new FXMLLoader();
+		cargador.setLocation(getClass().getResource("/Vistas/gerente_actualizar_personal1.fxml"));
+		try {
+		Parent GUI = (Parent)cargador.load();
+		panelRaiz.setCenter(GUI);
+		
+    	} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}    	
     }
 
     @FXML
@@ -83,7 +114,7 @@ public class ControlRaizGerente {
     	Alert alert = new Alert(AlertType.CONFIRMATION);
     	//alert.setTitle("Alerta");
     	alert.setHeaderText("Esta a punto de cerrar la aplicacion");
-    	alert.setContentText("Â¿Esta seguro que desea salir?");
+    	alert.setContentText("¿Esta seguro que desea salir?");
 
     	Optional<ButtonType> result = alert.showAndWait();
     	if (result.get() == ButtonType.OK){

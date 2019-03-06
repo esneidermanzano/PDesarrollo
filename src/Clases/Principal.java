@@ -20,7 +20,7 @@ public class Principal extends Application {
 		cargador.setLocation(Principal.class.getResource("/Vistas/login.fxml"));
 		Parent raiz = (Parent)cargador.load();
 		Scene escenario = new Scene(raiz); 
-		escenarioLogin.setScene(escenario);
+		escenarioLogin.setScene(escenario);		
 		escenarioLogin.show();
 	}
     public static void iniciarGerente(String nombre) throws IOException {
@@ -28,7 +28,7 @@ public class Principal extends Application {
 		//luego se puede crear un stage propio para el vendedor, etc
     	escenarioGerente = new Stage();
 		FXMLLoader cargador = new FXMLLoader();
-		cargador.setLocation(Principal.class.getResource("/Vistas/gerente_GUI.fxml"));
+		cargador.setLocation(Principal.class.getResource("/Vistas/estilo.fxml"));
 		Parent raiz = (Parent)cargador.load();
 		ControlRaizGerente controlador = cargador.getController();
 		controlador.initialize(nombre);
@@ -36,6 +36,7 @@ public class Principal extends Application {
 		Scene escenario = new Scene(raiz); 
 		escenarioLogin.close();
 		escenarioGerente.setScene(escenario);
+		escenarioGerente.setOpacity(0.9);
 		escenarioGerente.initStyle(StageStyle.UNDECORATED );
 		escenarioGerente.show();
     }

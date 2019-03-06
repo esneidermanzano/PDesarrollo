@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.image.*?>
@@ -11,6 +12,15 @@
    <left>
       <Pane prefHeight="499.0" prefWidth="300.0" styleClass="rosa" BorderPane.alignment="CENTER">
          <children>
+            <ImageView fitHeight="608.0" fitWidth="324.0" layoutX="-12.0" layoutY="-29.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../Imagenes/system_device_glass_ice_cube_metal_19987_1920x1080.jpg" />
+               </image>
+               <effect>
+                  <GaussianBlur radius="39.3" />
+               </effect>
+            </ImageView>
+            <Pane layoutX="-5.0" layoutY="-33.0" opacity="0.69" prefHeight="638.0" prefWidth="305.0" style="-fx-background-color: #333;" />
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="67.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/adminstrador.png" />
@@ -33,21 +43,21 @@
          </children>
       </Pane>
    </left>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
+   </center>
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="950.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="30.0" prefWidth="300.0" styleClass="rosa" />
-            <Pane onMouseDragged="#moverPanel" onMousePressed="#copiarCoordenadas" prefHeight="200.0" prefWidth="650.0">
+            <Pane opacity="0.0" prefHeight="30.0" prefWidth="300.0" styleClass="rosa" />
+            <Pane onMouseDragged="#moverPanel" onMousePressed="#copiarCoordenadas" prefHeight="200.0" prefWidth="650.0" style="-fx-background-color: #fff;">
                <children>
                   <Button fx:id="cerrar" layoutX="616.0" layoutY="2.0" mnemonicParsing="false" onAction="#cerrarAplicacion" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/close.png');" styleClass="controles" />
                   <Button fx:id="minimizar" layoutX="581.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimizarAplicacion" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/minimize.png');" styleClass="controles" />
                   
-               </children>
+                           </children>
             </Pane>
          </children>
       </HBox>
    </top>
-   <center>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
-   </center>
 </BorderPane>

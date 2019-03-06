@@ -15,7 +15,7 @@ public class DaoLogin {
         String sql_select;
         String resultado="";
         
-        sql_select="SELECT nombre FROM gerentes WHERE nombre='" + nomUsuario +  "'";
+        sql_select="SELECT nombre FROM empleados WHERE nombre='" + nomUsuario +  "'";
          try{
             Connection conn = fachada.getConnetion();
             System.out.println("consultando en la bd");
@@ -39,12 +39,12 @@ public class DaoLogin {
          }  
 	}
 	
-	public boolean consultarContrasena(String nomUsuario, String passUsuario) {
+	public String consultarContrasena(String nomUsuario, String passUsuario) {
         String sql_select;
         String resultado="";
         //String contrasena="";
         
-        sql_select="SELECT * FROM gerentes WHERE nombre='" + nomUsuario + "' AND password=CRYPT('" + passUsuario +  "', password)";
+        sql_select="SELECT perfil FROM empleados WHERE nombre='" + nomUsuario + "' AND password=CRYPT('" + passUsuario +  "', password)";
          try{
             Connection conn= fachada.getConnetion();
             System.out.println("consultando en la bd");
@@ -57,14 +57,9 @@ public class DaoLogin {
          }
          catch(SQLException e){ System.out.println(e); }
          catch(Exception e){ System.out.println(e); }
-         
-         if(resultado != ""){
-        	 System.out.println("contrasena es correcta");
-        	 return true;
-         } else {
-        	 System.out.println("contrasena no es correcta");
-        	 return false;
-         }   
+
+         return resultado;
+
 	}
 	
 	/*public int guardarUsuario(Usuario usuario){

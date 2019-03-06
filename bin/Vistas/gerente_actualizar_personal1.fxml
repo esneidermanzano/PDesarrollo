@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="570.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlActPersonal1">
+   <children>
+      <JFXTextField fx:id="idEntrada" focusColor="#808080" layoutX="159.0" layoutY="211.0" prefHeight="30.0" prefWidth="333.0" promptText="Ingrese la identificación del usuario" style="-fx-prompt-text-fill: #bbb;" unFocusColor="#ff7070">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="buscar" layoutX="249.0" layoutY="279.0" onAction="#cargarInterfazAP2" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Buscar" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

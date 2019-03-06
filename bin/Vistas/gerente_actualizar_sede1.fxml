@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="650.0" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlActSedes1">
+   <children>
+      <Pane prefHeight="570.0" prefWidth="650.0" style="-fx-background-color: white;">
+         <children>
+            <JFXTextField fx:id="nombreSC" layoutX="151.0" layoutY="204.0" prefHeight="30.0" prefWidth="333.0" promptText="Nombre de sede" styleClass="textfieldGerente">
+               <font>
+                  <Font size="16.0" />
+               </font></JFXTextField>
+            <JFXTextField fx:id="identificacionSC" layoutX="151.0" layoutY="261.0" prefHeight="30.0" prefWidth="333.0" promptText="Identificación de sede" styleClass="textfieldGerente">
+               <font>
+                  <Font size="16.0" />
+               </font></JFXTextField>
+            <JFXButton fx:id="buscar" layoutX="241.0" layoutY="329.0" mnemonicParsing="false" onAction="#buscarSede" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Buscar" textFill="WHITE" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

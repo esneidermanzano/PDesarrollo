@@ -12,10 +12,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.text.Text;
 
 public class ControlLogin {
 	private DaoLogin consultador;
-	
+   
+	@FXML
+    private Text mensajeAdvertencia;
     @FXML
     private JFXTextField campoUsuarioLogin;
     @FXML
@@ -23,39 +26,38 @@ public class ControlLogin {
     @FXML
     private JFXButton botonLogin;
 
-    public void mostrarMensaje(String titulo, String mensaje) {
-    	Alert alert = new Alert(AlertType.ERROR);
-		alert.setTitle(titulo);
-		alert.setHeaderText(null);
-		alert.setContentText(mensaje);
-		alert.showAndWait();
-    }
-
 
     @FXML
     void consultarUsuario(ActionEvent event) {
     	String usuario = campoUsuarioLogin.getText();
+    	String perfil = "";
     	if(usuario.equals("")) {
-    		System.out.print("Introducir usuario por facor");
+    		mensajeAdvertencia.setText("Introduzca un usuario");
     	}else {
     		consultador = new DaoLogin();
     		if(consultador.consultarUsuario(usuario)) {
-    			if(consultador.consultarContrasena(campoUsuarioLogin.getText(), campoPasswordLogin.getText())) {
-    				System.out.println("Positivo");
-    				try {
-						Principal.iniciarGerente(campoUsuarioLogin.getText());
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+    			perfil = consultador.consultarContrasena(campoUsuarioLogin.getText(), campoPasswordLogin.getText());	
+		         if(!perfil.equals("")){
+		        	 if (perfil.equals("gerente")) {
+		    				try {
+								Principal.iniciarGerente(campoUsuarioLogin.getText());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		        	 }else {
+		        		 Alert alert = new Alert(AlertType.WARNING);
+	        			alert.setTitle("Advertencia");
+	        			alert.setHeaderText(null);
+	        			alert.setContentText("Por ahora, el sistema solo esta disponible para gerentes");
+	        			alert.showAndWait();
+	        			mensajeAdvertencia.setText("");
+		        	 }
     			}else{
-    				mostrarMensaje("Contraseña incorrecta", "La contraseña no es valida, llamando a la policia");
+    				mensajeAdvertencia.setText("La contrase�a es incorrecta");
     			}
     		}else {
-    			mostrarMensaje("Usurio incorrecto", "El usuario no es valido! intentelo nuevamente");
-
-    		}
-    		
+    			mensajeAdvertencia.setText("Usuario no valido");
+    		}    		
     	}
     }
-
 }

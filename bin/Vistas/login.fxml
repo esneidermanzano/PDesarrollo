@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
@@ -23,24 +24,29 @@
                <font>
                   <Font size="15.0" />
                </font></JFXTextField>
-            <ImageView fitHeight="24.0" fitWidth="16.0" layoutX="79.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Imagenes/password2.png" />
-               </image>
-            </ImageView>
             <ImageView fitHeight="22.0" fitWidth="18.0" layoutX="79.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/user2.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="botonLogin" layoutX="80.0" layoutY="348.0" onAction="#consultarUsuario" prefHeight="42.0" prefWidth="299.0" style="-fx-background-color: #31af91;" text="Ingresar" textFill="WHITE" />
             <JFXPasswordField fx:id="campoPasswordLogin" focusColor="#31af91" layoutX="108.0" layoutY="255.0" prefHeight="42.0" prefWidth="270.0" unFocusColor="WHITE" />
+            <ImageView fitHeight="24.0" fitWidth="16.0" layoutX="79.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/password2.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="botonLogin" layoutX="80.0" layoutY="348.0" onAction="#consultarUsuario" prefHeight="42.0" prefWidth="299.0" style="-fx-background-color: #31af91;" text="Ingresar" textFill="WHITE" />
             <ImageView fitHeight="130.0" fitWidth="130.0" layoutX="155.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/userlogin.png" />
                </image>
             </ImageView>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="535.0" prefHeight="31.0" prefWidth="341.0" style="-fx-border-color: white; -fx-border-width: 1 0 0 0;" text="YXZ S.A. Sitema de Gestion del Talento Humano 1.0" textFill="WHITE" />
+            <Text fx:id="mensajeAdvertencia" fill="#ff2e2e" layoutX="55.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="350.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
          </children></Pane>
    </children>
 </AnchorPane>

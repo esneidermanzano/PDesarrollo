@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="570.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlActPersonal2">
+   <children>
+      <Pane prefHeight="570.0" prefWidth="650.0">
+         <children>
+            <JFXTextField fx:id="nombre" focusColor="#808080" layoutX="48.0" layoutY="151.0" prefHeight="23.0" prefWidth="245.0" promptText="Nombre" style="-fx-prompt-text-fill: #bbb;" unFocusColor="#ff7070">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="apellido" focusColor="#808080" layoutX="357.0" layoutY="151.0" prefHeight="23.0" prefWidth="245.0" promptText="Apellido" style="-fx-prompt-text-fill: #bbb;" unFocusColor="#ff7070">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="263.0" layoutY="96.0" text="Datos del usuario" textFill="#aeaeae">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="sede" focusColor="#808080" layoutX="357.0" layoutY="195.0" prefHeight="23.0" prefWidth="245.0" promptText="Sede" style="-fx-prompt-text-fill: #bbb;" unFocusColor="#ff7070">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="correo" focusColor="#808080" layoutX="48.0" layoutY="241.0" prefHeight="23.0" prefWidth="245.0" promptText="Correo electrónico" style="-fx-prompt-text-fill: #bbb;" unFocusColor="#ff7070">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="telefono" focusColor="#808080" layoutX="357.0" layoutY="241.0" prefHeight="23.0" prefWidth="245.0" promptText="Teléfono/Celular" style="-fx-prompt-text-fill: #bbb;" unFocusColor="#ff7070">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXComboBox fx:id="estado" focusColor="GREY" layoutX="128.0" layoutY="307.0" promptText="Activo" unFocusColor="#ff7070" visibleRowCount="3" />
+            <JFXButton fx:id="actualizar" layoutX="279.0" layoutY="438.0" onAction="#actualizarPersonal" style="-fx-background-color: #ff7070;" text="Actualizar" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font></JFXButton>
+            <Label fx:id="id" layoutX="111.0" layoutY="201.0" text="ID:           " textFill="#aeaeae">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="307.0" text="Estado: " textFill="#aeaeae">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="344.0" text="Perfil:           " textFill="#aeaeae">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="357.0" layoutY="307.0" text="Género:" textFill="#aeaeae">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="357.0" layoutY="344.0" text="Estado civil:" textFill="#aeaeae">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="perfil" focusColor="GREY" layoutX="111.0" layoutY="344.0" promptText="Vendedor" unFocusColor="#ff7070" visibleRowCount="3" />
+            <JFXComboBox fx:id="genero" focusColor="GREY" layoutX="480.0" layoutY="307.0" promptText="M" unFocusColor="#ff7070" visibleRowCount="3" />
+            <JFXComboBox fx:id="estadoCivil" focusColor="GREY" layoutX="456.0" layoutY="344.0" promptText="Soltero" unFocusColor="#ff7070" visibleRowCount="3" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

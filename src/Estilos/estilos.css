@@ -16,11 +16,12 @@
 .botonesPanel{
 	-fx-background-color:#fff;
 }
+/* 
 JFXTextField{
 	-fx-text-inner-color: #808080;
 	-fx-prompt-text-fill: #bbb
-}
-.textfieldGerente{
+}*/
+.textfieldGerente, .comboBoxGerente {
 	 -fx-prompt-text-fill: #bbb;
 	 -jfx-unfocus-color: #ff7070;
 	 -jfx-focus-color:#808080;

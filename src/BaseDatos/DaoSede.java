@@ -79,12 +79,12 @@ public class DaoSede {
         }else { return true;}
 	}
 	
-	public int crearSede(String identificador, String nombre, String telefono, String direccion, String tamano, String empleados, String fecha) {
+	public int crearSede(String nombre, String telefono, String direccion, String tamano, String empleados, String fecha) {
     	//0 = Success, 1 = error de usuario, 2 = id ya tomada
 		int valido = 0;
-		String sql_insert = "INSERT INTO sedes";
+		String sql_insert = "INSERT INTO sedes (nombre, telefono, direccion, tamano_sede, numero_empleados, fecha_apertura)";
 		
-		sql_insert += " VALUES('" + identificador + "', '" + nombre + "', '" + telefono + "', '" + direccion + "', " + tamano 
+		sql_insert += " VALUES('" + nombre + "', '" + telefono + "', '" + direccion + "', " + tamano 
 				+ ", " + empleados + ", '" + fecha + "')";
 
         try{

@@ -40,6 +40,7 @@
             </Text>
             <JFXButton fx:id="actualizacionSede" layoutX="43.0" layoutY="321.0" onAction="#cambioActualizar" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Actualizar Sedes" textFill="GREY" />
             <JFXButton fx:id="actualizacionPersonal" layoutX="43.0" layoutY="285.0" onAction="#cargarInterfazAP1" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Actualizar Personal" textFill="GREY" />
+            <JFXButton fx:id="registro_items" layoutX="43.0" layoutY="360.0" onAction="#load_reg_itm" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Registro de Items" textFill="GREY" />
          </children>
       </Pane>
    </left>

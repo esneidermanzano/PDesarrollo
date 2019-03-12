@@ -44,8 +44,8 @@ public class Principal extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		escenarioLogin = primaryStage;
-		iniciarLogin();
-		
+		//iniciarLogin();
+		iniciarGerente("Ximena Guzman");
 	}
 
 	public static void main(String[] args) {

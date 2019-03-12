@@ -10,27 +10,27 @@
    <children>
       <Pane prefHeight="570.0" prefWidth="650.0" style="-fx-background-color: white;">
          <children>
-            <JFXTextField fx:id="campoNombre" layoutX="159.0" layoutY="24.0" prefHeight="23.0" prefWidth="333.0" promptText="Nombre" styleClass="textfieldGerente">
+            <JFXTextField fx:id="campoNombre" labelFloat="true" layoutX="159.0" layoutY="24.0" prefHeight="23.0" prefWidth="333.0" promptText="Nombre" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="campoTelefono" layoutX="159.0" layoutY="104.0" prefHeight="23.0" prefWidth="333.0" promptText="Telefono" styleClass="textfieldGerente">
+            <JFXTextField fx:id="campoTelefono" labelFloat="true" layoutX="159.0" layoutY="104.0" prefHeight="23.0" prefWidth="333.0" promptText="Telefono" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="campoDireccion" layoutX="159.0" layoutY="182.0" prefHeight="23.0" prefWidth="333.0" promptText="Direccion" styleClass="textfieldGerente">
+            <JFXTextField fx:id="campoDireccion" labelFloat="true" layoutX="159.0" layoutY="182.0" prefHeight="23.0" prefWidth="333.0" promptText="Direccion" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="campoTamano" layoutX="159.0" layoutY="260.0" prefHeight="23.0" prefWidth="333.0" promptText="Tamaño de la sede" styleClass="textfieldGerente">
+            <JFXTextField fx:id="campoTamano" labelFloat="true" layoutX="159.0" layoutY="260.0" prefHeight="23.0" prefWidth="333.0" promptText="Tamaño de la sede" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="campoEmpleados" layoutX="159.0" layoutY="334.0" prefHeight="23.0" prefWidth="333.0" promptText="N° empleados" styleClass="textfieldGerente">
+            <JFXTextField fx:id="campoEmpleados" labelFloat="true" layoutX="159.0" layoutY="334.0" prefHeight="23.0" prefWidth="333.0" promptText="N° empleados" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
@@ -42,31 +42,6 @@
             </Label>
             <DatePicker fx:id="fechaRegistroSedes" layoutX="298.0" layoutY="411.0" prefHeight="25.0" prefWidth="194.0" />
             <JFXButton fx:id="botonRegistroSedes" layoutX="249.0" layoutY="470.0" onAction="#registrarSede" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Registrar" textFill="WHITE" />
-            <Text fx:id="labelTelefono" fill="#bbbbbb" layoutX="150.0" layoutY="108.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefono">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <Text fx:id="labelNombre" fill="#bbbbbb" layoutX="150.0" layoutY="28.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <Text fx:id="labelDireccion" fill="#bbbbbb" layoutX="150.0" layoutY="186.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Direccion">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <Text fx:id="labelTamano" fill="#bbbbbb" layoutX="150.0" layoutY="264.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tamaño">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <Text fx:id="labelEmpleados" fill="#bbbbbb" layoutX="150.0" layoutY="338.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Empleados">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
          </children>
       </Pane>
    </children>

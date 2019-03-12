@@ -11,11 +11,11 @@
    <children>
       <Pane prefHeight="570.0" prefWidth="650.0" style="-fx-background-color: white;">
          <children>
-            <JFXTextField fx:id="nombreSC" layoutX="151.0" layoutY="204.0" prefHeight="30.0" prefWidth="333.0" promptText="Nombre de sede" styleClass="textfieldGerente">
+            <JFXTextField fx:id="nombreSC" labelFloat="true" layoutX="151.0" layoutY="194.0" prefHeight="30.0" prefWidth="333.0" promptText="Nombre de sede" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font></JFXTextField>
-            <JFXTextField fx:id="identificacionSC" layoutX="151.0" layoutY="261.0" prefHeight="30.0" prefWidth="333.0" promptText="Identificación de sede" styleClass="textfieldGerente">
+            <JFXTextField fx:id="identificacionSC" labelFloat="true" layoutX="151.0" layoutY="261.0" prefHeight="30.0" prefWidth="333.0" promptText="Identificación de sede" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font></JFXTextField>

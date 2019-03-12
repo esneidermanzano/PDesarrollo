@@ -49,17 +49,17 @@ CREATE TABLE empleados
 );
 
 -----------------------------------------------------------------------------------------------------------------
-INSERT INTO empleados VALUES('g1', crypt('xgpassword', gen_salt('bf')), 'Ximena Guzman', '1111111', B'1', '1', 'xg@correo', 'gerente', 'soltero', 'F');
-INSERT INTO empleados VALUES('g2', crypt('appassword', gen_salt('bf')), 'Antonio Paz', '2222222', B'1', '2', 'ap@correo', 'gerente', 'soltero', 'M');
-INSERT INTO empleados VALUES('g3', crypt('mlpassword', gen_salt('bf')), 'Maria Lara', '3333333', B'1', '3', 'ml@correo', 'gerente', 'soltero', 'F');
+INSERT INTO empleados VALUES('1111111111', crypt('xgpassword', gen_salt('bf')), 'Ximena Guzman', '1111111', B'1', '1', 'xg@correo', 'Gerente', 'Soltero', 'Femenino');
+INSERT INTO empleados VALUES('2222222222', crypt('appassword', gen_salt('bf')), 'Antonio Paz', '2222222', B'1', '2', 'ap@correo', 'Gerente', 'Soltero', 'Masculino');
+INSERT INTO empleados VALUES('3333333333', crypt('mlpassword', gen_salt('bf')), 'Maria Lara', '3333333', B'1', '3', 'ml@correo', 'Gerente', 'Soltero', 'Femenino');
 
-INSERT INTO empleados VALUES('v1', crypt('sopassword', gen_salt('bf')), 'Sara Ortega', '4444444', B'1', '1', 'so@correo', 'vendedor', 'soltero', 'F');
-INSERT INTO empleados VALUES('v2', crypt('abpassword', gen_salt('bf')), 'Ana Borja', '5555555', B'1', '2', 'ab@correo', 'vendedor', 'soltero', 'F');
-INSERT INTO empleados VALUES('v3', crypt('jvpassword', gen_salt('bf')), 'Juan Valencia', '6666666', B'1', '3', 'jv@correo', 'vendedor', 'soltero', 'M');
+INSERT INTO empleados VALUES('4444444444', crypt('sopassword', gen_salt('bf')), 'Sara Ortega', '4444444', B'1', '1', 'so@correo', 'Vendedor', 'Soltero', 'Femenino');
+INSERT INTO empleados VALUES('5555555555', crypt('abpassword', gen_salt('bf')), 'Ana Borja', '5555555', B'1', '2', 'ab@correo', 'Vendedor', 'Soltero', 'Femenino');
+INSERT INTO empleados VALUES('6666666666', crypt('jvpassword', gen_salt('bf')), 'Juan Valencia', '6666666', B'1', '3', 'jv@correo', 'Vendedor', 'Soltero', 'Masculino');
 
-INSERT INTO empleados VALUES('jt1', crypt('dlpassword', gen_salt('bf')), 'Diana Lopez', '7777777', B'1', '1', 'dl@correo', 'jefe_taller', 'soltero', 'F');
-INSERT INTO empleados VALUES('jt2', crypt('svpassword', gen_salt('bf')), 'Sebastian Vasquez', '7777777', B'1', '2', 'sv@correo', 'jefe_taller', 'soltero', 'M');
-INSERT INTO empleados VALUES('jt3', crypt('jrpassword', gen_salt('bf')), 'Jairo Rosero', '7777777', B'1', '3', 'jr@correo', 'jefe_taller', 'soltero', 'M');
+INSERT INTO empleados VALUES('7777777777', crypt('dlpassword', gen_salt('bf')), 'Diana Lopez', '7777777', B'1', '1', 'dl@correo', 'Jefe de taller', 'Soltero', 'Femenino');
+INSERT INTO empleados VALUES('8888888888', crypt('svpassword', gen_salt('bf')), 'Sebastian Vasquez', '7777777', B'1', '2', 'sv@correo', 'Jefe de taller', 'Soltero', 'Masculino');
+INSERT INTO empleados VALUES('9999999999', crypt('jrpassword', gen_salt('bf')), 'Jairo Rosero', '7777777', B'1', '3', 'jr@correo', 'Jefe de taller', 'Soltero', 'Masculino');
 -----------------------------------------------------------------------------------------------------------------
 
 /*
@@ -175,9 +175,9 @@ CREATE SEQUENCE ventas_sequence
   increment 1;
 
 -----------------------------------------------------------------------------------------------------------------
-INSERT INTO ventas VALUES(nextval('ventas_sequence'), 'v1', 'c1', current_timestamp);
-INSERT INTO ventas VALUES(nextval('ventas_sequence'), 'v2', 'c2', current_timestamp);
-INSERT INTO ventas VALUES(nextval('ventas_sequence'), 'v3', 'c3', current_timestamp);
+INSERT INTO ventas VALUES(nextval('ventas_sequence'), '4444444444', 'c1', current_timestamp);
+INSERT INTO ventas VALUES(nextval('ventas_sequence'), '5555555555', 'c2', current_timestamp);
+INSERT INTO ventas VALUES(nextval('ventas_sequence'), '6666666666', 'c3', current_timestamp);
 -----------------------------------------------------------------------------------------------------------------
 
 -- PROCESO CONTROLADOR/LOGIC/DAO
@@ -234,9 +234,9 @@ CREATE SEQUENCE cotizaciones_sequence
   increment 1;
 
 -----------------------------------------------------------------------------------------------------------------
-INSERT INTO cotizaciones VALUES(nextval('cotizaciones_sequence'), 'v1', 'c1', current_timestamp);
-INSERT INTO cotizaciones VALUES(nextval('cotizaciones_sequence'), 'v2', 'c2', current_timestamp);
-INSERT INTO cotizaciones VALUES(nextval('cotizaciones_sequence'), 'v3', 'c3', current_timestamp);
+INSERT INTO cotizaciones VALUES(nextval('cotizaciones_sequence'), '4444444444', 'c1', current_timestamp);
+INSERT INTO cotizaciones VALUES(nextval('cotizaciones_sequence'), '5555555555', 'c2', current_timestamp);
+INSERT INTO cotizaciones VALUES(nextval('cotizaciones_sequence'), '6666666666', 'c3', current_timestamp);
 -----------------------------------------------------------------------------------------------------------------
 
 -- PROCESO CONTROLADOR/LOGIC/DAO
@@ -296,10 +296,10 @@ CREATE SEQUENCE ordenes_trabajo_sequence
   increment 1;
 
 -----------------------------------------------------------------------------------------------------------------
-INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), 'jt1', 'c1', 'Porton de aluminio de 2x3', 3000000, current_timestamp, '2019-05-10 08:00:00');
+INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '7777777777', 'c1', 'Porton de aluminio de 2x3', 3000000, current_timestamp, '2019-05-10 08:00:00');
 
-INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), 'jt2', 'c2', 'Conjunto de sala estilo victoriano', 5000000, current_timestamp, '2019-05-10 08:00:00');
+INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '8888888888', 'c2', 'Conjunto de sala estilo victoriano', 5000000, current_timestamp, '2019-05-10 08:00:00');
 
-INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), 'jt3', 'c3', 'Siete estanterías en acero de 1.5*2', 2000000, current_timestamp, '2019-05-10 08:00:00');
+INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '9999999999', 'c3', 'Siete estanterías en acero de 1.5*2', 2000000, current_timestamp, '2019-05-10 08:00:00');
 -----------------------------------------------------------------------------------------------------------------
 

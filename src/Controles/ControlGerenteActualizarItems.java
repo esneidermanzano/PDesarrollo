@@ -14,16 +14,7 @@ import javafx.util.Duration;
 
 public class ControlGerenteActualizarItems {
 	private DaoInventario inventario;
-	
-	@FXML
-	private Text labelIdentificador;
-  	@FXML
-    private Text labelNombre;
-    @FXML
-    private Text labelPrecio;
-    @FXML
-    private Text labelExistencias;
-   
+	   
     @FXML
     private JFXTextField campoIdentificador;
     @FXML
@@ -41,28 +32,8 @@ public class ControlGerenteActualizarItems {
 	    public void initialize() {
 	    	inventario = new DaoInventario();
 	    	botonActualizar.setDisable(true);
-	    	
-	    	campoNombre.setOnKeyPressed((e) -> {
-	   	 		mostrarLabel(labelNombre, campoNombre);
-			});   	 	
-	    	campoIdentificador.setOnKeyPressed((e) -> {
-	   	 		mostrarLabel(labelIdentificador, campoIdentificador);
-	    	});
-	    	campoPrecio.setOnKeyPressed((e) -> {
-	   	 		mostrarLabel(labelPrecio, campoPrecio);
-	    	});
-	    	campoExistencias.setOnKeyPressed((e) -> {
-	   	 		mostrarLabel(labelExistencias, campoExistencias);
-	    	});
 	    }
-	    
-	    public void mostrarLabel(Text label, JFXTextField textField) {
-	    	FadeTransition transicion = new FadeTransition(Duration.millis(200), label);
-		 	if(textField.getText().equals("")) {transicion.setToValue(0);}
-		 	else { transicion.setToValue(1);}
-		 	transicion.play();
-	    }
-	    
+	        
 	    public void verificarCampos() {
 	    	
 			String nombre = campoNombre.getText();
@@ -134,10 +105,6 @@ public class ControlGerenteActualizarItems {
 	    			campoNombre.setText(resultado[0]);
 	    			campoPrecio.setText(resultado[1]);
 	    			campoExistencias.setText(resultado[2]);
-	    			mostrarLabel(labelNombre, campoNombre);			
-		   	 		mostrarLabel(labelIdentificador, campoIdentificador);		    	
-		   	 		mostrarLabel(labelPrecio, campoPrecio);		    			    	
-		   	 		mostrarLabel(labelExistencias, campoExistencias);
 	    		}
 	    	}	    	
 	    }
@@ -151,10 +118,6 @@ public class ControlGerenteActualizarItems {
 			campoIdentificador.setDisable(false);
 			botonConsultar.setDisable(false);
 			botonActualizar.setDisable(true);
-			mostrarLabel(labelNombre, campoNombre);			
-   	 		mostrarLabel(labelIdentificador, campoIdentificador);		    	
-   	 		mostrarLabel(labelPrecio, campoPrecio);		    			    	
-   	 		mostrarLabel(labelExistencias, campoExistencias);
 	    }
 
 }

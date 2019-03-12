@@ -10,27 +10,27 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="650.0" style="-fx-background-color: white;" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlGerenteRegistrarEmpleados">
    <children>
-      <JFXTextField fx:id="campoNombre" layoutX="159.0" layoutY="36.0" prefHeight="37.0" prefWidth="333.0" promptText="Nombre" styleClass="textfieldGerente">
+      <JFXTextField fx:id="campoNombre" labelFloat="true" layoutX="159.0" layoutY="36.0" prefHeight="37.0" prefWidth="333.0" promptText="Nombre" styleClass="textfieldGerente">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="campoId" layoutX="159.0" layoutY="101.0" prefHeight="37.0" prefWidth="333.0" promptText="Identifiación" styleClass="textfieldGerente">
+      <JFXTextField fx:id="campoId" labelFloat="true" layoutX="159.0" layoutY="101.0" prefHeight="37.0" prefWidth="333.0" promptText="Identificación" styleClass="textfieldGerente">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="campoPassword" layoutX="159.0" layoutY="166.0" prefHeight="37.0" prefWidth="333.0" promptText="Password" styleClass="textfieldGerente">
+      <JFXTextField fx:id="campoPassword" labelFloat="true" layoutX="159.0" layoutY="166.0" prefHeight="37.0" prefWidth="333.0" promptText="Password" styleClass="textfieldGerente">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="campoTelefono" layoutX="159.0" layoutY="233.0" prefHeight="37.0" prefWidth="333.0" promptText="Telefono" styleClass="textfieldGerente">
+      <JFXTextField fx:id="campoTelefono" labelFloat="true" layoutX="159.0" layoutY="233.0" prefHeight="37.0" prefWidth="333.0" promptText="Telefono" styleClass="textfieldGerente">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="campoCorreo" layoutX="159.0" layoutY="296.0" prefHeight="37.0" prefWidth="333.0" promptText="E-mail" styleClass="textfieldGerente">
+      <JFXTextField fx:id="campoCorreo" labelFloat="true" layoutX="159.0" layoutY="296.0" prefHeight="37.0" prefWidth="333.0" promptText="E-mail" styleClass="textfieldGerente">
          <font>
             <Font size="16.0" />
          </font>

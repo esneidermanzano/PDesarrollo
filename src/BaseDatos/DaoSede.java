@@ -59,6 +59,29 @@ public class DaoSede {
 		return id;
 	}
 	
+	public String getNombre(String id) {
+		
+		String nombre = "";
+		String sql_select = "SELECT nombre FROM sedes WHERE id = '" + id + "'";
+		
+		try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando sede en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+           
+            while(tabla.next()){
+            	nombre = tabla.getString(1);
+               // System.out.println(resultado_consulta);
+             }            
+        }
+		catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+		
+		return nombre;
+		
+	}
+	
 	public boolean consultarId(String id) {
 		String sql_select = "SELECT id FROM sedes WHERE id = '" + id + "'";
 		

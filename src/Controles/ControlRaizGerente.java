@@ -58,8 +58,9 @@ public class ControlRaizGerente {
     public void efectoCambio(FXMLLoader cargador) {
 		try {
 			Parent gui = (Parent)cargador.load();
+			panelCentral.getChildren().clear();
 			panelCentral.getChildren().add(gui);
-			Scene scene = gui.getScene();			
+			Scene scene = gui.getScene();						
 			gui.translateXProperty().set(scene.getWidth());		
 			Timeline timeline = new Timeline();
 			KeyValue rango = new KeyValue(gui.translateXProperty(), 0, Interpolator.EASE_IN);
@@ -70,7 +71,7 @@ public class ControlRaizGerente {
 			System.out.println("Se presento un problema con la carga del modulo: " + e.getMessage());
 		}		
     }
-    
+       
     @FXML
     void registrarPersonal(ActionEvent event) throws IOException {
     	FXMLLoader loader = new FXMLLoader();
@@ -121,8 +122,8 @@ public class ControlRaizGerente {
     @FXML
     void cerrarAplicacion(ActionEvent event) {
     	Alert alert = new Alert(AlertType.CONFIRMATION);
-    	alert.setHeaderText("Esta a punto de cerrar la aplicacion");
-    	alert.setContentText("¿Esta seguro que desea salir?");
+    	alert.setHeaderText("Está a punto de cerrar la aplicación");
+    	alert.setContentText("¿Está seguro de que desea salir?");
 
     	Optional<ButtonType> result = alert.showAndWait();
     	if (result.get() == ButtonType.OK){

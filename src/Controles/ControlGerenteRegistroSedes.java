@@ -19,18 +19,6 @@ public class ControlGerenteRegistroSedes {
 	private DaoSede sede;
 	
     @FXML
-    private Text labelNombre;
-    @FXML
-    private Text labelTelefono;
-    @FXML
-    private Text labelDireccion;
-    @FXML
-    private Text labelTamano;
-    @FXML
-    private Text labelEmpleados;
-
-    
-    @FXML
     private JFXTextField campoNombre;
     @FXML
     private JFXTextField campoTelefono;
@@ -48,28 +36,7 @@ public class ControlGerenteRegistroSedes {
     public void initialize() {
     	
     	sede = new DaoSede();
-    	campoNombre.setOnKeyPressed((e) -> {
-   	 		mostrarLabel(labelNombre, campoNombre);
-		});   	 	
-    	campoTelefono.setOnKeyPressed((e) -> {
-   	 		mostrarLabel(labelTelefono, campoTelefono);
-    	});
-    	campoDireccion.setOnKeyPressed((e) -> {
-   	 		mostrarLabel(labelDireccion, campoDireccion);
-    	});
-    	campoTamano.setOnKeyPressed((e) -> {
-   	 		mostrarLabel(labelTamano, campoTamano);
-    	});
-    	campoEmpleados.setOnKeyPressed((e) -> {
-   	 		mostrarLabel(labelEmpleados, campoEmpleados);
-    	});
    	 
-    }
-    public void mostrarLabel(Text label, JFXTextField textField) {
-    	FadeTransition transicion = new FadeTransition(Duration.millis(200), label);
-	 	if(textField.getText().equals("")) {transicion.setToValue(0);}
-	 	else { transicion.setToValue(1);}
-	 	transicion.play();
     }
     
     public void verificarCampos() {

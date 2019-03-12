@@ -38,7 +38,7 @@ public class ControlLogin {
     		if(consultador.consultarUsuario(usuario)) {
     			perfil = consultador.consultarContrasena(campoUsuarioLogin.getText(), campoPasswordLogin.getText());	
 		         if(!perfil.equals("")){
-		        	 if (perfil.equals("gerente")) {
+		        	 if (perfil.equals("Gerente")) {
 		    				try {
 								Principal.iniciarGerente(campoUsuarioLogin.getText());
 							} catch (IOException e) {

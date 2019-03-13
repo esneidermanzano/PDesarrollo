@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.Label?>
@@ -12,30 +13,35 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="650.0" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlActSedes2">
    <children>
-      <Pane prefHeight="570.0" prefWidth="650.0" style="-fx-background-color: white;">
+      <Pane layoutX="7.0" prefHeight="570.0" prefWidth="650.0" style="-fx-background-color: white;">
          <children>
-            <Label fx:id="aviso" layoutX="159.0" layoutY="422.0" prefHeight="17.0" prefWidth="333.0" textFill="RED" />
-            <JFXTextField fx:id="nombre" layoutX="159.0" layoutY="121.0" prefHeight="30.0" prefWidth="333.0" promptText="Nombre Sede" styleClass="textfieldGerente">
+            <ImageView fitHeight="281.0" fitWidth="382.0" layoutX="246.0" layoutY="251.0" opacity="0.11" pickOnBounds="true" smooth="false">
+               <image>
+                  <Image url="@../Imagenes/sede.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="aviso" layoutX="159.0" layoutY="430.0" prefHeight="17.0" prefWidth="333.0" textFill="RED" />
+            <JFXTextField fx:id="nombre" labelFloat="true" layoutX="159.0" layoutY="122.0" prefHeight="30.0" prefWidth="333.0" promptText="Nombre Sede" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font></JFXTextField>
-            <JFXTextField fx:id="telefono" layoutX="160.0" layoutY="213.0" prefHeight="30.0" prefWidth="333.0" promptText="Telefono" styleClass="textfieldGerente">
+            <JFXTextField fx:id="telefono" labelFloat="true" layoutX="160.0" layoutY="239.0" prefHeight="30.0" prefWidth="333.0" promptText="Telefono" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font></JFXTextField>
-            <JFXTextField fx:id="direccion" layoutX="160.0" layoutY="271.0" prefHeight="30.0" prefWidth="333.0" promptText="Dirección" styleClass="textfieldGerente">
+            <JFXTextField fx:id="direccion" labelFloat="true" layoutX="160.0" layoutY="307.0" prefHeight="30.0" prefWidth="333.0" promptText="Dirección" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font></JFXTextField>
-            <JFXTextField fx:id="tamanoSede" layoutX="160.0" layoutY="327.0" prefHeight="30.0" prefWidth="333.0" promptText="Tamaño de sede" styleClass="textfieldGerente">
+            <JFXTextField fx:id="tamanoSede" labelFloat="true" layoutX="156.0" layoutY="380.0" prefHeight="37.0" prefWidth="153.0" promptText="Tamaño de sede" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font></JFXTextField>
-            <JFXTextField fx:id="nEmpleados" layoutX="159.0" layoutY="376.0" prefHeight="30.0" prefWidth="333.0" promptText="N° Empleados" styleClass="textfieldGerente">
+            <JFXTextField fx:id="nEmpleados" disable="true" labelFloat="true" layoutX="341.0" layoutY="380.0" prefHeight="37.0" prefWidth="153.0" promptText="N° Empleados" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font></JFXTextField>
-            <JFXButton fx:id="actualizar" layoutX="250.0" layoutY="455.0" mnemonicParsing="false" onAction="#obtenerDatos" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Actualizar" textFill="WHITE" />
+            <JFXButton fx:id="actualizar" layoutX="250.0" layoutY="462.0" mnemonicParsing="false" onAction="#obtenerDatos" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Actualizar" textFill="WHITE" />
             <Label layoutX="156.0" layoutY="74.0" prefHeight="25.0" prefWidth="110.0" text="Identificador:" textFill="#ff7070">
                <font>
                   <Font size="16.0" />
@@ -46,10 +52,15 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <DatePicker fx:id="apertura" disable="true" layoutX="318.0" layoutY="176.0" />
-            <Label layoutX="159.0" layoutY="176.0" text="Fecha apertura" textFill="#aeaeae">
+            <DatePicker fx:id="apertura" disable="true" layoutX="318.0" layoutY="192.0" />
+            <Label layoutX="159.0" layoutY="191.0" text="Fecha apertura" textFill="#aeaeae">
                <font>
                   <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="-3.0" prefHeight="60.0" prefWidth="320.0" text="Actualizar datos de sede" textFill="#ff7070">
+               <font>
+                  <Font size="22.0" />
                </font>
             </Label>
          </children>

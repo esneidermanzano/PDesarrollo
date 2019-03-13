@@ -41,13 +41,20 @@ public class ControlActSedes2 {
     @FXML
     private TextField nombre;
     @FXML
-    private Label aviso;
-    @FXML
     private DatePicker apertura;
     @FXML
     private TextField tamanoSede;
     @FXML
     private Label identificador;
+    @FXML
+    private Label avisoNombre;
+    @FXML
+    private Label avisoTelefono;
+    @FXML
+    private Label avisoDireccion;
+    @FXML
+    private Label avisoTamano;
+
 	
 
 
@@ -95,6 +102,7 @@ public class ControlActSedes2 {
 			System.out.println("Se presento un problema con la carga del modulo: " + e.getMessage());
 		}		
     }
+    
     public void cargarInterfazAnterior(ActionEvent event)  {
     	FXMLLoader cargador = new FXMLLoader();
 		cargador.setLocation(getClass().getResource("/Vistas/gerente_actualizar_sede1.fxml"));
@@ -110,48 +118,55 @@ public class ControlActSedes2 {
 		
 		
     }
-    public boolean validarCampo(String prueba, int longitud, String campo, int tipo) {
+    public boolean validarCampo(String prueba, int longitud, int tipo, Label aviso) {
     	
     	boolean salida = true;
     	    	
     	if(prueba.replace(" ","").equals("")) {
     		salida = false;
-    		mostrarMensaje("Campos Incompletos", "El campo " + campo + " está vacío");
+    		aviso.setText("Campo vacío, por favor llene el campo");
     	}else {
     		if(prueba.length() > longitud) {
     			salida = false;
     			//aviso.setText("N° Empleados incorrecto");
-    			mostrarMensaje("Campos exceden", "El campo " + campo + " debe tener máximo " + longitud + " caracteres");
+    			aviso.setText("El campo  debe tener máximo " + longitud + " caracteres");
     		}else {
-    			if(prueba.charAt(prueba.length()-1) != ' ') {
+    			if(prueba.charAt(prueba.length()-1) != ' ' && prueba.charAt(0) != ' ') {
 	    		
 	    			if(tipo==1) {
 	    				if( !prueba.matches("[0-9]*")) {
 	    					salida=false;
-	    					mostrarMensaje("No Numero", "El campo " + campo + " no es un número");
+	    					aviso.setText("El campo no es un número");
 	    				}
 	    			}
     			}else {
     				salida=false;
-        			mostrarMensaje("Campo mal ingresado", "El campo " + campo + "tiene espacios de mas");
+    				aviso.setText( "Campo con espacios");
     			}
     		}
     	}
-   return salida;
+    return salida;
     }
+    public void setearLabelS() {
+    	avisoNombre.setText("");
+    	avisoTamano.setText("");
+    	avisoTelefono.setText("");
+    	avisoDireccion.setText("");
+    }
+    
     @FXML
     void obtenerDatos(ActionEvent event) {
-    	aviso.setText("");
+    	setearLabelS();
     	String nom= nombre.getText();
     	String tel= telefono.getText();
     	String add=direccion.getText();
     	String tam= tamanoSede.getText();
     	String nEm= nEmpleados.getText();
-    	boolean boolNom= validarCampo(nom,50,"Nombre",2);
-    	boolean boolTel= validarCampo(tel,11,"Telefono",1);
-    	boolean boolAdd= validarCampo(add,50,"Dirección",2);
-    	boolean boolTam= validarCampo(tam,50,"Tamaño",1);
-    	boolean boolnEm= validarCampo(nEm,30,"N°Empleados",1);
+    	boolean boolNom= validarCampo(nom,50,2,avisoNombre);
+    	boolean boolTel= validarCampo(tel,11,1,avisoTelefono);
+    	boolean boolAdd= validarCampo(add,50,2,avisoDireccion);
+    	boolean boolTam= validarCampo(tam,50,1,avisoTamano);
+    	boolean boolnEm= validarCampo(nEm,30,1,avisoTamano);
     	if(boolNom && boolTel && boolAdd && boolTam && boolnEm) {
     		int t =Integer.parseInt(tam);
     		int n  =Integer.parseInt(nEm);
@@ -176,7 +191,7 @@ public class ControlActSedes2 {
 	    			}
 	    		}
     		}else {
-    			aviso.setText("El tamaño de la sede debe ser mayor a 0");
+    			avisoTamano.setText("El tamaño de la sede debe ser mayor a 0");
     		}
   		}
     }

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlGerenteRegistroItems">
+   <children>
+      <Pane prefHeight="570.0" prefWidth="650.0" style="-fx-background-color: white;">
+         <children>
+            <JFXTextField fx:id="nombreItem" labelFloat="true" layoutX="46.0" layoutY="28.0" prefHeight="37.0" prefWidth="234.0" promptText="Nombre" styleClass="textfieldGerente">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="cantidadItems" labelFloat="true" layoutX="46.0" layoutY="109.0" prefHeight="37.0" prefWidth="234.0" promptText="Cantidad" styleClass="textfieldGerente">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="colorItem" labelFloat="true" layoutX="326.0" layoutY="109.0" prefHeight="37.0" prefWidth="234.0" promptText="Color" styleClass="textfieldGerente">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="materialItem" labelFloat="true" layoutX="46.0" layoutY="190.0" prefHeight="37.0" prefWidth="234.0" promptText="Material" styleClass="textfieldGerente">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="costofabItem" labelFloat="true" layoutX="326.0" layoutY="190.0" prefHeight="37.0" prefWidth="234.0" promptText="Costo Fabricacion" styleClass="textfieldGerente">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="46.0" layoutY="246.0" text="Fecha registro" textFill="#aeaeae">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="fechaRegistroItem" layoutX="46.0" layoutY="273.0" prefHeight="25.0" prefWidth="234.0" />
+            <JFXButton fx:id="botonRegistroItems" layoutX="249.0" layoutY="427.0" onAction="#registrarItem" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Registrar" textFill="WHITE" />
+            <JFXTextField fx:id="valorVentaItem" labelFloat="true" layoutX="326.0" layoutY="258.0" prefHeight="37.0" prefWidth="234.0" promptText="Valor Venta" styleClass="textfieldGerente">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXComboBox fx:id="comboBoxSede" layoutX="326.0" layoutY="47.0" prefHeight="25.0" prefWidth="234.0" promptText="Seleccione sede" />
+            <Label layoutX="325.0" layoutY="16.0" prefHeight="25.0" prefWidth="100.0" text="Numero sede" textFill="#aeaeae">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="referenciaItem" labelFloat="true" layoutX="46.0" layoutY="328.0" prefHeight="37.0" prefWidth="234.0" promptText="Referencia" styleClass="textfieldGerente">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

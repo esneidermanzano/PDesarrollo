@@ -66,8 +66,6 @@ public class ControlActPersonal1 {
     		}else {
     			V.mostrarMensaje(3, "El usuario no existe", "Error en la actualización");
     		}
-    	}    	
-    	
-    }
-        
+    	}    	    	
+    }       
 }

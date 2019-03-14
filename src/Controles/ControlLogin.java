@@ -46,11 +46,11 @@ public class ControlLogin {
 							}
 		        	 }else {
 		        		 Alert alert = new Alert(AlertType.WARNING);
-	        			alert.setTitle("Advertencia");
-	        			alert.setHeaderText(null);
-	        			alert.setContentText("Por ahora, el sistema solo esta disponible para gerentes");
-	        			alert.showAndWait();
-	        			mensajeAdvertencia.setText("");
+		        		 alert.setTitle("Advertencia");
+	        			 alert.setHeaderText(null);
+	        			 alert.setContentText("Por ahora, el sistema solo esta disponible para gerentes");
+	        			 alert.showAndWait();
+	        			 mensajeAdvertencia.setText("");
 		        	 }
     			}else{
     				mensajeAdvertencia.setText("La contraseña es incorrecta");

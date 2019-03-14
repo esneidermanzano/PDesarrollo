@@ -28,25 +28,23 @@ public class ControlRaizGerente {
 	private Stage escenario;
 	private double x, y;
 
-    @FXML
-    private JFXButton botonRegistro;
-    @FXML
-    private Button cerrar;
-    @FXML
-    private Button minimizar;
-    @FXML
-    private Button registrar;
-    @FXML
-    private BorderPane panelRaiz;
+    @FXML private Button cerrar;
+    @FXML private Button minimizar;
+
+    @FXML private BorderPane panelRaiz;    
+    @FXML private Pane panelCentral;
+    @FXML private Text nombreGerente;
+ 
+    @FXML private JFXButton botonRegistroPersonal;
+    @FXML private JFXButton botonRegistroSedes;
+    @FXML private JFXButton botonActualizarPersonal;
+    @FXML private JFXButton botonActualizarSede;
+    @FXML private JFXButton botonActualizaritems;
+    @FXML private JFXButton botonConsultarPersonal;    
+    @FXML private JFXButton botonConsultarSedes;
+
+
     
-    @FXML
-    private Pane panelCentral;
-
-    @FXML
-    private Text nombreGerente;
-    @FXML
-    private JFXButton actualizacionPersonal; 
-
 	public void initialize(String nombre){
 		nombreGerente.setText(nombre);
 	}
@@ -103,10 +101,24 @@ public class ControlRaizGerente {
     @FXML
     void actualizarItems(ActionEvent event) {
     	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(getClass().getResource("/Vistas/gerente_actualizar_items.fxml"));
+    	loader.setLocation(getClass().getResource("/Vistas/gerente_actualizar_items_prueba.fxml"));
 		efectoCambio(loader); 
     }
 
+    @FXML
+    void consultarPersonal(ActionEvent event) {		
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/Vistas/gerente_consultar_personal.fxml"));
+		efectoCambio(loader);
+    }
+    
+    @FXML
+    void consultarSedes(ActionEvent event) {		
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/Vistas/gerente_consultar_sedes.fxml"));
+		efectoCambio(loader);
+    }
+    
     @FXML
     void copiarCoordenadas(MouseEvent event) {
     	x = event.getSceneX();

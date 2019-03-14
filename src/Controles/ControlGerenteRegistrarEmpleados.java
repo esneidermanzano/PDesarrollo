@@ -164,7 +164,6 @@ public class ControlGerenteRegistrarEmpleados {
     		break;
     		}
     	}
-
     }
 
 }

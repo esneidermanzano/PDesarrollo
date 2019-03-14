@@ -72,8 +72,7 @@ public class ControlActPersonal2 {
     	boolean B = V.validarCampo(correo, 50, "del correo electrónico", 3);
     	boolean C = V.validarCampo(telefono, 10, "del teléfono/celular", 1);
     	
-    	return A && B && C;
-    	
+    	return A && B && C;    	
     }
        
     @FXML

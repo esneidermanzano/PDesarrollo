@@ -119,5 +119,4 @@ public class ControlGerenteActualizarItems {
 			botonConsultar.setDisable(false);
 			botonActualizar.setDisable(true);
 	    }
-
 }

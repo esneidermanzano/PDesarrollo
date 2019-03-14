@@ -10,7 +10,11 @@ public class FachadaDB {
         FachadaDB(){
             url="jdbc:postgresql://localhost:5432/postgres";
             usuario="postgres";
-            password="root";
+<<<<<<< HEAD
+            password="stemen";
+=======
+            password="1806c";
+>>>>>>> 41cb57710bec37150ae34e82b8eeab734c47021b
         }
 
         public Connection conectar(){

@@ -6,7 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import Clases.Empleado;
 import Clases.Usuario;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class DaoEmpleado {
 	FachadaDB fachada;
@@ -22,8 +25,6 @@ public class DaoEmpleado {
 		
 		sql_insert += " VALUES('" + id + "', crypt('" + password + "', gen_salt('bf')), '" + nombre
 				+ "', '" + telefono + "', B'1', '" + sede + "', '" + correo + "', '" + cargo + "', '" + estadoCivil + "', '" + genero + "')";
-		
-		
         try{
             Connection conn= fachada.getConnetion();
             Statement sentencia = conn.createStatement();
@@ -75,8 +76,44 @@ public class DaoEmpleado {
         	 return true;
          }else {
         	 return false;
-         }  
-         
+         }          
+	}
+	
+public ObservableList<Empleado> consultarEmpleados(){
+		
+		ObservableList<Empleado> empleados = FXCollections.observableArrayList();
+		
+		String sql_select = "SELECT * FROM empleados WHERE perfil='Vendedor' or perfil='Jefe de taller'";
+		
+		try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            
+            while(tabla.next()){
+            	
+            	String nombre = tabla.getString(3);
+            	String id = tabla.getString(1);
+            	String telefono = tabla.getString(4);
+            	String estado = tabla.getString(5);
+            	String sede = tabla.getString(6);
+            	String correo = tabla.getString(7);
+            	String perfil = tabla.getString(8);
+            	String estadoCivil = tabla.getString(9);
+            	String genero = tabla.getString(10);
+            	
+              // System.out.println(resultado_consulta);
+               
+               empleados.add(new Empleado(nombre, id, telefono, estado, sede, correo, perfil, estadoCivil, genero));
+            }
+           
+            
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+		
+		return empleados;
 	}
 	
 	public Usuario consultarUsuario(String idEntrada){

@@ -42,3 +42,4 @@
       <JFXButton fx:id="botonRegistrar" layoutX="249.0" layoutY="466.0" onAction="#registrarEmpleado" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Registrar" textFill="WHITE" />
    </children>
 </AnchorPane>
+

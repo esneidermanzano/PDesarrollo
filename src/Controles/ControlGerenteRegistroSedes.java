@@ -111,7 +111,6 @@ public class ControlGerenteRegistroSedes {
     @FXML
     void registrarSede(ActionEvent event) {
     	verificarCampos(); 
-    }
-  
+    } 
 
 }

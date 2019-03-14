@@ -62,31 +62,6 @@ public class DaoLogin {
 
 	}
 	
-	/*public int guardarUsuario(Usuario usuario){
-        String sql_guardar;
-        int numFilas=0;
-
-        sql_guardar="INSERT INTO usuarios VALUES ('" +usuario.getNombre() + "', '" + usuario.getPass()  + "')";
-        
-        try{
-            Connection conn= fachada.getConnetion();
-            Statement sentencia = conn.createStatement();
-
-            numFilas = sentencia.executeUpdate(sql_guardar);            
-            System.out.println("up " + numFilas);
-            return numFilas;
-            
-        }
-        catch(SQLException e){
-            System.out.println(e); 
-            }
-        catch(Exception e){ 
-            System.out.println(e);
-        }
-        return -1;
-    }//fin guardar
-    */
-	
 	public void cerrarConexionBD(){
         fachada.closeConection(fachada.getConnetion());
     }

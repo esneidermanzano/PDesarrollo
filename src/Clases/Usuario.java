@@ -40,8 +40,7 @@ public class Usuario {
 		datos[7] = estadoCivil;
 		datos[8] = genero;
 		
-		return datos;
-		
+		return datos;		
 	}
 	
 	public boolean gerente() {

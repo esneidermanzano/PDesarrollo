@@ -16,8 +16,8 @@
                   <Image url="@../Imagenes/adminstrador.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="botonRegistro" layoutX="43.0" layoutY="207.0" onAction="#registrarPersonal" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Registro de Personal" textFill="GREY" />
-            <JFXButton fx:id="registrar" layoutX="43.0" layoutY="246.0" onAction="#registroSedes" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Registro de Sedes" textFill="GREY" />
+            <JFXButton fx:id="botonRegistroPersonal" layoutX="43.0" layoutY="207.0" onAction="#registrarPersonal" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Registro de Personal" textFill="GREY" />
+            <JFXButton fx:id="botonRegistroSedes" layoutX="43.0" layoutY="246.0" onAction="#registroSedes" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Registro de Sedes" textFill="GREY" />
             <Label contentDisplay="CENTER" layoutX="43.0" layoutY="168.0" prefHeight="22.0" prefWidth="69.0" text="Gerente" textFill="WHITE">
                <font>
                   <Font size="16.0" />
@@ -28,9 +28,11 @@
                   <Font size="16.0" />
                </font>
             </Text>
-            <JFXButton fx:id="actualizacionSede" layoutX="43.0" layoutY="321.0" onAction="#actualizarSede" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Actualizar Sedes" textFill="GREY" />
-            <JFXButton fx:id="actualizacionPersonal" layoutX="43.0" layoutY="285.0" onAction="#cargarInterfazAP1" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Actualizar Personal" textFill="GREY" />
-            <JFXButton fx:id="botonActualizaritems" layoutX="43.0" layoutY="355.0" onAction="#actualizarItems" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Actualizar Items" textFill="GREY" />
+            <JFXButton fx:id="botonActualizarPersonal" layoutX="43.0" layoutY="285.0" onAction="#cargarInterfazAP1" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Actualizar Personal" textFill="GREY" />
+            <JFXButton fx:id="botonActualizarSede" layoutX="43.0" layoutY="322.0" onAction="#actualizarSede" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Actualizar Sedes" textFill="GREY" />
+            <JFXButton fx:id="botonActualizaritems" layoutX="43.0" layoutY="360.0" onAction="#actualizarItems" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Actualizar Items" textFill="GREY" />
+            <JFXButton fx:id="botonConsultarPersonal" layoutX="43.0" layoutY="398.0" onAction="#consultarPersonal" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Consultar Personal" textFill="GREY" />
+            <JFXButton fx:id="botonConsultarSedes" layoutX="43.0" layoutY="434.0" onAction="#consultarSedes" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Consultar Sedes" textFill="GREY" />
          </children>
       </Pane>
    </left>

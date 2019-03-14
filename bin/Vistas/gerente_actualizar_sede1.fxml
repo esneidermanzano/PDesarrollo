@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,15 +15,20 @@
    <children>
       <Pane prefHeight="570.0" prefWidth="650.0" style="-fx-background-color: white;">
          <children>
-            <JFXTextField fx:id="nombreSC" labelFloat="true" layoutX="151.0" layoutY="194.0" prefHeight="30.0" prefWidth="333.0" promptText="Nombre de sede" styleClass="textfieldGerente">
+            <JFXTextField fx:id="nombreSC" labelFloat="true" layoutX="199.0" layoutY="193.0" prefHeight="37.0" prefWidth="246.0" promptText="Nombre de sede" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font></JFXTextField>
-            <JFXTextField fx:id="identificacionSC" labelFloat="true" layoutX="151.0" layoutY="261.0" prefHeight="30.0" prefWidth="333.0" promptText="Identificación de sede" styleClass="textfieldGerente">
+            <JFXTextField fx:id="identificacionSC" labelFloat="true" layoutX="201.0" layoutY="277.0" prefHeight="37.0" prefWidth="246.0" promptText="Identificación de sede" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font></JFXTextField>
-            <JFXButton fx:id="buscar" layoutX="241.0" layoutY="329.0" mnemonicParsing="false" onAction="#buscarSede" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Buscar" textFill="WHITE" />
+            <JFXButton fx:id="buscar" layoutX="248.0" layoutY="368.0" mnemonicParsing="false" onAction="#buscarSede" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Buscar" textFill="WHITE" />
+            <Label layoutX="91.0" layoutY="50.0" text="Buscar Sede" textFill="#ff7070">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

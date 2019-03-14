@@ -24,8 +24,6 @@ public class Principal extends Application {
 		escenarioLogin.show();
 	}
     public static void iniciarGerente(String nombre) throws IOException {
-	//Creacion de un stage Raiz, el de las opciones del gerente,
-		//luego se puede crear un stage propio para el vendedor, etc
     	escenarioGerente = new Stage();
 		FXMLLoader cargador = new FXMLLoader();
 		cargador.setLocation(Principal.class.getResource("/Vistas/gerente_GUI.fxml"));

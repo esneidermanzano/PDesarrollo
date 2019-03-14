@@ -52,7 +52,9 @@ public class ControlGerenteRegistroItems {
     private String costoVenta;
     private String referencia;
 
-    
+    void verificaionVisual() {
+    	
+    }
     boolean verificarCampos(){
     	//se verifican que los campos cumplan condiciones de aceptacion.
     	if(

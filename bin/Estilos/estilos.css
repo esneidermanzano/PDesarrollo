@@ -27,3 +27,19 @@ JFXTextField{
 	 -jfx-focus-color:#808080;
 
 }
+
+#tablaItems .table-column {
+  -fx-alignment: CENTER;
+}
+
+#tablaItems{
+	-fx-focus-color: white;
+  -fx-selection-bar:#ffbdbd;
+  -fx-selection-bar-non-focused:#eee;
+  -fx-font-size: 14px;
+  -fx-padding: 0.5em;
+  -fx-text-fill: #797979;
+}
+#tablaItems .column-header{
+    -fx-background-color:#ff7070;
+}

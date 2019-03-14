@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlGerenteActualizarItems">
+   <children>
+      <Pane prefHeight="570.0" prefWidth="650.0" style="-fx-background-color: white;">
+         <children>
+            <JFXTextField fx:id="campoIdentificador" labelFloat="true" layoutX="159.0" layoutY="74.0" prefHeight="23.0" prefWidth="333.0" promptText="Identificador" styleClass="textfieldGerente">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="campoNombre" labelFloat="true" layoutX="159.0" layoutY="154.0" prefHeight="23.0" prefWidth="333.0" promptText="Nombre" styleClass="textfieldGerente">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="campoPrecio" labelFloat="true" layoutX="159.0" layoutY="232.0" prefHeight="23.0" prefWidth="333.0" promptText="Precio por unidad" styleClass="textfieldGerente">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="campoExistencias" labelFloat="true" layoutX="159.0" layoutY="310.0" prefHeight="23.0" prefWidth="333.0" promptText="Existencias" styleClass="textfieldGerente">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+             <JFXButton fx:id="botonConsultar" layoutX="88.0" layoutY="448.0" onAction="#consultarItem" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Consultar" textFill="WHITE" />
+            <JFXButton fx:id="botonActualizar" layoutX="249.0" layoutY="448.0" onAction="#actualizarItem" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Actualizar" textFill="WHITE" />
+            <JFXButton fx:id="botonLimpiar" layoutX="410.0" layoutY="448.0" onAction="#limpiarItems" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Limpiar" textFill="WHITE" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
+

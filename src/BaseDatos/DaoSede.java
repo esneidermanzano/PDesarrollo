@@ -7,11 +7,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import Clases.Sede;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class DaoSede {
 
 	FachadaDB fachada;
 	
 	public DaoSede(){
+		Sede sede;
         fachada= new FachadaDB();
     }//
 	
@@ -59,6 +64,29 @@ public class DaoSede {
 		return id;
 	}
 	
+	public String getNombre(String id) {
+		
+		String nombre = "";
+		String sql_select = "SELECT nombre FROM sedes WHERE id = '" + id + "'";
+		
+		try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando sede en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+           
+            while(tabla.next()){
+            	nombre = tabla.getString(1);
+               // System.out.println(resultado_consulta);
+             }            
+        }
+		catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+		
+		return nombre;
+		
+	}
+	
 	public boolean consultarId(String id) {
 		String sql_select = "SELECT id FROM sedes WHERE id = '" + id + "'";
 		
@@ -79,12 +107,12 @@ public class DaoSede {
         }else { return true;}
 	}
 	
-	public int crearSede(String identificador, String nombre, String telefono, String direccion, String tamano, String empleados, String fecha) {
+	public int crearSede(String nombre, String telefono, String direccion, String tamano, String empleados, String fecha) {
     	//0 = Success, 1 = error de usuario, 2 = id ya tomada
 		int valido = 0;
-		String sql_insert = "INSERT INTO sedes";
+		String sql_insert = "INSERT INTO sedes (nombre, telefono, direccion, tamano_sede, numero_empleados, fecha_apertura)";
 		
-		sql_insert += " VALUES('" + identificador + "', '" + nombre + "', '" + telefono + "', '" + direccion + "', " + tamano 
+		sql_insert += " VALUES('" + nombre + "', '" + telefono + "', '" + direccion + "', " + tamano 
 				+ ", " + empleados + ", '" + fecha + "')";
 
         try{
@@ -137,8 +165,38 @@ public class DaoSede {
          }  
 	}
 	
-	public String[] consultarIdentificador(String nombre, String identificador) {
-        String sql_select;
+	//Consulta el nombre de una sede por medio del ID y lo compara con el nombre que ingresen como parametro
+		//Esto para efectos de validar el cambio de nombre de sede.
+		public boolean consultarNombreID(int id,String nombre){
+	        String sql_select;
+	        String resultado="";
+	        
+	        sql_select="SELECT nombre FROM sedes WHERE id=?";
+	         try{
+	            Connection conn = fachada.getConnetion();
+	            System.out.println("consultando en la bd");
+	            PreparedStatement sentencia = conn.prepareStatement(sql_select);
+	            sentencia.setInt(1,id);
+	            ResultSet tabla = sentencia.executeQuery();
+	            
+	            while(tabla.next()){            	
+	               resultado = tabla.getString(1);
+	              
+	            } 
+	            sentencia.close();
+	         }
+	         catch(SQLException e){ System.out.println(e); }
+	         catch(Exception e){ System.out.println(e); }
+
+	         if(resultado.equals(nombre)){
+	        	 return true;
+	         } else {
+	        	 return false;
+	         }  
+		}
+	
+	public String[] consultarIdentificador(String nombre, int identificador) {
+        String sql_select;                                
         String[ ]   resultado = new  String[7];  
         sql_select="SELECT * FROM sedes WHERE nombre=? AND id=?";
          try{
@@ -146,7 +204,7 @@ public class DaoSede {
             System.out.println("consultando en la bd");
             PreparedStatement sentencia = conn.prepareStatement(sql_select);
             sentencia.setString(1,nombre);
-            sentencia.setString(2, identificador);
+            sentencia.setInt(2, identificador);
             ResultSet tabla = sentencia.executeQuery();
             
             while(tabla.next()){            
@@ -166,7 +224,7 @@ public class DaoSede {
          
 	}
 	
-	public int actualizar( String identificador,String nombre,String telefono,String direccion,int tamano,int nEmpleados){
+	public int actualizar(int identificador,String nombre,String telefono,String direccion,int tamano,int nEmpleados){
         String sql_actualizar;
         int n=0;
         sql_actualizar="UPDATE sedes Set nombre=?,telefono=?, direccion=?,tamano_sede=?,numero_empleados=? WHERE id=?";
@@ -179,7 +237,7 @@ public class DaoSede {
             sentencia.setString(3,direccion);
             sentencia.setInt(4, tamano);
             sentencia.setInt(5, nEmpleados);
-            sentencia.setString(6,identificador);
+            sentencia.setInt(6,identificador);
 
             n = sentencia.executeUpdate();            
                        
@@ -194,7 +252,38 @@ public class DaoSede {
         return n;
     }
 
-	
+	public ObservableList<Sede> consultarSedes(){
+		
+		ObservableList<Sede> sedes = FXCollections.observableArrayList();
+		
+		String sql_select = "SELECT * FROM sedes";
+		
+		try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            
+            while(tabla.next()){
+            	
+            	String id = tabla.getString(1);
+            	String nombre = tabla.getString(2);
+            	String telefono = tabla.getString(3);
+            	String direccion = tabla.getString(4);
+            	String tamano = tabla.getString(5);
+            	String numEmpleados = tabla.getString(6);
+            	String fechaApertura = tabla.getString(7);
+               
+               sedes.add(new Sede(id, nombre, telefono, direccion, tamano, numEmpleados, fechaApertura));
+            }
+           
+            
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+		
+		return sedes;
+	}
 	public void cerrarConexionBD(){
         fachada.closeConection(fachada.getConnetion());
     }	

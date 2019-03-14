@@ -51,8 +51,8 @@ public class ControlGerenteRegistrarEmpleados {
     private JFXTextField campoCorreo;
     
     public void initialize() {
-    	ComboBoxCargo.getItems().addAll("Vendedor", "Jefe de Taller");
-    	ComboBoxEstadoCivil.getItems().addAll("Solter@", "Casad@", "Union libre");
+    	ComboBoxCargo.getItems().addAll("Vendedor", "Jefe de taller");
+    	ComboBoxEstadoCivil.getItems().addAll("Soltero", "Casado", "Unión libre");
     	ComboBoxGenero.getItems().addAll("Masculino", "Femenino", "No definido");
     	daoSede = new DaoSede();
     	gerente = new DaoEmpleado();
@@ -164,7 +164,6 @@ public class ControlGerenteRegistrarEmpleados {
     		break;
     		}
     	}
-
     }
 
 }

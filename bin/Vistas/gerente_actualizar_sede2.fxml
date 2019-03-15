@@ -11,11 +11,11 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="650.0" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlActSedes2">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlActSedes2">
    <children>
-      <Pane layoutX="7.0" prefHeight="570.0" prefWidth="650.0" style="-fx-background-color: white;">
+      <Pane layoutX="7.0" prefHeight="635.0" prefWidth="700.0" style="-fx-background-color: white;">
          <children>
-            <ImageView fitHeight="281.0" fitWidth="382.0" layoutX="246.0" layoutY="251.0" opacity="0.11" pickOnBounds="true" smooth="false">
+            <ImageView fitHeight="281.0" fitWidth="382.0" layoutX="301.0" layoutY="340.0" opacity="0.11" pickOnBounds="true" smooth="false">
                <image>
                   <Image url="@../Imagenes/sede.png" />
                </image>

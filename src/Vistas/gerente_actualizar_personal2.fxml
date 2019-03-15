@@ -11,9 +11,9 @@
 
 <AnchorPane prefHeight="570.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlActPersonal2">
    <children>
-      <Pane prefHeight="570.0" prefWidth="650.0" style="-fx-background-color: #FFF;">
+      <Pane prefHeight="635.0" prefWidth="700.0" style="-fx-background-color: #FFF;">
          <children>
-            <ImageView fitHeight="382.0" fitWidth="281.0" layoutX="317.0" layoutY="254.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="382.0" fitWidth="281.0" layoutX="399.0" layoutY="335.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/user3.png" />
                </image>
@@ -81,4 +81,3 @@
       </Pane>
    </children>
 </AnchorPane>
-

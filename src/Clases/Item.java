@@ -10,11 +10,11 @@ public class Item {
 	private String color;
 	private int valorCompra;
 	private String fecha;
-	private int sede;
+	private String sede;
 	private int cantidad;
 
 		
-	public Item(String identificador, String nombre, String color, int vCompra, Date fecha, int sede, int cantidad){
+	public Item(String identificador, String nombre, String color, int vCompra, Date fecha, String sede, int cantidad){
 		this.identificador = identificador;
 		this.nombre = nombre;
 		this.color = color;
@@ -73,11 +73,11 @@ public class Item {
 		this.fecha = fecha;
 	}
 
-	public int getSede() {
+	public String getSede() {
 		return sede;
 	}
 
-	public void setSede(int sede) {
+	public void setSede(String sede) {
 		this.sede = sede;
 	}
 

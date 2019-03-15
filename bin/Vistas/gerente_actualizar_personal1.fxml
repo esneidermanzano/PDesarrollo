@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="570.0" prefWidth="650.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlActPersonal1">
+<AnchorPane prefHeight="635.0" prefWidth="700.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlActPersonal1">
    <children>
-      <JFXTextField fx:id="idEntrada" focusColor="#808080" labelFloat="true" layoutX="159.0" layoutY="211.0" prefHeight="30.0" prefWidth="333.0" promptText="Ingrese la cédula del usuario" style="-fx-prompt-text-fill: #bbb;" unFocusColor="#ff7070">
+      <JFXTextField fx:id="idEntrada" focusColor="#808080" labelFloat="true" layoutX="184.0" layoutY="260.0" prefHeight="30.0" prefWidth="333.0" promptText="Ingrese la cédula del usuario" style="-fx-prompt-text-fill: #bbb;" unFocusColor="#ff7070">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton fx:id="buscar" layoutX="249.0" layoutY="279.0" onAction="#cargarInterfazAP2" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Buscar" textFill="WHITE">
+      <JFXButton fx:id="buscar" layoutX="274.0" layoutY="328.0" onAction="#cargarInterfazAP2" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Buscar" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -26,4 +26,3 @@
       </Label>
    </children>
 </AnchorPane>
-

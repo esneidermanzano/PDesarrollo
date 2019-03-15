@@ -1,15 +1,25 @@
 package Controles;
 
+import java.awt.Label;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
+
+import BaseDatos.DaoSede;
+
 import com.jfoenix.validation.IntegerValidator;
 
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
+
 
 public class ControlGerenteRegistroItems {
 	
@@ -42,8 +52,9 @@ public class ControlGerenteRegistroItems {
     
 
     @FXML
-    private JFXComboBox<?> comboBoxSede;
+    private JFXComboBox<String> comboBoxSede;
     
+   
     private String nombre;
     private String cantidad;
     private String color;
@@ -51,9 +62,16 @@ public class ControlGerenteRegistroItems {
     private String costofab;
     private String costoVenta;
     private String referencia;
+    private String Sede;
 
-    void verificaionVisual() {
-    	
+    
+    @FXML
+    void onDraguedTest() {
+    	DaoSede cBox = new DaoSede();
+    	 List<String> listaSedes = cBox.obtenerNombresDeSedes();
+    	 ObservableList<String> sedes = FXCollections.observableArrayList(listaSedes);
+    	 comboBoxSede.setItems(sedes);
+
     }
     boolean verificarCampos(){
     	//se verifican que los campos cumplan condiciones de aceptacion.
@@ -74,14 +92,18 @@ public class ControlGerenteRegistroItems {
     && 
     verificarFecha()
     &&
-    verificarSede()) {return true;}
+    verificarSede()
+    ) {return true;}
     	return false;
     }
     @FXML
     private boolean verificarSede() {
 		// TODO Auto-generated method stub
     	 // por definir, consultas a la base de datos.
-    	
+    	if(comboBoxSede.getValue() != null) {
+    		this.Sede= comboBoxSede.getValue();
+    		return true;
+    	}
 		return false;
 	}
     @FXML
@@ -93,15 +115,7 @@ public class ControlGerenteRegistroItems {
 	}
 	@FXML
     private boolean verificarCostoVenta() {
-    	RequiredFieldValidator validator = new RequiredFieldValidator();
-    	IntegerValidator intValidator = new IntegerValidator();
-    	validator.setMessage("Input Required");
-    	intValidator.setMessage("solo numeros enteros.");
-    	valorVentaItem.getValidators().add(validator);
-    	valorVentaItem.getValidators().add(intValidator);
-    	valorVentaItem.focusedProperty().addListener((o,oldVal,newVal)->{
-    	    if(!newVal) valorVentaItem.validate();
-    	});
+    	
     	//validation request for data base.
 		// TODO Auto-generated method stub
     	String valorVenta= valorVentaItem.getText();
@@ -115,15 +129,7 @@ public class ControlGerenteRegistroItems {
     
     @FXML
 	private boolean verificarCostoFabricacion() {
-		RequiredFieldValidator validator = new RequiredFieldValidator();
-		IntegerValidator intValidator = new IntegerValidator();
-    	validator.setMessage("Input Required");
-    	intValidator.setMessage("solo numeros enteros.");
-    	costofabItem.getValidators().add(validator);
-    	costofabItem.getValidators().add(intValidator);
-    	costofabItem.focusedProperty().addListener((o,oldVal,newVal)->{
-    	    if(!newVal) costofabItem.validate();
-    	});
+		
     	//validation request for data base.
 		String costofab = costofabItem.getText();
 		if(costofab.matches("[1-9]*") && costofab.matches("[^\t]*") && costofab.length()!=0) {
@@ -138,12 +144,7 @@ public class ControlGerenteRegistroItems {
     
     @FXML
 	private boolean verificarMaterial() {
-		RequiredFieldValidator validator = new RequiredFieldValidator();
-    	validator.setMessage("Input Required");
-    	materialItem.getValidators().add(validator);
-    	materialItem.focusedProperty().addListener((o,oldVal,newVal)->{
-    	    if(!newVal) materialItem.validate();
-    	});
+		
     	//validation request for data base.
 		String material = materialItem.getText();
 		if(material.matches("[a-z]*") && material.matches("[^\t]*") && material.length()!=0) {
@@ -158,13 +159,7 @@ public class ControlGerenteRegistroItems {
     
     @FXML
 	private boolean verificarColor() {
-		//validation feedback for the user.
-		RequiredFieldValidator validator = new RequiredFieldValidator();
-    	validator.setMessage("Input Required");
-    	colorItem.getValidators().add(validator);
-    	colorItem.focusedProperty().addListener((o,oldVal,newVal)->{
-    	    if(!newVal) colorItem.validate();
-    	});
+		
     	//Validation for data base request.
 		String color = colorItem.getText();
 		if(color.matches("[a-z]*") && color.matches("[^\t]*") && color.length()!=0) {
@@ -179,16 +174,7 @@ public class ControlGerenteRegistroItems {
     
     @FXML
 	private boolean verificarCantidad() {
-		//validation feedback for the user.
-		RequiredFieldValidator validator = new RequiredFieldValidator();
-		IntegerValidator intValidator = new IntegerValidator();
-    	validator.setMessage("Input Required");
-    	intValidator.setMessage("solo numeros enteros.");
-    	cantidadItems.getValidators().add(validator);
-    	cantidadItems.getValidators().add(intValidator);
-    	cantidadItems.focusedProperty().addListener((o,oldVal,newVal)->{
-    	    if(!newVal) cantidadItems.validate();
-    	});
+		
     	//validation for data base request.
 		String cantidad = cantidadItems.getText();
 		if(cantidad.matches("[1-9]*") && cantidad.matches("[^\t]*") && cantidad.length() != 0) {
@@ -203,13 +189,7 @@ public class ControlGerenteRegistroItems {
     
     @FXML
 	private boolean verificarNombre() {
-		//validation feedback for the user.
-		RequiredFieldValidator validator = new RequiredFieldValidator();
-    	validator.setMessage("Input Required");
-    	nombreItem.getValidators().add(validator);
-    	nombreItem.focusedProperty().addListener((o,oldVal,newVal)->{
-    	    if(!newVal) nombreItem.validate();
-    	});
+		
     	//validation for data base request.
 		String nombre = nombreItem.getText();
 		if(nombre.matches("[a-z]*") && nombre.matches("[^\t]*") && nombre.length() != 0) {
@@ -225,15 +205,7 @@ public class ControlGerenteRegistroItems {
     
     @FXML
 	private boolean verificarReferencia() {
-		RequiredFieldValidator validator = new RequiredFieldValidator();
-		IntegerValidator intValidator = new IntegerValidator();
-    	validator.setMessage("Input Required");
-    	intValidator.setMessage("solo numeros enteros");
-		referenciaItem.getValidators().add(validator);
-		referenciaItem.getValidators().add(intValidator);
-		referenciaItem.focusedProperty().addListener((o,oldVal,newVal)->{
-    	    if(!newVal) referenciaItem.validate();
-    	});
+		
 		
 		//validation for data base request.
 		String referencia = referenciaItem.getText();
@@ -247,8 +219,9 @@ public class ControlGerenteRegistroItems {
 	@FXML
     void registrarItem(ActionEvent event) {
     if(verificarCampos()) {//shoul be :peticion a la base de datos.
+    	
+    	//salida de todos los datos a la base de datos.
     	System.out.println("se envio registro.");
-    	//salida de todos los datos a la base de datos
     	}
     }
 

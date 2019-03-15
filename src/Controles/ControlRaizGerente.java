@@ -78,14 +78,13 @@ public class ControlRaizGerente {
     }
 
     @FXML
-
 //Carga la pantalla de registro de items cuando el boton "registrarItems" es pulsado.
     void registrarItems(ActionEvent event) {
     FXMLLoader reg_itm_loader = new FXMLLoader();
     reg_itm_loader.setLocation(getClass().getResource("/Vistas/gerente_registro_items.fxml"));
        efectoCambio(reg_itm_loader);
-    }	
-
+    }
+    @FXML
     void registroSedes(ActionEvent event) {		
 
 		FXMLLoader loader = new FXMLLoader();

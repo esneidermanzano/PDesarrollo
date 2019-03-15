@@ -7,11 +7,13 @@ import BaseDatos.DaoInventario;
 import Clases.Item;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 
 public class ControlGerenteListarItems {
 		private DaoInventario consultador;
@@ -24,49 +26,51 @@ public class ControlGerenteListarItems {
 	    @FXML private TableColumn<Item, String> columnaColor;	   
 	    @FXML private TableColumn<Item, Integer> columnaIPrecioUnidad;
 	    @FXML private TableColumn<Item, String> columnaIngreso;
-	    @FXML private TableColumn<Item, Integer> columnaSede;
+	    @FXML private TableColumn<Item, String> columnaSede;
 	    @FXML private TableColumn<Item, Integer> columnaExistencias;
 	    
-	    @FXML
-	    private JFXTextField campoIdentificador;
-	    @FXML
-	    private JFXTextField campoPrecio;
-	    @FXML
-	    private JFXTextField campoExistencias;
-	    @FXML
-	    private JFXTextField campoNombre;
+	    @FXML private JFXTextField campoBuscar;
 
-	    @FXML
-	    private JFXButton botonActualizar;
-	    @FXML
-	    private JFXButton botonConsultar;
-	    @FXML
-	    private JFXButton botonLimpiar;
+	    @FXML private JFXButton botonActualizar;
+
+	    @FXML private Text textoNombre;
+	    @FXML private Text textoId;
 	    
 	    public void initialize() {
-	    	
 	    	consultador = new DaoInventario();
-	    	tablaItems.setItems(consultador.obtenerItems());
+	    	botonActualizar.setDisable(true);
+	    	FilteredList<Item> filteredData = new FilteredList<>(consultador.obtenerItems(), p -> true);
+	    	tablaItems.setItems(filteredData);
+	    	
+	    	//tablaItems.setItems(consultador.obtenerItems());
 	    	columnaId.setCellValueFactory(new PropertyValueFactory<Item, String>("identificador"));
 	    	columnaNombre.setCellValueFactory(new PropertyValueFactory<Item, String>("nombre"));
 	    	columnaColor.setCellValueFactory(new PropertyValueFactory<Item, String>("color"));
 	    	columnaIPrecioUnidad.setCellValueFactory(new PropertyValueFactory<Item, Integer>("valorCompra"));
 	    	columnaIngreso.setCellValueFactory(new PropertyValueFactory<Item, String>("fecha"));
-	    	columnaSede.setCellValueFactory(new PropertyValueFactory<Item, Integer>("sede"));
+	    	columnaSede.setCellValueFactory(new PropertyValueFactory<Item, String>("sede"));
 	    	columnaExistencias.setCellValueFactory(new PropertyValueFactory<Item, Integer>("cantidad"));
-	    	eventoSeleccion();
-	    }
-	    
-	    public void eventoSeleccion() {
-	    	tablaItems.getSelectionModel().selectedItemProperty().addListener(
-	    			new ChangeListener<Item>() {
-	    				public void changed(ObservableValue<? extends Item> arg0,
-	    						Item valorViejo, Item valorNuevo) {
-	    						campoNombre.setText(valorNuevo.getNombre());
-	    						campoIdentificador.setText(valorNuevo.getIdentificador());
-	    				}
-	    			}
-	    	);
+	    	
+	    	campoBuscar.textProperty().addListener((prop, old, text) -> {
+	    		textoNombre.setText("");
+    	    	textoId.setText("");
+    	    	botonActualizar.setDisable(true);
+	    	    filteredData.setPredicate(person -> {
+	    	    	tablaItems.getSelectionModel().clearSelection();
+	    	    	tablaItems.getSelectionModel().select(-1);
+	    	        if(text == null || text.isEmpty()) return true;
+	    	        
+	    	        String name = person.getNombre().toLowerCase();  
+	    	        return name.contains(text.toLowerCase());
+	    	    });
+	    	});
+	    	tablaItems.getSelectionModel().selectedItemProperty().addListener((obs, viejo, nuevo) -> {
+	    	    if (nuevo != null) {
+	    	    	textoNombre.setText(nuevo.getNombre());
+	    	    	textoId.setText(nuevo.getIdentificador());
+	    	    	botonActualizar.setDisable(false);
+	    	    }
+	    	});
 	    }
 	    
 	    @FXML

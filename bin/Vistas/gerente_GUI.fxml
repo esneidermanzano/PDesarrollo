@@ -7,9 +7,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 
-<BorderPane fx:id="panelRaiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" style="-fx-background-color: #fff;" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlRaizGerente">
+<BorderPane fx:id="panelRaiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="665.0" prefWidth="1000.0" style="-fx-background-color: #fff;" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlRaizGerente">
    <left>
-      <Pane prefHeight="499.0" prefWidth="300.0" styleClass="rosa" BorderPane.alignment="CENTER">
+      <Pane prefHeight="499.0" prefWidth="300.0" style="-fx-background-color: #d13438;" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="67.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -28,23 +28,37 @@
                   <Font size="16.0" />
                </font>
             </Text>
-            <JFXButton fx:id="botonActualizarPersonal" layoutX="43.0" layoutY="324.0" onAction="#cargarInterfazAP1" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Actualizar Personal" textFill="GREY" />
-            <JFXButton fx:id="botonActualizarSede" layoutX="43.0" layoutY="361.0" onAction="#actualizarSede" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Actualizar Sedes" textFill="GREY" />
-            <JFXButton fx:id="botonActualizaritems" layoutX="43.0" layoutY="399.0" onAction="#actualizarItems" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Actualizar Items" textFill="GREY" />
-            <JFXButton fx:id="botonConsultarPersonal" layoutX="43.0" layoutY="437.0" onAction="#consultarPersonal" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Consultar Personal" textFill="GREY" />
-            <JFXButton fx:id="botonConsultarSedes" layoutX="43.0" layoutY="473.0" onAction="#consultarSedes" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Consultar Sedes" textFill="GREY" />
-            <JFXButton fx:id="botonRegistroItems" layoutX="43.0" layoutY="243.0" onAction="#registrarItems" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Registro de Items" textFill="GREY" />
+            <JFXButton fx:id="botonActualizarPersonal" layoutX="43.0" layoutY="285.0" onAction="#cargarInterfazAP1" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Actualizar Personal" textFill="GREY" />
+            <JFXButton fx:id="botonActualizarSede" layoutX="43.0" layoutY="322.0" onAction="#actualizarSede" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Actualizar Sedes" textFill="GREY" />
+            <JFXButton fx:id="botonActualizaritems" layoutX="43.0" layoutY="360.0" onAction="#actualizarItems" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Actualizar Items" textFill="GREY" />
+            <JFXButton fx:id="botonConsultarPersonal" layoutX="43.0" layoutY="398.0" onAction="#consultarPersonal" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Consultar Personal" textFill="GREY" />
+            <JFXButton fx:id="botonConsultarSedes" layoutX="43.0" layoutY="434.0" onAction="#consultarSedes" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Consultar Sedes" textFill="GREY" />
+            <ImageView fitHeight="15.0" fitWidth="18.0" layoutX="97.0" layoutY="597.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/cerrarSesion.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="botonCerrarSesion" alignment="CENTER_RIGHT" layoutX="79.0" layoutY="588.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="31.0" prefWidth="143.0" text="Cerrar Sesión" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </left>
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="950.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="30.0" prefWidth="300.0" styleClass="rosa" />
-            <Pane onMouseDragged="#moverPanel" onMousePressed="#copiarCoordenadas" prefHeight="200.0" prefWidth="650.0">
+            <Pane prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: #d13438;" />
+            <Pane onMouseDragged="#moverPanel" onMousePressed="#copiarCoordenadas" prefHeight="30.0" prefWidth="700.0">
                <children>
-                  <Button fx:id="cerrar" layoutX="616.0" layoutY="2.0" mnemonicParsing="false" onAction="#cerrarAplicacion" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/close.png');" styleClass="controles" />
-                  <Button fx:id="minimizar" layoutX="581.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimizarAplicacion" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/minimize.png');" styleClass="controles" />
+                  <Button fx:id="cerrar" layoutX="667.0" layoutY="2.0" mnemonicParsing="false" onAction="#cerrarAplicacion" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/close.png');" styleClass="controles" />
+                  <Button fx:id="minimizar" layoutX="632.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimizarAplicacion" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/minimize.png');" styleClass="controles" />
+                  <Text fill="#ff7070" layoutX="99.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Actualizar Inventario" textAlignment="CENTER" wrappingWidth="519.13671875">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
                   
                </children>
             </Pane>

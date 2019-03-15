@@ -168,7 +168,7 @@ public class ControlGerenteRegistroItems {
     	String valorVenta= valorVentaItem.getText();
 		if(nuevo) {
 			return true;
-		}else if(valorVentaItem.getText().matches("[1-9]*") && valorVenta.matches("[^\t]*") && valorVenta.length()!=0){
+		}else if(valorVentaItem.getText().matches("[0-9]*") && valorVenta.matches("[^\t]*") && valorVenta.length()!=0){
 			this.costoVenta= valorVenta;
 			return true;}
 		System.out.println("valor venta incorrecto");
@@ -183,7 +183,7 @@ public class ControlGerenteRegistroItems {
 		String costofab = costofabItem.getText();
 		if(nuevo) {
 			return true;
-		}else if(costofab.matches("[1-9]*") && costofab.matches("[^\t]*") && costofab.length()!=0) {
+		}else if(costofab.matches("[0-9]*") && costofab.matches("[^\t]*") && costofab.length()!=0) {
 			this.costofab = costofab;
 			return true;}
 		System.out.println("Costo fab incorrecto");
@@ -232,7 +232,7 @@ public class ControlGerenteRegistroItems {
 		String cantidad = cantidadItems.getText();
 		if(nuevo) {
 			return true;
-		}else if(cantidad.matches("[1-9]*") && cantidad.matches("[^\t]*") && cantidad.length() != 0) {
+		}else if(cantidad.matches("[0-9]*") && cantidad.matches("[^\t]*") && cantidad.length() != 0) {
 			this.cantidad=cantidad;
 			return true;}
 		System.out.println("cantidad incorrecta");

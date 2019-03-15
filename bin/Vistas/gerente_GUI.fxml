@@ -43,6 +43,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
+            <JFXButton fx:id="botonRegistroPersonal1" layoutX="43.0" layoutY="242.0" onAction="#registrarItems" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Registro de Items" textFill="GREY" />
          </children>
       </Pane>
    </left>

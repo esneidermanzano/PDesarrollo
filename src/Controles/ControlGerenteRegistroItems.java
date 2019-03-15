@@ -10,6 +10,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
 
+import BaseDatos.DaoInventario;
 import BaseDatos.DaoSede;
 
 import com.jfoenix.validation.IntegerValidator;
@@ -45,7 +46,7 @@ public class ControlGerenteRegistroItems {
     private JFXTextField materialItem;
     
     @FXML
-    private JFXTextField referenciaItem;
+    private JFXComboBox<String> referenciaItem;
 
     @FXML
     private JFXButton botonRegistroItems;
@@ -54,31 +55,70 @@ public class ControlGerenteRegistroItems {
     @FXML
     private JFXComboBox<String> comboBoxSede;
     
+    private boolean nuevo;
+    private DaoSede cBox;
+    
    
     private String nombre;
     private String cantidad;
     private String color;
+    private String fecha;
     private String material;
     private String costofab;
     private String costoVenta;
     private String referencia;
     private String Sede;
+    
+    
 
     
     @FXML
-    void onDraguedTest() {
-    	DaoSede cBox = new DaoSede();
+    //se ejecuta al clickear el ComboBox que muestra las Sedes.
+    void onClickedSedes() {
+    	cBox = new DaoSede();
     	 List<String> listaSedes = cBox.obtenerNombresDeSedes();
     	 ObservableList<String> sedes = FXCollections.observableArrayList(listaSedes);
     	 comboBoxSede.setItems(sedes);
-
     }
+    
+    @FXML
+    void switchCampos(boolean bit) {
+    	
+    	cantidadItems.setDisable(bit);
+        costofabItem.setDisable(bit);
+        colorItem.setDisable(bit);
+        materialItem.setDisable(bit);
+        valorVentaItem.setDisable(bit);
+        fechaRegistroItem.setDisable(bit);
+        comboBoxSede.setDisable(bit);
+        
+    }
+    @FXML 
+    //se ejecuta al clickear el combobox que muestra las referencias.
+    void onClickedReferencias() {
+    	DaoInventario inventario = new DaoInventario();
+    	List<String> listaReferencias = inventario.obtenerReferencias();
+    	listaReferencias.add(0, "Nuevo");
+    	ObservableList<String> referencias = FXCollections.observableArrayList(listaReferencias);
+    	referenciaItem.setItems(referencias);
+    	
+    	referenciaItem.valueProperty().addListener((o,oldVal,newVal)->{
+    	     if(newVal != "Nuevo" && newVal != null){
+    	    	 switchCampos(false);
+    	    	 } else if(newVal == "Nuevo" && oldVal != "Nuevo") {
+    	    		switchCampos(true); 
+    	    	 }
+    	     }
+    	);
+    }
+    
+    
     boolean verificarCampos(){
     	//se verifican que los campos cumplan condiciones de aceptacion.
     	if(
-    verificarNombre()
+    verificarReferencia()
     &&
-    verificarCantidad()
+    verificarNombre()
     &&
     verificarColor()
     &&
@@ -88,7 +128,7 @@ public class ControlGerenteRegistroItems {
     &&
     verificarCostoVenta()
     &&
-    verificarReferencia()
+    verificarCantidad()
     && 
     verificarFecha()
     &&
@@ -100,7 +140,9 @@ public class ControlGerenteRegistroItems {
     private boolean verificarSede() {
 		// TODO Auto-generated method stub
     	 // por definir, consultas a la base de datos.
-    	if(comboBoxSede.getValue() != null) {
+    	if(nuevo) {
+    		return true;
+    	}else if(comboBoxSede.getValue() != null) {
     		this.Sede= comboBoxSede.getValue();
     		return true;
     	}
@@ -109,7 +151,12 @@ public class ControlGerenteRegistroItems {
     @FXML
 	private boolean verificarFecha() {
 		// TODO Auto-generated method stub
-    	if(fechaRegistroItem.getValue() != null) {return true;}
+    	if(nuevo) {
+    		return true;
+    	}else if(fechaRegistroItem.getValue() != null) {
+    		String date=  fechaRegistroItem.getValue().toString();
+    		this.fecha = date;
+    		return true;}
     	System.out.println("fecha vacia");
 		return false;
 	}
@@ -119,7 +166,9 @@ public class ControlGerenteRegistroItems {
     	//validation request for data base.
 		// TODO Auto-generated method stub
     	String valorVenta= valorVentaItem.getText();
-		if(valorVentaItem.getText().matches("[1-9]*") && valorVenta.matches("[^\t]*") && valorVenta.length()!=0){
+		if(nuevo) {
+			return true;
+		}else if(valorVentaItem.getText().matches("[1-9]*") && valorVenta.matches("[^\t]*") && valorVenta.length()!=0){
 			this.costoVenta= valorVenta;
 			return true;}
 		System.out.println("valor venta incorrecto");
@@ -132,7 +181,9 @@ public class ControlGerenteRegistroItems {
 		
     	//validation request for data base.
 		String costofab = costofabItem.getText();
-		if(costofab.matches("[1-9]*") && costofab.matches("[^\t]*") && costofab.length()!=0) {
+		if(nuevo) {
+			return true;
+		}else if(costofab.matches("[1-9]*") && costofab.matches("[^\t]*") && costofab.length()!=0) {
 			this.costofab = costofab;
 			return true;}
 		System.out.println("Costo fab incorrecto");
@@ -146,12 +197,13 @@ public class ControlGerenteRegistroItems {
 	private boolean verificarMaterial() {
 		
     	//validation request for data base.
-		String material = materialItem.getText();
-		if(material.matches("[a-z]*") && material.matches("[^\t]*") && material.length()!=0) {
-			this.material = material;
+		String materialSeleccionado = materialItem.getText();
+		if(nuevo) {
+			return true;
+		}else if(materialSeleccionado.matches("[a-z]*") && materialSeleccionado.matches("[^\t]*") && materialSeleccionado.length()!=0) {
+			this.material = materialSeleccionado;
 			return true;}
 		System.out.println("material incorrecto");
-		materialItem.clear();
 		return false;
 		// TODO Auto-generated method stub
 		
@@ -162,10 +214,11 @@ public class ControlGerenteRegistroItems {
 		
     	//Validation for data base request.
 		String color = colorItem.getText();
-		if(color.matches("[a-z]*") && color.matches("[^\t]*") && color.length()!=0) {
+		if(nuevo){
+    	return true;
+    	}else if(color.matches("[a-z]*") && color.matches("[^\t]*") && color.length()!=0) {
 			this.color = color;
 			return true;}
-		colorItem.clear();
 		System.out.println("Color incorrecto");
 		return false;
 		// TODO Auto-generated method stub
@@ -177,10 +230,11 @@ public class ControlGerenteRegistroItems {
 		
     	//validation for data base request.
 		String cantidad = cantidadItems.getText();
-		if(cantidad.matches("[1-9]*") && cantidad.matches("[^\t]*") && cantidad.length() != 0) {
+		if(nuevo) {
+			return true;
+		}else if(cantidad.matches("[1-9]*") && cantidad.matches("[^\t]*") && cantidad.length() != 0) {
 			this.cantidad=cantidad;
 			return true;}
-		cantidadItems.clear();
 		System.out.println("cantidad incorrecta");
 		return false;
 		// TODO Auto-generated method stub
@@ -195,7 +249,7 @@ public class ControlGerenteRegistroItems {
 		if(nombre.matches("[a-z]*") && nombre.matches("[^\t]*") && nombre.length() != 0) {
 			this.nombre = nombre;
 			return true;}
-		nombreItem.clear();
+		
 		//feedback for user.
 		System.out.println("nombre incorrecto");
 		return false;
@@ -208,19 +262,32 @@ public class ControlGerenteRegistroItems {
 		
 		
 		//validation for data base request.
-		String referencia = referenciaItem.getText();
-		if(nombre.matches("[a-z]*") && nombre.matches("[^\t]*") && nombre.length() != 0) {
-			this.referencia = referencia;
-			return true;}
+		String referenciaSeleccionada = referenciaItem.getValue();
+		if(referenciaSeleccionada=="Nuevo") {
+			nuevo = true;
+			return true;
+		}else if (referenciaSeleccionada != null) {
+				this.referencia=referenciaSeleccionada;
+				nuevo=false;
+				return true;
+			}
 		System.out.println("referencia incorrecta");
-		referenciaItem.clear();
-		return false;}
+		return false;
+	}
 
 	@FXML
     void registrarItem(ActionEvent event) {
-    if(verificarCampos()) {//shoul be :peticion a la base de datos.
-    	
+    if(verificarCampos()) {
+    	//shoul be :peticion a la base de datos.
+    	//conexion mediante instancia de inventario.
+    	DaoInventario inventario = new DaoInventario();
     	//salida de todos los datos a la base de datos.
+    	if(nuevo) {
+    		inventario.registrarItemEnInventaro(nombre);
+    	}else {
+    		inventario.registrarItemEnEjemplares(referencia, color, costofab, costoVenta, fecha, cBox.getId(Sede), cantidad );
+    	}
+    	
     	System.out.println("se envio registro.");
     	}
     }

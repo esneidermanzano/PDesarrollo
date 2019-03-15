@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import Clases.Item;
 import javafx.collections.FXCollections;
@@ -63,6 +64,88 @@ public class DaoInventario {
         }
         return n;
     }
+	
+	public void registrarItemEnInventaro(String nombre ) {
+	
+		String sqlInsert = "INSERT INTO inventario";
+		
+		sqlInsert += " VALUES(nextval('inventario_sequence'), '" + nombre + "')";
+        try{
+            Connection conn= fachada.getConnetion();
+            Statement sentencia = conn.createStatement();
+
+            int respuesta = sentencia.executeUpdate(sqlInsert);
+            System.out.println(respuesta);
+	}
+        catch(SQLException e) {
+        	System.out.println(e);
+        	}
+        }
+	
+	public void registrarItemEnEjemplares(String  referencia,String color, String valorCompra, String valorVenta, String fechaIngreso, String idSede, String cantidad ) {
+		
+		String idReferencia =obtenerReferenciaxNombre(referencia);
+		
+		String sqlInsert = "INSERT INTO ejemplares";
+		
+		sqlInsert += " VALUES(nextval('ejemplares_sequence'), " + idReferencia + ", '" + color + "', "+ valorCompra + ", "+ valorVenta + ", '"+ fechaIngreso +"', "+ idSede +", "+ cantidad+")";
+        
+		try{
+            Connection conn= fachada.getConnetion();
+            Statement sentencia = conn.createStatement();
+
+            int respuesta = sentencia.executeUpdate(sqlInsert);
+            System.out.println(respuesta);
+	}
+        catch(SQLException e) {
+        	System.out.println(e);
+        	}
+        }
+	
+	public ArrayList<String> obtenerReferencias()
+	{
+		ArrayList<String> referencias = new ArrayList<String>();
+		String sqlSelect = "SELECT DISTINCT nombre FROM inventario";
+		
+		try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sqlSelect);
+            
+            while(tabla.next()){
+            	referencias.add(tabla.getString(1));
+             }
+            
+        }
+		catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+		
+		return referencias;
+	}
+	
+	public String obtenerReferenciaxNombre(String nombre)
+	{
+		String idxNombre = new String();
+		String sqlSelect = "SELECT DISTINCT id FROM inventario"
+				+ " where nombre='"+nombre+"'" ;
+		
+		
+		try{
+            Connection conn= fachada.getConnetion();
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sqlSelect);
+            
+            while(tabla.next()){
+            	idxNombre = tabla.getString(1);
+             }
+            
+        }
+		catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+		
+		return idxNombre;
+	}
 
 	
 	public void cerrarConexionBD(){

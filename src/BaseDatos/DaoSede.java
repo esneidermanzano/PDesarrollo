@@ -45,7 +45,7 @@ public class DaoSede {
 
 	public String getId(String nombre) {
 		String id = "";
-		String sql_select = "SELECT id FROM sedes WHERE nombre = '" + nombre + "'";
+		String sql_select = "SELECT id FROM sedes WHERE nombre= '" + nombre + "'";
 		
 		try{
             Connection conn= fachada.getConnetion();
@@ -284,7 +284,7 @@ public class DaoSede {
 		
 		return sedes;
 	}
-	public void cerrarConexionBD(){
+	public  void cerrarConexionBD(){
         fachada.closeConection(fachada.getConnetion());
     }	
 }

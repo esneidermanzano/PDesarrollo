@@ -8,42 +8,41 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlGerenteRegistroSedes">
    <children>
-      <Pane prefHeight="570.0" prefWidth="650.0" style="-fx-background-color: white;">
+      <Pane prefHeight="635.0" prefWidth="700.0" style="-fx-background-color: white;">
          <children>
-            <JFXTextField fx:id="campoNombre" labelFloat="true" layoutX="159.0" layoutY="24.0" prefHeight="23.0" prefWidth="333.0" promptText="Nombre" styleClass="textfieldGerente">
+            <JFXTextField fx:id="campoNombre" labelFloat="true" layoutX="184.0" layoutY="50.0" prefHeight="23.0" prefWidth="333.0" promptText="Nombre" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="campoTelefono" labelFloat="true" layoutX="159.0" layoutY="104.0" prefHeight="23.0" prefWidth="333.0" promptText="Telefono" styleClass="textfieldGerente">
+            <JFXTextField fx:id="campoTelefono" labelFloat="true" layoutX="184.0" layoutY="137.0" prefHeight="23.0" prefWidth="333.0" promptText="Telefono" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="campoDireccion" labelFloat="true" layoutX="159.0" layoutY="182.0" prefHeight="23.0" prefWidth="333.0" promptText="Direccion" styleClass="textfieldGerente">
+            <JFXTextField fx:id="campoDireccion" labelFloat="true" layoutX="184.0" layoutY="224.0" prefHeight="23.0" prefWidth="333.0" promptText="Direccion" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="campoTamano" labelFloat="true" layoutX="159.0" layoutY="260.0" prefHeight="23.0" prefWidth="333.0" promptText="Tamaño de la sede" styleClass="textfieldGerente">
+            <JFXTextField fx:id="campoTamano" labelFloat="true" layoutX="184.0" layoutY="308.0" prefHeight="23.0" prefWidth="333.0" promptText="Tamaño de la sede" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="campoEmpleados" labelFloat="true" layoutX="159.0" layoutY="334.0" prefHeight="23.0" prefWidth="333.0" promptText="N° empleados" styleClass="textfieldGerente">
+            <JFXTextField fx:id="campoEmpleados" labelFloat="true" layoutX="184.0" layoutY="396.0" prefHeight="23.0" prefWidth="333.0" promptText="N° empleados" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <Label layoutX="160.0" layoutY="409.0" text="Fecha apertura" textFill="#aeaeae">
+            <Label layoutX="185.0" layoutY="474.0" text="Fecha apertura" textFill="#aeaeae">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <DatePicker fx:id="fechaRegistroSedes" layoutX="298.0" layoutY="411.0" prefHeight="25.0" prefWidth="194.0" />
-            <JFXButton fx:id="botonRegistroSedes" layoutX="249.0" layoutY="470.0" onAction="#registrarSede" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Registrar" textFill="WHITE" />
+            <DatePicker fx:id="fechaRegistroSedes" layoutX="323.0" layoutY="476.0" prefHeight="25.0" prefWidth="194.0" />
+            <JFXButton fx:id="botonRegistroSedes" layoutX="274.0" layoutY="552.0" onAction="#registrarSede" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Registrar" textFill="WHITE" />
          </children>
       </Pane>
    </children>
 </AnchorPane>
-

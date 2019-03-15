@@ -7,7 +7,6 @@ import com.jfoenix.controls.JFXButton;
 
 import Clases.Principal;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,21 +14,18 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
-import javafx.animation.FadeTransition;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.animation.TranslateTransition;
 import javafx.util.Duration;
-public class ControlRaizGerente {
+public class ControlRaizVendedor {
 	private Stage escenario;
 	private double x, y;
 
@@ -38,22 +34,13 @@ public class ControlRaizGerente {
 
     @FXML private BorderPane panelRaiz;    
     @FXML private Pane panelCentral;
-    @FXML private Text nombreGerente;
- 
-    @FXML private JFXButton botonRegistroPersonal;
-    @FXML private JFXButton botonRegistroSedes;
-    @FXML private JFXButton botonActualizarPersonal;
-    @FXML private JFXButton botonActualizarSede;
-    @FXML private JFXButton botonActualizaritems;
-    @FXML private JFXButton botonConsultarPersonal;    
-    @FXML private JFXButton botonConsultarSedes;
+    @FXML private Text nombreVendedor;
 
     @FXML private Button botonCerrarSesion;
 
     
 	public void initialize(String nombre){
-		nombreGerente.setText(nombre);
-
+		nombreVendedor.setText(nombre);
 	}
 	
     public void setStage(Stage escenario) {
@@ -78,57 +65,8 @@ public class ControlRaizGerente {
     }
        
     @FXML
-    void registrarPersonal(ActionEvent event) throws IOException {
-    	FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("/Vistas/gerente_registro_personal.fxml"));
-		efectoCambio(loader);		
-    }
-
-    @FXML
-    void registroSedes(ActionEvent event) {		
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("/Vistas/gerente_registro_sedes.fxml"));
-		efectoCambio(loader);
-    }
-    
-    @FXML
-    void actualizarSede(ActionEvent event) {
-    	FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("/Vistas/gerente_actualizar_sede1.fxml"));
-		efectoCambio(loader);
-    }
-    
-    @FXML
-    void cargarInterfazAP1(ActionEvent event) {
-    	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(getClass().getResource("/Vistas/gerente_actualizar_personal1.fxml"));
-		efectoCambio(loader);  	
-    }
-    
-    @FXML
-    void actualizarItems(ActionEvent event) {
-    	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(getClass().getResource("/Vistas/gerente_listar_items.fxml"));
-		efectoCambio(loader); 
-    }
-
-    @FXML
-    void consultarPersonal(ActionEvent event) {		
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("/Vistas/gerente_consultar_personal.fxml"));
-		efectoCambio(loader);
-    }
-    
-    @FXML
-    void consultarSedes(ActionEvent event) {		
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("/Vistas/gerente_consultar_sedes.fxml"));
-		efectoCambio(loader);
-    }
-    
-    @FXML
     void cerrarSesion(ActionEvent event) throws IOException {
-    	Principal.cerrarSesion("G");
+    	Principal.cerrarSesion("V");
     }
     
     @FXML

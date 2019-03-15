@@ -11,19 +11,19 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="650.0" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlActSedes1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlActSedes1">
    <children>
-      <Pane prefHeight="570.0" prefWidth="650.0" style="-fx-background-color: white;">
+      <Pane prefHeight="635.0" prefWidth="700.0" style="-fx-background-color: white;">
          <children>
-            <JFXTextField fx:id="nombreSC" labelFloat="true" layoutX="199.0" layoutY="193.0" prefHeight="37.0" prefWidth="246.0" promptText="Nombre de sede" styleClass="textfieldGerente">
+            <JFXTextField fx:id="nombreSC" labelFloat="true" layoutX="226.0" layoutY="225.0" prefHeight="37.0" prefWidth="246.0" promptText="Nombre de sede" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font></JFXTextField>
-            <JFXTextField fx:id="identificacionSC" labelFloat="true" layoutX="201.0" layoutY="277.0" prefHeight="37.0" prefWidth="246.0" promptText="Identificación de sede" styleClass="textfieldGerente">
+            <JFXTextField fx:id="identificacionSC" labelFloat="true" layoutX="228.0" layoutY="309.0" prefHeight="37.0" prefWidth="246.0" promptText="Identificación de sede" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font></JFXTextField>
-            <JFXButton fx:id="buscar" layoutX="248.0" layoutY="368.0" mnemonicParsing="false" onAction="#buscarSede" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Buscar" textFill="WHITE" />
+            <JFXButton fx:id="buscar" layoutX="275.0" layoutY="400.0" mnemonicParsing="false" onAction="#buscarSede" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Buscar" textFill="WHITE" />
             <Label layoutX="91.0" layoutY="50.0" text="Buscar Sede" textFill="#ff7070">
                <font>
                   <Font size="22.0" />

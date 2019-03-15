@@ -39,16 +39,29 @@ public class ControlLogin {
     			perfil = consultador.consultarContrasena(campoUsuarioLogin.getText(), campoPasswordLogin.getText());	
 		         if(!perfil.equals("")){
 		        	 if (perfil.equals("Gerente")) {
-		    				try {
-								Principal.iniciarGerente(campoUsuarioLogin.getText());
+		    			try {
+							Principal.iniciarGerente(campoUsuarioLogin.getText());
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+		        	 }else if(perfil.equals("Vendedor")){
+		        		 try {
+							Principal.iniciarVendedor(campoUsuarioLogin.getText());
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+		        	 }else if(perfil.equals("Jefe de taller")) {
+		        		 try {
+								Principal.iniciarJefeTaller(campoUsuarioLogin.getText());
 							} catch (IOException e) {
 								e.printStackTrace();
 							}
-		        	 }else {
+		        	 }
+		        	 else {
 		        		 Alert alert = new Alert(AlertType.WARNING);
 		        		 alert.setTitle("Advertencia");
 	        			 alert.setHeaderText(null);
-	        			 alert.setContentText("Por ahora, el sistema solo esta disponible para gerentes");
+	        			 alert.setContentText("Usted no esta habilitado para ingresar");
 	        			 alert.showAndWait();
 	        			 mensajeAdvertencia.setText("");
 		        	 }

@@ -284,6 +284,26 @@ public class DaoSede {
 		
 		return sedes;
 	}
+	
+	//Aumenta o disminuye la cantidad de empleados en 1:
+	/*public int actualizarCantidadEmpleados(String idSede, String cambio) {
+		String SQL;
+		SQL = "UPDATE sedes SET numero_empleados = numero_empleados " + cambio + " WHERE id = " + idSede;
+        int respuesta = -1;
+        
+        try{
+        	Connection conn= fachada.getConnetion();
+            Statement sentencia = conn.createStatement();
+            respuesta = sentencia.executeUpdate(SQL);
+            System.out.println(respuesta);
+        }catch(SQLException e){
+        	System.out.println(e); 
+        }catch(Exception e){ 
+            System.out.println(e);
+        }  
+        return respuesta;
+	}*/
+	
 	public void cerrarConexionBD(){
         fachada.closeConection(fachada.getConnetion());
     }	

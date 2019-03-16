@@ -32,6 +32,7 @@ import javafx.util.Duration;
 public class ControlRaizGerente {
 	private Stage escenario;
 	private double x, y;
+	private String cargo;
 
     @FXML private Button cerrar;
     @FXML private Button minimizar;
@@ -39,6 +40,7 @@ public class ControlRaizGerente {
     @FXML private BorderPane panelRaiz;    
     @FXML private Pane panelCentral;
     @FXML private Text nombreGerente;
+    @FXML private Text titulo;
  
     @FXML private JFXButton botonRegistroPersonal;
     @FXML private JFXButton botonRegistroSedes;
@@ -46,13 +48,22 @@ public class ControlRaizGerente {
     @FXML private JFXButton botonActualizarSede;
     @FXML private JFXButton botonActualizaritems;
     @FXML private JFXButton botonConsultarPersonal;    
-    @FXML private JFXButton botonConsultarSedes;
-
+    @FXML private JFXButton botonConsultarSedes;    
+    @FXML private Button atras;
     @FXML private Button botonCerrarSesion;
 
+    //Para retroceder hacia la pantalla inicial:
+    @FXML
+    void retroceder(ActionEvent event) {
+    	menuInicial();
+    	atras.setVisible(false);
+    	titulo.setText("");
+    }   
     
-	public void initialize(String nombre){
+	public void initialize(String nombre, String cargo){
 		nombreGerente.setText(nombre);
+		this.cargo = cargo;
+		atras.setVisible(false);
 
 	}
 	
@@ -76,54 +87,64 @@ public class ControlRaizGerente {
 			System.out.println("Se presento un problema con la carga del modulo: " + e.getMessage());
 		}		
     }
+    
+    //Carga la interfaz y aplica la respectiva transición:
+    public void cambiarVentana(String fuente) {
+    	FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource(fuente));
+		efectoCambio(loader);	
+		atras.setVisible(true);
+    }
+    
+    //Carga la pantalla inicial de la aplicación:
+    public void menuInicial() {
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("/Vistas/menu_inicio.fxml"));
+    	efectoCambio(loader);
+    	ControlMenuInicial C = loader.getController();
+    	C.iniciar(cargo);
+    }
        
     @FXML
     void registrarPersonal(ActionEvent event) throws IOException {
-    	FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("/Vistas/gerente_registro_personal.fxml"));
-		efectoCambio(loader);		
+    	cambiarVentana("/Vistas/gerente_registro_personal.fxml");	
+    	titulo.setText("Registro de personal");
     }
 
     @FXML
     void registroSedes(ActionEvent event) {		
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("/Vistas/gerente_registro_sedes.fxml"));
-		efectoCambio(loader);
+		cambiarVentana("/Vistas/gerente_registro_sedes.fxml");
+		titulo.setText("Registro de sedes");
     }
     
     @FXML
     void actualizarSede(ActionEvent event) {
-    	FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("/Vistas/gerente_actualizar_sede1.fxml"));
-		efectoCambio(loader);
+    	cambiarVentana("/Vistas/gerente_actualizar_sede1.fxml");
+    	titulo.setText("Actualización de sedes");
     }
     
     @FXML
     void cargarInterfazAP1(ActionEvent event) {
-    	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(getClass().getResource("/Vistas/gerente_actualizar_personal1.fxml"));
-		efectoCambio(loader);  	
+    	cambiarVentana("/Vistas/gerente_actualizar_personal1.fxml");
+    	titulo.setText("Actualización de personal");
     }
     
     @FXML
     void actualizarItems(ActionEvent event) {
-    	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(getClass().getResource("/Vistas/gerente_listar_items.fxml"));
-		efectoCambio(loader); 
+    	cambiarVentana("/Vistas/gerente_listar_items.fxml");
+    	titulo.setText("Actualización de inventario");
     }
 
     @FXML
     void consultarPersonal(ActionEvent event) {		
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("/Vistas/gerente_consultar_personal.fxml"));
-		efectoCambio(loader);
+		cambiarVentana("/Vistas/gerente_consultar_personal.fxml");
+		titulo.setText("Consulta de personal");
     }
     
     @FXML
     void consultarSedes(ActionEvent event) {		
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("/Vistas/gerente_consultar_sedes.fxml"));
-		efectoCambio(loader);
+		cambiarVentana("/Vistas/gerente_consultar_sedes.fxml");
+		titulo.setText("Consulta de sedes");
     }
     
     @FXML

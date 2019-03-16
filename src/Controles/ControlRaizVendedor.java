@@ -28,6 +28,7 @@ import javafx.util.Duration;
 public class ControlRaizVendedor {
 	private Stage escenario;
 	private double x, y;
+	private String cargo;
 
     @FXML private Button cerrar;
     @FXML private Button minimizar;
@@ -35,12 +36,23 @@ public class ControlRaizVendedor {
     @FXML private BorderPane panelRaiz;    
     @FXML private Pane panelCentral;
     @FXML private Text nombreVendedor;
+    @FXML private Button atras;
+    @FXML private Text titulo;
 
     @FXML private Button botonCerrarSesion;
 
+    //Para retroceder hacia la pantalla inicial:
+    @FXML
+    void retroceder(ActionEvent event) {
+    	menuInicial();
+    	atras.setVisible(false);
+    	titulo.setText("");
+    } 
     
-	public void initialize(String nombre){
+	public void initialize(String nombre, String cargo){
 		nombreVendedor.setText(nombre);
+		this.cargo = cargo;
+		atras.setVisible(false);
 	}
 	
     public void setStage(Stage escenario) {
@@ -62,6 +74,23 @@ public class ControlRaizVendedor {
 		} catch (IOException e) {
 			System.out.println("Se presento un problema con la carga del modulo: " + e.getMessage());
 		}		
+    }
+    
+    //Carga la interfaz y aplica la respectiva transición:
+    public void cambiarVentana(String fuente) {
+    	FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource(fuente));
+		efectoCambio(loader);	
+		atras.setVisible(true);
+    }
+    
+    //Carga la pantalla inicial de la aplicación:
+    public void menuInicial() {
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("/Vistas/menu_inicio.fxml"));
+    	efectoCambio(loader);
+    	ControlMenuInicial C = loader.getController();
+    	C.iniciar(cargo);
     }
        
     @FXML

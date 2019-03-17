@@ -92,6 +92,13 @@ public class Empleado {
 		this.genero = genero;
 	}
 	
-	
+	//Compara el perfil de un empleado con uno dado:
+	public boolean compararPerfil(String perfil) {
+		if(getPerfil().compareTo(perfil) == 0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="635.0" prefWidth="700.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlMenuInicial">
+   <children>
+      <Label layoutX="62.0" layoutY="61.0" text="Bienvenido" textFill="#d78e19">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="478.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="534.0" layoutY="211.0" text="XYZ" textFill="#d78e19">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="info" layoutX="56.0" layoutY="260.0" prefHeight="343.0" prefWidth="582.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="354.0" fitWidth="343.0" layoutX="56.0" layoutY="246.0" opacity="0.14" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/info.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="62.0" layoutY="142.0" prefHeight="28.0" prefWidth="375.0" style="-fx-background-color: #d78e19;" />
+      <Label layoutX="62.0" layoutY="183.0" prefHeight="28.0" prefWidth="375.0" style="-fx-background-color: #000000;" />
+   </children>
+</AnchorPane>

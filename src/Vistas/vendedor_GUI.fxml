@@ -45,8 +45,14 @@
             <Pane prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: #006666;" />
             <Pane onMouseDragged="#moverPanel" onMousePressed="#copiarCoordenadas" prefHeight="30.0" prefWidth="700.0">
                <children>
-                  <Button fx:id="cerrar" layoutX="667.0" layoutY="2.0" mnemonicParsing="false" onAction="#cerrarAplicacion" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/close.png');" styleClass="controles" />
+                  <Button fx:id="atras" layoutX="9.0" layoutY="2.0" mnemonicParsing="false" onAction="#retroceder" opacity="0.6" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/atras.png');" styleClass="controles" />
                   <Button fx:id="minimizar" layoutX="632.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimizarAplicacion" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/minimize.png');" styleClass="controles" />
+                  <Button fx:id="cerrar" layoutX="667.0" layoutY="2.0" mnemonicParsing="false" onAction="#cerrarAplicacion" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/close.png');" styleClass="controles" />
+                  <Text fx:id="titulo" fill="#006666" layoutX="90.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="519.13671875">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
                   
                </children>
             </Pane>

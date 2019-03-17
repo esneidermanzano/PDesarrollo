@@ -1,19 +1,33 @@
 package Controles;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
 import BaseDatos.DaoInventario;
 import Clases.Item;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 public class ControlGerenteListarItems {
 		private DaoInventario consultador;
@@ -39,11 +53,12 @@ public class ControlGerenteListarItems {
 	    public void initialize() {
 	    	consultador = new DaoInventario();
 	    	botonActualizar.setDisable(true);
-	    	FilteredList<Item> filteredData = new FilteredList<>(consultador.obtenerItems(), p -> true);
-	    	tablaItems.setItems(filteredData);
+	    	FilteredList<Item> filteredData = new FilteredList<>(consultador.obtenerItems(), p -> true);	    	
+	    	SortedList<Item> sortedData = new SortedList<>(filteredData);
+	    	sortedData.comparatorProperty().bind(tablaItems.comparatorProperty());	    	
+	    	tablaItems.setItems(sortedData);
 	    	
-	    	//tablaItems.setItems(consultador.obtenerItems());
-	    	columnaId.setCellValueFactory(new PropertyValueFactory<Item, String>("identificador"));
+	    	columnaId.setCellValueFactory(new PropertyValueFactory<Item, String>("concatenado"));
 	    	columnaNombre.setCellValueFactory(new PropertyValueFactory<Item, String>("nombre"));
 	    	columnaColor.setCellValueFactory(new PropertyValueFactory<Item, String>("color"));
 	    	columnaIPrecioUnidad.setCellValueFactory(new PropertyValueFactory<Item, Integer>("valorCompra"));
@@ -67,21 +82,29 @@ public class ControlGerenteListarItems {
 	    	tablaItems.getSelectionModel().selectedItemProperty().addListener((obs, viejo, nuevo) -> {
 	    	    if (nuevo != null) {
 	    	    	textoNombre.setText(nuevo.getNombre());
-	    	    	textoId.setText(nuevo.getIdentificador());
+	    	    	textoId.setText(nuevo.getIdentificador() + nuevo.getIdentificador2());
 	    	    	botonActualizar.setDisable(false);
 	    	    }
 	    	});
 	    }
-	    
-	    @FXML
-	    void limpiarItems(ActionEvent event) {
-	    }
 
 	    @FXML
-	    void actualizarItem(ActionEvent event) {
+	    void actualizarItem(ActionEvent event) throws IOException {
+	    	FXMLLoader cargador = new FXMLLoader();
+			cargador.setLocation(getClass().getResource("/Vistas/gerente_actualizar_items.fxml"));
+			Parent gui = (Parent)cargador.load();
+			ControlGerenteActualizarItems controlador = cargador.getController();
+			Pane panelCentral= (Pane)((Button)event.getSource()).getParent();
+		    panelCentral.getChildren().clear();
+			panelCentral.getChildren().add(gui);
+			Scene scene = gui.getScene();			
+			gui.translateXProperty().set(scene.getWidth());		
+			Timeline timeline = new Timeline();
+			KeyValue rango = new KeyValue(gui.translateXProperty(), 0, Interpolator.EASE_IN);
+			KeyFrame duracion = new KeyFrame(Duration.seconds(0.4), rango);
+			timeline.getKeyFrames().add(duracion);
+			timeline.play();		
+			controlador.iniciar(tablaItems.getSelectionModel().getSelectedItem());
 	    }
-
-	    @FXML
-	    void consultarItem(ActionEvent event) {
-	    }	    
+    
 }

@@ -26,6 +26,7 @@ import javafx.util.Duration;
 public class ControlRaizJefeTaller {
 	private Stage escenario;
 	private double x, y;
+	private String cargo;
 
     @FXML private Button cerrar;
     @FXML private Button minimizar;
@@ -33,12 +34,23 @@ public class ControlRaizJefeTaller {
     @FXML private BorderPane panelRaiz;    
     @FXML private Pane panelCentral;
     @FXML private Text nombreJefeTaller;
+    @FXML private Button atras;
+    @FXML private Text titulo;
    
     @FXML private Button botonCerrarSesion;
-
     
-	public void initialize(String nombre){
+    //Para retroceder hacia la pantalla inicial:
+    @FXML
+    void retroceder(ActionEvent event) {
+    	menuInicial();
+    	atras.setVisible(false);
+    	titulo.setText("");
+    } 
+    
+	public void initialize(String nombre, String cargo){
 		nombreJefeTaller.setText(nombre);
+		this.cargo = cargo;
+		atras.setVisible(false);
 	}
 	
     public void setStage(Stage escenario) {
@@ -61,6 +73,24 @@ public class ControlRaizJefeTaller {
 			System.out.println("Se presento un problema con la carga del modulo: " + e.getMessage());
 		}		
     }
+    
+    //Carga la interfaz y aplica la respectiva transición:
+    public void cambiarVentana(String fuente) {
+    	FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource(fuente));
+		efectoCambio(loader);	
+		atras.setVisible(true);
+    }
+    
+    //Carga la pantalla inicial de la aplicación:
+    public void menuInicial() {
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("/Vistas/menu_inicio.fxml"));
+    	efectoCambio(loader);
+    	ControlMenuInicial C = loader.getController();
+    	C.iniciar(cargo);
+    }
+    
     @FXML
     void cerrarSesion(ActionEvent event) throws IOException {
     	Principal.cerrarSesion("J");

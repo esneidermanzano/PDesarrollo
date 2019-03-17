@@ -1,77 +1,79 @@
 package Controles;
 
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 
 import BaseDatos.DaoInventario;
-import javafx.animation.FadeTransition;
+import BaseDatos.DaoSede;
+
+import Clases.Item;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 public class ControlGerenteActualizarItems {
-	private DaoInventario inventario;
-	   
-    @FXML
-    private JFXTextField campoIdentificador;
-    @FXML
-    private JFXTextField campoNombre;
-    @FXML
-    private JFXTextField campoPrecio;
-    @FXML
-    private JFXTextField campoExistencias;
+	private DaoInventario consultaInventario;
+	private DaoSede consultaSede;
+	private Item producto;
+   
+    @FXML private JFXComboBox<String> campoColor;
+    @FXML private JFXComboBox<String> campoSede;    
 
-    @FXML
-    private JFXButton botonActualizar;
-    @FXML
-    private JFXButton botonConsultar;
+    @FXML private Text campoNombre;
+    @FXML private Text textoIdentificador;
+    @FXML private Text textoFecha;
+
+    @FXML private JFXTextField campoPrecio;
+    @FXML private JFXTextField campoExistencias;
+
+    @FXML private JFXButton botonActualizar;
+
 
 	    public void initialize() {
-	    	inventario = new DaoInventario();
-	    	botonActualizar.setDisable(true);
+	    	consultaInventario = new DaoInventario();
+	    	consultaSede = new DaoSede();
+	    	//botonActualizar.setDisable(true);
+	    	campoColor.setItems(consultaInventario.obtenerColores());
+	    	ArrayList<String> valores = consultaSede.obtenerNombresDeSedes();			
+			for (String valor : valores) {
+				campoSede.getItems().addAll(valor);
+			}
+			
+
+	    }
+	    
+	    public void iniciar(Item producto) {
+	    	this.producto = producto;
+	    	textoIdentificador.setText(producto.getConcatenado());
+	    	textoFecha.setText(producto.getFecha());
+	    	campoPrecio.setText(Integer.toString(producto.getValorCompra()));
+	    	campoExistencias.setText(Integer.toString(producto.getCantidad()));
+	    	campoNombre.setText(producto.getNombre());
+	    	campoColor.setValue(producto.getColor());
+	    	campoSede.setValue(producto.getSede());
 	    }
 	        
-	    public void verificarCampos() {
-	    	
-			String nombre = campoNombre.getText();
-	    	String precio = campoPrecio.getText();
-	    	String existencias = campoExistencias.getText();
-			int valido = 0;
-			if(nombre.replace(" ", "").equals("")) valido = 1;
-	    	if(precio.replace(" ", "").equals("")) {
-	    		valido = 2;
-	    	}else {
-	    		if(precio.matches("[0-9]*")) {	    		
-	    		}else {valido=2;}
-	    	}
-	    	if(existencias.equals("")) {
-	    		valido = 3;
-	    	}else {
-	    		if(existencias.matches("[0-9]*")) {	    		
-	    		}else {valido=3;}
-	    	}
-	    	
-	    	if(valido == 0) {
-	    		valido = inventario.actualizarItem(campoIdentificador.getText(), nombre, Integer.parseInt(precio), Integer.parseInt(existencias));
-	        	if(valido == -1) {
-	        		mostrarMensaje("Error", "Error al procesar el pedido");
-	        	}else {
-	        		Alert alert = new Alert(AlertType.INFORMATION);
-	        		alert.setTitle("confirmacion");
-	        		alert.setHeaderText(null);
-	        		alert.setContentText("El item se actualizo con exito");
-	        		alert.showAndWait();
-	        	}
-	    	}else {    		    	
-	    		switch(valido) {
-	    		case 1: mostrarMensaje("Error", "Error: Por favor digite un nombre");break;
-	    		case 2: mostrarMensaje("Error", "Error: El precio no es valiso");break;
-	    		case 3: mostrarMensaje("Error", "Las existencias no son validas");break;	    		
-	    		}    		        	
-	    	}
+	    public void verificarCampos() {  
+
 	    }
 	    public void mostrarMensaje(String titulo, String mensaje) {
 	    	Alert alert = new Alert(AlertType.WARNING);
@@ -83,40 +85,76 @@ public class ControlGerenteActualizarItems {
 
 	    @FXML
 	    void actualizarItem(ActionEvent event) {
-	    	verificarCampos();
-	    }
-	    
+	    	int valido = 0;
+	    	String precio = campoPrecio.getText();
+	    	String existencias = campoExistencias.getText();
 
-	    @FXML
-	    void consultarItem(ActionEvent event) {	
-	    	String id = campoIdentificador.getText();
-	    	if(id.replace(" ", "").equals("")) {
-	    		mostrarMensaje("Error", "Error: Por favor digite un identificador");
+	    	if(precio.replace(" ", "").equals("")) {
+	    		valido = 1;
 	    	}else {
-	    		String[] resultado = new String[3];
-	    		resultado = inventario.consultarId(id);
-	    		
-	    		if(resultado[0]==null) {
-	    			mostrarMensaje("Error", "No hay un producto con este identificador");
-	    		}else {
-	    			botonActualizar.setDisable(false);
-	    			campoIdentificador.setDisable(true);
-	    			botonConsultar.setDisable(true);
-	    			campoNombre.setText(resultado[0]);
-	    			campoPrecio.setText(resultado[1]);
-	    			campoExistencias.setText(resultado[2]);
-	    		}
-	    	}	    	
+	    		if(precio.matches("[0-9]*")) {	    		
+	    		}else {valido=1;}
+	    	}
+	    	if(existencias.replace(" ", "").equals("")) {
+	    		valido = 2;
+	    	}else {
+	    		if(existencias.matches("[0-9]*")) {	    		
+	    		}else {valido=2;}
+	    	}
+	    	
+	    	if(valido == 0) {
+	    		SimpleDateFormat  format = new SimpleDateFormat("yyyy-MM-dd");
+	    		Date date = null;
+				try {
+					date = format.parse(producto.getFecha());
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	    		valido = consultaInventario.actualizarItem(
+					    				Integer.parseInt(producto.getIdentificador()), 
+					    				Integer.parseInt(producto.getIdentificador2()),
+					    				campoColor.getValue(), 
+					    				Integer.parseInt(campoPrecio.getText()), 
+					    				date,
+					    				Integer.parseInt(consultaSede.getId(campoSede.getValue())),
+					    				Integer.parseInt(campoExistencias.getText())
+					    				);
+	        	if(valido == -1) {
+	        		mostrarMensaje("Error", "Error al procesar el pedido");
+	        	}else {
+	        		Alert alert = new Alert(AlertType.INFORMATION);
+	        		alert.setTitle("confirmacion");
+	        		alert.setHeaderText(null);
+	        		alert.setContentText("El Producto se actualizo con exito");
+	        		alert.showAndWait();
+	        		try {
+						regresarAnterior(event);
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+	        	}
+	    	}else {    		    	
+	    		switch(valido) {
+	    		case 1: mostrarMensaje("Error", "Error: El precio es incorrecto");break;
+	    		case 2: mostrarMensaje("Error", "Las existencias no son validas");break;	    		
+	    		}    		        	
+	    	}
 	    }
-	    
-	    @FXML
-	    void limpiarItems(ActionEvent event) {
-	    	campoIdentificador.setText("");
-	    	campoNombre.setText("");
-			campoPrecio.setText("");
-			campoExistencias.setText("");
-			campoIdentificador.setDisable(false);
-			botonConsultar.setDisable(false);
-			botonActualizar.setDisable(true);
+		   
+	    public void regresarAnterior(ActionEvent event) throws IOException {
+	    	FXMLLoader cargador = new FXMLLoader();
+			cargador.setLocation(getClass().getResource("/Vistas/gerente_listar_items.fxml"));
+			Pane panelCentral= (Pane)((Button)event.getSource()).getParent();
+			Parent gui = (Parent)cargador.load();
+	    	panelCentral.getChildren().clear();
+			panelCentral.getChildren().add(gui);
+			Scene scene = gui.getScene();			
+			gui.translateXProperty().set(scene.getWidth());		
+			Timeline timeline = new Timeline();
+			KeyValue rango = new KeyValue(gui.translateXProperty(), 0, Interpolator.EASE_IN);
+			KeyFrame duracion = new KeyFrame(Duration.seconds(0.4), rango);
+			timeline.getKeyFrames().add(duracion);
+			timeline.play();			
 	    }
 }

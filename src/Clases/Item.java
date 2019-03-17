@@ -5,7 +5,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Item {
-	private String identificador;
+	private String id;
+	private String id2;
+	private String concatenado;
 	private String nombre;
 	private String color;
 	private int valorCompra;
@@ -14,8 +16,10 @@ public class Item {
 	private int cantidad;
 
 		
-	public Item(String identificador, String nombre, String color, int vCompra, Date fecha, String sede, int cantidad){
-		this.identificador = identificador;
+	public Item(String id, String id2, String nombre, String color, int vCompra, Date fecha, String sede, int cantidad){
+		this.id = id;
+		this.id2 = id2;
+		concatenado = id + id2;
 		this.nombre = nombre;
 		this.color = color;
 		this.valorCompra = vCompra;
@@ -26,13 +30,22 @@ public class Item {
 	}
 
 	public String getIdentificador() {
-		return identificador;
+		return id;
 	}
 
 	public void setIdentificador(String identificador) {
-		this.identificador = identificador;
+		this.id = identificador;
+	}
+	public String getIdentificador2() {
+		return id2;
 	}
 
+	public void setIdentificador2(String identificador2) {
+		this.id2 = identificador2;
+	}
+	public String getConcatenado() {
+		return concatenado;
+	}
 	public String getNombre() {
 		return nombre;
 	}

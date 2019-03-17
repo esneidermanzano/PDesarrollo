@@ -37,6 +37,10 @@ JFXTextField{
 	 -jfx-focus-color:#808080;
 
 }
+.comboBoxGerente .list-view .list-cell:hover {
+    -fx-text-fill: #fff;
+    -fx-background-color:#ff7070;
+}
 
 #tablaItems .table-column {
   -fx-alignment: CENTER;

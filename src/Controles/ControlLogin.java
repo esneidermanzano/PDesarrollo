@@ -40,19 +40,26 @@ public class ControlLogin {
 		         if(!perfil.equals("")){
 		        	 if (perfil.equals("Gerente")) {
 		    			try {
-							Principal.iniciarGerente(campoUsuarioLogin.getText());
+							Principal.iniciarGerente(campoUsuarioLogin.getText(), perfil);
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
 		        	 }else if(perfil.equals("Vendedor")){
 		        		 try {
-							Principal.iniciarVendedor(campoUsuarioLogin.getText());
+							Principal.iniciarVendedor(campoUsuarioLogin.getText(), perfil);
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
 		        	 }else if(perfil.equals("Jefe de taller")) {
 		        		 try {
-								Principal.iniciarJefeTaller(campoUsuarioLogin.getText());
+								Principal.iniciarJefeTaller(campoUsuarioLogin.getText(), perfil);
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		        	 }
+		        	 else if(perfil.equals("Administrador")) {
+		        		 try {
+								Principal.iniciarAdministrador(campoUsuarioLogin.getText(), perfil);
 							} catch (IOException e) {
 								e.printStackTrace();
 							}

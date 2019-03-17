@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane fx:id="panelRaiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="750.0" style="-fx-background-color: #fff;" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlRaizAdministrador">
+   <left>
+      <Pane prefHeight="500.0" prefWidth="200.0" style="-fx-background-color: #333;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="119.0" fitWidth="170.0" layoutX="16.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/root.png" />
+               </image>
+            </ImageView>
+            <Label contentDisplay="CENTER" layoutX="9.0" layoutY="168.0" prefHeight="25.0" prefWidth="40.0" text="Root" textFill="#eeeeee">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Text fx:id="nombreRoot" fill="#eeeeee" layoutX="49.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="145.3919906616211">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+         	<ImageView fitHeight="15.0" fitWidth="18.0" layoutX="47.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/cerrarSesion.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="botonCerrarSesion" alignment="CENTER_RIGHT" layoutX="29.0" layoutY="475.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="31.0" prefWidth="143.0" text="Cerrar Sesión" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </left>
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="950.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #333;" />
+            <Pane onMouseDragged="#moverPanel" onMousePressed="#copiarCoordenadas" prefHeight="30.0" prefWidth="550.0">
+               <children>
+                  <Button fx:id="cerrar" layoutX="519.0" layoutY="2.0" mnemonicParsing="false" onAction="#cerrarAplicacion" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/close.png');" styleClass="controles" />
+                  <Button fx:id="minimizar" layoutX="484.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimizarAplicacion" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/minimize.png');" styleClass="controles" />
+                  
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <Pane fx:id="panelCentral" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

@@ -7,12 +7,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import Clases.Empleado;
-import Clases.Usuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class DaoEmpleado {
+	
 	FachadaDB fachada;
+	private String estadoAntes = "", estadoDespues = "";
 	
 	public DaoEmpleado(){
         fachada= new FachadaDB();
@@ -116,10 +117,11 @@ public ObservableList<Empleado> consultarEmpleados(){
 		return empleados;
 	}
 	
-	public Usuario consultarUsuario(String idEntrada){
+	public Empleado consultarEmpleado(String idEntrada){
 		
         String sql_select;
-        String datos[] = new String[9];
+        String nombre = null, id = null, telefono = null, estado = null;
+        String sede = null, correo = null, perfil = null, estadoCivil = null, genero = null;
         
         sql_select = "SELECT * FROM empleados WHERE id = '" + idEntrada +  "'";
         
@@ -131,15 +133,15 @@ public ObservableList<Empleado> consultarEmpleados(){
             ResultSet tabla = sentencia.executeQuery(sql_select);
             
             while(tabla.next()){            	
-            	datos[0] = tabla.getString(1);
-            	datos[1] = tabla.getString(3);
-            	datos[2] = tabla.getString(4);
-            	datos[3] = tabla.getString(5);
-            	datos[4] = tabla.getString(6);
-            	datos[5] = tabla.getString(7);
-            	datos[6] = tabla.getString(8);
-            	datos[7] = tabla.getString(9);
-            	datos[8] = tabla.getString(10);
+            	id = tabla.getString(1);
+            	nombre = tabla.getString(3);
+            	telefono = tabla.getString(4);
+            	estado = tabla.getString(5);
+            	sede = tabla.getString(6);
+            	correo = tabla.getString(7);
+            	perfil = tabla.getString(8);
+            	estadoCivil = tabla.getString(9);
+            	genero = tabla.getString(10);
             } 
                        
          }catch(SQLException e){
@@ -147,27 +149,47 @@ public ObservableList<Empleado> consultarEmpleados(){
          }catch(Exception e){
         	 System.out.println(e);
          }
-          
-         Usuario U = new Usuario(datos);
-         return U;
+         
+         if(estado.compareTo("1") == 0) {
+        	 estadoAntes = "B'1'";
+         }else {
+        	 estadoAntes = "B'0'";
+         }
+                 
+         Empleado E = new Empleado(nombre,id,telefono,estado,sede,correo,perfil,estadoCivil,genero);
+         return E;
          
 	}
 	
-	public int actualizar(Usuario U) {
+	//Actualiza la cantidad de empleados de una sede si el estado de un empleado cambia:
+	/*public void actualizarSede(String sede) {
+		if(estadoAntes.compareTo(estadoDespues) != 0) {
+			DaoSede D = new DaoSede();
+			if(estadoDespues.compareTo("B'1'") == 0) {				
+				D.actualizarCantidadEmpleados(sede, "+ 1");
+			}else {
+				D.actualizarCantidadEmpleados(sede, "- 1");
+			}
+		}
+	}*/
+	
+	public int actualizar(Empleado E) {
 		
-	    String[] datos = U.getUsuario();
-	    
+		String nombre = E.getNombre(), id = E.getId(), telefono = E.getTelefono(); 
+        String sede = E.getSede(), correo = E.getCorreo(), perfil = E.getPerfil();
+        String estadoCivil = E.getEstadoCivil(), genero = E.getGenero(), estado = E.getEstado();
+        
         String sql_actualizar = "UPDATE empleados SET ";
-        sql_actualizar += "id = '" + datos[0] + "',";
-        sql_actualizar += "nombre = '" + datos[1] + "',";
-        sql_actualizar += "telefono = '" + datos[2] + "',";
-        sql_actualizar += "activo = " + datos[3] + ",";
-        sql_actualizar += "id_sede = '" + datos[4] + "',";
-        sql_actualizar += "correo = '" + datos[5] + "',";
-        sql_actualizar += "perfil = '" + datos[6] + "',";
-        sql_actualizar += "estado_civil = '" + datos[7] + "',";
-        sql_actualizar += "genero = '" + datos[8] + "' ";
-        sql_actualizar += "WHERE id = '" + datos[0] + "'";
+        sql_actualizar += "id = '" + id + "',";
+        sql_actualizar += "nombre = '" + nombre + "',";
+        sql_actualizar += "telefono = '" + telefono + "',";
+        sql_actualizar += "activo = " + estado + ",";
+        sql_actualizar += "id_sede = '" + sede + "',";
+        sql_actualizar += "correo = '" + correo + "',";
+        sql_actualizar += "perfil = '" + perfil + "',";
+        sql_actualizar += "estado_civil = '" + estadoCivil + "',";
+        sql_actualizar += "genero = '" + genero + "' ";
+        sql_actualizar += "WHERE id = '" + id + "'";
       
         int respuesta = -1;
         
@@ -184,6 +206,9 @@ public ObservableList<Empleado> consultarEmpleados(){
             System.out.println(e);
         }
         
+        estadoDespues = estado;
+        //actualizarSede(sede);
+                
         return respuesta;
       
     }

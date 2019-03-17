@@ -60,6 +60,9 @@ INSERT INTO empleados VALUES('6666666666', crypt('jvpassword', gen_salt('bf')), 
 INSERT INTO empleados VALUES('7777777777', crypt('dlpassword', gen_salt('bf')), 'Diana Lopez', '7777777', B'1', '1', 'dl@correo', 'Jefe de taller', 'Soltero', 'Femenino');
 INSERT INTO empleados VALUES('8888888888', crypt('svpassword', gen_salt('bf')), 'Sebastian Vasquez', '7777777', B'1', '2', 'sv@correo', 'Jefe de taller', 'Soltero', 'Masculino');
 INSERT INTO empleados VALUES('9999999999', crypt('jrpassword', gen_salt('bf')), 'Jairo Rosero', '7777777', B'1', '3', 'jr@correo', 'Jefe de taller', 'Soltero', 'Masculino');
+
+INSERT INTO empleados VALUES('0123456789', crypt('kspassword', gen_salt('bf')), 'Kimi Sagi', '88888888', B'1', '3', 'ks@correo', 'Administrador', 'Soltero', 'Masculino');
+
 -----------------------------------------------------------------------------------------------------------------
 
 /*

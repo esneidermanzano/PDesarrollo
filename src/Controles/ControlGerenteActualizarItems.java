@@ -1,7 +1,10 @@
 package Controles;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -9,6 +12,7 @@ import com.jfoenix.controls.JFXTextField;
 
 import BaseDatos.DaoInventario;
 import BaseDatos.DaoSede;
+
 import Clases.Item;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
@@ -30,10 +34,11 @@ public class ControlGerenteActualizarItems {
 	private DaoInventario consultaInventario;
 	private DaoSede consultaSede;
 	private Item producto;
-    @FXML private JFXComboBox<String> campoNombre;
+   
     @FXML private JFXComboBox<String> campoColor;
     @FXML private JFXComboBox<String> campoSede;    
 
+    @FXML private Text campoNombre;
     @FXML private Text textoIdentificador;
     @FXML private Text textoFecha;
 
@@ -47,7 +52,6 @@ public class ControlGerenteActualizarItems {
 	    	consultaInventario = new DaoInventario();
 	    	consultaSede = new DaoSede();
 	    	//botonActualizar.setDisable(true);
-	    	campoNombre.setItems(consultaInventario.obtenerNombres());
 	    	campoColor.setItems(consultaInventario.obtenerColores());
 	    	ArrayList<String> valores = consultaSede.obtenerNombresDeSedes();			
 			for (String valor : valores) {
@@ -63,12 +67,24 @@ public class ControlGerenteActualizarItems {
 	    	textoFecha.setText(producto.getFecha());
 	    	campoPrecio.setText(Integer.toString(producto.getValorCompra()));
 	    	campoExistencias.setText(Integer.toString(producto.getCantidad()));
-	    	campoNombre.setValue(producto.getNombre());
+	    	campoNombre.setText(producto.getNombre());
 	    	campoColor.setValue(producto.getColor());
 	    	campoSede.setValue(producto.getSede());
 	    }
 	        
-	    public void verificarCampos() {	  
+	    public void verificarCampos() {  
+
+	    }
+	    public void mostrarMensaje(String titulo, String mensaje) {
+	    	Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle(titulo);
+			alert.setHeaderText(null);
+			alert.setContentText(mensaje);
+			alert.showAndWait();
+	    }
+
+	    @FXML
+	    void actualizarItem(ActionEvent event) {
 	    	int valido = 0;
 	    	String precio = campoPrecio.getText();
 	    	String existencias = campoExistencias.getText();
@@ -87,12 +103,21 @@ public class ControlGerenteActualizarItems {
 	    	}
 	    	
 	    	if(valido == 0) {
-	    		consultaInventario.actualizarItem(
+	    		SimpleDateFormat  format = new SimpleDateFormat("yyyy-MM-dd");
+	    		Date date = null;
+				try {
+					date = format.parse(producto.getFecha());
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	    		valido = consultaInventario.actualizarItem(
 					    				Integer.parseInt(producto.getIdentificador()), 
 					    				Integer.parseInt(producto.getIdentificador2()),
-					    				campoNombre.getValue(), campoColor.getValue(), 
-					    				Integer.parseInt(campoPrecio.getText()), 					    			
-					    				campoSede.getValue(),
+					    				campoColor.getValue(), 
+					    				Integer.parseInt(campoPrecio.getText()), 
+					    				date,
+					    				Integer.parseInt(consultaSede.getId(campoSede.getValue())),
 					    				Integer.parseInt(campoExistencias.getText())
 					    				);
 	        	if(valido == -1) {
@@ -101,33 +126,23 @@ public class ControlGerenteActualizarItems {
 	        		Alert alert = new Alert(AlertType.INFORMATION);
 	        		alert.setTitle("confirmacion");
 	        		alert.setHeaderText(null);
-	        		alert.setContentText("El item se actualizo con exito");
+	        		alert.setContentText("El Producto se actualizo con exito");
 	        		alert.showAndWait();
+	        		try {
+						regresarAnterior(event);
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 	        	}
 	    	}else {    		    	
 	    		switch(valido) {
 	    		case 1: mostrarMensaje("Error", "Error: El precio es incorrecto");break;
-	    		case 2: mostrarMensaje("Error", "La fecha no es valida");break;
-	    		case 3: mostrarMensaje("Error", "Las existencias no son validas");break;	    		
+	    		case 2: mostrarMensaje("Error", "Las existencias no son validas");break;	    		
 	    		}    		        	
 	    	}
 	    }
-	    public void mostrarMensaje(String titulo, String mensaje) {
-	    	Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle(titulo);
-			alert.setHeaderText(null);
-			alert.setContentText(mensaje);
-			alert.showAndWait();
-	    }
-
-	    @FXML
-	    void actualizarItem(ActionEvent event) {
-	    	verificarCampos();
-	    }
-	
-	    
-	    @FXML
-	    void limpiarItems(ActionEvent event) throws IOException {
+		   
+	    public void regresarAnterior(ActionEvent event) throws IOException {
 	    	FXMLLoader cargador = new FXMLLoader();
 			cargador.setLocation(getClass().getResource("/Vistas/gerente_listar_items.fxml"));
 			Pane panelCentral= (Pane)((Button)event.getSource()).getParent();
@@ -141,6 +156,5 @@ public class ControlGerenteActualizarItems {
 			KeyFrame duracion = new KeyFrame(Duration.seconds(0.4), rango);
 			timeline.getKeyFrames().add(duracion);
 			timeline.play();			
-			ControlGerenteListarItems controlador = cargador.getController();
 	    }
 }

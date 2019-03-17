@@ -15,6 +15,7 @@ import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -52,8 +53,10 @@ public class ControlGerenteListarItems {
 	    public void initialize() {
 	    	consultador = new DaoInventario();
 	    	botonActualizar.setDisable(true);
-	    	FilteredList<Item> filteredData = new FilteredList<>(consultador.obtenerItems(), p -> true);
-	    	tablaItems.setItems(filteredData);
+	    	FilteredList<Item> filteredData = new FilteredList<>(consultador.obtenerItems(), p -> true);	    	
+	    	SortedList<Item> sortedData = new SortedList<>(filteredData);
+	    	sortedData.comparatorProperty().bind(tablaItems.comparatorProperty());	    	
+	    	tablaItems.setItems(sortedData);
 	    	
 	    	columnaId.setCellValueFactory(new PropertyValueFactory<Item, String>("concatenado"));
 	    	columnaNombre.setCellValueFactory(new PropertyValueFactory<Item, String>("nombre"));
@@ -79,7 +82,7 @@ public class ControlGerenteListarItems {
 	    	tablaItems.getSelectionModel().selectedItemProperty().addListener((obs, viejo, nuevo) -> {
 	    	    if (nuevo != null) {
 	    	    	textoNombre.setText(nuevo.getNombre());
-	    	    	textoId.setText(nuevo.getIdentificador());
+	    	    	textoId.setText(nuevo.getIdentificador() + nuevo.getIdentificador2());
 	    	    	botonActualizar.setDisable(false);
 	    	    }
 	    	});

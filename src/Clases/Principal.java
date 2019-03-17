@@ -2,6 +2,7 @@ package Clases;
 
 import java.io.IOException;
 
+import Controles.ControlRaizAdministrador;
 import Controles.ControlRaizGerente;
 import Controles.ControlRaizJefeTaller;
 import Controles.ControlRaizVendedor;
@@ -20,6 +21,7 @@ public class Principal extends Application {
 	 private static Stage escenarioGerente;
 	 private static Stage escenarioVendedor;
 	 private static Stage escenarioJefeTaller;
+	 private static Stage escenarioAdministrador;
 	 private static Image icono = new Image("/Imagenes/logo.png");
 	 
 	 public Image getIcono() {
@@ -50,6 +52,10 @@ public class Principal extends Application {
 		 		escenarioJefeTaller = new Stage();    	
 		 		escenarioJefeTaller.getIcons().add(icono);
 				break;
+		 	case "Administrador":
+		 		escenarioAdministrador = new Stage();    	
+		 		escenarioAdministrador.getIcons().add(icono);
+				break;
 		 }
 	 }
 	 
@@ -60,8 +66,7 @@ public class Principal extends Application {
 		 ft.play();				
 	 }
 	 
-	 public static void iniciarRaiz(String perfil, String fuente, String nombre) throws IOException {		
-		 
+	 public static void iniciarRaiz(String perfil, String fuente, String nombre) throws IOException {				 
 		 iniciarEscenarios(perfil);		 
 		 FXMLLoader cargador = new FXMLLoader();
 		 cargador.setLocation(Principal.class.getResource(fuente));
@@ -104,6 +109,18 @@ public class Principal extends Application {
 				escenarioJefeTaller.show();
 				CRJ.menuInicial();	
 				break;
+		 	case "Administrador":
+		 		ControlRaizAdministrador CRA = cargador.getController();
+		 		CRA.initialize(nombre, perfil);
+		 		CRA.setStage(escenarioAdministrador);
+		 		initEfecto(raiz);
+		 		Scene EA = new Scene(raiz); 
+				escenarioLogin.close();
+				escenarioAdministrador.setScene(EA);
+				escenarioAdministrador.initStyle(StageStyle.UNDECORATED);		
+				escenarioAdministrador.show();
+				CRA.menuInicial();	
+				break;
 		 }		 
 		 	 
 	 }
@@ -119,12 +136,17 @@ public class Principal extends Application {
 	 public static void iniciarJefeTaller(String nombre, String perfil) throws IOException {
 		 iniciarRaiz(perfil, "/Vistas/jefeTaller_GUI.fxml", nombre);
 	 }
+	 public static void iniciarAdministrador(String nombre, String perfil) throws IOException {
+		 iniciarRaiz(perfil, "/Vistas/administrador_GUI.fxml", nombre);
+	 }
+	 
     
     public static void cerrarSesion(String panel) throws IOException {
     	switch(panel){
     	case "G": escenarioGerente.close();break;
     	case "V": escenarioVendedor.close(); break;
     	case "J": escenarioJefeTaller.close(); break;
+    	case "A": escenarioAdministrador.close(); break;
     	}
     	iniciarLogin();
     }

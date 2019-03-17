@@ -57,6 +57,13 @@ public class ControlLogin {
 								e.printStackTrace();
 							}
 		        	 }
+		        	 else if(perfil.equals("Administrador")) {
+		        		 try {
+								Principal.iniciarAdministrador(campoUsuarioLogin.getText(), perfil);
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		        	 }
 		        	 else {
 		        		 Alert alert = new Alert(AlertType.WARNING);
 		        		 alert.setTitle("Advertencia");

@@ -62,7 +62,7 @@ public class ControlGerenteRegistroItems {
     private String nombre;
     private String cantidad;
     private String color;
-    private String fecha;
+    private String fecha = "now()";
     private String material;
     private String costofab;
     private String costoVenta;
@@ -130,8 +130,6 @@ public class ControlGerenteRegistroItems {
     &&
     verificarCantidad()
     && 
-    verificarFecha()
-    &&
     verificarSede()
     ) {return true;}
     	return false;

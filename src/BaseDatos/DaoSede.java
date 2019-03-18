@@ -286,7 +286,7 @@ public class DaoSede {
 	}
 
 	
-
+public void cerrarConexionBD(){
         fachada.closeConection(fachada.getConnetion());
     }	
 }

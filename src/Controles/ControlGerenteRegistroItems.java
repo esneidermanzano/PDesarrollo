@@ -90,7 +90,7 @@ public class ControlGerenteRegistroItems {
         materialItem.setDisable(bit);
         valorVentaItem.setDisable(bit);
         comboBoxSede.setDisable(bit);
-	    //for loles
+	nombreItem.setDisable(!bit);
         
     }
     @FXML 
@@ -243,8 +243,10 @@ public class ControlGerenteRegistroItems {
 	private boolean verificarNombre() {
 		
     	//validation for data base request.
-		String nombre = nombreItem.getText();
-		if(nombre.matches("[a-z]*") && nombre.matches("[^\t]*") && nombre.length() != 0) {
+		String nombre = nombreItem.getText().toLowerCase();
+		if(nombreItem.isDisable()) {
+		this.nombre= referenciaItem.getValue();
+		}else if(nombre.matches("[a-z]*") && nombre.matches("[^\t]*") && nombre.length() != 0) {
 			this.nombre = nombre;
 			return true;}
 		

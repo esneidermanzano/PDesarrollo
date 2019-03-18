@@ -53,7 +53,7 @@ public class ControlRaizAdministrador {
 		public void initialize(String nombre, String cargo){
 			nombreRoot.setText(nombre);
 			this.cargo = cargo;
-			//atras.setVisible(false);
+			atras.setVisible(false);
 		}
 		
 	    public void setStage(Stage escenario) {

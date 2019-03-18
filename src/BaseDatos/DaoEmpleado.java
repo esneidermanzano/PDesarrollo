@@ -13,10 +13,10 @@ import javafx.collections.ObservableList;
 public class DaoEmpleado {
 	
 	FachadaDB fachada;
-	private String estadoAntes = "", estadoDespues = "";
+	private DaoSede D = new DaoSede();
 	
 	public DaoEmpleado(){
-        fachada= new FachadaDB();
+        fachada = new FachadaDB();
     }
 
 	public int crearEmpleado(String nombre, String id, String password, String telefono, String correo, String cargo, String sede, String estadoCivil, String genero) {
@@ -25,7 +25,7 @@ public class DaoEmpleado {
 		String sql_insert = "INSERT INTO empleados";
 		
 		sql_insert += " VALUES('" + id + "', crypt('" + password + "', gen_salt('bf')), '" + nombre
-				+ "', '" + telefono + "', B'1', '" + sede + "', '" + correo + "', '" + cargo + "', '" + estadoCivil + "', '" + genero + "')";
+				+ "', '" + telefono + "', B'1', " + sede + ", '" + correo + "', '" + cargo + "', '" + estadoCivil + "', '" + genero + "')";
         try{
             Connection conn= fachada.getConnetion();
             Statement sentencia = conn.createStatement();
@@ -43,6 +43,8 @@ public class DaoEmpleado {
         catch(Exception e){ 
             System.out.println(e);
         }
+        
+        D.actualizarCantidadEmpleados(sede, "+ 1");
 		
 		return valido;
 	}
@@ -84,7 +86,7 @@ public class DaoEmpleado {
 		
 		ObservableList<Empleado> empleados = FXCollections.observableArrayList();
 		
-		String sql_select = "SELECT * FROM empleados WHERE perfil='Vendedor' or perfil='Jefe de taller'";
+		String sql_select = "SELECT * FROM empleados WHERE perfil ='Vendedor' or perfil ='Jefe de taller'";
 		
 		try{
             Connection conn= fachada.getConnetion();
@@ -187,31 +189,33 @@ public class DaoEmpleado {
          }catch(Exception e){
         	 System.out.println(e);
          }
-         
-         if(estado.compareTo("1") == 0) {
-        	 estadoAntes = "B'1'";
-         }else {
-        	 estadoAntes = "B'0'";
-         }
-                 
+                     
          Empleado E = new Empleado(nombre,id,telefono,estado,sede,correo,perfil,estadoCivil,genero);
          return E;
          
 	}
 	
 	//Actualiza la cantidad de empleados de una sede si el estado de un empleado cambia:
-	/*public void actualizarSede(String sede) {
+	public void actualizarSede(String sede, String estadoDespues, String estadoAntes, String sedeDespues, String sedeAntes) {
+		
+		if(sedeAntes.compareTo(sedeDespues) != 0) {
+			if(estadoAntes.compareTo("B'1'") == 0) {
+				D.actualizarCantidadEmpleados(sedeAntes, "- 1");
+				D.actualizarCantidadEmpleados(sedeDespues, "+ 1");
+			}			
+		}
+		
 		if(estadoAntes.compareTo(estadoDespues) != 0) {
-			DaoSede D = new DaoSede();
 			if(estadoDespues.compareTo("B'1'") == 0) {				
-				D.actualizarCantidadEmpleados(sede, "+ 1");
+				D.actualizarCantidadEmpleados(sedeDespues, "+ 1");
 			}else {
-				D.actualizarCantidadEmpleados(sede, "- 1");
+				D.actualizarCantidadEmpleados(sedeDespues, "- 1");
 			}
 		}
-	}*/
+		
+	}
 	
-	public int actualizar(Empleado E) {
+	public int actualizar(Empleado E, String estadoAntes, String sedeAntes) {
 		
 		String nombre = E.getNombre(), id = E.getId(), telefono = E.getTelefono(); 
         String sede = E.getSede(), correo = E.getCorreo(), perfil = E.getPerfil();
@@ -222,7 +226,7 @@ public class DaoEmpleado {
         sql_actualizar += "nombre = '" + nombre + "',";
         sql_actualizar += "telefono = '" + telefono + "',";
         sql_actualizar += "activo = " + estado + ",";
-        sql_actualizar += "id_sede = '" + sede + "',";
+        sql_actualizar += "id_sede = " + sede + ",";
         sql_actualizar += "correo = '" + correo + "',";
         sql_actualizar += "perfil = '" + perfil + "',";
         sql_actualizar += "estado_civil = '" + estadoCivil + "',";
@@ -242,10 +246,9 @@ public class DaoEmpleado {
             System.out.println(e); 
         }catch(Exception e){ 
             System.out.println(e);
-        }
-        
-        estadoDespues = estado;
-        //actualizarSede(sede);
+        }      
+               
+        actualizarSede(sede, estado, estadoAntes, sede, sedeAntes);
                 
         return respuesta;
       

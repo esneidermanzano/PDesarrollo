@@ -3,6 +3,8 @@ package Controles;
 import java.io.IOException;
 import java.util.Optional;
 
+import com.jfoenix.controls.JFXButton;
+
 import Clases.Principal;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
@@ -37,6 +39,9 @@ public class ControlRaizAdministrador {
     @FXML private Text nombreRoot;
     @FXML private Button atras;
     @FXML private Text titulo;
+    
+    @FXML private JFXButton botonConsulta;
+    @FXML private JFXButton botonRegistro;
 	
 	   @FXML
 	    void retroceder(ActionEvent event) {
@@ -103,6 +108,17 @@ public class ControlRaizAdministrador {
 	    void moverPanel(MouseEvent event) {
 	    	escenario.setX(event.getScreenX() - x);
 	    	escenario.setY(event.getScreenY() - y);
+	    }
+	    
+	    @FXML
+	    void consulta(ActionEvent event) throws IOException {
+	    	cambiarVentana("/Vistas/admin_consulta.fxml");	
+	    	titulo.setText("Gestión");
+	    }
+	    @FXML
+	    void registro(ActionEvent event) throws IOException {
+	    	cambiarVentana("/Vistas/admin_registro.fxml");	
+	    	titulo.setText("Gestión");
 	    }
 	    
 	    //Para Cerrar la ventana raiz

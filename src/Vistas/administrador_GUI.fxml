@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 
-<BorderPane fx:id="panelRaiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="750.0" style="-fx-background-color: #fff;" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlRaizAdministrador">
+<BorderPane fx:id="panelRaiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="665.0" prefWidth="1000.0" style="-fx-background-color: #fff;" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlRaizAdministrador">
    <left>
       <Pane prefHeight="500.0" prefWidth="200.0" style="-fx-background-color: #333;" BorderPane.alignment="CENTER">
          <children>
@@ -26,16 +26,18 @@
                   <Font size="16.0" />
                </font>
             </Text>
-         	<ImageView fitHeight="15.0" fitWidth="18.0" layoutX="47.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true">
+         	<ImageView fitHeight="15.0" fitWidth="18.0" layoutX="40.0" layoutY="598.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/cerrarSesion.png" />
                </image>
             </ImageView>
-            <Button fx:id="botonCerrarSesion" alignment="CENTER_RIGHT" layoutX="29.0" layoutY="475.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="31.0" prefWidth="143.0" text="Cerrar Sesión" textFill="WHITE">
+            <Button fx:id="botonCerrarSesion" alignment="CENTER_RIGHT" layoutX="21.0" layoutY="590.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="31.0" prefWidth="143.0" text="Cerrar Sesión" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
+            <JFXButton fx:id="botonConsulta" layoutX="16.0" layoutY="255.0" onAction="#consulta" prefHeight="20.0" prefWidth="168.0" styleClass="botonesPanel" text="Consulta y Actualización" textFill="GREY" />
+            <JFXButton fx:id="botonRegistro" layoutX="16.0" layoutY="213.0" onAction="#registro" prefHeight="20.0" prefWidth="168.0" styleClass="botonesPanel" text="Registro de Gerentes" textFill="GREY" />
          </children>
       </Pane>
    </left>

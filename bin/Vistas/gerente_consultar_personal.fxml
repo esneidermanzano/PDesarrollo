@@ -31,7 +31,7 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
-                              <Label layoutX="62.0" layoutY="14.0" text="Detalles del Empleado" textFill="#ff7070" AnchorPane.bottomAnchor="419.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="73.0" AnchorPane.topAnchor="0.0">
+                              <Label layoutX="54.0" layoutY="-5.0" prefHeight="38.0" prefWidth="199.0" text="Detalles del Empleado" textFill="#ff7070" AnchorPane.bottomAnchor="468.0" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="92.0" AnchorPane.topAnchor="-5.0">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -55,7 +55,7 @@
                                  <children>
                                     <Label prefHeight="17.0" prefWidth="53.0" text="Nombre" />
                                     <Label text="Identificación" GridPane.rowIndex="1" />
-                                    <Label text="Telefono" GridPane.rowIndex="2" />
+                                    <Label text="Teléfono" GridPane.rowIndex="2" />
                                     <Label text="Estado" GridPane.rowIndex="3" />
                                     <Label text="Sede" GridPane.rowIndex="4" />
                                     <Label text="Correo" GridPane.rowIndex="5" />

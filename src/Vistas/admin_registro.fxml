@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="635.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controles.ControlAdminRegistrar">
+   <children>
+      <JFXButton fx:id="botonRegistrar" layoutX="259.0" layoutY="476.0" onAction="#registrarEmpleado" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Registrar" textFill="WHITE" />
+      <JFXComboBox fx:id="ComboBoxEstadoCivil" layoutX="424.0" layoutY="395.0" prefHeight="29.0" prefWidth="120.0" promptText="Estado Civil" styleClass="comboBoxGerente" />
+      <JFXComboBox fx:id="ComboBoxGenero" layoutX="279.0" layoutY="395.0" prefHeight="29.0" prefWidth="120.0" promptText="Genero" styleClass="comboBoxGerente" />
+      <JFXComboBox fx:id="ComboBoxSede" layoutX="137.0" layoutY="395.0" prefHeight="29.0" prefWidth="120.0" promptText="Sede" styleClass="comboBoxGerente" />
+      <JFXTextField fx:id="campoCorreo" labelFloat="true" layoutX="169.0" layoutY="306.0" prefHeight="37.0" prefWidth="333.0" promptText="E-mail" styleClass="textfieldGerente">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="campoTelefono" labelFloat="true" layoutX="169.0" layoutY="243.0" prefHeight="37.0" prefWidth="333.0" promptText="Telefono" styleClass="textfieldGerente">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="campoPassword" labelFloat="true" layoutX="169.0" layoutY="176.0" prefHeight="37.0" prefWidth="333.0" promptText="Password" styleClass="textfieldGerente">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="campoId" labelFloat="true" layoutX="169.0" layoutY="111.0" prefHeight="37.0" prefWidth="333.0" promptText="Identificación" styleClass="textfieldGerente">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="campoNombre" labelFloat="true" layoutX="169.0" layoutY="46.0" prefHeight="37.0" prefWidth="333.0" promptText="Nombre" styleClass="textfieldGerente">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+   </children>
+</AnchorPane>

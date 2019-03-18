@@ -80,11 +80,49 @@ public class DaoEmpleado {
          }          
 	}
 	
-public ObservableList<Empleado> consultarEmpleados(){
+	public ObservableList<Empleado> consultarEmpleados(){
 		
 		ObservableList<Empleado> empleados = FXCollections.observableArrayList();
 		
 		String sql_select = "SELECT * FROM empleados WHERE perfil='Vendedor' or perfil='Jefe de taller'";
+		
+		try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            
+            while(tabla.next()){
+            	
+            	String nombre = tabla.getString(3);
+            	String id = tabla.getString(1);
+            	String telefono = tabla.getString(4);
+            	String estado = tabla.getString(5);
+            	String sede = tabla.getString(6);
+            	String correo = tabla.getString(7);
+            	String perfil = tabla.getString(8);
+            	String estadoCivil = tabla.getString(9);
+            	String genero = tabla.getString(10);
+            	
+              // System.out.println(resultado_consulta);
+               
+               empleados.add(new Empleado(nombre, id, telefono, estado, sede, correo, perfil, estadoCivil, genero));
+            }
+           
+            
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+		
+		return empleados;
+	}
+	
+	// Se puede incluir en la función consultarEmpleados después -- SHA
+	public ObservableList<Empleado> consultarGerentes(){
+		
+		ObservableList<Empleado> empleados = FXCollections.observableArrayList();
+		
+		String sql_select = "SELECT * FROM empleados WHERE perfil='Gerente'";
 		
 		try{
             Connection conn= fachada.getConnetion();

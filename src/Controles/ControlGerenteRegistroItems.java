@@ -90,6 +90,7 @@ public class ControlGerenteRegistroItems {
         materialItem.setDisable(bit);
         valorVentaItem.setDisable(bit);
         comboBoxSede.setDisable(bit);
+	    //for loles
         
     }
     @FXML 

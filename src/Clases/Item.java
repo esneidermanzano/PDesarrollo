@@ -19,7 +19,7 @@ public class Item {
 	public Item(String id, String id2, String nombre, String color, int vCompra, Date fecha, String sede, int cantidad){
 		this.id = id;
 		this.id2 = id2;
-		concatenado = id + id2;
+		concatenado = id2 + id;
 		this.nombre = nombre;
 		this.color = color;
 		this.valorCompra = vCompra;

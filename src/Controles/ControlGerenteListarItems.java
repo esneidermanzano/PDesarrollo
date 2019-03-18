@@ -82,7 +82,7 @@ public class ControlGerenteListarItems {
 	    	tablaItems.getSelectionModel().selectedItemProperty().addListener((obs, viejo, nuevo) -> {
 	    	    if (nuevo != null) {
 	    	    	textoNombre.setText(nuevo.getNombre());
-	    	    	textoId.setText(nuevo.getIdentificador() + nuevo.getIdentificador2());
+	    	    	textoId.setText(nuevo.getConcatenado());
 	    	    	botonActualizar.setDisable(false);
 	    	    }
 	    	});

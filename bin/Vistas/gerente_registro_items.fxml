@@ -11,7 +11,7 @@
    <children>
       <Pane prefHeight="570.0" prefWidth="650.0" style="-fx-background-color: white;">
          <children>
-            <JFXTextField fx:id="nombreItem" labelFloat="true" layoutX="46.0" layoutY="28.0" prefHeight="37.0" prefWidth="234.0" promptText="Nombre" styleClass="textfieldGerente">
+            <JFXTextField fx:id="nombreItem" disable="true" labelFloat="true" layoutX="46.0" layoutY="28.0" prefHeight="37.0" prefWidth="234.0" promptText="Nombre" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
@@ -42,13 +42,13 @@
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXComboBox fx:id="comboBoxSede" disable="true" editable="true" layoutX="46.0" layoutY="273.0" onMouseClicked="#onClickedSedes" prefHeight="25.0" prefWidth="234.0" promptText="Seleccione sede" />
+            <JFXComboBox fx:id="comboBoxSede" disable="true" editable="true" layoutX="46.0" layoutY="273.0" onMouseClicked="#onClickedSedes" prefHeight="25.0" prefWidth="234.0" promptText="Seleccione sede" styleClass= "comboBoxGerente" />
             <Label layoutX="46.0" layoutY="246.0" prefHeight="25.0" prefWidth="100.0" text="Numero sede" textFill="#aeaeae">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <JFXComboBox fx:id="referenciaItem" layoutX="326.0" layoutY="31.0" onMouseClicked="#onClickedReferencias" prefHeight="31.0" prefWidth="234.0" />
+            <JFXComboBox fx:id="referenciaItem" layoutX="326.0" layoutY="31.0" onMouseClicked="#onClickedReferencias" prefHeight="31.0" prefWidth="234.0" styleClass= "comboBoxGerente" />
             <Label layoutX="330.0" layoutY="23.0" prefHeight="25.0" prefWidth="100.0" text="Referencia" />
          </children>
       </Pane>

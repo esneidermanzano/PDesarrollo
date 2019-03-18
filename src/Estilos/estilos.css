@@ -42,18 +42,22 @@ JFXTextField{
     -fx-background-color:#ff7070;
 }
 
-#tablaItems .table-column {
+.tablaGerente .table-column {
   -fx-alignment: CENTER;
 }
 
-#tablaItems{
+.tablaGerente{
   -fx-focus-color: white;
-  -fx-selection-bar:#ff4040;
-  -fx-selection-bar-non-focused:#ff8080;
-  -fx-font-size: 14px;
+  -fx-selection-bar:#ff7070;
+  -fx-selection-bar-non-focused:#ff9090;
+  -fx-font-size: 13px;
   -fx-padding: 0.5em;
-  -fx-text-fill: #797979;
 }
-#tablaItems .column-header{
-    -fx-background-color:#ff7070;
+
+.tablaGerente .column-header, .tablaGerente .filler {
+    -fx-background-color: #eee;    
+    -fx-size: 45;
+    -fx-border-color: -fx-box-border;
+    -fx-border-width: 0 0 3 0;
+    -fx-border-insets: 0;
 }

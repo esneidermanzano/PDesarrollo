@@ -155,7 +155,7 @@ public class Principal extends Application {
 	public void start(Stage primaryStage) throws IOException {
 		escenarioLogin = primaryStage;
 		iniciarLogin();
-		
+		//iniciarGerente("Ximena Guzman");
 	}
 
 	public static void main(String[] args) {

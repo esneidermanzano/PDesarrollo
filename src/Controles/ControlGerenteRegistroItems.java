@@ -89,7 +89,6 @@ public class ControlGerenteRegistroItems {
         colorItem.setDisable(bit);
         materialItem.setDisable(bit);
         valorVentaItem.setDisable(bit);
-        fechaRegistroItem.setDisable(bit);
         comboBoxSede.setDisable(bit);
         
     }

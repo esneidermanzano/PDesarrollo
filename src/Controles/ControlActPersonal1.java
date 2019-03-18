@@ -57,14 +57,18 @@ public class ControlActPersonal1 {
     	if(V.validarCampo(idEntrada, 50, 1, errorID)) {
         	if(consultador.existe(idEntrada.getText())) {
         		Empleado E = buscarUsuario(idEntrada.getText());
-        		if(!E.compararPerfil("Gerente")) {
+        		if(!E.compararPerfil("Gerente") && !E.compararPerfil("Administrador")) {
         			FXMLLoader cargador = new FXMLLoader();   	    		
             		Pane panelCentral = (Pane)((Button)event.getSource()).getParent();
             		efectoCambio(cargador,E,panelCentral);
             		ControlActPersonal2 controlador = cargador.getController();
             		controlador.cargar(E);
         		}else {
-        			V.mostrarMensaje(3, "No tienes permisos para actualizar gerentes", "Error en la actualización");
+        			if(E.compararPerfil("Gerente")) {
+        				V.mostrarMensaje(3, "No tienes permisos para actualizar gerentes", "Error en la actualización");
+        			}else {
+        				V.mostrarMensaje(3, "No tienes permisos para actualizar al administrador", "Error en la actualización");
+        			}        			
         		}	        	
         	}else {
         		V.mostrarMensaje(3, "El usuario no existe", "Error en la actualización");

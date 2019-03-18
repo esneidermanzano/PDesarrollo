@@ -64,7 +64,6 @@ public class ControlRaizGerente {
 		nombreGerente.setText(nombre);
 		this.cargo = cargo;
 		atras.setVisible(false);
-
 	}
 	
     public void setStage(Stage escenario) {
@@ -114,16 +113,14 @@ public class ControlRaizGerente {
     @FXML
 //Carga la pantalla de registro de items cuando el boton "registrarItems" es pulsado.
     void registrarItems(ActionEvent event) {
-    FXMLLoader reg_itm_loader = new FXMLLoader();
-    reg_itm_loader.setLocation(getClass().getResource("/Vistas/gerente_registro_items.fxml"));
-       efectoCambio(reg_itm_loader);
+	    cambiarVentana("/Vistas/gerente_registro_items.fxml");
+	    titulo.setText("Registro de inventario");
     }
+    
     @FXML
     void registroSedes(ActionEvent event) {		
-
 		cambiarVentana("/Vistas/gerente_registro_sedes.fxml");
 		titulo.setText("Registro de sedes");
-
     }
     
     @FXML

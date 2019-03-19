@@ -16,6 +16,8 @@
                   <Image url="@../Imagenes/vendedor.png" />
                </image>
             </ImageView>
+            <JFXButton layoutX="43.0" layoutY="207.0" onAction="#consultarInventario" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Registro de Personal" textFill="GREY" />
+            
             <Label contentDisplay="CENTER" layoutX="43.0" layoutY="168.0" prefHeight="25.0" prefWidth="74.0" text="Vendedor" textFill="WHITE">
                <font>
                   <Font size="16.0" />

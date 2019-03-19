@@ -37,12 +37,18 @@ JFXTextField{
 	 -jfx-focus-color:#808080;
 
 }
+.textfieldVendedor, .comboBoxVendedor {
+	 -fx-prompt-text-fill: #bbb;
+	 -jfx-unfocus-color: #31af91;
+	 -jfx-focus-color:#808080;
+
+}
 .comboBoxGerente .list-view .list-cell:hover {
     -fx-text-fill: #fff;
     -fx-background-color:#ff7070;
 }
 
-.tablaGerente .table-column {
+.tablaGerente .table-column, .tablaVendedor .table-column {
   -fx-alignment: CENTER;
 }
 
@@ -54,7 +60,14 @@ JFXTextField{
   -fx-padding: 0.5em;
 }
 
-.tablaGerente .column-header, .tablaGerente .filler {
+.tablaVendedor{
+  -fx-focus-color: white;
+  -fx-selection-bar:#31af91;
+  -fx-selection-bar-non-focused:#50cbae;
+  -fx-font-size: 13px;
+  -fx-padding: 0.5em;
+}
+.tablaGerente .column-header, .tablaGerente .filler, .tablaVendedor .column-header, .tablaVendedor .filler {
     -fx-background-color: #eee;    
     -fx-size: 45;
     -fx-border-color: -fx-box-border;

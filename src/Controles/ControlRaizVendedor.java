@@ -92,6 +92,12 @@ public class ControlRaizVendedor {
     	ControlMenuInicial C = loader.getController();
     	C.iniciar(cargo);
     }
+    
+    @FXML
+    void consultarInventario(ActionEvent event) {
+		cambiarVentana("/Vistas/vendedor_listar_items.fxml");
+		titulo.setText("Consulta de inventario");
+    }
        
     @FXML
     void cerrarSesion(ActionEvent event) throws IOException {

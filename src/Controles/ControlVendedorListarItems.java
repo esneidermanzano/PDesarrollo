@@ -29,7 +29,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
-public class ControlGerenteListarItems {
+public class ControlVendedorListarItems {
 		private DaoInventario consultador;
 	 	
 	 	
@@ -45,14 +45,11 @@ public class ControlGerenteListarItems {
 	    
 	    @FXML private JFXTextField campoBuscar;
 
-	    @FXML private JFXButton botonActualizar;
-
 	    @FXML private Text textoNombre;
 	    @FXML private Text textoId;
 	    
 	    public void initialize() {
 	    	consultador = new DaoInventario();
-	    	botonActualizar.setDisable(true);
 	    	FilteredList<Item> filteredData = new FilteredList<>(consultador.obtenerItems(), p -> true);	    	
 	    	SortedList<Item> sortedData = new SortedList<>(filteredData);
 	    	sortedData.comparatorProperty().bind(tablaItems.comparatorProperty());	    	
@@ -69,7 +66,6 @@ public class ControlGerenteListarItems {
 	    	campoBuscar.textProperty().addListener((prop, old, text) -> {
 	    		textoNombre.setText("");
     	    	textoId.setText("");
-    	    	botonActualizar.setDisable(true);
 	    	    filteredData.setPredicate(person -> {
 	    	    	//tablaItems.getSelectionModel().clearSelection();
 	    	    	//tablaItems.getSelectionModel().select(-1);
@@ -84,28 +80,10 @@ public class ControlGerenteListarItems {
 	    	    if (nuevo != null) {
 	    	    	textoNombre.setText(nuevo.getNombre());
 	    	    	textoId.setText(nuevo.getConcatenado());
-	    	    	botonActualizar.setDisable(false);
 	    	    }
 	    	});
 	    }
 
-	    @FXML
-	    void actualizarItem(ActionEvent event) throws IOException {
-	    	FXMLLoader cargador = new FXMLLoader();
-			cargador.setLocation(getClass().getResource("/Vistas/gerente_actualizar_items.fxml"));
-			Parent gui = (Parent)cargador.load();
-			ControlGerenteActualizarItems controlador = cargador.getController();
-			Pane panelCentral= (Pane)((Button)event.getSource()).getParent();
-		    panelCentral.getChildren().clear();
-			panelCentral.getChildren().add(gui);
-			Scene scene = gui.getScene();			
-			gui.translateXProperty().set(scene.getWidth());		
-			Timeline timeline = new Timeline();
-			KeyValue rango = new KeyValue(gui.translateXProperty(), 0, Interpolator.EASE_IN);
-			KeyFrame duracion = new KeyFrame(Duration.seconds(0.4), rango);
-			timeline.getKeyFrames().add(duracion);
-			timeline.play();		
-			controlador.iniciar(tablaItems.getSelectionModel().getSelectedItem());
-	    }
+
     
 }

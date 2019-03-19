@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlVendedorListarItems">
+   <children>
+      <Pane prefHeight="635.0" prefWidth="700.0" style="-fx-background-color: white;">
+         <children>
+            <TableView fx:id="tablaItems" prefHeight="480.0" prefWidth="700.0" styleClass="tablaVendedor">
+              <columns>
+                <TableColumn fx:id="columnaId" prefWidth="73.0" text="Id" />
+                <TableColumn fx:id="columnaNombre" prefWidth="144.0" styleClass="tablaGerente" text="Nombre" />
+                  <TableColumn fx:id="columnaColor" prefWidth="78.0" text="Color" />
+                  <TableColumn fx:id="columnaIPrecioUnidad" prefWidth="98.0" text="Valor unidad" />
+                  <TableColumn fx:id="columnaIngreso" prefWidth="102.0" text="Ingreso" />
+                  <TableColumn fx:id="columnaSede" prefWidth="117.0" text="Sede" />
+                  <TableColumn fx:id="columnaExistencias" prefWidth="71.0" text="Cantidad" />
+              </columns>
+            </TableView>
+            <JFXTextField fx:id="campoBuscar" layoutX="59.0" layoutY="529.0" prefHeight="19.0" prefWidth="176.0" promptText="Introduce un nombre..." styleClass="textfieldVendedor">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <Text fx:id="textoNombre" fill="#797979" layoutX="366.0" layoutY="553.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="184.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="23.0" fitWidth="25.0" layoutX="24.0" layoutY="537.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/buscar.png" />
+               </image>
+            </ImageView>
+            <Text fill="#797979" layoutX="300.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Producto Seleccionado" wrappingWidth="149.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="textoId" fill="#797979" layoutX="366.0" layoutY="584.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="184.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#797979" layoutX="300.0" layoutY="553.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre: " wrappingWidth="59.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#797979" layoutX="300.0" layoutY="584.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id:" wrappingWidth="59.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

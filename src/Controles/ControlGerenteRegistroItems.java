@@ -246,6 +246,7 @@ public class ControlGerenteRegistroItems {
 		String nombre = nombreItem.getText().toLowerCase();
 		if(nombreItem.isDisable()) {
 		this.nombre= referenciaItem.getValue();
+			return true;
 		}else if(nombre.matches("[a-z]*") && nombre.matches("[^\t]*") && nombre.length() != 0) {
 			this.nombre = nombre;
 			return true;}

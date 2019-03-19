@@ -45,7 +45,6 @@ public class ControlRaizGerente {
     @FXML private JFXButton botonRegistroPersonal;
     @FXML private JFXButton botonRegistroSedes;
     @FXML private JFXButton botonActualizarPersonal;
-    @FXML private JFXButton botonActualizarSede;
     @FXML private JFXButton botonActualizaritems;
     @FXML private JFXButton botonConsultarPersonal;    
     @FXML private JFXButton botonConsultarSedes;    
@@ -121,12 +120,6 @@ public class ControlRaizGerente {
     void registroSedes(ActionEvent event) {		
 		cambiarVentana("/Vistas/gerente_registro_sedes.fxml");
 		titulo.setText("Registro de sedes");
-    }
-    
-    @FXML
-    void actualizarSede(ActionEvent event) {
-    	cambiarVentana("/Vistas/gerente_actualizar_sede1.fxml");
-    	titulo.setText("Actualización de sedes");
     }
     
     @FXML

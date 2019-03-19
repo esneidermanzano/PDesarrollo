@@ -89,7 +89,7 @@ public class Principal extends Application {
 		 	case "Vendedor":
 		 		ControlRaizVendedor CRV = cargador.getController();
 		 		CRV.initialize(nombre, perfil);
-		 		CRV.setStage(escenarioGerente);
+		 		CRV.setStage(escenarioVendedor);
 		 		initEfecto(raiz);
 		 		Scene EV = new Scene(raiz); 
 				escenarioLogin.close();
@@ -101,7 +101,7 @@ public class Principal extends Application {
 		 	case "Jefe de taller":
 		 		ControlRaizJefeTaller CRJ = cargador.getController();
 		 		CRJ.initialize(nombre, perfil);
-		 		CRJ.setStage(escenarioGerente);
+		 		CRJ.setStage(escenarioJefeTaller);
 		 		initEfecto(raiz);
 		 		Scene EJ = new Scene(raiz); 
 				escenarioLogin.close();

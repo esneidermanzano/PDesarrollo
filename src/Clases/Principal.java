@@ -28,6 +28,7 @@ public class Principal extends Application {
 		 return icono;
 	 }
 
+	 
 	 public static void iniciarLogin() throws IOException{				
 		FXMLLoader cargador = new FXMLLoader();
 		cargador.setLocation(Principal.class.getResource("/Vistas/login.fxml"));

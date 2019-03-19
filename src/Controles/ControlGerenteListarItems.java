@@ -71,14 +71,15 @@ public class ControlGerenteListarItems {
     	    	textoId.setText("");
     	    	botonActualizar.setDisable(true);
 	    	    filteredData.setPredicate(person -> {
-	    	    	tablaItems.getSelectionModel().clearSelection();
-	    	    	tablaItems.getSelectionModel().select(-1);
+	    	    	//tablaItems.getSelectionModel().clearSelection();
+	    	    	//tablaItems.getSelectionModel().select(-1);
 	    	        if(text == null || text.isEmpty()) return true;
 	    	        
-	    	        String name = person.getNombre().toLowerCase();  
+	    	        String name = person.getConcatenado().toLowerCase();  
 	    	        return name.contains(text.toLowerCase());
 	    	    });
 	    	});
+	    	
 	    	tablaItems.getSelectionModel().selectedItemProperty().addListener((obs, viejo, nuevo) -> {
 	    	    if (nuevo != null) {
 	    	    	textoNombre.setText(nuevo.getNombre());

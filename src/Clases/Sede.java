@@ -13,6 +13,7 @@ public class Sede {
 	private StringProperty numEmpleados;
 	private StringProperty fechaApertura;
 	
+	
     public Sede() {
     	this(null, null, null, null, null, null, null);
     }

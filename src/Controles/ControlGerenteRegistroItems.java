@@ -20,6 +20,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 
 public class ControlGerenteRegistroItems {
@@ -71,7 +73,14 @@ public class ControlGerenteRegistroItems {
     
     
 
-    
+public void mostrarMensaje(String titulo, String mensaje) {
+    	Alert alert = new Alert(AlertType.WARNING);
+		alert.setTitle(titulo);
+		alert.setHeaderText(null);
+		alert.setContentText(mensaje);
+		alert.showAndWait();
+    }
+	
     @FXML
     //se ejecuta al clickear el ComboBox que muestra las Sedes.
     void onClickedSedes() {
@@ -144,6 +153,7 @@ public class ControlGerenteRegistroItems {
     		this.Sede= comboBoxSede.getValue();
     		return true;
     	}
+	    mostrarMensaje("Error Sede", "Porfavor seleccionar una sede.");
 		return false;
 	}
     @FXML
@@ -169,8 +179,8 @@ public class ControlGerenteRegistroItems {
 		}else if(valorVentaItem.getText().matches("[0-9]*") && valorVenta.matches("[^\t]*") && valorVenta.length()!=0){
 			this.costoVenta= valorVenta;
 			return true;}
+	    mostrarMensaje("Error Valor Venta", "valor venta vacio o incorrecto");
 		System.out.println("valor venta incorrecto");
-		valorVentaItem.clear();
 		return false;
 	}
     
@@ -185,7 +195,7 @@ public class ControlGerenteRegistroItems {
 			this.costofab = costofab;
 			return true;}
 		System.out.println("Costo fab incorrecto");
-		costofabItem.clear();
+		mostrarMensaje("Error Costo Fabricacion", "Costo Fabricacion vacio o incorrecto");
 		return false;
 		// TODO Auto-generated method stub
 		
@@ -195,12 +205,13 @@ public class ControlGerenteRegistroItems {
 	private boolean verificarMaterial() {
 		
     	//validation request for data base.
-		String materialSeleccionado = materialItem.getText();
+		String materialSeleccionado = materialItem.getText().toLowerCase();
 		if(nuevo) {
 			return true;
 		}else if(materialSeleccionado.matches("[a-z]*") && materialSeleccionado.matches("[^\t]*") && materialSeleccionado.length()!=0) {
 			this.material = materialSeleccionado;
 			return true;}
+		mostrarMensaje("Error Material", "Material vacio o incorrecto");
 		System.out.println("material incorrecto");
 		return false;
 		// TODO Auto-generated method stub
@@ -211,12 +222,13 @@ public class ControlGerenteRegistroItems {
 	private boolean verificarColor() {
 		
     	//Validation for data base request.
-		String color = colorItem.getText();
+		String color = colorItem.getText().toLowerCase();
 		if(nuevo){
     	return true;
     	}else if(color.matches("[a-z]*") && color.matches("[^\t]*") && color.length()!=0) {
 			this.color = color;
 			return true;}
+		mostrarMensaje("Error Color", "Color vacio o incorrecto");
 		System.out.println("Color incorrecto");
 		return false;
 		// TODO Auto-generated method stub
@@ -233,6 +245,7 @@ public class ControlGerenteRegistroItems {
 		}else if(cantidad.matches("[0-9]*") && cantidad.matches("[^\t]*") && cantidad.length() != 0) {
 			this.cantidad=cantidad;
 			return true;}
+		mostrarMensaje("Error Cantidad", "Cantidad vacia o incorrecto");
 		System.out.println("cantidad incorrecta");
 		return false;
 		// TODO Auto-generated method stub
@@ -252,6 +265,7 @@ public class ControlGerenteRegistroItems {
 			return true;}
 		
 		//feedback for user.
+		mostrarMensaje("Error Nombre", "Nombre vacio o incorrecto");
 		System.out.println("nombre incorrecto");
 		return false;
 		// TODO Auto-generated method stub
@@ -272,6 +286,7 @@ public class ControlGerenteRegistroItems {
 				nuevo=false;
 				return true;
 			}
+		mostrarMensaje("Error Referencia", "Porfavor Seleccionar una referencia");
 		System.out.println("referencia incorrecta");
 		return false;
 	}

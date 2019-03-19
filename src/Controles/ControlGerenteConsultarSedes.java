@@ -9,15 +9,27 @@ import Clases.Sede;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
+import java.io.IOException;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ObjectProperty;
@@ -65,6 +77,9 @@ public class ControlGerenteConsultarSedes {
     
     @FXML
     private JFXTextField buscarId;
+    @FXML
+    private Button botonActualizar;
+
     
     public void initialize() {
     	
@@ -131,5 +146,25 @@ public class ControlGerenteConsultarSedes {
             labelNumEmpleados.setText("");
             labelFechaApertura.setText("");
         }
+    }
+    @FXML
+    void actualizar_sede(ActionEvent event) throws IOException {
+    	Sede sede_tomada=tablaIndiceSedes.getSelectionModel().getSelectedItem();
+    	FXMLLoader cargador = new FXMLLoader();
+		cargador.setLocation(getClass().getResource("/Vistas/gerente_actualizar_sede2.fxml"));
+		Parent GUI4 = (Parent)cargador.load();
+		ControlActSedes2 controlador = cargador.getController();
+		//CAMBIO____________________________________________________________________________________
+		Pane panelCentral= (Pane)((Button)event.getSource()).getParent();
+	    panelCentral.getChildren().clear();
+		panelCentral.getChildren().add(GUI4);
+		Scene scene = GUI4.getScene();			
+		GUI4.translateXProperty().set(scene.getWidth());		
+		Timeline timeline = new Timeline();
+		KeyValue rango = new KeyValue(GUI4.translateXProperty(), 0, Interpolator.EASE_IN);
+		KeyFrame duracion = new KeyFrame(Duration.seconds(0.4), rango);
+		timeline.getKeyFrames().add(duracion);
+		timeline.play();		
+		controlador.iniciar(sede_tomada);
     }
 }

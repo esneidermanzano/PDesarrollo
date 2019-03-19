@@ -194,7 +194,7 @@ public class DaoSede {
 	        	 return false;
 	         }  
 		}
-	
+	/*
 	public String[] consultarIdentificador(String nombre, int identificador) {
         String sql_select;                                
         String[ ]   resultado = new  String[7];  
@@ -223,7 +223,7 @@ public class DaoSede {
          return resultado;
          
 	}
-	
+	*/
 	public int actualizar(int identificador,String nombre,String telefono,String direccion,int tamano,int nEmpleados){
         String sql_actualizar;
         int n=0;

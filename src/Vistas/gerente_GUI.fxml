@@ -29,7 +29,6 @@
                </font>
             </Text>
             <JFXButton fx:id="botonActualizarPersonal" layoutX="43.0" layoutY="315.0" onAction="#cargarInterfazAP1" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Actualizar Personal" textFill="GREY" />
-            <JFXButton fx:id="botonActualizarSede" layoutX="43.0" layoutY="351.0" onAction="#actualizarSede" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Actualizar Sedes" textFill="GREY" />
             <JFXButton fx:id="botonActualizaritems" layoutX="43.0" layoutY="386.0" onAction="#actualizarItems" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Actualizar Items" textFill="GREY" />
             <JFXButton fx:id="botonConsultarPersonal" layoutX="43.0" layoutY="424.0" onAction="#consultarPersonal" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Consultar Personal" textFill="GREY" />
             <JFXButton fx:id="botonConsultarSedes" layoutX="43.0" layoutY="460.0" onAction="#consultarSedes" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Consultar Sedes" textFill="GREY" />

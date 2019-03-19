@@ -9,6 +9,7 @@ import java.util.Locale;
 import com.jfoenix.controls.JFXTextField;
 
 import BaseDatos.DaoSede;
+import Clases.Sede;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -56,18 +57,16 @@ public class ControlActSedes2 {
     private Label avisoTamano;
 
 	
-
-
-    public void iniciar(String[] resultado) {
-    	identificador.setText(resultado[0]);
-    	nombre.setText(resultado[1]);
-    	telefono.setText(resultado[2]);
-    	direccion.setText(resultado[3]);
-    	tamanoSede.setText(resultado[4]);
-    	nEmpleados.setText(resultado[5]);
+    public void iniciar(Sede sede) {
+    	identificador.setText(sede.getId());
+    	nombre.setText(sede.getNombre());
+    	telefono.setText(sede.getTelefono());
+    	direccion.setText(sede.getDireccion());
+    	tamanoSede.setText(sede.getTamano());
+    	nEmpleados.setText(sede.getNumEmpleados());
     	DateTimeFormatter formater= DateTimeFormatter.ofPattern("yyyy-mm-dd");
     	formater.withLocale(Locale.CANADA_FRENCH);
-    	LocalDate fecha = LocalDate.parse(resultado[6]);
+    	LocalDate fecha = LocalDate.parse(sede.getFechaApertura());
     	apertura.setValue(fecha);
     	
     }
@@ -105,19 +104,14 @@ public class ControlActSedes2 {
     
     public void cargarInterfazAnterior(ActionEvent event)  {
     	FXMLLoader cargador = new FXMLLoader();
-		cargador.setLocation(getClass().getResource("/Vistas/gerente_actualizar_sede1.fxml"));
+		cargador.setLocation(getClass().getResource("/Vistas/gerente_consultar_sedes.fxml"));
 		//CAMBIO___________________________________________________________________________________
 		Pane panelCentral= (Pane)((Button)event.getSource()).getParent();
 		efectoCambio(cargador, panelCentral);
-		ControlActSedes1 controlador = cargador.getController();
 		//__________________________________________________________________
 		//BorderPane panelRaiz = (BorderPane)((Button)event.getSource()).getScene().getRoot();
 		//panelRaiz.setCenter(GUI5);
-		controlador.setear();
-	
-		
-		
-    }
+	}
     public boolean validarCampo(String prueba, int longitud, int tipo, Label aviso) {
     	
     	boolean salida = true;

@@ -251,6 +251,26 @@ public class DaoSede {
         }
         return n;
     }
+	
+	public int actualizarCantidadEmpleados(String sede, String cambio) {
+        String sql_actualizar;
+        int n = -1;
+        sql_actualizar = "UPDATE sedes SET numero_empleados = numero_empleados " + cambio + " WHERE id = " + sede;
+        
+        try{
+            Connection conn= fachada.getConnetion();
+            PreparedStatement sentencia = conn.prepareStatement(sql_actualizar);
+            n = sentencia.executeUpdate();            
+        }
+        catch(SQLException e){
+            System.out.println(e); 
+            }
+        catch(Exception e){ 
+            System.out.println(e);
+        }
+        
+        return n;
+    }
 
 	public ObservableList<Sede> consultarSedes(){
 		

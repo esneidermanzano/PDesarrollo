@@ -45,6 +45,8 @@ public class ControlActPersonal2 {
     @FXML private JFXComboBox<String> perfil;
     private Validador V = new Validador();
     private DaoSede consultador = new DaoSede();
+    private String estadoAntes;
+    private String sedeAntes;
     
     //Valida los campos de la interfaz:
     public boolean validar() {    	
@@ -75,7 +77,7 @@ public class ControlActPersonal2 {
         	generoS = genero.getSelectionModel().getSelectedItem();          	
         	Empleado E = new Empleado(nombreS,idS,telefonoS,estadoS,sedeS,correoS,perfilS,estadoCivilS,generoS);
         	DaoEmpleado actualizador = new DaoEmpleado();        	
-        	if(actualizador.actualizar(E) > 0) {
+        	if(actualizador.actualizar(E, estadoAntes, sedeAntes) > 0) {
         		V.mostrarMensaje(1, "El usuario se ha actualizado exitosamente", "Actualización de usuario");
         		cargarInterfazAnterior(event);
         	}     	
@@ -141,12 +143,15 @@ public class ControlActPersonal2 {
     	String estadoS = E.getEstado(), estadoCivilS = E.getEstadoCivil(), generoS = E.getGenero();
         if(estadoS.compareTo("1") == 0) {
     		estado.getSelectionModel().select("Activo");
+    		estadoAntes = "B'1'";
     	}else {
     		estado.getSelectionModel().select("Inactivo");
+    		estadoAntes = "B'0'";
     	}    	
      	genero.getSelectionModel().select(generoS);
      	estadoCivil.getSelectionModel().select(estadoCivilS);    	
      	sede.getSelectionModel().select(consultador.getNombre(sedeS));
+     	sedeAntes = sedeS;
      	perfil.getSelectionModel().select(perfilS);    	
        	correo.setText(correoS);
      	id.setText("ID: " + idS);

@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXTextField;
 
 import BaseDatos.DaoInventario;
 import Clases.Item;
+import Clases.Validador;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -30,8 +31,8 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 public class ControlGerenteListarItems {
-		private DaoInventario consultador;
-	 	
+		private DaoInventario consultador = new DaoInventario();
+	 	private String ejemplar;
 	 	
 	 	@FXML
 	    private TableView<Item> tablaItems;
@@ -50,8 +51,10 @@ public class ControlGerenteListarItems {
 	    @FXML private Text textoNombre;
 	    @FXML private Text textoId;
 	    
+	    @FXML private JFXButton eliminar;
+	    
 	    public void initialize() {
-	    	consultador = new DaoInventario();
+	    	eliminar.setDisable(true);
 	    	botonActualizar.setDisable(true);
 	    	FilteredList<Item> filteredData = new FilteredList<>(consultador.obtenerItems(), p -> true);	    	
 	    	SortedList<Item> sortedData = new SortedList<>(filteredData);
@@ -70,6 +73,7 @@ public class ControlGerenteListarItems {
 	    		textoNombre.setText("");
     	    	textoId.setText("");
     	    	botonActualizar.setDisable(true);
+    	    	eliminar.setDisable(true);
 	    	    filteredData.setPredicate(person -> {
 	    	    	//tablaItems.getSelectionModel().clearSelection();
 	    	    	//tablaItems.getSelectionModel().select(-1);
@@ -84,7 +88,9 @@ public class ControlGerenteListarItems {
 	    	    if (nuevo != null) {
 	    	    	textoNombre.setText(nuevo.getNombre());
 	    	    	textoId.setText(nuevo.getConcatenado());
+	    	    	ejemplar = nuevo.getIdentificador2();
 	    	    	botonActualizar.setDisable(false);
+	    	    	eliminar.setDisable(false);
 	    	    }
 	    	});
 	    }
@@ -106,6 +112,15 @@ public class ControlGerenteListarItems {
 			timeline.getKeyFrames().add(duracion);
 			timeline.play();		
 			controlador.iniciar(tablaItems.getSelectionModel().getSelectedItem());
+	    }
+	    
+	    @FXML
+	    void eliminarItem(ActionEvent event) {
+	    	if(consultador.eliminarItem(ejemplar) > 0) {
+	    		Validador V = new Validador();
+	    		V.mostrarMensaje(1, "La cantidad de ejemplares se ha reducido a 0", "Eliminación de ítems");
+	    		initialize();
+	    	}
 	    }
     
 }

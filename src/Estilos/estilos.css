@@ -67,6 +67,7 @@ JFXTextField{
   -fx-font-size: 13px;
   -fx-padding: 0.5em;
 }
+
 .tablaGerente .column-header, .tablaGerente .filler, .tablaVendedor .column-header, .tablaVendedor .filler {
     -fx-background-color: #eee;    
     -fx-size: 45;
@@ -74,3 +75,21 @@ JFXTextField{
     -fx-border-width: 0 0 3 0;
     -fx-border-insets: 0;
 }
+/*Nuevo*/
+#tabla_lista_items, #tabla_lista_items_cotizados{  
+	-fx-focus-color: white;
+  -fx-selection-bar:#ffbdbd;
+  -fx-selection-bar-non-focused:#eee;
+  -fx-font-size: 12px;
+  -fx-padding: 0.5em;
+  -fx-text-fill: #797979;
+}
+#tabla_lista_items .column-header{
+    -fx-background-color:#31af91;
+}
+#tabla_lista_items_cotizados .column-header{
+    -fx-background-color:#31af91;
+}
+
+
+/*_______________________Valle */

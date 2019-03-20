@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import java.util.Date;
@@ -258,4 +258,153 @@ public class DaoInventario {
 		
 		return lista;
 	}
+	
+	//AGREGA CRISTIAN VALLECILLA
+		public boolean registrarCotizacion(String idEmpleado,String nombreC,String idCliente,Timestamp fecha) {
+			String sql_select; 
+			int resultado =0;
+			sql_select="INSERT into cotizaciones(id,id_vendedor,nombre_cliente,id_cliente,fecha) values(nextval('cotizaciones_sequence'),?,?,?,?)";
+			try{
+	            Connection conn= fachada.getConnetion();
+	            System.out.println("consultando sede en la bd");
+	            PreparedStatement sentencia = conn.prepareStatement(sql_select);
+	            sentencia.setString(1, idEmpleado);
+	            sentencia.setString(2, nombreC);
+	            sentencia.setString(3, idCliente);
+	            sentencia.setTimestamp(4, fecha);
+	            resultado = sentencia.executeUpdate();
+	        }
+			catch(SQLException e){ 
+			System.out.println(e);
+			return false;
+			}
+	        catch(Exception e){ System.out.println(e); }
+			if(resultado<0) {
+				return false;
+			}else {
+				return true;
+			}
+		}
+		public String consultarNumeroCotizacion(String nombreC,String idCliente) {
+			String sql_select; 
+			ResultSet resultado;
+			String idCotizacion="";
+			sql_select="SELECT id FROM cotizaciones WHERE nombre_cliente=? AND id_cliente=?";
+			try{
+	            Connection conn= fachada.getConnetion();
+	            System.out.println("consultando sede en la bd");
+	            PreparedStatement sentencia = conn.prepareStatement(sql_select);
+	            sentencia.setString(1, nombreC);
+	            sentencia.setString(2, idCliente);
+	            resultado = sentencia.executeQuery();
+		        while(resultado.next()) {
+		        	idCotizacion=""+ resultado.getInt(1);
+		        }
+	        }
+			catch(SQLException e){ 
+			System.out.println(e);
+			}
+	        catch(Exception e){ System.out.println(e); }
+			return idCotizacion;
+		}
+		
+		public int registrarItemCotizacion(int id_cotizacion,int id_inventario,int id_ejemplar, int cantidad) {
+			String sql_select; 
+			int resultado = 0;
+			sql_select="SELECT id_cotizacion FROM detalle_cotizaciones WHERE id_cotizacion=? AND id_inventario=? AND id_ejemplar=?";
+			try{
+	            Connection conn= fachada.getConnetion();
+	            System.out.println("consultando sede en la bd");
+	            PreparedStatement sentencia = conn.prepareStatement(sql_select);
+	            sentencia.setInt(1, id_cotizacion);
+	            sentencia.setInt(2, id_inventario);
+	            sentencia.setInt(3, id_ejemplar);
+	            ResultSet tabla = sentencia.executeQuery();
+	            while(tabla.next()) {
+	            	resultado=tabla.getInt(1); 
+	            }
+	        }
+			catch(SQLException e){ 
+			System.out.println("fue en el general"+e);
+			return -1; 
+			}
+	        catch(Exception e){ System.out.println(e); }
+			if(resultado!=0) {
+				String sql_select1; 
+				int resultado1 =0;
+				sql_select1="UPDATE detalle_cotizaciones SET cantidad= cantidad +? WHERE id_cotizacion=? AND id_inventario=? AND id_ejemplar=?";
+				try{
+		            Connection conn= fachada.getConnetion();
+		            System.out.println("consultando sede en la bd");
+		            PreparedStatement sentencia = conn.prepareStatement(sql_select1);
+		            sentencia.setInt(1, cantidad);
+		            sentencia.setInt(2, id_cotizacion);
+		            sentencia.setInt(3, id_inventario);
+		            sentencia.setInt(4, id_ejemplar);
+		            
+		            resultado1 = sentencia.executeUpdate();
+		        }
+				catch(SQLException e){ 
+				System.out.println(e);
+				return -1;
+				}
+		        catch(Exception e){ System.out.println("fue en el primero"+e); }
+				if(resultado1<0) {
+					return -1;
+				}else {
+					return 1;
+				}
+				
+			}else {
+				String sql_select2; 
+				int resultado1 =0;
+				sql_select2="INSERT into detalle_cotizaciones (id_cotizacion,id_inventario,id_ejemplar,cantidad ) values(?,?,?,?)";
+				try{
+		            Connection conn= fachada.getConnetion();
+		            System.out.println("consultando sede en la bd");
+		            PreparedStatement sentencia = conn.prepareStatement(sql_select2);
+		            sentencia.setInt(1, id_cotizacion);
+		            sentencia.setInt(2, id_inventario);
+		            sentencia.setInt(3, id_ejemplar);
+		            sentencia.setInt(4, cantidad);
+		            resultado1 = sentencia.executeUpdate();
+		        }
+				catch(SQLException e){ 
+					System.out.println("fue en el segunda "+e);
+
+				return -1;
+				}
+		        catch(Exception e){ System.out.println(e); }
+				if(resultado1<0) {
+					return -1;
+				}else {
+					return 2;
+				}
+			}
+			
+		}
+		public boolean borrarItemCotizacion(int id_cotizacion,int id_inventario,int id_ejemplar) {
+			String sql_select; 
+			int resultado=0;
+			sql_select="DELETE FROM detalle_cotizaciones WHERE id_cotizacion=? AND id_inventario=? AND id_ejemplar=?";
+			try{
+	            Connection conn= fachada.getConnetion();
+	            System.out.println("consultando sede en la bd");
+	            PreparedStatement sentencia = conn.prepareStatement(sql_select);
+	            sentencia.setInt(1, id_cotizacion);
+	            sentencia.setInt(2, id_inventario);
+	            sentencia.setInt(3, id_ejemplar);
+	            resultado = sentencia.executeUpdate();
+		        
+	        }
+			catch(SQLException e){ 
+			System.out.println(e);
+			}
+	        catch(Exception e){ System.out.println(e); }
+			if(resultado<0) {
+				return false;
+			}else {
+				return true;
+			}
+		}
 }

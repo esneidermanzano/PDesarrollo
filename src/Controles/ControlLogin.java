@@ -28,34 +28,34 @@ public class ControlLogin {
 
     public void procesarUsuario() {
     	String usuario = campoUsuarioLogin.getText();
-    	String perfil = "";
+    	String[] perfil = new String[2];                                    //CAMBIO VALLE
     	if(usuario.equals("")) {
     		mensajeAdvertencia.setText("Introduzca un usuario");
     	}else {
     		consultador = new DaoLogin();
     		if(consultador.consultarUsuario(usuario)) {
     			perfil = consultador.consultarContrasena(campoUsuarioLogin.getText(), campoPasswordLogin.getText());	
-		         if(!perfil.equals("")){
-		        	 if (perfil.equals("Gerente")) {
+		         if(!perfil[0].equals("")){
+		        	 if (perfil[0].equals("Gerente")) {
 		    			try {
 							Principal.iniciarGerente(campoUsuarioLogin.getText(), perfil);
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
-		        	 }else if(perfil.equals("Vendedor")){
+		        	 }else if(perfil[0].equals("Vendedor")){
 		        		 try {
 							Principal.iniciarVendedor(campoUsuarioLogin.getText(), perfil);
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
-		        	 }else if(perfil.equals("Jefe de taller")) {
+		        	 }else if(perfil[0].equals("Jefe de taller")) {
 		        		 try {
 								Principal.iniciarJefeTaller(campoUsuarioLogin.getText(), perfil);
 							} catch (IOException e) {
 								e.printStackTrace();
 							}
 		        	 }
-		        	 else if(perfil.equals("Administrador")) {
+		        	 else if(perfil[0].equals("Administrador")) {
 		        		 try {
 								Principal.iniciarAdministrador(campoUsuarioLogin.getText(), perfil);
 							} catch (IOException e) {

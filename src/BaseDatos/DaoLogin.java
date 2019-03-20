@@ -39,12 +39,12 @@ public class DaoLogin {
          }  
 	}
 	
-	public String consultarContrasena(String nomUsuario, String passUsuario) {
+	public String[] consultarContrasena(String nomUsuario, String passUsuario) {
         String sql_select;
-        String resultado="";
+        String[] resultado=new  String[2];//CAMBIO VALLE, AÑADI EL CAMPO ID PARA USARLO EN LA COTIZACION
         //String contrasena="";
         
-        sql_select="SELECT perfil FROM empleados WHERE nombre='" + nomUsuario + "' AND password=CRYPT('" + passUsuario +  "', password)";
+        sql_select="SELECT perfil,id FROM empleados WHERE nombre='" + nomUsuario + "' AND password=CRYPT('" + passUsuario +  "', password)";
          try{
             Connection conn= fachada.getConnetion();
             System.out.println("consultando en la bd");
@@ -52,7 +52,8 @@ public class DaoLogin {
             ResultSet tabla = sentencia.executeQuery(sql_select);
             
             while(tabla.next()){            
-               resultado = tabla.getString(1);
+            	 resultado[0] = tabla.getString(1);
+                 resultado[1]= tabla.getString(2);//CAMBIO VALLE
             }           
          }
          catch(SQLException e){ System.out.println(e); }

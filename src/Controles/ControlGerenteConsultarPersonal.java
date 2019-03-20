@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
 import javafx.animation.Interpolator;
@@ -43,6 +44,9 @@ public class ControlGerenteConsultarPersonal {
 	
 	@FXML
     private TableView<Empleado> tablaIndiceEmpleados;
+	
+	@FXML
+    private JFXButton editar;
 
     @FXML
     private Label labelSede;
@@ -84,6 +88,8 @@ public class ControlGerenteConsultarPersonal {
     private JFXTextField buscarId;
     
     public void initialize() {
+    	
+    	editar.setDisable(true);
     	
     	gerente = new DaoEmpleado();
     	
@@ -140,6 +146,8 @@ public class ControlGerenteConsultarPersonal {
             labelPerfil.setText(empleado.getPerfil());
             labelEstadoCivil.setText(empleado.getEstadoCivil());
             labelGenero.setText(empleado.getGenero());
+            
+            editar.setDisable(false);
 
             // TODO: We need a way to convert the birthday into a String! 
             // birthdayLabel.setText(...);
@@ -154,6 +162,9 @@ public class ControlGerenteConsultarPersonal {
             labelPerfil.setText("");
             labelEstadoCivil.setText("");
             labelGenero.setText("");
+            
+            editar.setDisable(true);
+            
         }
     }
     
@@ -170,8 +181,8 @@ public class ControlGerenteConsultarPersonal {
 		KeyFrame duracion = new KeyFrame(Duration.seconds(0.4), rango);
 		timeline.getKeyFrames().add(duracion);
 		timeline.play();
-		ControlActPersonal controlador = cargador.getController();
-		controlador.cargar(E, false);
+		ControlGerenteActPersonal controlador = cargador.getController();
+		controlador.cargar(E);
     }
     
     //Extrae el empleado seleccionado:

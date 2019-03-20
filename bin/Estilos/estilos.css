@@ -72,6 +72,7 @@ JFXTextField{
   -fx-font-size: 13px;
   -fx-padding: 0.5em;
 }
+
 #tabla_lista_items, #tabla_lista_items_cotizados{  
 	-fx-focus-color: white;
   -fx-selection-bar:#d7fff5;
@@ -94,6 +95,8 @@ JFXTextField{
     -fx-border-width: 0 0 3 0;
     -fx-border-insets: 0;
 }
+
+
 .tablaVendedor{
   -fx-focus-color: white;
   -fx-selection-bar:#31af91;

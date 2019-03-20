@@ -94,6 +94,8 @@ public class ControlAdminConsultarYActualizar {
     
     public void initialize() {
     	
+    	editar.setDisable(true);
+    	
     	gerente = new DaoEmpleado();
     	
     	/*FilteredList<Empleado> filteredData = new FilteredList<>(gerente.consultarGerentes(), p -> true);
@@ -180,6 +182,8 @@ public class ControlAdminConsultarYActualizar {
         	labelPerfil.setText(empleado.getPerfil());
         	labelEstadoCivil.setText(empleado.getEstadoCivil());
         	labelGenero.setText(empleado.getGenero());
+        	
+        	editar.setDisable(false);
 
             // TODO: We need a way to convert the birthday into a String! 
             // birthdayLabel.setText(...);
@@ -194,12 +198,15 @@ public class ControlAdminConsultarYActualizar {
             labelPerfil.setText("");
             labelEstadoCivil.setText("");
             labelGenero.setText("");
+            
+            editar.setDisable(true);
+            
         }
     }
     
     //Aplica el efecto de transición:
     public void efectoCambio(FXMLLoader cargador, Empleado E, Pane panelCentral) throws IOException {
-		cargador.setLocation(getClass().getResource("/Vistas/gerente_actualizar_personal.fxml"));
+		cargador.setLocation(getClass().getResource("/Vistas/admin_actualizar_personal.fxml"));
 		Parent GUI = (Parent)cargador.load();    	    		
 		panelCentral.getChildren().clear();
 		panelCentral.getChildren().add(GUI);
@@ -210,8 +217,8 @@ public class ControlAdminConsultarYActualizar {
 		KeyFrame duracion = new KeyFrame(Duration.seconds(0.4), rango);
 		timeline.getKeyFrames().add(duracion);
 		timeline.play();
-		ControlActPersonal controlador = cargador.getController();
-		controlador.cargar(E, true);
+		ControlAdminActPersonal controlador = cargador.getController();
+		controlador.cargar(E);
     }
     
     //Extrae el empleado seleccionado:

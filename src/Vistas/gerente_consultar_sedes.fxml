@@ -64,6 +64,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
+            <Label fx:id="labelAvisoTomaSede" layoutX="20.0" layoutY="468.0" prefHeight="17.0" prefWidth="300.0" textFill="#ee0606" />
          </children>
       </Pane>
    </children>

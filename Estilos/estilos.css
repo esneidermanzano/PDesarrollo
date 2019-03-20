@@ -1,0 +1,89 @@
+.controles{
+	-fx-alignment: center ;
+	-fx-background-color:transparent;
+	-fx-border-color: transparent; 
+	-fx-border-width: 0 0 2 0;
+	-fx-pref-height:25px;
+	-fx-pref-width:25px;
+}
+.controles:hover{
+	-fx-cursor: hand;
+	-fx-border-color: #808080; 
+	-fx-border-width: 0 0 2 0;
+}
+
+#botonCerrarSesion{
+	-fx-background-color:transparent;
+	-fx-border-width:  0 1 0 0;
+	-fx-border-color: transparent; 
+}
+#botonCerrarSesion:hover{
+	-fx-border-width:  0 1 0 0;
+	-fx-border-color: #fff;
+	-fx-cursor: hand;
+
+}
+.botonesPanel{
+	-fx-background-color:#fff;
+}
+/* 
+JFXTextField{
+	-fx-text-inner-color: #808080;
+	-fx-prompt-text-fill: #bbb
+}*/
+.textfieldGerente, .comboBoxGerente {
+	 -fx-prompt-text-fill: #bbb;
+	 -jfx-unfocus-color: #ff7070;
+	 -jfx-focus-color:#808080;
+
+}
+.textfieldAdministrador, .comboBoxAdministrador {
+	 -fx-prompt-text-fill: #bbb;
+	 -jfx-unfocus-color: #000000;
+	 -jfx-focus-color:#000000;
+
+}
+.textfieldVendedor, .comboBoxVendedor {
+	 -fx-prompt-text-fill: #bbb;
+	 -jfx-unfocus-color: #31af91;
+	 -jfx-focus-color:#808080;
+
+}
+.comboBoxGerente .list-view .list-cell:hover {
+    -fx-text-fill: #fff;
+    -fx-background-color:#ff7070;
+}
+
+.tablaGerente .table-column, .tablaVendedor .table-column {
+  -fx-alignment: CENTER;
+}
+
+.tablaGerente{
+  -fx-focus-color: white;
+  -fx-selection-bar:#ff7070;
+  -fx-selection-bar-non-focused:#ff9090;
+  -fx-font-size: 13px;
+  -fx-padding: 0.5em;
+}
+.tablaAdministrador{
+  -fx-focus-color: white;
+  -fx-selection-bar:#006699;
+  -fx-selection-bar-non-focused:#006699;
+  -fx-font-size: 13px;
+  -fx-padding: 0.5em;
+}
+
+.tablaVendedor{
+  -fx-focus-color: white;
+  -fx-selection-bar:#31af91;
+  -fx-selection-bar-non-focused:#50cbae;
+  -fx-font-size: 13px;
+  -fx-padding: 0.5em;
+}
+.tablaGerente .column-header, .tablaGerente .filler, .tablaVendedor .column-header, .tablaVendedor .filler {
+    -fx-background-color: #eee;    
+    -fx-size: 45;
+    -fx-border-color: -fx-box-border;
+    -fx-border-width: 0 0 3 0;
+    -fx-border-insets: 0;
+}

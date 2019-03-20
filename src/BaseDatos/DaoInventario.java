@@ -258,6 +258,27 @@ public class DaoInventario {
 		
 		return lista;
 	}
+	
+	public int eliminarItem(String E) {
+        String sql_actualizar;
+        int n = -1;
+        sql_actualizar = "UPDATE ejemplares SET cantidad = 0 WHERE numero_de_ejemplar = " + E;
+        
+        try{
+            Connection conn= fachada.getConnetion();
+            PreparedStatement sentencia = conn.prepareStatement(sql_actualizar);
+            n = sentencia.executeUpdate();            
+        }
+        catch(SQLException e){
+            System.out.println(e); 
+            }
+        catch(Exception e){ 
+            System.out.println(e);
+        }
+        
+        return n;
+    }
+	
 	//AGREGA CRISTIAN VALLECILLA
 		public boolean registrarCotizacion(String idEmpleado,String nombreC,String idCliente,Timestamp fecha) {
 			String sql_select; 

@@ -130,9 +130,9 @@
                      </font></Label>
                </children>
             </GridPane>
-            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="38.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="18.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Imagenes/buscar.png" />
+                  <Image url="@../Imagenes/lupita.png" />
                </image>
             </ImageView>
          </children>

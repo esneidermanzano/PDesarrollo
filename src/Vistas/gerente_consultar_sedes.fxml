@@ -14,17 +14,17 @@
       <Pane prefHeight="643.0" prefWidth="700.0">
          <children>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <JFXTextField fx:id="buscarNombre" layoutX="270.0" layoutY="502.0" promptText="Búsqueda por nombre" styleClass="textfieldGerente">
+            <JFXTextField fx:id="buscarNombre" layoutX="131.0" layoutY="502.0" promptText="Búsqueda por nombre" styleClass="textfieldGerente">
                <font>
                   <Font size="15.0" />
                </font></JFXTextField>
-            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="209.0" layoutY="525.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="37.0" layoutY="509.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Imagenes/buscar.png" />
+                  <Image url="@../Imagenes/lupita.png" />
                </image>
             </ImageView>
-            <Button layoutX="477.0" layoutY="521.0" mnemonicParsing="false" onAction="#actualizar_sede" prefHeight="55.0" prefWidth="135.0" style="-fx-background-color: #ff7070;" text="Actualizar" textFill="WHITE" />
-            <JFXTextField fx:id="buscarId" layoutX="271.0" layoutY="548.0" promptText="Búsqueda por ID" styleClass="textfieldGerente">
+            <Button layoutX="421.0" layoutY="521.0" mnemonicParsing="false" onAction="#actualizar_sede" prefHeight="55.0" prefWidth="135.0" style="-fx-background-color: #ff7070;" text="Actualizar" textFill="WHITE" />
+            <JFXTextField fx:id="buscarId" layoutX="132.0" layoutY="548.0" promptText="Búsqueda por ID" styleClass="textfieldGerente">
                <font>
                   <Font size="15.0" />
                </font></JFXTextField>

@@ -39,7 +39,7 @@ JFXTextField{
 }
 .textfieldAdministrador, .comboBoxAdministrador {
 	 -fx-prompt-text-fill: #bbb;
-	 -jfx-unfocus-color: #000000;
+	 -jfx-unfocus-color: #797979;
 	 -jfx-focus-color:#000000;
 
 }

@@ -18,7 +18,7 @@
                <font>
                   <Font size="15.0" />
                </font></JFXTextField>
-            <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="209.0" layoutY="535.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="209.0" layoutY="525.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/buscar.png" />
                </image>
@@ -28,7 +28,7 @@
                <font>
                   <Font size="15.0" />
                </font></JFXTextField>
-            <GridPane layoutX="366.0" layoutY="56.0" prefHeight="333.0" prefWidth="331.0">
+            <GridPane layoutX="369.0" layoutY="56.0" prefHeight="333.0" prefWidth="331.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="149.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.0" minWidth="10.0" prefWidth="171.0" />
@@ -101,7 +101,7 @@
                      </font></Label>
                </children>
             </GridPane>
-            <TableView fx:id="tablaIndiceSedes" layoutY="1.0" prefHeight="457.0" prefWidth="362.0" styleClass="tablaGerente">
+            <TableView fx:id="tablaIndiceSedes" layoutX="4.0" layoutY="1.0" prefHeight="457.0" prefWidth="362.0" styleClass="tablaGerente">
               <columns>
                 <TableColumn fx:id="columnaNombres" prefWidth="174.0" text="Nombre de la Sede" />
                 <TableColumn fx:id="columnaIdentificacion" prefWidth="168.0" text="Identificación" />

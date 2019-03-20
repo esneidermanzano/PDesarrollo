@@ -1,5 +1,6 @@
 package Controles;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -14,16 +15,26 @@ import BaseDatos.DaoInventario;
 import Clases.Item;
 import Clases.ItemCotizacion;
 import Clases.Validador;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -85,6 +96,7 @@ public class ControlResgistrarCotizacion {
     @FXML private Label label_aviso_cantidad;
     @FXML private Label label_aviso_cliente;
     @FXML private Label label_aviso_nombre;
+    @FXML private Label label_aviso_imprimir;
     
     public void iniciar(String identificador) {
     	boton_registrar.setDisable(true);
@@ -134,8 +146,15 @@ public class ControlResgistrarCotizacion {
     public void eventoSeleccion() {
     	tabla_lista_items.getSelectionModel().selectedItemProperty().addListener((obs,viejo,nuevo)->{
     		if(nuevo!=null) {
-    			campo_identificador_item.setText(nuevo.getIdentificador());
+    			campo_identificador_item.setText(nuevo.getConcatenado());
     			campo_nombre_item.setText(nuevo.getNombre());
+    		}
+    	}
+    			
+    	);
+    	tabla_lista_items_cotizados.getSelectionModel().selectedItemProperty().addListener((obs,viejo,nuevo)->{
+    		if(nuevo!=null) {
+    			label_aviso_imprimir.setText("");
     		}
     	}
     			
@@ -247,7 +266,8 @@ public class ControlResgistrarCotizacion {
     	    				calcularTotal(lista_items_cotizados);
     	    				campo_nombre_item.setText("");
             				campo_cantidad_item.setText(""); 
-            				campo_identificador_item.setText("");		
+            				campo_identificador_item.setText("");
+            				label_aviso_imprimir.setText("");
     	    			}else {
     	    				System.out.println("Fallo al añadir item al inventario");
     	    			}
@@ -256,33 +276,47 @@ public class ControlResgistrarCotizacion {
     		}
     		
     	}catch(Exception e){
-    			System.out.println("No ha seleccionado ningun item");
-    	}
-    	
+    			System.out.println("No ha seleccionado ningun item"+ e.getMessage());
+    	}    	
+    }
+    public void regresarPanelPrincipal(ActionEvent event) {
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("/Vistas/menu_inicio.fxml"));
+    	efectoCambio(loader, (Pane)((Button)event.getSource()).getParent());
+    	ControlMenuInicial C = loader.getController();
+    	C.iniciar("vendedor");
     }
     @FXML
     void imprimir(ActionEvent event) {
+    	
     	DaoEmpleado consultar_nombre= new DaoEmpleado();
     	String[] nombre_direccion_telefono=consultar_nombre.obtenerNombre(label_id_vendedor.getText());
     	JasperReport reporte; //objeto reporte
         URL path = getClass().getResource("/Reportes/Invoice.jasper"); // localizacion del reporte creado
          try {
-        	 HashMap parametros= new HashMap();
-        	 parametros.put("id_factura",label_id_cotizacion.getText());
-        	 parametros.put("nombre_cliente",campo_nombre_cliente.getText());
-        	 parametros.put("cedula_cliente",campo_identificacion_cliente.getText());
-        	 parametros.put("cedula_vendedor", label_id_vendedor.getText());
-        	 parametros.put("nombre_vendedor",nombre_direccion_telefono[0]);
-        	 parametros.put("direccion_sede",nombre_direccion_telefono[1]);
-        	 parametros.put("telefono_sede",nombre_direccion_telefono[2]);
-        	 parametros.put("total", label_valor_total.getText());
-             reporte = (JasperReport) JRLoader.loadObject(path); //Se carga de reporte
-             JasperPrint jprint = JasperFillManager.fillReport(reporte, parametros, new JRBeanCollectionDataSource(lista_items_cotizados)); //Agregamos los parametros para llenar el reporte
-             JasperViewer viewer = new JasperViewer(jprint, false); //vista del reportes
-             viewer.setDefaultCloseOperation(DISPOSE_ON_CLOSE); // permite que no se cierre el programa cuado cierren el pdf
-             viewer.setVisible(true); //Se muestra el repirte
+        	 System.out.println(""+ lista_items_cotizados.isEmpty());
+        	 if(!lista_items_cotizados.isEmpty()) {
+        		 regresarPanelPrincipal(event);
+	        	 HashMap parametros= new HashMap();
+	        	 parametros.put("id_factura",label_id_cotizacion.getText());
+	        	 parametros.put("nombre_cliente",campo_nombre_cliente.getText());
+	        	 parametros.put("cedula_cliente",campo_identificacion_cliente.getText());
+	        	 parametros.put("cedula_vendedor", label_id_vendedor.getText());
+	        	 parametros.put("nombre_vendedor",nombre_direccion_telefono[0]);
+	        	 parametros.put("direccion_sede",nombre_direccion_telefono[1]);
+	        	 parametros.put("telefono_sede",nombre_direccion_telefono[2]);
+	        	 parametros.put("total", label_valor_total.getText());
+	        	 
+	             reporte = (JasperReport) JRLoader.loadObject(path); //Se carga de reporte
+	             JasperPrint jprint = JasperFillManager.fillReport(reporte, parametros, new JRBeanCollectionDataSource(lista_items_cotizados)); //Agregamos los parametros para llenar el reporte
+	             JasperViewer viewer = new JasperViewer(jprint, false); //vista del reporte
+	             viewer.setDefaultCloseOperation(DISPOSE_ON_CLOSE); // permite que no se cierre el programa cuado cierren el pdf
+	             viewer.setVisible(true); //Se muestra el repirte
+             }else {
+            	 label_aviso_imprimir.setText("¡No hay items que imprimir!"); 
+             }
          } catch (JRException ex) {
-            System.out.println("Paila mijo" + ex.getMessage());
+            System.out.println(ex.getMessage());
          }
     }
     @FXML
@@ -332,7 +366,24 @@ public class ControlResgistrarCotizacion {
     			System.out.println("No elimino");
     		}    		
     	}catch(Exception e){
-			System.out.println("No ha seleccionado ningun item");
+    		label_aviso_imprimir.setText("No ha seleccionado ningun item");
     	}
     }
+    public void efectoCambio(FXMLLoader cargador, Pane panelCentral) {
+		try {
+			Parent gui = (Parent)cargador.load();
+			panelCentral.getChildren().clear();
+			panelCentral.getChildren().add(gui);
+			Scene scene = gui.getScene();						
+			gui.translateXProperty().set(scene.getWidth());		
+			Timeline timeline = new Timeline();
+			KeyValue rango = new KeyValue(gui.translateXProperty(), 0, Interpolator.EASE_IN);
+			KeyFrame duracion = new KeyFrame(Duration.seconds(0.4), rango);
+			timeline.getKeyFrames().add(duracion);
+			timeline.play();
+		} catch (IOException e) {
+			System.out.println("Se presento un problema con la carga del modulo: " + e.getMessage());
+		}		
+    }
+    
 }

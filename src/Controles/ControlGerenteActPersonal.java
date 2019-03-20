@@ -28,7 +28,7 @@ import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import javafx.scene.control.Label;
 
-public class ControlActPersonal {	
+public class ControlGerenteActPersonal {	
 	
 	@FXML private Label errorTelefono;
 	@FXML private Label errorCorreo;
@@ -47,7 +47,6 @@ public class ControlActPersonal {
     private DaoSede consultador = new DaoSede();
     private String estadoAntes;
     private String sedeAntes;
-    private boolean root;
     
     //Valida los campos de la interfaz:
     public boolean validar() {    	
@@ -88,11 +87,7 @@ public class ControlActPersonal {
     //Cambia de la interfaz de actualización de personal 2 a la 1:
     public void cargarInterfazAnterior(ActionEvent event) throws IOException  {    	
     	FXMLLoader cargador = new FXMLLoader();
-    	if(root) {
-    		cargador.setLocation(getClass().getResource("/Vistas/admin_consulta.fxml"));
-    	}else {
-    		cargador.setLocation(getClass().getResource("/Vistas/gerente_consultar_personal.fxml"));
-    	}
+    	cargador.setLocation(getClass().getResource("/Vistas/gerente_consultar_personal.fxml"));
 		Parent GUI;
 		GUI = (Parent)cargador.load();
 		Pane panelCentral = (Pane)((Button)event.getSource()).getParent();
@@ -108,7 +103,7 @@ public class ControlActPersonal {
     }
     
     //Inicializa los comboBox:
-	public void initComboBox(boolean root) {	    	
+	public void initComboBox() {	    	
 	    	List<String> estados = Arrays.asList("Activo", "Inactivo");
 	    	ObservableList<String> listaEstados = FXCollections.observableArrayList(estados);
 	    	estado.setItems(listaEstados);	    	
@@ -118,12 +113,7 @@ public class ControlActPersonal {
 	    	List<String> estadosCiviles = Arrays.asList("Soltero", "Casado", "Unión libre");
 	    	ObservableList<String> listaEstadosCiviles = FXCollections.observableArrayList(estadosCiviles);
 	    	estadoCivil.setItems(listaEstadosCiviles);	 
-	    	List<String> perfiles;
-	    	if(root) {
-	    		perfiles = Arrays.asList("Gerente", "Vendedor", "Jefe de taller");
-	    	}else {
-	    		perfiles = Arrays.asList("Vendedor", "Jefe de taller");
-	    	}	    	
+	    	List<String> perfiles = Arrays.asList("Vendedor", "Jefe de taller");  	
 	    	ObservableList<String> listaPerfiles = FXCollections.observableArrayList(perfiles);
 	    	perfil.setItems(listaPerfiles);		    	
 	    	DaoSede consultador = new DaoSede();
@@ -146,9 +136,8 @@ public class ControlActPersonal {
 	}
 		
 	//Inicializa los widgets de la interfaz:
-	public void cargar(Empleado E, boolean root) {
-		this.root = root;
-    	initComboBox(root);
+	public void cargar(Empleado E) {
+    	initComboBox();
     	String nombreS = E.getNombre(), idS = E.getId(), telefonoS = E.getTelefono(); 
         String sedeS = E.getSede(), correoS = E.getCorreo(), perfilS = E.getPerfil(); 
     	String estadoS = E.getEstado(), estadoCivilS = E.getEstadoCivil(), generoS = E.getGenero();

@@ -298,8 +298,8 @@ public class ControlResgistrarCotizacion {
     	
     	String nombre_cliente=campo_nombre_cliente.getText();
     	String id_cliente=campo_identificacion_cliente.getText();
-    	
-    	boolean bool_nombre=validarCampo(nombre_cliente, 50, 2,label_aviso_nombre);
+    	Validador validar_nombre= new Validador();
+    	boolean bool_nombre=validar_nombre.validarCampo(campo_nombre_cliente,50, 2, label_aviso_nombre);
     	boolean bool_id_cliente= validarCampo(id_cliente, 50, 1,label_aviso_cliente);   
     	
     	if(bool_nombre && bool_id_cliente) {

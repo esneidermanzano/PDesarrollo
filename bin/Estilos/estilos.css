@@ -78,7 +78,7 @@ JFXTextField{
 /*Nuevo*/
 #tabla_lista_items, #tabla_lista_items_cotizados{  
 	-fx-focus-color: white;
-  -fx-selection-bar:#ffbdbd;
+  -fx-selection-bar:#d7fff5;
   -fx-selection-bar-non-focused:#eee;
   -fx-font-size: 12px;
   -fx-padding: 0.5em;

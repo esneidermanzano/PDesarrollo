@@ -168,9 +168,11 @@ public class ControlGerenteConsultarSedes {
 				timeline.getKeyFrames().add(duracion);
 				timeline.play();		
 				controlador.iniciar(sede_tomada);
+			}else { 
+				labelAvisoTomaSede.setText("¡No ha seleccionado ninguna sede!");
 			}
     	}catch(Exception e){
-    		labelAvisoTomaSede.setText("¡No ha seleccionado ninguna sede!");
+    		System.out.println(e.getMessage());
     	}
     }
 }

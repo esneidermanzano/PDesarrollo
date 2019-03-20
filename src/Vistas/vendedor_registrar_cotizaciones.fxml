@@ -89,8 +89,9 @@
             </ImageView>
             <Label layoutX="15.0" layoutY="71.0" prefHeight="17.0" prefWidth="30.0" text="idV." textFill="#31af91" />
             <Label fx:id="label_aviso_cantidad" layoutX="283.0" layoutY="347.0" prefHeight="17.0" prefWidth="299.0" textFill="#f50505" />
-            <Label fx:id="label_aviso_nombre" layoutX="143.0" layoutY="84.0" prefHeight="17.0" prefWidth="257.0" textFill="#f20303" />
+            <Label fx:id="label_aviso_nombre" layoutX="166.0" layoutY="84.0" prefHeight="17.0" prefWidth="237.0" textFill="#f20303" />
             <Label fx:id="label_aviso_cliente" layoutX="407.0" layoutY="84.0" prefHeight="17.0" prefWidth="202.0" textFill="#fc0707" />
+            <Label fx:id="label_aviso_imprimir" layoutX="206.0" layoutY="551.0" prefHeight="17.0" prefWidth="257.0" textFill="#f20303" />
          </children>
       </Pane>
    </children>

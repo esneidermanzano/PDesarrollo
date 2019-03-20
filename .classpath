@@ -5,5 +5,14 @@
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
 	<classpathentry kind="lib" path="jfoenix-8.0.8.jar"/>
 	<classpathentry kind="lib" path="postgresql-42.2.5.jar"/>
+	<classpathentry kind="lib" path="AbsoluteLayout.jar"/>
+	<classpathentry kind="lib" path="commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="commons-digester-2.1.jar"/>
+	<classpathentry kind="lib" path="commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="groovy-2.4.5.jar"/>
+	<classpathentry kind="lib" path="itext-pdfa-5.5.4.jar"/>
+	<classpathentry kind="lib" path="itextpdf-5.5.4.jar"/>
+	<classpathentry kind="lib" path="jasperreports-6.0.0.jar"/>
+	<classpathentry kind="lib" path="org.apache.commons.beanutils.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

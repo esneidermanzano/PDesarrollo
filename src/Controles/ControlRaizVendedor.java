@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -38,8 +39,10 @@ public class ControlRaizVendedor {
     @FXML private Text nombreVendedor;
     @FXML private Button atras;
     @FXML private Text titulo;
+    @FXML private Label identificadorGerente;  //AGREGO VALLE
 
     @FXML private Button botonCerrarSesion;
+    @FXML private Button botonCotizacion;
 
     //Para retroceder hacia la pantalla inicial:
     @FXML
@@ -49,9 +52,10 @@ public class ControlRaizVendedor {
     	titulo.setText("");
     } 
     
-	public void initialize(String nombre, String cargo){
+	public void initialize(String nombre, String[] cargo_id){
 		nombreVendedor.setText(nombre);
-		this.cargo = cargo;
+		this.cargo = cargo_id[0];
+		identificadorGerente.setText(cargo_id[1]);  //AGREGO VALLE
 		atras.setVisible(false);
 	}
 	
@@ -92,6 +96,16 @@ public class ControlRaizVendedor {
     	ControlMenuInicial C = loader.getController();
     	C.iniciar(cargo);
     }
+    
+    @FXML
+    void realizarCotizacion(ActionEvent event) {
+    	titulo.setText("Cotizacion");
+    	FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/Vistas/vendedor_registrar_cotizaciones.fxml"));
+		efectoCambio(loader);
+		ControlResgistrarCotizacion controlador= loader.getController();
+		controlador.iniciar(identificadorGerente.getText());
+    }	
     
     @FXML
     void consultarInventario(ActionEvent event) {

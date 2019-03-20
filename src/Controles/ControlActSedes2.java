@@ -68,8 +68,25 @@ public class ControlActSedes2 {
     	formater.withLocale(Locale.CANADA_FRENCH);
     	LocalDate fecha = LocalDate.parse(sede.getFechaApertura());
     	apertura.setValue(fecha);
+    	iniciarEscucha();
     	
     }
+    //MODIFICADO 18 DE MARZO VALLE
+    public void iniciarEscucha() {
+    	nombre.setOnKeyPressed((e)->{
+    		avisoNombre.setText("");
+    	}); 
+    	telefono.setOnKeyPressed((e)->{
+    		avisoTelefono.setText("");
+    	});
+    	direccion.setOnKeyPressed((e)->{
+    		avisoDireccion.setText("");
+    	});
+    	tamanoSede.setOnKeyPressed((e)->{
+    		avisoTamano.setText("");
+    	});
+    }
+    //_______________________________________-
     public void mostrarMensaje(String titulo, String mensaje) {
     	Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle(titulo);

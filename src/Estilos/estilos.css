@@ -72,7 +72,28 @@ JFXTextField{
   -fx-font-size: 13px;
   -fx-padding: 0.5em;
 }
-
+#tabla_lista_items, #tabla_lista_items_cotizados{  
+	-fx-focus-color: white;
+  -fx-selection-bar:#d7fff5;
+  -fx-selection-bar-non-focused:#eee;
+  -fx-font-size: 12px;
+  -fx-padding: 0.5em;
+  -fx-text-fill: #797979;
+}
+#tabla_lista_items .column-header{
+    -fx-background-color:#31af91;
+     -fx-size: 45;
+    -fx-border-color: -fx-box-border;
+    -fx-border-width: 0 0 3 0;
+    -fx-border-insets: 0;
+}
+#tabla_lista_items_cotizados .column-header{
+    -fx-background-color:#31af91;
+     -fx-size: 45;
+    -fx-border-color: -fx-box-border;
+    -fx-border-width: 0 0 3 0;
+    -fx-border-insets: 0;
+}
 .tablaVendedor{
   -fx-focus-color: white;
   -fx-selection-bar:#31af91;
@@ -80,6 +101,16 @@ JFXTextField{
   -fx-font-size: 13px;
   -fx-padding: 0.5em;
 }
+
+/* 
+#tabla_lista_items .column-header, .tablaVendedor .filler {
+    -fx-background-color: #31af91;    
+    -fx-size: 45;
+    -fx-border-color: -fx-box-border;
+    -fx-border-width: 0 0 3 0;
+    -fx-border-insets: 0;
+}*/
+
 .tablaGerente .column-header, .tablaGerente .filler, .tablaVendedor .column-header, .tablaVendedor .filler {
     -fx-background-color: #eee;    
     -fx-size: 45;

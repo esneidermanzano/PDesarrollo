@@ -113,12 +113,12 @@ public class ControlRaizAdministrador {
 	    @FXML
 	    void consulta(ActionEvent event) throws IOException {
 	    	cambiarVentana("/Vistas/admin_consulta.fxml");	
-	    	titulo.setText("Gestión");
+	    	titulo.setText("Consulta de personal");
 	    }
 	    @FXML
 	    void registro(ActionEvent event) throws IOException {
 	    	cambiarVentana("/Vistas/admin_registro.fxml");	
-	    	titulo.setText("Gestión");
+	    	titulo.setText("Registro de personal");
 	    }
 	    
 	    //Para Cerrar la ventana raiz

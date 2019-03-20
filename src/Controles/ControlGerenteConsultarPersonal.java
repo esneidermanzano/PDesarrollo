@@ -5,17 +5,29 @@ import Clases.Empleado;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
+import java.io.IOException;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
 import com.jfoenix.controls.JFXTextField;
 
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ObjectProperty;
@@ -98,7 +110,7 @@ public class ControlGerenteConsultarPersonal {
         empleado -> empleado.getId().toLowerCase().contains(buscarId.getText().toLowerCase()), 
         buscarId.textProperty()));
         
-        FilteredList<Empleado> filteredItems = new FilteredList<>(gerente.consultarEmpleados(), p -> true);
+        FilteredList<Empleado> filteredItems = new FilteredList<>(gerente.consultarEmpleados(false), p -> true);
         tablaIndiceEmpleados.setItems(filteredItems);
 
         filteredItems.predicateProperty().bind(Bindings.createObjectBinding(
@@ -112,7 +124,7 @@ public class ControlGerenteConsultarPersonal {
     }
     
     public void inicializarEmpleados() {
-    	empleados = gerente.consultarEmpleados();
+    	empleados = gerente.consultarEmpleados(false);
     	tablaIndiceEmpleados.setItems(empleados);
     }
     
@@ -144,5 +156,48 @@ public class ControlGerenteConsultarPersonal {
             labelGenero.setText("");
         }
     }
-
+    
+    //Aplica el efecto de transición:
+    public void efectoCambio(FXMLLoader cargador, Empleado E, Pane panelCentral) throws IOException {
+		cargador.setLocation(getClass().getResource("/Vistas/gerente_actualizar_personal.fxml"));
+		Parent GUI = (Parent)cargador.load();    	    		
+		panelCentral.getChildren().clear();
+		panelCentral.getChildren().add(GUI);
+		Scene scene = GUI.getScene();
+		GUI.translateXProperty().set(scene.getWidth());
+		Timeline timeline = new Timeline();
+		KeyValue rango = new KeyValue(GUI.translateXProperty(), 0, Interpolator.EASE_IN);
+		KeyFrame duracion = new KeyFrame(Duration.seconds(0.4), rango);
+		timeline.getKeyFrames().add(duracion);
+		timeline.play();
+		ControlActPersonal controlador = cargador.getController();
+		controlador.cargar(E, false);
+    }
+    
+    //Extrae el empleado seleccionado:
+    public Empleado extraerEmpleado() {
+    	
+    	 String nombre = labelNombre.getText();
+         String id = labelId.getText();
+         String telefono = labelTelefono.getText();
+         String estado = labelEstado.getText();
+         String sede = labelSede.getText();
+         String correo = labelCorreo.getText();
+         String perfil = labelPerfil.getText();
+         String estadoCivil = labelEstadoCivil.getText();
+         String genero = labelGenero.getText();  
+         
+         Empleado E = new Empleado(nombre,id,telefono,estado,sede,correo,perfil,estadoCivil,genero);
+         
+         return E;
+         
+    }
+          
+    //Cambia de la interfaz de actualización de personal:
+    @FXML void cargarInterfazAP(ActionEvent event) throws IOException {
+    	FXMLLoader cargador = new FXMLLoader();   	    		
+		Pane panelCentral = (Pane)((Button)event.getSource()).getParent();
+		Empleado E = extraerEmpleado();
+		efectoCambio(cargador,E,panelCentral);
+    }
 }

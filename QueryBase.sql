@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS sedes CASCADE;
 CREATE TABLE sedes
 (
 	id serial,
-	nombre VARCHAR(50) NOT NULL,
+	nombre VARCHAR(50) NOT NULL UNIQUE,
 	telefono VARCHAR(10),
         direccion VARCHAR(50),
         tamano_sede INTEGER,

@@ -40,5 +40,12 @@
       <JFXComboBox fx:id="ComboBoxGenero" layoutX="335.0" layoutY="385.0" prefHeight="29.0" prefWidth="120.0" promptText="Genero" styleClass="comboBoxGerente" />
       <JFXComboBox fx:id="ComboBoxEstadoCivil" layoutX="480.0" layoutY="385.0" prefHeight="29.0" prefWidth="120.0" promptText="Estado Civil" styleClass="comboBoxGerente" />
       <JFXButton fx:id="botonRegistrar" layoutX="249.0" layoutY="466.0" onAction="#registrarEmpleado" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Registrar" textFill="WHITE" />
+      <Label fx:id="errorNombre" layoutX="159.0" layoutY="73.0" prefHeight="15.0" prefWidth="300.0" textFill="RED" />
+      <Label fx:id="errorId" layoutX="155.0" layoutY="138.0" prefHeight="15.0" prefWidth="300.0" textFill="RED" />
+      <Label fx:id="errorPass" layoutX="159.0" layoutY="203.0" prefHeight="15.0" prefWidth="300.0" textFill="RED" />
+      <Label fx:id="errorTelefono" layoutX="159.0" layoutY="270.0" prefHeight="15.0" prefWidth="300.0" textFill="RED" />
+      <Label fx:id="errorMail" layoutX="159.0" layoutY="333.0" prefHeight="15.0" prefWidth="300.0" textFill="RED" />
+      <Label fx:id="errorEmpty" layoutX="124.0" layoutY="421.0" prefHeight="17.0" prefWidth="403.0" textFill="RED" />
    </children>
 </AnchorPane>
+

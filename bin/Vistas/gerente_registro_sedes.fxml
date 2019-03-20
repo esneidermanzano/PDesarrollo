@@ -10,27 +10,27 @@
    <children>
       <Pane prefHeight="635.0" prefWidth="700.0" style="-fx-background-color: white;">
          <children>
-            <JFXTextField fx:id="campoNombre" labelFloat="true" layoutX="184.0" layoutY="50.0" prefHeight="23.0" prefWidth="333.0" promptText="Nombre" styleClass="textfieldGerente">
+            <JFXTextField fx:id="campoNombre" labelFloat="true" layoutX="184.0" layoutY="23.0" prefHeight="23.0" prefWidth="333.0" promptText="Nombre" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="campoTelefono" labelFloat="true" layoutX="184.0" layoutY="137.0" prefHeight="23.0" prefWidth="333.0" promptText="Telefono" styleClass="textfieldGerente">
+            <JFXTextField fx:id="campoTelefono" labelFloat="true" layoutX="184.0" layoutY="114.0" prefHeight="23.0" prefWidth="333.0" promptText="Telefono" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="campoDireccion" labelFloat="true" layoutX="184.0" layoutY="224.0" prefHeight="23.0" prefWidth="333.0" promptText="Direccion" styleClass="textfieldGerente">
+            <JFXTextField fx:id="campoDireccion" labelFloat="true" layoutX="184.0" layoutY="209.0" prefHeight="23.0" prefWidth="333.0" promptText="Direccion" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="campoTamano" labelFloat="true" layoutX="184.0" layoutY="308.0" prefHeight="23.0" prefWidth="333.0" promptText="Tamaño de la sede" styleClass="textfieldGerente">
+            <JFXTextField fx:id="campoTamano" labelFloat="true" layoutX="184.0" layoutY="302.0" prefHeight="23.0" prefWidth="333.0" promptText="Tamaño de la sede" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="campoEmpleados" labelFloat="true" layoutX="184.0" layoutY="396.0" prefHeight="23.0" prefWidth="333.0" promptText="N° empleados" styleClass="textfieldGerente">
+            <JFXTextField fx:id="campoEmpleados" labelFloat="true" layoutX="184.0" layoutY="394.0" prefHeight="23.0" prefWidth="333.0" promptText="N° empleados" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
@@ -42,6 +42,12 @@
             </Label>
             <DatePicker fx:id="fechaRegistroSedes" layoutX="323.0" layoutY="476.0" prefHeight="25.0" prefWidth="194.0" />
             <JFXButton fx:id="botonRegistroSedes" layoutX="274.0" layoutY="552.0" onAction="#registrarSede" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Registrar" textFill="WHITE" />
+            <Text fx:id="errorNombre" fill="#ff7070" layoutX="184.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="333.0" />
+            <Text fx:id="errorTelefono" fill="#ff7070" layoutX="184.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="333.0" />
+            <Text fx:id="errorDireccion" fill="#ff7070" layoutX="184.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="333.0" />
+            <Text fx:id="errorTamano" fill="#ff7070" layoutX="184.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="333.0" />
+            <Text fx:id="errorEmpleados" fill="#ff7070" layoutX="184.0" layoutY="445.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="333.0" />
+            <Text fx:id="errorFecha" fill="#ff7070" layoutX="184.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="333.0" />
          </children>
       </Pane>
    </children>

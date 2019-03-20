@@ -26,9 +26,7 @@ public class ControlLogin {
     @FXML
     private JFXButton botonLogin;
 
-
-    @FXML
-    void consultarUsuario(ActionEvent event) {
+    public void procesarUsuario() {
     	String usuario = campoUsuarioLogin.getText();
     	String perfil = "";
     	if(usuario.equals("")) {
@@ -79,5 +77,15 @@ public class ControlLogin {
     			mensajeAdvertencia.setText("Usuario no valido");
     		}    		
     	}
+    }
+    
+    @FXML
+    public void onEnter(ActionEvent e){
+    	procesarUsuario();
+    }
+    
+    @FXML
+    void consultarUsuario(ActionEvent event) {
+    	procesarUsuario();
     }
 }

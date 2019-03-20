@@ -20,13 +20,13 @@
                </image>
             </ImageView>
             <Pane layoutX="55.0" layoutY="113.0" opacity="0.37" prefHeight="304.0" prefWidth="350.0" style="-fx-background-color: #fff;" />
-            <JFXTextField fx:id="campoUsuarioLogin" focusColor="#31af91" labelFloat="true" layoutX="107.0" layoutY="174.0" prefHeight="42.0" prefWidth="270.0" promptText="Nombre" unFocusColor="WHITE" />
+            <JFXTextField fx:id="campoUsuarioLogin" focusColor="#31af91" labelFloat="true" layoutX="107.0" layoutY="174.0" onAction="#onEnter" prefHeight="42.0" prefWidth="270.0" promptText="Nombre" unFocusColor="WHITE" />
             <ImageView fitHeight="22.0" fitWidth="18.0" layoutX="79.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/user2.png" />
                </image>
             </ImageView>
-            <JFXPasswordField fx:id="campoPasswordLogin" focusColor="#31af91" labelFloat="true" layoutX="108.0" layoutY="255.0" prefHeight="42.0" prefWidth="270.0" promptText="Contraseña" unFocusColor="WHITE" />
+            <JFXPasswordField fx:id="campoPasswordLogin" focusColor="#31af91" labelFloat="true" layoutX="108.0" layoutY="255.0" onAction="#onEnter" prefHeight="42.0" prefWidth="270.0" promptText="Contraseña" unFocusColor="WHITE" />
             <ImageView fitHeight="24.0" fitWidth="16.0" layoutX="79.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/password2.png" />
@@ -47,4 +47,3 @@
          </children></Pane>
    </children>
 </AnchorPane>
-

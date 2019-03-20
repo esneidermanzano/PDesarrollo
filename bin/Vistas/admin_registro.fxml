@@ -1,42 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="635.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controles.ControlAdminRegistrar">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="700.0" style="-fx-background-color: white;" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlAdminRegistrar">
    <children>
-      <JFXButton fx:id="botonRegistrar" layoutX="259.0" layoutY="476.0" onAction="#registrarEmpleado" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Registrar" textFill="WHITE" />
-      <JFXComboBox fx:id="ComboBoxEstadoCivil" layoutX="424.0" layoutY="395.0" prefHeight="29.0" prefWidth="120.0" promptText="Estado Civil" styleClass="comboBoxGerente" />
-      <JFXComboBox fx:id="ComboBoxGenero" layoutX="279.0" layoutY="395.0" prefHeight="29.0" prefWidth="120.0" promptText="Genero" styleClass="comboBoxGerente" />
-      <JFXComboBox fx:id="ComboBoxSede" layoutX="137.0" layoutY="395.0" prefHeight="29.0" prefWidth="120.0" promptText="Sede" styleClass="comboBoxGerente" />
-      <JFXTextField fx:id="campoCorreo" labelFloat="true" layoutX="169.0" layoutY="306.0" prefHeight="37.0" prefWidth="333.0" promptText="E-mail" styleClass="textfieldGerente">
+      <JFXTextField fx:id="campoNombre" labelFloat="true" layoutX="159.0" layoutY="36.0" prefHeight="37.0" prefWidth="333.0" promptText="Nombre" styleClass="textfieldAdministrador">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="campoTelefono" labelFloat="true" layoutX="169.0" layoutY="243.0" prefHeight="37.0" prefWidth="333.0" promptText="Telefono" styleClass="textfieldGerente">
+      <JFXTextField fx:id="campoId" labelFloat="true" layoutX="159.0" layoutY="101.0" prefHeight="37.0" prefWidth="333.0" promptText="Identificación" styleClass="textfieldAdministrador">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="campoPassword" labelFloat="true" layoutX="169.0" layoutY="176.0" prefHeight="37.0" prefWidth="333.0" promptText="Password" styleClass="textfieldGerente">
+      <JFXTextField fx:id="campoPassword" labelFloat="true" layoutX="159.0" layoutY="166.0" prefHeight="37.0" prefWidth="333.0" promptText="Password" styleClass="textfieldAdministrador">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="campoId" labelFloat="true" layoutX="169.0" layoutY="111.0" prefHeight="37.0" prefWidth="333.0" promptText="Identificación" styleClass="textfieldGerente">
+      <JFXTextField fx:id="campoTelefono" labelFloat="true" layoutX="159.0" layoutY="233.0" prefHeight="37.0" prefWidth="333.0" promptText="Telefono" styleClass="textfieldAdministrador">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="campoNombre" labelFloat="true" layoutX="169.0" layoutY="46.0" prefHeight="37.0" prefWidth="333.0" promptText="Nombre" styleClass="textfieldGerente">
+      <JFXTextField fx:id="campoCorreo" labelFloat="true" layoutX="159.0" layoutY="296.0" prefHeight="37.0" prefWidth="333.0" promptText="E-mail" styleClass="textfieldAdministrador">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
+      <JFXComboBox fx:id="ComboBoxCargo" layoutX="51.0" layoutY="385.0" prefHeight="29.0" prefWidth="120.0" promptText="Cargo" styleClass="comboBoxAdministrador" />
+      <JFXComboBox fx:id="ComboBoxSede" layoutX="193.0" layoutY="385.0" prefHeight="29.0" prefWidth="120.0" promptText="Sede" styleClass="comboBoxAdministrador" />
+      <JFXComboBox fx:id="ComboBoxGenero" layoutX="335.0" layoutY="385.0" prefHeight="29.0" prefWidth="120.0" promptText="Genero" styleClass="comboBoxAdministrador" />
+      <JFXComboBox fx:id="ComboBoxEstadoCivil" layoutX="480.0" layoutY="385.0" prefHeight="29.0" prefWidth="120.0" promptText="Estado Civil" styleClass="comboBoxAdministrador" />
+      <JFXButton fx:id="botonRegistrar" layoutX="249.0" layoutY="466.0" onAction="#registrarEmpleado" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #006699;" text="Registrar" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font></JFXButton>
+      <Label fx:id="errorNombre" layoutX="159.0" layoutY="73.0" prefHeight="15.0" prefWidth="300.0" textFill="ff7070" />
+      <Label fx:id="errorId" layoutX="155.0" layoutY="138.0" prefHeight="15.0" prefWidth="300.0" textFill="ff7070" />
+      <Label fx:id="errorPass" layoutX="159.0" layoutY="203.0" prefHeight="15.0" prefWidth="300.0" textFill="ff7070" />
+      <Label fx:id="errorTelefono" layoutX="159.0" layoutY="270.0" prefHeight="15.0" prefWidth="300.0" textFill="ff7070" />
+      <Label fx:id="errorMail" layoutX="159.0" layoutY="333.0" prefHeight="15.0" prefWidth="300.0" textFill="ff7070" />
+      <Label fx:id="errorEmpty" layoutX="124.0" layoutY="421.0" prefHeight="17.0" prefWidth="403.0" textFill="ff7070" />
    </children>
 </AnchorPane>

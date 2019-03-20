@@ -37,6 +37,12 @@ JFXTextField{
 	 -jfx-focus-color:#808080;
 
 }
+.textfieldAdministrador, .comboBoxAdministrador {
+	 -fx-prompt-text-fill: #bbb;
+	 -jfx-unfocus-color: #000000;
+	 -jfx-focus-color:#000000;
+
+}
 .textfieldVendedor, .comboBoxVendedor {
 	 -fx-prompt-text-fill: #bbb;
 	 -jfx-unfocus-color: #31af91;
@@ -56,6 +62,13 @@ JFXTextField{
   -fx-focus-color: white;
   -fx-selection-bar:#ff7070;
   -fx-selection-bar-non-focused:#ff9090;
+  -fx-font-size: 13px;
+  -fx-padding: 0.5em;
+}
+.tablaAdministrador{
+  -fx-focus-color: white;
+  -fx-selection-bar:#006699;
+  -fx-selection-bar-non-focused:#006699;
   -fx-font-size: 13px;
   -fx-padding: 0.5em;
 }

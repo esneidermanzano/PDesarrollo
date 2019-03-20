@@ -71,7 +71,25 @@ public class ControlGerenteRegistroItems {
     private String referencia;
     private String Sede;
     
-    
+   
+public void limpiarCampos() {
+	cantidadItems.clear();
+    	costofabItem.clear();
+    	colorItem.clear();
+    	materialItem.clear();
+    	valorVentaItem.clear();
+    	comboBoxSede.setValue(null);
+    	nombreItem.clear();
+    	referenciaItem.setValue(null);
+}
+	
+public void mostrarMensajeInformativo(String titulo, String mensaje) {
+	Alert alert = new Alert(AlertType.INFORMATION);
+	alert.setTitle(titulo);
+	alert.setHeaderText(null);
+	alert.setContentText(mensaje);
+	alert.showAndWait();
+}
 
 public void mostrarMensaje(String titulo, String mensaje) {
     	Alert alert = new Alert(AlertType.WARNING);
@@ -305,7 +323,9 @@ public void mostrarMensaje(String titulo, String mensaje) {
     	}
     	
     	System.out.println("se envio registro.");
+	mostrarMensajeInformativo("ENVIADO", "Envio de registro completado");
     	}
+	limpiarCampos();
     }
 
 

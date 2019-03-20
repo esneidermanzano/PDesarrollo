@@ -318,14 +318,18 @@ public void mostrarMensaje(String titulo, String mensaje) {
     	//salida de todos los datos a la base de datos.
     	if(nuevo) {
     		inventario.registrarItemEnInventaro(nombre);
+    		mostrarMensajeInformativo("ENVIADO", "Envio de registro completado");
+    		limpiarCampos();
     	}else {
     		inventario.registrarItemEnEjemplares(referencia, color, costofab, costoVenta, fecha, cBox.getId(Sede), cantidad );
+    		mostrarMensajeInformativo("ENVIADO", "Envio de registro completado");
+    		limpiarCampos();
     	}
     	
     	System.out.println("se envio registro.");
-	mostrarMensajeInformativo("ENVIADO", "Envio de registro completado");
+	
     	}
-	limpiarCampos();
+	
     }
 
 

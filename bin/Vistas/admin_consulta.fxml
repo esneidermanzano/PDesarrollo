@@ -127,7 +127,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="50.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="50.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/buscar.png" />
                </image>

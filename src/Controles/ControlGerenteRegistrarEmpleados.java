@@ -72,6 +72,7 @@ public class ControlGerenteRegistrarEmpleados {
     private Label errorEmpty;
     
     public void initialize() {
+    	initEscuchas();
     	ComboBoxCargo.getItems().addAll("Vendedor", "Jefe de taller");
     	ComboBoxEstadoCivil.getItems().addAll("Soltero", "Casado", "Unión libre");
     	ComboBoxGenero.getItems().addAll("Masculino", "Femenino", "No definido");
@@ -124,6 +125,37 @@ public class ControlGerenteRegistrarEmpleados {
 		alert.setContentText(mensaje);
 		alert.showAndWait();
     }
+    
+	//Inicializa las escuchas de los campos:
+	public void initEscuchas() {		
+		campoNombre.setOnKeyPressed((e) -> {
+			errorNombre.setText("");
+		});
+		campoTelefono.setOnKeyPressed((e) -> {
+			errorTelefono.setText("");
+		});
+		campoCorreo.setOnKeyPressed((e) -> {
+			errorMail.setText("");
+		});
+		campoId.setOnKeyPressed((e) -> {
+			errorId.setText("");
+		});
+		campoPassword.setOnKeyPressed((e) -> {
+			errorPass.setText("");
+		});
+		ComboBoxCargo.setOnAction((e) -> {
+			errorEmpty.setText("");
+		});
+		ComboBoxSede.setOnAction((e) -> {
+			errorEmpty.setText("");
+		});
+		ComboBoxGenero.setOnAction((e) -> {
+			errorEmpty.setText("");
+		});
+		ComboBoxEstadoCivil.setOnAction((e) -> {
+			errorEmpty.setText("");
+		});
+	}
     
     public void cleanLabels(){
     	errorNombre.setText("");

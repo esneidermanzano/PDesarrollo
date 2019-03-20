@@ -37,6 +37,12 @@ JFXTextField{
 	 -jfx-focus-color:#808080;
 
 }
+.textfieldAdministrador, .comboBoxAdministrador {
+	 -fx-prompt-text-fill: #bbb;
+	 -jfx-unfocus-color: #000000;
+	 -jfx-focus-color:#000000;
+
+}
 .textfieldVendedor, .comboBoxVendedor {
 	 -fx-prompt-text-fill: #bbb;
 	 -jfx-unfocus-color: #31af91;

@@ -98,7 +98,7 @@ public class ControlGerenteConsultarPersonal {
         empleado -> empleado.getId().toLowerCase().contains(buscarId.getText().toLowerCase()), 
         buscarId.textProperty()));
         
-        FilteredList<Empleado> filteredItems = new FilteredList<>(gerente.consultarEmpleados(), p -> true);
+        FilteredList<Empleado> filteredItems = new FilteredList<>(gerente.consultarEmpleados(false), p -> true);
         tablaIndiceEmpleados.setItems(filteredItems);
 
         filteredItems.predicateProperty().bind(Bindings.createObjectBinding(
@@ -112,7 +112,7 @@ public class ControlGerenteConsultarPersonal {
     }
     
     public void inicializarEmpleados() {
-    	empleados = gerente.consultarEmpleados();
+    	empleados = gerente.consultarEmpleados(false);
     	tablaIndiceEmpleados.setItems(empleados);
     }
     

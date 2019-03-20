@@ -256,7 +256,6 @@ INSERT INTO detalle_ventas VALUES(3, 6, 3);
 INSERT INTO detalle_ventas VALUES(3, 7, 4);
 INSERT INTO detalle_ventas VALUES(3, 8, 4);
 -----------------------------------------------------------------------------------------------------------------
-
 -- PROCESO CONTROLADOR/LOGIC/DAO
 DROP TABLE IF EXISTS cotizaciones CASCADE;
 CREATE TABLE cotizaciones
@@ -276,15 +275,35 @@ CREATE TABLE cotizaciones
 		REFERENCES clientes (id) ON DELETE CASCADE*/
 );
 
+-- PROCESO CONTROLADOR/LOGIC/DAO
+DROP TABLE IF EXISTS cotizaciones CASCADE;
+CREATE TABLE cotizaciones
+(
+	id SERIAL,
+	id_vendedor VARCHAR(50) NOT NULL,
+	nombre_cliente VARCHAR(50) NOT NULL,--MODIFICO VALLE
+	id_cliente VARCHAR(50) NOT NULL,
+	fecha TIMESTAMP NOT NULL,
+	
+	CONSTRAINT cotizaciones_pk PRIMARY KEY (id),
+
+	CONSTRAINT cotizaciones_fk1 FOREIGN KEY (id_vendedor)
+		REFERENCES empleados (id) ON DELETE CASCADE
+
+	/*
+	CONSTRAINT cotizaciones_fk2 FOREIGN KEY (id_cliente)
+		REFERENCES clientes (id) ON DELETE CASCADE*/
+);
+
 DROP SEQUENCE IF EXISTS cotizaciones_sequence CASCADE;
 CREATE SEQUENCE cotizaciones_sequence
   start 1
   increment 1;
 
 -----------------------------------------------------------------------------------------------------------------
-INSERT INTO cotizaciones VALUES(nextval('cotizaciones_sequence'), '4444444444', '6345786435', '2019-03-13 19:10:25-07');
-INSERT INTO cotizaciones VALUES(nextval('cotizaciones_sequence'), '5555555555', '9855436854', '2019-03-13 19:10:25-07');
-INSERT INTO cotizaciones VALUES(nextval('cotizaciones_sequence'), '6666666666', '4489987097', '2019-03-13 19:10:25-07');
+INSERT INTO cotizaciones VALUES(nextval('cotizaciones_sequence'), '4444444444','Pepito Perez', '6345786435', '2019-03-13 19:10:25-07');--MODIFICO VALLE AGREGO NOMBRE CLIENTE
+INSERT INTO cotizaciones VALUES(nextval('cotizaciones_sequence'), '5555555555','Esneider', '9855436854', '2019-03-13 19:10:25-07');--MODIFICO VALLE AGREGO NOMBRE CLIENTE
+INSERT INTO cotizaciones VALUES(nextval('cotizaciones_sequence'), '6666666666','Estemen Lafrego', '4489987097', '2019-03-13 19:10:25-07');--MODIFICO VALLE AGREGO NOMBRE CLIENTE
 -----------------------------------------------------------------------------------------------------------------
 
 -- PROCESO CONTROLADOR/LOGIC/DAO
@@ -293,9 +312,10 @@ CREATE TABLE detalle_cotizaciones
 (
 	id_cotizacion INTEGER NOT NULL,
 	id_inventario INTEGER NOT NULL,
+	id_ejemplar INTEGER NOT NULL,--MODIFICO VALLE
 	cantidad INTEGER NOT NULL,
 	
-	CONSTRAINT detalle_cotizaciones_pk PRIMARY KEY (id_cotizacion, id_inventario),
+	CONSTRAINT detalle_cotizaciones_pk PRIMARY KEY (id_cotizacion, id_inventario,id_ejemplar),
 
 	CONSTRAINT detalle_cotizaciones_fk1 FOREIGN KEY (id_cotizacion)
 		REFERENCES cotizaciones (id) ON DELETE CASCADE,
@@ -305,18 +325,17 @@ CREATE TABLE detalle_cotizaciones
 );
 
 -----------------------------------------------------------------------------------------------------------------
-INSERT INTO detalle_cotizaciones VALUES(1, 2, 2);
-INSERT INTO detalle_cotizaciones VALUES(1, 3, 3);
-INSERT INTO detalle_cotizaciones VALUES(1, 4, 1);
+INSERT INTO detalle_cotizaciones VALUES(1, 2, 2, 2);--AGREGUE EL OTRO ID A CADA REGISTRO(VALLE)
+INSERT INTO detalle_cotizaciones VALUES(1, 3, 4, 3);
+INSERT INTO detalle_cotizaciones VALUES(1, 4, 5, 1);
 
-INSERT INTO detalle_cotizaciones VALUES(2, 2, 1);
-INSERT INTO detalle_cotizaciones VALUES(2, 3, 4);
+INSERT INTO detalle_cotizaciones VALUES(2, 2, 5, 1);
+INSERT INTO detalle_cotizaciones VALUES(2, 3, 6, 4);
 
-INSERT INTO detalle_cotizaciones VALUES(3, 2, 1);
-INSERT INTO detalle_cotizaciones VALUES(3, 3, 2);
-INSERT INTO detalle_cotizaciones VALUES(3, 4, 1);
+INSERT INTO detalle_cotizaciones VALUES(3, 2, 7, 1);
+INSERT INTO detalle_cotizaciones VALUES(3, 3,8, 2);
+INSERT INTO detalle_cotizaciones VALUES(3, 4,9, 1);
 -----------------------------------------------------------------------------------------------------------------
-
 -- PROCESO CONTROLADOR/LOGIC/DAO
 DROP TABLE IF EXISTS ordenes_trabajo CASCADE;
 CREATE TABLE ordenes_trabajo

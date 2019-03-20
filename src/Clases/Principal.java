@@ -66,17 +66,17 @@ public class Principal extends Application {
 		 ft.setToValue(1.0);
 		 ft.play();				
 	 }
-	 
-	 public static void iniciarRaiz(String perfil, String fuente, String nombre) throws IOException {				 
-		 iniciarEscenarios(perfil);		 
+	 //Valle: cambie a un arreglo para pasar el id al vendedor
+	 public static void iniciarRaiz(String[] perfil, String fuente, String nombre) throws IOException {				 
+		 iniciarEscenarios(perfil[0]);		 
 		 FXMLLoader cargador = new FXMLLoader();
 		 cargador.setLocation(Principal.class.getResource(fuente));
 		 Parent raiz = (Parent)cargador.load();
 		 
-		 switch(perfil) {
+		 switch(perfil[0]) {
 		 	case "Gerente":
 		 		ControlRaizGerente CRG = cargador.getController();
-				CRG.initialize(nombre, perfil);
+				CRG.initialize(nombre, perfil[0]);
 				CRG.setStage(escenarioGerente);
 				initEfecto(raiz);
 				Scene EG = new Scene(raiz); 
@@ -100,7 +100,7 @@ public class Principal extends Application {
 				break;
 		 	case "Jefe de taller":
 		 		ControlRaizJefeTaller CRJ = cargador.getController();
-		 		CRJ.initialize(nombre, perfil);
+		 		CRJ.initialize(nombre, perfil[0]);
 		 		CRJ.setStage(escenarioJefeTaller);
 		 		initEfecto(raiz);
 		 		Scene EJ = new Scene(raiz); 
@@ -112,7 +112,7 @@ public class Principal extends Application {
 				break;
 		 	case "Administrador":
 		 		ControlRaizAdministrador CRA = cargador.getController();
-		 		CRA.initialize(nombre, perfil);
+		 		CRA.initialize(nombre, perfil[0]);
 		 		CRA.setStage(escenarioAdministrador);
 		 		initEfecto(raiz);
 		 		Scene EA = new Scene(raiz); 
@@ -126,19 +126,19 @@ public class Principal extends Application {
 		 	 
 	 }
 	 
-	 public static void iniciarGerente(String nombre, String perfil) throws IOException {
-		 iniciarRaiz(perfil, "/Vistas/gerente_GUI.fxml", nombre);    	
+	 public static void iniciarGerente(String nombre, String[] perfil_id) throws IOException {
+		 iniciarRaiz(perfil_id, "/Vistas/gerente_GUI.fxml", nombre);    	
 	 }
     	   
-	 public static void iniciarVendedor(String nombre, String perfil) throws IOException {	
-		 iniciarRaiz(perfil, "/Vistas/vendedor_GUI.fxml", nombre);		 
+	 public static void iniciarVendedor(String nombre, String[] perfil_id) throws IOException {	
+		 iniciarRaiz(perfil_id, "/Vistas/vendedor_GUI.fxml", nombre);		 
 	 }
     
-	 public static void iniciarJefeTaller(String nombre, String perfil) throws IOException {
-		 iniciarRaiz(perfil, "/Vistas/jefeTaller_GUI.fxml", nombre);
+	 public static void iniciarJefeTaller(String nombre, String[] perfil_id) throws IOException {
+		 iniciarRaiz(perfil_id, "/Vistas/jefeTaller_GUI.fxml", nombre);
 	 }
-	 public static void iniciarAdministrador(String nombre, String perfil) throws IOException {
-		 iniciarRaiz(perfil, "/Vistas/administrador_GUI.fxml", nombre);
+	 public static void iniciarAdministrador(String nombre, String[] perfil_id) throws IOException {
+		 iniciarRaiz(perfil_id, "/Vistas/administrador_GUI.fxml", nombre);
 	 }
 	 
     

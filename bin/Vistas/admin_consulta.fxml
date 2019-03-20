@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -11,17 +12,23 @@
    <children>
       <Pane prefHeight="635.0" prefWidth="700.0">
          <children>
-            <JFXTextField fx:id="buscarNombre" layoutX="38.0" layoutY="31.0" promptText="Insertar nombre" />
-            <JFXTextField fx:id="buscarId" layoutX="38.0" layoutY="67.0" promptText="Insertar Identificación" />
-            <JFXButton fx:id="editar" layoutX="462.0" layoutY="33.0" onAction="#cargarInterfazAP" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Editar Empleado" textFill="WHITE">
+            <JFXTextField fx:id="buscarNombre" layoutX="124.0" layoutY="19.0" promptText="Búsqueda por nombre" styleClass="textfieldAdministrador">
                <font>
-                  <Font size="16.0" />
+                  <Font size="15.0" />
+               </font></JFXTextField>
+            <JFXTextField fx:id="buscarId" layoutX="123.0" layoutY="70.0" promptText="Búsqueda por ID" styleClass="textfieldAdministrador">
+               <font>
+                  <Font size="15.0" />
+               </font></JFXTextField>
+            <JFXButton fx:id="editar" layoutX="462.0" layoutY="33.0" onAction="#cargarInterfazAP" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #006699;" text="Editar Empleado" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
                </font>
             </JFXButton>
-            <TableView fx:id="tablaIndiceEmpleados" layoutY="120.0" prefHeight="515.0" prefWidth="345.0">
+            <TableView fx:id="tablaIndiceEmpleados" layoutY="120.0" prefHeight="515.0" prefWidth="345.0" styleClass="tablaAdministrador">
               <columns>
                 <TableColumn fx:id="columnaNombres" prefWidth="175.0" text="Nombre del Gerente" />
-                <TableColumn fx:id="columnaIdentificacion" prefWidth="169.0" text="Identificación" />
+                <TableColumn fx:id="columnaIdentificacion" prefWidth="162.0" text="Identificación" />
               </columns>
             </TableView>
             <GridPane layoutX="350.0" layoutY="134.0" prefHeight="501.0" prefWidth="345.0">
@@ -41,31 +48,90 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Nombre" />
-                  <Label text="Identificación" GridPane.rowIndex="1" />
-                  <Label text="Teléfono" GridPane.rowIndex="2" />
-                  <Label text="Estado" GridPane.rowIndex="3" />
-                  <Label text="Sede" GridPane.rowIndex="4" />
-                  <Label text="Correo" GridPane.rowIndex="5" />
-                  <Label text="Perfil" GridPane.rowIndex="6" />
-                  <Label text="Estado civil" GridPane.rowIndex="7" />
-                  <Label text="Género" GridPane.rowIndex="8" />
-                  <Label fx:id="labelNombre" text="Label" GridPane.columnIndex="1" />
-                  <Label fx:id="labelId" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label fx:id="labelTelefono" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Label fx:id="labelEstado" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Label fx:id="labelSede" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <Label fx:id="labelCorreo" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <Label fx:id="labelPerfil" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                  <Label fx:id="labelEstadoCivil" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                  <Label fx:id="labelGenero" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                  <Label text="Nombre">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Label text="Identificación" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Label text="Teléfono" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Label text="Estado" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Label text="Sede" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Label text="Correo" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Label text="Perfil" GridPane.rowIndex="6">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Label text="Estado civil" GridPane.rowIndex="7">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Label text="Género" GridPane.rowIndex="8">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Label fx:id="labelNombre" text="Label" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Label fx:id="labelId" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Label fx:id="labelTelefono" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Label fx:id="labelEstado" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Label fx:id="labelSede" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Label fx:id="labelCorreo" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Label fx:id="labelPerfil" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Label fx:id="labelEstadoCivil" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Label fx:id="labelGenero" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
                </children>
             </GridPane>
-            <Label layoutX="419.0" layoutY="113.0" text="Detalles del Empleado" textFill="#ff7070">
+            <Label layoutX="419.0" layoutY="113.0" text="Detalles del Empleado" textFill="#006699">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
+            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="50.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/buscar.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>

@@ -81,6 +81,38 @@ public class DaoEmpleado {
         	 return false;
          }          
 	}
+	//AGREGO VALLE
+	public String[] obtenerNombre(String idEntrada){
+			
+        String sql_select;
+        String[] resultados = new String[3];
+	        
+        sql_select = "SELECT empleados.nombre,direccion,sedes.telefono FROM empleados JOIN sedes ON id_sede=sedes.id WHERE empleados.id = ?";
+        try{
+	        	 
+           Connection conn = fachada.getConnetion();
+           System.out.println("consultando en la bd");
+           PreparedStatement sentencia = conn.prepareStatement(sql_select);
+           sentencia.setString(1,idEntrada);
+           ResultSet tabla = sentencia.executeQuery();
+	            
+           while(tabla.next()){            	
+             resultados[0] = tabla.getString(1);
+             resultados[1]= tabla.getString(2);
+             resultados[2]=tabla.getString(3);
+           } 
+		            
+           sentencia.close();
+	            
+         }catch(SQLException e){
+        	 System.out.println(e); 
+         }catch(Exception e){ 
+        	 System.out.println(e); 
+         }
+		         
+        return resultados;        
+	}
+			
 	
 	public ObservableList<Empleado> consultarEmpleados(boolean root){
 		

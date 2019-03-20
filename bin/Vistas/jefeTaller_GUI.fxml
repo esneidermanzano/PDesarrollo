@@ -49,9 +49,9 @@
                   <Button fx:id="atras" layoutX="12.0" layoutY="1.0" mnemonicParsing="false" onAction="#retroceder" opacity="0.6" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/atras.png');" styleClass="controles" />
                   <Button fx:id="minimizar" layoutX="635.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimizarAplicacion" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/minimize.png');" styleClass="controles" />
                   <Button fx:id="cerrar" layoutX="670.0" layoutY="2.0" mnemonicParsing="false" onAction="#cerrarAplicacion" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/close.png');" styleClass="controles" />
-                  <Text fx:id="titulo" fill="#006699" layoutX="90.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="519.13671875">
+                  <Text fx:id="titulo" fill="#0099e6" layoutX="90.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="519.13671875">
                      <font>
-                        <Font size="20.0" />
+                        <Font size="17.0" />
                      </font>
                   </Text>
                   

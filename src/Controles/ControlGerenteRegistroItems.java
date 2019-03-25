@@ -1,13 +1,12 @@
 package Controles;
 
-import java.awt.Label;
-import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.List;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.base.IFXValidatableControl;
 import com.jfoenix.validation.RequiredFieldValidator;
 
 import BaseDatos.DaoInventario;
@@ -20,6 +19,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
@@ -71,6 +72,46 @@ public class ControlGerenteRegistroItems {
     private String referencia;
     private String Sede;
     
+    public void initialize() {
+    	referenciaItem.valueProperty().addListener((o,oldVal,newVal)->{
+   	     if(newVal != "Nuevo" && newVal != null){
+   	    	 switchCampos(false);
+   	    	 } else if(newVal == "Nuevo" && oldVal != "Nuevo") {
+   	    		switchCampos(true); 
+   	    	 }
+   	     }
+   	);
+    	addFieldListener(nombreItem);
+    	addFieldListener(colorItem);
+    	addFieldListener(materialItem);
+    	addNumberFieldListener(cantidadItems);
+    	addNumberFieldListener(costofabItem);
+    	addNumberFieldListener(valorVentaItem);
+    	
+    	
+    }
+    public void addFieldListener(Object itm) {// should be a reference
+    	//añadira validadores y escuchas para validacion al campo dado in real time.
+    	
+    	RequiredFieldValidator validator = new RequiredFieldValidator();
+    	validator.setMessage("Datos Requeridos");
+    	((IFXValidatableControl) itm).getValidators().add(validator);
+    	
+    }
+    //añade validadores tanto para campo como para numeros.
+    public void addNumberFieldListener(Object itm) {
+    	IntegerValidator validador = new IntegerValidator();
+    	validador.setMessage("Debe ser un numero");
+    	((IFXValidatableControl) itm).getValidators().add(validador);
+    	addFieldListener(itm);
+    	
+    }
+    
+    @FXML
+    void validacion(KeyEvent e) {
+ 	((IFXValidatableControl) e.getTarget()).validate();
+
+    }
    
 public void limpiarCampos() {
 	cantidadItems.clear();
@@ -129,14 +170,7 @@ public void mostrarMensaje(String titulo, String mensaje) {
     	ObservableList<String> referencias = FXCollections.observableArrayList(listaReferencias);
     	referenciaItem.setItems(referencias);
     	
-    	referenciaItem.valueProperty().addListener((o,oldVal,newVal)->{
-    	     if(newVal != "Nuevo" && newVal != null){
-    	    	 switchCampos(false);
-    	    	 } else if(newVal == "Nuevo" && oldVal != "Nuevo") {
-    	    		switchCampos(true); 
-    	    	 }
-    	     }
-    	);
+    	
     }
     
     

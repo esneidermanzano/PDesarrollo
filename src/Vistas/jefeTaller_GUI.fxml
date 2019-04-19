@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.image.*?>
@@ -36,6 +37,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
+            <JFXButton buttonType="RAISED" layoutX="55.0" layoutY="271.0" onAction="#actualizarOrdenes" prefHeight="25.0" prefWidth="191.0" ripplerFill="WHITE" styleClass="botonesPanel" text="Actualizar Ordenes" textFill="GREY" />
          
          </children>
       </Pane>

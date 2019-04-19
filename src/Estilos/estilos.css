@@ -37,6 +37,11 @@ JFXTextField{
 	 -jfx-focus-color:#808080;
 
 }
+.textFieldJefeDeTaller, .comboBoxJefeDeTaller {
+	 -fx-prompt-text-fill: #bbb;
+	 -jfx-unfocus-color: #006699;
+	 -jfx-focus-color:#4e94ca;
+}
 .textfieldAdministrador, .comboBoxAdministrador {
 	 -fx-prompt-text-fill: #bbb;
 	 -jfx-unfocus-color: #000000;
@@ -110,5 +115,7 @@ JFXTextField{
     -fx-border-insets: 0;
 }
 
+
 .table-view{
 -fx-border-color: #fff;}
+

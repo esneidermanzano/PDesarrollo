@@ -11,33 +11,33 @@
    <children>
       <Pane layoutX="29.0" layoutY="22.0" prefHeight="570.0" prefWidth="650.0" style="-fx-background-color: white;">
          <children>
-            <JFXTextField fx:id="nombreItem" disable="true" labelFloat="true" layoutX="46.0" layoutY="76.0" prefHeight="37.0" prefWidth="234.0" promptText="Nombre" styleClass="textfieldGerente">
+            <JFXTextField fx:id="nombreItem" disable="true" labelFloat="true" layoutX="46.0" layoutY="76.0" onKeyReleased="#validacion" prefHeight="37.0" prefWidth="234.0" promptText="Nombre" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="cantidadItems" disable="true" labelFloat="true" layoutX="46.0" layoutY="153.0" prefHeight="37.0" prefWidth="234.0" promptText="Cantidad" styleClass="textfieldGerente">
+            <JFXTextField fx:id="cantidadItems" disable="true" labelFloat="true" layoutX="46.0" layoutY="153.0" onKeyReleased="#validacion" prefHeight="37.0" prefWidth="234.0" promptText="Cantidad" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="colorItem" disable="true" labelFloat="true" layoutX="357.0" layoutY="153.0" prefHeight="37.0" prefWidth="234.0" promptText="Color" styleClass="textfieldGerente">
+            <JFXTextField fx:id="colorItem" disable="true" labelFloat="true" layoutX="357.0" layoutY="153.0" onKeyReleased="#validacion" prefHeight="37.0" prefWidth="234.0" promptText="Color" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="materialItem" disable="true" labelFloat="true" layoutX="46.0" layoutY="222.0" prefHeight="37.0" prefWidth="234.0" promptText="Material" styleClass="textfieldGerente">
+            <JFXTextField fx:id="materialItem" disable="true" labelFloat="true" layoutX="46.0" layoutY="222.0" onKeyReleased="#validacion" prefHeight="37.0" prefWidth="234.0" promptText="Material" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="costofabItem" disable="true" labelFloat="true" layoutX="357.0" layoutY="222.0" prefHeight="37.0" prefWidth="234.0" promptText="Costo Fabricacion" styleClass="textfieldGerente">
+            <JFXTextField fx:id="costofabItem" disable="true" labelFloat="true" layoutX="357.0" layoutY="222.0" onKeyReleased="#validacion" prefHeight="37.0" prefWidth="234.0" promptText="Costo Fabricacion" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
             <JFXButton fx:id="botonRegistroItems" layoutX="249.0" layoutY="484.0" onAction="#registrarItem" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Registrar" textFill="WHITE" />
-            <JFXTextField fx:id="valorVentaItem" disable="true" labelFloat="true" layoutX="357.0" layoutY="304.0" prefHeight="37.0" prefWidth="234.0" promptText="Valor Venta" styleClass="textfieldGerente">
+            <JFXTextField fx:id="valorVentaItem" disable="true" labelFloat="true" layoutX="357.0" layoutY="304.0" onKeyReleased="#validacion" prefHeight="37.0" prefWidth="234.0" promptText="Valor Venta" styleClass="textfieldGerente">
                <font>
                   <Font size="16.0" />
                </font>

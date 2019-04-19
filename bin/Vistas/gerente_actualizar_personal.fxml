@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="570.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlGerenteActPersonal">
+   <children>
+      <Pane prefHeight="635.0" prefWidth="700.0" style="-fx-background-color: #FFF;">
+         <children>
+            <ImageView fitHeight="382.0" fitWidth="281.0" layoutX="399.0" layoutY="335.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/user3.png" />
+               </image>
+            </ImageView>
+            <JFXTextField fx:id="nombre" focusColor="#797979" labelFloat="true" layoutX="73.0" layoutY="108.0" prefHeight="23.0" prefWidth="245.0" promptText="Nombre" style="-fx-prompt-text-fill: #bbb;" unFocusColor="#ff7070">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="telefono" focusColor="#797979" labelFloat="true" layoutX="383.0" layoutY="108.0" prefHeight="23.0" prefWidth="245.0" promptText="Teléfono/Celular" style="-fx-prompt-text-fill: #bbb;" unFocusColor="#ff7070">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="correo" focusColor="#797979" labelFloat="true" layoutX="73.0" layoutY="199.0" prefHeight="23.0" prefWidth="245.0" promptText="Correo electrónico" style="-fx-prompt-text-fill: #bbb;" unFocusColor="#ff7070">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXComboBox fx:id="sede" focusColor="GREY" layoutX="350.0" layoutY="310.0" unFocusColor="#ff7070" visibleRowCount="3" />
+            <JFXComboBox fx:id="estado" focusColor="GREY" layoutX="192.0" layoutY="384.0" promptText="Activo" unFocusColor="#ff7070" visibleRowCount="3" />
+            <JFXComboBox fx:id="genero" focusColor="GREY" layoutX="492.0" layoutY="384.0" promptText="Masculino" unFocusColor="#ff7070" visibleRowCount="3" />
+            <JFXComboBox fx:id="perfil" focusColor="GREY" layoutX="175.0" layoutY="421.0" promptText="Vendedor" unFocusColor="#ff7070" visibleRowCount="3" />
+            <JFXComboBox fx:id="estadoCivil" focusColor="GREY" layoutX="509.0" layoutY="421.0" promptText="Soltero" unFocusColor="#ff7070" visibleRowCount="3" />
+            <JFXButton fx:id="actualizar" layoutX="315.0" layoutY="491.0" onAction="#actualizarPersonal" style="-fx-background-color: #ff7070;" text="Actualizar" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font></JFXButton>
+            <Label fx:id="id" layoutX="447.0" layoutY="205.0" text="Cédula:            " textFill="#797979">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="111.0" layoutY="384.0" text="Estado: " textFill="#797979">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="112.0" layoutY="421.0" text="Perfil:           " textFill="#797979">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="393.0" layoutY="384.0" text="Género:" textFill="#797979">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="393.0" layoutY="421.0" text="Estado civil:" textFill="#797979">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="286.0" layoutY="310.0" text="Sede: " textFill="#797979">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="errorNombre" layoutX="73.0" layoutY="156.0" prefHeight="17.0" prefWidth="245.0" textFill="#ff7070" />
+            <Label fx:id="errorTelefono" layoutX="383.0" layoutY="156.0" prefHeight="17.0" prefWidth="245.0" textFill="#ff7070" />
+            <Label fx:id="errorCorreo" layoutX="73.0" layoutY="249.0" prefHeight="17.0" prefWidth="245.0" textFill="#ff7070" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

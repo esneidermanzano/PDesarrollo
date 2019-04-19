@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlResgistrarCotizacion">
+   <children>
+      <Pane layoutY="-6.0" prefHeight="635.0" prefWidth="700.0">
+         <children>
+            <TableView fx:id="tabla_lista_items" layoutX="1.0" layoutY="104.0" prefHeight="172.0" prefWidth="700.0">
+               <columns>
+                  <TableColumn fx:id="columnaId" prefWidth="71.0" text="Id" />
+                  <TableColumn fx:id="columnaNombre" prefWidth="127.0" text="Nombre" />
+                  <TableColumn fx:id="columnaColor" prefWidth="68.0" text="Color" />
+                  <TableColumn fx:id="columnaIPrecioUnidad" prefWidth="100.0" text="Valor Unitario" />
+                  <TableColumn fx:id="columnaIngreso" prefWidth="97.0" text="Ingreso" />
+                  <TableColumn fx:id="columnaSede" prefWidth="127.0" text="Sede" />
+                  <TableColumn fx:id="columnaExistencias" prefWidth="98.0" text="Cantidad" />
+               </columns>
+            </TableView>
+            <JFXButton fx:id="boton_registrar" layoutX="402.0" layoutY="300.0" onAction="#registrarItemCotizacion" prefHeight="37.0" prefWidth="79.0" style="-fx-background-color: #31af91;" text="Registrar" textFill="WHITE" />
+            <JFXButton fx:id="boton_imprimir" layoutX="343.0" layoutY="580.0" onAction="#imprimir" prefHeight="37.0" prefWidth="120.0" style="-fx-background-color: #31af91;" text="Imprimir" textFill="WHITE" />
+            <TableView fx:id="tabla_lista_items_cotizados" layoutX="1.0" layoutY="381.0" prefHeight="163.0" prefWidth="700.0">
+               <columns>
+                  <TableColumn fx:id="columnaId1" prefWidth="78.0" text="Id" />
+                  <TableColumn fx:id="columnaNombre1" prefWidth="259.0" text="Descripcion" />
+                  <TableColumn fx:id="columnaCantidad1" prefWidth="78.0" text="Cantidad" />
+                  <TableColumn fx:id="columnaIPrecioUnidad1" prefWidth="125.0" resizable="false" text="Valor Unitario" />
+                  <TableColumn fx:id="columnaValorTotal1" prefWidth="154.0" text="Valor Total" />
+               </columns>
+            </TableView>
+            <JFXTextField fx:id="campo_nombre_cliente" labelFloat="true" layoutX="204.0" layoutY="45.0" prefHeight="37.0" prefWidth="194.0" promptText="Nombre cliente" styleClass="textfieldVendedor">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="campo_identificacion_cliente" labelFloat="true" layoutX="405.0" layoutY="45.0" prefHeight="37.0" prefWidth="194.0" promptText="Identificacion cliente" styleClass="textfieldVendedor">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="campo_identificador_item" editable="false" labelFloat="true" layoutX="14.0" layoutY="299.0" prefHeight="37.0" prefWidth="98.0" promptText="Identificador" styleClass="textfieldVendedor">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="campo_nombre_item" editable="false" labelFloat="true" layoutX="126.0" layoutY="299.0" prefHeight="37.0" prefWidth="171.0" promptText="Nombre Producto" styleClass="textfieldVendedor">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="campo_cantidad_item" labelFloat="true" layoutX="313.0" layoutY="299.0" prefHeight="37.0" prefWidth="68.0" promptText="Cantidad" styleClass="textfieldVendedor">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="campo_buscar_item" labelFloat="true" layoutX="548.0" layoutY="300.0" prefHeight="37.0" prefWidth="141.0" promptText="Busqueda id/nombre" styleClass="textfieldVendedor">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="15.0" layoutY="23.0" prefHeight="31.0" prefWidth="88.0" text="Cotización #" textFill="#31af91">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="5.0" layoutY="355.0" prefHeight="15.0" prefWidth="257.0" text="Elementos de cotizacion" textFill="#31af91">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="boton_borrar" layoutX="206.0" layoutY="580.0" onAction="#borrarProducto" prefHeight="37.0" prefWidth="120.0" style="-fx-background-color: #31af91;" text="Borrar" textFill="WHITE" />
+            <Label layoutX="502.0" layoutY="547.0" prefHeight="25.0" prefWidth="44.0" text="TOTAL" />
+            <Label fx:id="label_valor_total" layoutX="583.0" layoutY="543.0" prefHeight="31.0" prefWidth="98.0" text="#total" />
+            <Label fx:id="label_id_vendedor" layoutX="44.0" layoutY="70.0" prefHeight="18.0" prefWidth="126.0" text="" textFill="#31af91">
+               <font>
+                  <Font size="10.0" />
+               </font></Label>
+            <JFXButton fx:id="boton_comenzar" layoutX="610.0" layoutY="48.0" onAction="#registrarCliente" prefHeight="37.0" prefWidth="79.0" style="-fx-background-color: #31af91;" text="Iniciar" textFill="WHITE" />
+            <Label fx:id="label_id_cotizacion" layoutX="103.0" layoutY="29.0" prefHeight="18.0" prefWidth="79.0" textFill="#31af91" />
+            <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="508.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/buscar.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="15.0" layoutY="71.0" prefHeight="17.0" prefWidth="30.0" text="idV." textFill="#31af91" />
+            <Label fx:id="label_aviso_cantidad" layoutX="283.0" layoutY="347.0" prefHeight="17.0" prefWidth="299.0" textFill="#f50505" />
+            <Label fx:id="label_aviso_nombre" layoutX="166.0" layoutY="84.0" prefHeight="17.0" prefWidth="237.0" textFill="#f20303" />
+            <Label fx:id="label_aviso_cliente" layoutX="407.0" layoutY="84.0" prefHeight="17.0" prefWidth="202.0" textFill="#fc0707" />
+            <Label fx:id="label_aviso_imprimir" layoutX="206.0" layoutY="551.0" prefHeight="17.0" prefWidth="257.0" textFill="#f20303" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

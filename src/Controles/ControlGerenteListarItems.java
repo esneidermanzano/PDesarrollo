@@ -1,7 +1,6 @@
 package Controles;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -13,8 +12,6 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
@@ -47,11 +44,11 @@ public class ControlGerenteListarItems {
 	    @FXML private JFXTextField campoBuscar;
 
 	    @FXML private JFXButton botonActualizar;
-
+	    @FXML private JFXButton eliminar;
+	    
 	    @FXML private Text textoNombre;
 	    @FXML private Text textoId;
 	    
-	    @FXML private JFXButton eliminar;
 	    
 	    public void initialize() {
 	    	eliminar.setDisable(true);

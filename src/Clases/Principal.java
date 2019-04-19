@@ -155,9 +155,8 @@ public class Principal extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		escenarioLogin = primaryStage;
-		//iniciarLogin();
-		//iniciarGerente("Ximena Guzman", new String[]{"Gerente"});
-		iniciarJefeTaller("Diana Lopez", new String[]{"Jefe de taller"});
+		iniciarLogin();
+		
 	}
 
 	public static void main(String[] args) {

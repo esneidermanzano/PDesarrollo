@@ -107,15 +107,6 @@ JFXTextField{
   -fx-padding: 0.5em;
 }
 
-/* 
-#tabla_lista_items .column-header, .tablaVendedor .filler {
-    -fx-background-color: #31af91;    
-    -fx-size: 45;
-    -fx-border-color: -fx-box-border;
-    -fx-border-width: 0 0 3 0;
-    -fx-border-insets: 0;
-}*/
-
 .tablaGerente .column-header, .tablaGerente .filler, .tablaVendedor .column-header, .tablaVendedor .filler {
     -fx-background-color: #eee;    
     -fx-size: 45;
@@ -123,3 +114,8 @@ JFXTextField{
     -fx-border-width: 0 0 3 0;
     -fx-border-insets: 0;
 }
+
+
+.table-view{
+-fx-border-color: #fff;}
+

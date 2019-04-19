@@ -27,6 +27,7 @@ public class ControlRaizJefeTaller {
 	private Stage escenario;
 	private double x, y;
 	private String cargo;
+	private String id;
 
     @FXML private Button cerrar;
     @FXML private Button minimizar;
@@ -47,9 +48,11 @@ public class ControlRaizJefeTaller {
     	titulo.setText("");
     } 
     
-	public void initialize(String nombre, String cargo){
+	public void initialize(String nombre, String[] cargo_id){
 		nombreJefeTaller.setText(nombre);
-		this.cargo = cargo;
+		this.cargo = cargo_id[0];
+		this.id = cargo_id[1];
+		
 		atras.setVisible(false);
 	}
 	
@@ -107,11 +110,6 @@ public class ControlRaizJefeTaller {
     	escenario.setY(event.getScreenY() - y);
     }
     
-    @FXML
-    void actualizarOrdenes(){
-    	cambiarVentana("/Vistas/jefe_taller_listar_ordenes.fxml");
-    	titulo.setText("Actualizar Ordenes De Taller");
-    }
     
     //Para Cerrar la ventana raiz
     @FXML
@@ -131,5 +129,22 @@ public class ControlRaizJefeTaller {
     void minimizarAplicacion(ActionEvent event) {
     	Stage stage = (Stage)((Button)event.getSource()).getScene().getWindow();
         stage.setIconified(true);
+    }
+    
+    @FXML
+    void registroOrdenes(ActionEvent event) throws IOException {
+    	FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/Vistas/jefetaller_registro_ordenes.fxml"));
+		efectoCambio(loader);	
+		ControlJefeTallerRegistroOrdenes controlador = loader.getController();
+		controlador.iniciar(id);
+		atras.setVisible(true);
+    	titulo.setText("Registrar orden de trabajo");
+
+    }
+    @FXML
+    void actualizarOrdenes(){
+    	cambiarVentana("/Vistas/jefe_taller_listar_ordenes.fxml");
+    	titulo.setText("Actualizar Ordenes De Taller");
     }
 }

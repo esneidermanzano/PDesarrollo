@@ -37,6 +37,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
+            <JFXButton fx:id="botonRegistroOrdenes" layoutX="43.0" layoutY="207.0" onAction="#registroOrdenes" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Registro de Personal" textFill="GREY" />            
             <JFXButton buttonType="RAISED" layoutX="55.0" layoutY="271.0" onAction="#actualizarOrdenes" prefHeight="25.0" prefWidth="191.0" ripplerFill="WHITE" styleClass="botonesPanel" text="Actualizar Ordenes" textFill="GREY" />
          
          </children>

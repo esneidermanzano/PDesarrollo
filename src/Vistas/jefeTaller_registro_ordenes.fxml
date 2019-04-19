@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlJefeTallerRegistroOrdenes">
+   <children>
+      <Pane prefHeight="635.0" prefWidth="700.0" styleClass="panelCentral">
+         <children>
+            <TableView fx:id="tablaItems" prefHeight="296.0" prefWidth="456.0" styleClass="tabla">
+              <columns>
+                <TableColumn fx:id="columnaId" prefWidth="73.0" text="Id" />
+                <TableColumn fx:id="columnaNombre" prefWidth="144.0" styleClass="tablaGerente" text="Nombre" />
+                  <TableColumn fx:id="columnaColor" prefWidth="78.0" text="Color" />
+                  <TableColumn fx:id="columnaSede" prefWidth="144.0" text="Sede" />
+              </columns>
+            </TableView>
+            <Text fill="#737373" layoutX="479.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" text="Producto Seleccionado" wrappingWidth="169.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="textoNombre" fill="#797979" layoutX="545.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" wrappingWidth="141.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#797979" layoutX="475.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" text="Nombre: " wrappingWidth="67.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="textoId" fill="#797979" layoutX="545.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" wrappingWidth="141.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#797979" layoutX="479.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" text="Id:" wrappingWidth="59.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+            <JFXTextField fx:id="campoBuscarNombre" labelFloat="true" layoutX="518.0" layoutY="149.0" prefHeight="37.0" prefWidth="149.0" promptText="Buscar nombre..." styleClass="textfield">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <ImageView fitHeight="23.0" fitWidth="25.0" layoutX="479.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/buscar.png" />
+               </image>
+            </ImageView>
+            <JFXTextField fx:id="campoBuscarId" labelFloat="true" layoutX="518.0" layoutY="219.0" prefHeight="37.0" prefWidth="149.0" promptText="Buscar por Id..." styleClass="textfield">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <ImageView fitHeight="23.0" fitWidth="25.0" layoutX="479.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/buscar.png" />
+               </image>
+            </ImageView>
+            <Text fill="#797979" layoutX="32.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" text="Detalles de la orden" wrappingWidth="169.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+            <JFXTextArea fx:id="campoDescripcion" layoutX="32.0" layoutY="352.0" prefHeight="96.0" prefWidth="636.0" promptText="Informacion adicional..." styleClass="textfield">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextArea>
+            <JFXTextField fx:id="campoCantidad" labelFloat="true" layoutX="91.0" layoutY="496.0" prefHeight="37.0" prefWidth="149.0" promptText="Cantidad a producir" styleClass="textfield">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <Text fill="#797979" layoutX="343.0" layoutY="526.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fech a entregar:" wrappingWidth="104.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <DatePicker fx:id="campoFecha" layoutX="467.0" layoutY="508.0" />
+            <JFXButton fx:id="botonRegistro" layoutX="275.0" layoutY="573.0" onAction="#registrarOrden" prefHeight="37.0" prefWidth="132.0" styleClass="boton" text="Agregar Orden" textFill="WHITE" />
+            <Text fx:id="errorDescripcion" fill="#ff7070" layoutX="184.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="333.0" />
+            <Text fx:id="errorCantidad" fill="#ff7070" layoutX="42.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="247.0" />
+            <Text fx:id="errorFecha" fill="#ff7070" layoutX="368.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="247.0" />
+            
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

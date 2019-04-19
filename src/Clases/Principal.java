@@ -100,7 +100,7 @@ public class Principal extends Application {
 				break;
 		 	case "Jefe de taller":
 		 		ControlRaizJefeTaller CRJ = cargador.getController();
-		 		CRJ.initialize(nombre, perfil[0]);
+		 		CRJ.initialize(nombre, perfil);
 		 		CRJ.setStage(escenarioJefeTaller);
 		 		initEfecto(raiz);
 		 		Scene EJ = new Scene(raiz); 

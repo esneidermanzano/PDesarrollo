@@ -35,7 +35,7 @@ public class ControlLogin {
     		consultador = new DaoLogin();
     		if(consultador.consultarUsuario(usuario)) {
     			perfil = consultador.consultarContrasena(campoUsuarioLogin.getText(), campoPasswordLogin.getText());	
-		         if(!perfil[0].equals("")){
+		         if(perfil[0] != null){
 		        	 if (perfil[0].equals("Gerente")) {
 		    			try {
 							Principal.iniciarGerente(campoUsuarioLogin.getText(), perfil);

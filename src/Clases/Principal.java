@@ -108,6 +108,7 @@ public class Principal extends Application {
 				escenarioJefeTaller.setScene(EJ);
 				escenarioJefeTaller.initStyle(StageStyle.UNDECORATED);		
 				escenarioJefeTaller.show();
+				EJ.getStylesheets().add("/Estilos/jefeTaller.css");
 				CRJ.menuInicial();	
 				break;
 		 	case "Administrador":

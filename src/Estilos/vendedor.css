@@ -1,0 +1,86 @@
+.panelRaiz{
+	-fx-background-color:  #006666;
+}
+.panelCentral{
+	-fx-background-color:  white;
+}
+
+.controles{
+	-fx-alignment: center ;
+	-fx-background-color:transparent;
+	-fx-border-color: transparent; 
+	-fx-border-width: 0 0 2 0;
+	-fx-pref-height:25px;
+	-fx-pref-width:25px;
+}
+.controles:hover{
+	-fx-cursor: hand;
+	-fx-border-color: #808080; 
+	-fx-border-width: 0 0 2 0;
+}
+
+.menu-item:focused {
+     -fx-background-color: #31af91;
+}
+.context-menu {
+    -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+}
+
+#botonCerrarSesion{
+	-fx-background-color:transparent;
+	-fx-border-width:  0 1 0 0;
+	-fx-border-color: transparent; 
+}
+#botonCerrarSesion:hover{
+	-fx-border-width:  0 1 0 0;
+	-fx-border-color: #fff;
+	-fx-cursor: hand;
+
+}
+.botonesPanel{
+	-fx-background-color:#fff;
+}
+.boton{
+	-fx-background-color: #31af91;
+	-fx-text-fill: white;
+	
+}
+.tituloPanel{
+	-fx-fill: #31af91;
+}
+.textfield, .comboBox{
+	 -fx-prompt-text-fill: #bbb;
+	 -jfx-unfocus-color: #31af91;
+	 -jfx-focus-color:#808080;
+}
+
+.tabla .table-column {
+  -fx-alignment: CENTER;
+}
+
+.tabla{
+  -fx-focus-color: white;
+  -fx-selection-bar:#31af91;
+  -fx-selection-bar-non-focused:#50cbae;
+  -fx-font-size: 13px;
+  -fx-padding: 0.5em;
+}
+
+.tabla .column-header, .tabla .filler{
+    -fx-background-color: #eee;    
+    -fx-size: 45;
+    -fx-border-color: -fx-box-border;
+    -fx-border-width: 0 0 3 0;
+    -fx-border-insets: 0;
+}
+
+.table-view{
+-fx-border-color: #fff;}
+
+.botonTema > .arrow-button {
+    -fx-padding: 0;
+}
+
+.botonTema > .arrow-button > .arrow {
+    -fx-padding: 0;
+}

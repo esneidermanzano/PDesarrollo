@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.image.*?>
@@ -8,9 +7,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 
-<BorderPane fx:id="panelRaiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="665.0" prefWidth="1000.0" style="-fx-background-color: #fff;" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlRaizJefeTaller">
+<BorderPane fx:id="panelRaiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="665.0" prefWidth="1000.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlRaizJefeTaller">
    <left>
-      <Pane prefHeight="499.0" prefWidth="300.0" style="-fx-background-color: #006699;" BorderPane.alignment="CENTER">
+      <Pane prefHeight="499.0" prefWidth="300.0" styleClass="panelRaiz" BorderPane.alignment="CENTER">
          <children>
             <Label contentDisplay="CENTER" layoutX="30.0" layoutY="168.0" prefHeight="25.0" prefWidth="102.0" text="Jede de Taller" textFill="WHITE">
                <font>
@@ -27,7 +26,10 @@
                   <Image url="@../Imagenes/taller.png" />
                </image>
             </ImageView>
-         	<ImageView fitHeight="15.0" fitWidth="18.0" layoutX="97.0" layoutY="597.0" pickOnBounds="true" preserveRatio="true">
+            <JFXButton fx:id="botonRegistroOrdenes" layoutX="43.0" layoutY="207.0" onAction="#registroOrdenes" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Registro de Personal" textFill="GREY" />
+            <JFXButton buttonType="RAISED" layoutX="55.0" layoutY="271.0" onAction="#actualizarOrdenes" prefHeight="25.0" prefWidth="191.0" ripplerFill="WHITE" styleClass="botonesPanel" text="Actualizar Ordenes" textFill="GREY" />
+
+                     	<ImageView fitHeight="15.0" fitWidth="18.0" layoutX="97.0" layoutY="597.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/cerrarSesion.png" />
                </image>
@@ -37,8 +39,15 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <JFXButton fx:id="botonRegistroOrdenes" layoutX="43.0" layoutY="207.0" onAction="#registroOrdenes" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Registro de Personal" textFill="GREY" />            
-            <JFXButton buttonType="RAISED" layoutX="55.0" layoutY="271.0" onAction="#actualizarOrdenes" prefHeight="25.0" prefWidth="191.0" ripplerFill="WHITE" styleClass="botonesPanel" text="Actualizar Ordenes" textFill="GREY" />
+            <MenuButton fx:id="botonTema" layoutX="132.0" layoutY="528.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: transparent; -fx-pref-width: 50px;" styleClass="botonTema">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagenes/tema.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </MenuButton>
          
          </children>
       </Pane>
@@ -46,13 +55,13 @@
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="950.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: #006699;" />
-            <Pane onMouseDragged="#moverPanel" onMousePressed="#copiarCoordenadas" prefHeight="30.0" prefWidth="700.0">
+            <Pane prefHeight="30.0" prefWidth="300.0" styleClass="panelRaiz" />
+            <Pane onMouseDragged="#moverPanel" onMousePressed="#copiarCoordenadas" prefHeight="30.0" prefWidth="700.0" styleClass="panelSuperior">
                <children>
-                  <Button fx:id="atras" layoutX="12.0" layoutY="1.0" mnemonicParsing="false" onAction="#retroceder" opacity="0.6" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/atras.png');" styleClass="controles" />
+                  <Button fx:id="atras" layoutX="12.0" layoutY="1.0" mnemonicParsing="false" onAction="#retroceder" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/atras.png');" styleClass="controles" />
                   <Button fx:id="minimizar" layoutX="635.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimizarAplicacion" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/minimize.png');" styleClass="controles" />
                   <Button fx:id="cerrar" layoutX="670.0" layoutY="2.0" mnemonicParsing="false" onAction="#cerrarAplicacion" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/close.png');" styleClass="controles" />
-                  <Text fx:id="titulo" fill="#0099e6" layoutX="90.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="519.13671875">
+                  <Text fx:id="titulo" fill="#0099e6" layoutX="90.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="tituloPanel" textAlignment="CENTER" wrappingWidth="519.13671875">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -64,6 +73,6 @@
       </HBox>
    </top>
    <center>
-      <Pane fx:id="panelCentral" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
+      <Pane fx:id="panelCentral" prefHeight="200.0" prefWidth="200.0" styleClass="panelCentral" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

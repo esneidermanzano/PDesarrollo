@@ -9,9 +9,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlJefeTallerListarOrdenes">
    <children>
-      <Pane prefHeight="635.0" prefWidth="700.0" style="-fx-background-color: white;">
+      <Pane prefHeight="635.0" prefWidth="700.0" styleClass="panelCentral">
          <children>
-            <TableView fx:id="tablaOrdenesTrabajo" prefHeight="480.0" prefWidth="700.0" styleClass="tablaAdministrador">
+            <TableView fx:id="tablaOrdenesTrabajo" prefHeight="480.0" prefWidth="700.0" styleClass="tabla">
               <columns>
                 <TableColumn fx:id="columnaId" prefWidth="27.0" text="Id" />
                 <TableColumn fx:id="columnaId_articulo" prefWidth="83.0" styleClass="tablaGerente" text="Id Articulo" />
@@ -23,44 +23,44 @@
                   <TableColumn fx:id="columnaEstado" prefWidth="91.0" text="Estado" />
               </columns>
             </TableView>
-            <JFXButton fx:id="actualizarOrden" layoutX="587.0" layoutY="483.0" onAction="#actualizarOrden" prefHeight="50.0" prefWidth="98.0" style="-fx-background-color: #4e94ca;" text="Actualizar" textFill="WHITE" />
-            <JFXTextField fx:id="campoBuscar" layoutX="59.0" layoutY="529.0" prefHeight="19.0" prefWidth="176.0" promptText="Introduce un nombre..." styleClass="textFieldJedeDeTaller">
+            <JFXTextField fx:id="campoBuscar" layoutX="59.0" layoutY="529.0" prefHeight="19.0" prefWidth="176.0" promptText="Introduce un nombre..." styleClass="textfield">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <Text fx:id="textoFecha" fill="#4e94ca" layoutX="399.0" layoutY="542.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="160.0">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
+            <JFXButton fx:id="actualizarOrden" layoutX="587.0" layoutY="483.0" onAction="#actualizarOrden" prefHeight="50.0" prefWidth="98.0" styleClass="boton" text="Actualizar" />
+            <JFXButton fx:id="eliminarOrden" layoutX="587.0" layoutY="547.0" onAction="#eliminarOrden" prefHeight="50.0" prefWidth="98.0" styleClass="boton" text="Eliminar" />
             <ImageView fitHeight="23.0" fitWidth="25.0" layoutX="24.0" layoutY="537.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/buscar.png" />
                </image>
             </ImageView>
-            <Text fill="#797979" layoutX="300.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Orden Seleccionada:" wrappingWidth="149.0">
+            <Text fill="#797979" layoutX="300.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" text="Orden Seleccionada:" wrappingWidth="149.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fx:id="textoOrden" fill="#4e94ca" layoutX="443.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="88.0">
+            <Text fx:id="textoOrden" fill="#4e94ca" layoutX="443.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" wrappingWidth="88.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fill="#797979" layoutX="301.0" layoutY="542.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Entrega:" wrappingWidth="98.0">
+            <Text fill="#797979" layoutX="301.0" layoutY="542.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" text="Fecha Entrega:" wrappingWidth="98.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fill="#797979" layoutX="300.0" layoutY="565.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción:" wrappingWidth="81.0">
+            <Text fx:id="textoFecha" fill="#4e94ca" layoutX="399.0" layoutY="542.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" wrappingWidth="160.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <JFXButton fx:id="eliminarOrden" layoutX="587.0" layoutY="547.0" onAction="#eliminarOrden" prefHeight="50.0" prefWidth="98.0" style="-fx-background-color: #4e94ca;" text="Eliminar" textFill="WHITE" />
-            <Text fx:id="textoDescripcion" fill="#4e94ca" layoutX="382.0" layoutY="564.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="194.0">
+            <Text fill="#797979" layoutX="300.0" layoutY="565.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" text="Descripción:" wrappingWidth="81.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="textoDescripcion" fill="#4e94ca" layoutX="382.0" layoutY="564.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" wrappingWidth="194.0">
                <font>
                   <Font size="14.0" />
                </font>

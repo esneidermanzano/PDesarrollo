@@ -3,6 +3,8 @@ package Controles;
 import java.io.IOException;
 import java.util.Optional;
 
+import com.jfoenix.controls.JFXListView;
+
 import Clases.Principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +14,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -27,7 +31,7 @@ public class ControlRaizJefeTaller {
 	private Stage escenario;
 	private double x, y;
 	private String cargo;
-	private String id;
+	private String id, tema;
 
     @FXML private Button cerrar;
     @FXML private Button minimizar;
@@ -39,6 +43,11 @@ public class ControlRaizJefeTaller {
     @FXML private Text titulo;
    
     @FXML private Button botonCerrarSesion;
+    @FXML private MenuButton botonTema;
+
+
+    @FXML private JFXListView<Button> listaBotones;
+
     
     //Para retroceder hacia la pantalla inicial:
     @FXML
@@ -54,8 +63,32 @@ public class ControlRaizJefeTaller {
 		this.id = cargo_id[1];
 		
 		atras.setVisible(false);
+		
+		tema = "/Estilos/jefeTaller.css";
+		MenuItem tema1 = new MenuItem("Escarlata");
+		MenuItem tema2 = new MenuItem("Olivo");
+		MenuItem tema3= new MenuItem("Blunan");
+		MenuItem tema4 = new MenuItem("DarkSoul");
+		
+		tema1.setOnAction(event -> {
+			cambiarTema("/Estilos/gerente.css");
+		});
+		tema2.setOnAction(event -> {
+			cambiarTema("/Estilos/vendedor.css");
+		});
+		tema3.setOnAction(event -> {
+			cambiarTema("/Estilos/jefeTaller.css");
+		});
+		tema4.setOnAction(event -> {
+			cambiarTema("/Estilos/dark.css");
+		});
+		botonTema.getItems().addAll(tema1, tema2, tema3, tema4);
 	}
-	
+	public void cambiarTema(String piel){
+		panelRaiz.getScene().getStylesheets().remove(tema);
+    	tema = piel;
+    	panelRaiz.getScene().getStylesheets().add(tema);
+	}
     public void setStage(Stage escenario) {
     	this.escenario = escenario;
     }

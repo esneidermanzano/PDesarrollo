@@ -347,6 +347,7 @@ CREATE TABLE ordenes_trabajo
 	cantidad INTEGER NOT NULL,
 	fecha_creacion TIMESTAMP NOT NULL,
 	fecha_entrega TIMESTAMP NOT NULL,
+	estado VARCHAR(30),
 	
 	CONSTRAINT ordenes_trabajo_pk PRIMARY KEY (id),
 
@@ -363,10 +364,10 @@ CREATE SEQUENCE ordenes_trabajo_sequence
   increment 1;
 
 -----------------------------------------------------------------------------------------------------------------
-INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '7777777777', 2, 'Orden 2345 mesa etc', 5, '2019-02-10 08:00:00', '2019-05-10 08:00:00');
+INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '7777777777', 2, 'Orden 2345 mesa etc', 5, '2019-02-10 08:00:00', '2019-05-10 08:00:00', 'recibida');
 
-INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '8888888888', 3, 'Orden 35 asiento xy', 7, '2019-03-10 08:00:00', '2019-05-10 08:00:00');
+INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '8888888888', 3, 'Orden 35 asiento xy', 7, '2019-03-10 08:00:00', '2019-05-10 08:00:00', 'desarrollo');
 
-INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '9999999999', 4, 'Orden 33 puerta et al.', 3, '2019-03-10 08:00:00', '2019-05-10 08:00:00');
+INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '9999999999', 4, 'Orden 33 puerta et al.', 3, '2019-03-10 08:00:00', '2019-05-10 08:00:00', 'finalizada');
 -----------------------------------------------------------------------------------------------------------------
-
+create or replace view ordenes_trabajo_view as select ordenes_trabajo.id, nombre, id_articulo, descripcion, cantidad, fecha_creacion, fecha_entrega, ordenes_trabajo.estado from ordenes_trabajo inner join empleados on ordenes_trabajo.id_jefe_taller=empleados.id;

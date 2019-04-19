@@ -107,6 +107,12 @@ public class ControlRaizJefeTaller {
     	escenario.setY(event.getScreenY() - y);
     }
     
+    @FXML
+    void actualizarOrdenes(){
+    	cambiarVentana("/Vistas/jefe_taller_listar_ordenes.fxml");
+    	titulo.setText("Actualizar Ordenes De Taller");
+    }
+    
     //Para Cerrar la ventana raiz
     @FXML
     void cerrarAplicacion(ActionEvent event) {

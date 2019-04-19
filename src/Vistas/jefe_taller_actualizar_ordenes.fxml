@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.embed.swing.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlJefeTallerActualizarOrdenes">
+   <children>
+      <Pane prefHeight="635.0" prefWidth="700.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text fx:id="textoOrden" fill="#4e94ca" layoutX="180.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="116.66748046875">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fill="#797979" layoutX="109.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# Orden:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fill="#797979" layoutX="109.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jefe Responsable:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fill="#797979" layoutX="427.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de registro:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="textoFecha" fill="#4e94ca" layoutX="551.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="116.66748046875">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <JFXButton fx:id="botonActualizar" layoutX="274.0" layoutY="542.0" onAction="#actualizarItem" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #4e94ca;" text="Actualizar" textFill="WHITE" />
+            <Text fill="GREY" layoutX="116.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripcion:">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <DatePicker fx:id="pickerFecha" layoutX="427.0" layoutY="293.0" />
+            <Text fill="GREY" layoutX="427.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Entrega:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <JFXTextField fx:id="fieldDescripcion" layoutX="112.0" layoutY="445.0" prefHeight="25.0" prefWidth="289.0" styleClass="textFieldJefeDeTaller" />
+            <Text fill="GREY" layoutX="111.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# Articulo:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="textoArticulo" fill="#4e94ca" layoutX="186.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="116.66748046875">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fill="GREY" layoutX="427.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cantidad:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="textoCantidad" fill="#4e94ca" layoutX="504.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="80.41259765625">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <Text fill="GREY" layoutX="427.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <JFXComboBox fx:id="comboEstado" layoutX="427.0" layoutY="445.0" prefHeight="25.0" prefWidth="174.0" styleClass="comboBoxJefeDeTaller" />
+            <Text fx:id="textoJefe" fill="#4e94ca" layoutX="104.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="153.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

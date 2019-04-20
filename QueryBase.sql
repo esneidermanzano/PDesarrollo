@@ -1,4 +1,4 @@
-   DROP EXTENSION IF EXISTS pgcrypto;
+DROP EXTENSION IF EXISTS pgcrypto;
 CREATE EXTENSION pgcrypto;
 
 DROP TABLE IF EXISTS gerentes CASCADE;
@@ -226,7 +226,6 @@ INSERT INTO ventas VALUES(nextval('ventas_sequence'), '4444444444', '1', '2019-0
 INSERT INTO ventas VALUES(nextval('ventas_sequence'), '5555555555', '2', '2019-03-13 19:10:25-07');
 INSERT INTO ventas VALUES(nextval('ventas_sequence'), '6666666666', '3', '2019-03-13 19:10:25-07');
 -----------------------------------------------------------------------------------------------------------------
-
 -- PROCESO CONTROLADOR/LOGIC/DAO
 DROP TABLE IF EXISTS detalle_ventas CASCADE;
 CREATE TABLE detalle_ventas
@@ -234,6 +233,7 @@ CREATE TABLE detalle_ventas
 	id_venta INTEGER,
 	numero_de_ejemplar INTEGER NOT NULL,
 	id_item INTEGER NOT NULL,
+	cantidad INTEGER NOT NULL,
 	
 	CONSTRAINT detalle_ventas_pk PRIMARY KEY (id_venta, numero_de_ejemplar, id_item),
 
@@ -243,18 +243,32 @@ CREATE TABLE detalle_ventas
 	CONSTRAINT detalle_ventas_fk2 FOREIGN KEY (numero_de_ejemplar, id_item)
 		REFERENCES ejemplares (numero_de_ejemplar, id_item) ON DELETE CASCADE
 );
-
+												 
+-- Procedimiento para actualizar la cantidad de un ejemplar al realizar una venta:
+CREATE OR REPLACE FUNCTION restarCantidad() RETURNS TRIGGER AS $$
+DECLARE 
+	item INTEGER := NEW.id_item;
+	ejemplar INTEGER := NEW.numero_de_ejemplar;
+	cantidadVendida INTEGER := NEW.cantidad;
+BEGIN 
+	UPDATE ejemplares SET cantidad = cantidad - cantidadVendida WHERE numero_de_ejemplar = ejemplar AND id_item = item;
+	RETURN NEW;
+END 
+$$ LANGUAGE plpgsql;
+					
+-- Disparador para activar el procedimiento anterior al realizar un INSERT:
+CREATE TRIGGER registrar_venta AFTER INSERT ON detalle_ventas FOR EACH ROW EXECUTE PROCEDURE restarCantidad();												
 -----------------------------------------------------------------------------------------------------------------
-INSERT INTO detalle_ventas VALUES(1, 1, 2);
-INSERT INTO detalle_ventas VALUES(1, 2, 2);
-INSERT INTO detalle_ventas VALUES(1, 3, 2);
+INSERT INTO detalle_ventas VALUES(1, 1, 2, 1);
+INSERT INTO detalle_ventas VALUES(1, 2, 2, 1);
+INSERT INTO detalle_ventas VALUES(1, 3, 2, 1);
 
-INSERT INTO detalle_ventas VALUES(2, 4, 3);
-INSERT INTO detalle_ventas VALUES(2, 5, 3);
+INSERT INTO detalle_ventas VALUES(2, 4, 3, 1);
+INSERT INTO detalle_ventas VALUES(2, 5, 3, 1);
 
-INSERT INTO detalle_ventas VALUES(3, 6, 3);
-INSERT INTO detalle_ventas VALUES(3, 7, 4);
-INSERT INTO detalle_ventas VALUES(3, 8, 4);
+INSERT INTO detalle_ventas VALUES(3, 6, 3, 1);
+INSERT INTO detalle_ventas VALUES(3, 7, 4, 1);
+INSERT INTO detalle_ventas VALUES(3, 8, 4, 1);
 -----------------------------------------------------------------------------------------------------------------
 -- PROCESO CONTROLADOR/LOGIC/DAO
 DROP TABLE IF EXISTS cotizaciones CASCADE;

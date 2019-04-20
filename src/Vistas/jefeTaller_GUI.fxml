@@ -26,8 +26,22 @@
                   <Image url="@../Imagenes/taller.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="botonRegistroOrdenes" alignment="BASELINE_LEFT" layoutY="207.0" onAction="#registroOrdenes" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Registro de Ordenes" textFill="GREY" />
-            <JFXButton alignment="BASELINE_LEFT" layoutY="252.0" onAction="#actualizarOrdenes" prefHeight="25.0" prefWidth="191.0" ripplerFill="BLACK" styleClass="botonesPanel" text="Actualizar Ordenes" textFill="GREY" />
+            <JFXButton fx:id="botonRegistroOrdenes" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="207.0" onAction="#registroOrdenes" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Registro de Ordenes" textFill="GREY">
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagenes/archivo.png" />
+                     </image>
+                  </ImageView>
+               </graphic></JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="252.0" onAction="#actualizarOrdenes" prefHeight="25.0" prefWidth="191.0" ripplerFill="BLACK" styleClass="botonesPanel" text="Actualizar Ordenes" textFill="GREY">
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagenes/update.png" />
+                     </image>
+                  </ImageView>
+               </graphic></JFXButton>
 
                      	<ImageView fitHeight="15.0" fitWidth="18.0" layoutX="97.0" layoutY="597.0" pickOnBounds="true" preserveRatio="true">
                <image>

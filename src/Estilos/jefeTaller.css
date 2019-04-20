@@ -47,8 +47,6 @@
 	-fx-pref-height: 45px;
 	-fx-text-fill: white;
     -fx-font-size:14px;
-    -fx-border-color:#eee;
-	-fx-border-width: 0 0 1 0;
     }
 
 .botonesPanel:hover {

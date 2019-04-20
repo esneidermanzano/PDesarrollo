@@ -38,8 +38,21 @@
 
 }
 .botonesPanel{
-	-fx-background-color:#fff;
+	-fx-background-radius: 0px;
+	-fx-background-color:#006666;
+	-fx-padding:  0px 0px 0px 50px;
+	-fx-pref-width: 300px;
+	-fx-pref-height: 45px;
+	-fx-text-fill: white;
+    -fx-font-size:14px;
+    -fx-border-color:#eee;
+	-fx-border-width: 0 0 1 0;
+    }
+
+.botonesPanel:hover {
+	-fx-background-color: #31af91;
 }
+
 .boton{
 	-fx-background-color: #31af91;
 	-fx-text-fill: white;

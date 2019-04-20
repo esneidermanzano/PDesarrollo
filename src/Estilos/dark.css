@@ -48,8 +48,18 @@
 }
 .botonesPanel{
 	-fx-background-radius: 0px;
-	-fx-background-color:#fff;
-	-fx-padding:  0px 0px 0px 20px
+	-fx-background-color:#2b2b2b;
+	-fx-padding:  0px 0px 0px 50px;
+	-fx-pref-width: 300px;
+	-fx-pref-height: 45px;
+	-fx-text-fill: white;
+    -fx-font-size:14px;
+    -fx-border-color:#797979;
+	-fx-border-width: 0 0 1 0;
+    }
+
+.botonesPanel:hover {
+	-fx-background-color: #333;
 }
 
 .boton{
@@ -57,6 +67,7 @@
 	-fx-text-fill: white;
 	
 }
+
 .tituloPanel{
 	-fx-fill: #0099e6;
 }

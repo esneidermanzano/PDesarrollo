@@ -119,3 +119,16 @@ JFXTextField{
 .table-view{
 -fx-border-color: #fff;}
 
+.botonesPanel{
+	-fx-background-radius: 0px;
+	-fx-background-color:#d13438;
+	-fx-padding:  0px 0px 0px 50px;
+	-fx-pref-width: 300px;
+	-fx-pref-height: 45px;
+	-fx-text-fill: white;
+    -fx-font-size:14px;
+    }
+
+.botonesPanel:hover {
+	-fx-background-color: #ff7070;
+}

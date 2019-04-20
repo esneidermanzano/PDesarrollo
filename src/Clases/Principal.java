@@ -96,6 +96,7 @@ public class Principal extends Application {
 				escenarioVendedor.setScene(EV);
 				escenarioVendedor.initStyle(StageStyle.UNDECORATED);		
 				escenarioVendedor.show();
+				EV.getStylesheets().add("/Estilos/vendedor.css");
 				CRV.menuInicial();	
 				break;
 		 	case "Jefe de taller":

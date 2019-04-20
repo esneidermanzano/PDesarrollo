@@ -69,6 +69,18 @@
 .tituloPanel{
 	-fx-fill: #0099e6;
 }
+
+.textLabel { 
+	-fx-text-fill: #eee;
+} 
+
+.textLabelNegro { 
+	-fx-text-fill: #eee;
+} 
+.textLabelError { 
+	-fx-text-fill: #ff4040;
+} 
+
 .textfield, .comboBox{
 	 -fx-prompt-text-fill: #bbb;
 	 -jfx-unfocus-color: #eee;
@@ -103,7 +115,7 @@
 
 .tabla .column-header, .tabla .filler{
     -fx-background-color: #4d4d4d;
-    -fx-size: 45;
+    -fx-size: 25;
     -fx-border-color: -fx-box-border;
     -fx-border-width: 0 0 3 0;
     -fx-border-insets: 0;

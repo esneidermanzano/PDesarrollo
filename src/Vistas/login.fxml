@@ -19,27 +19,44 @@
                   <Image url="@../Imagenes/fondo.png" />
                </image>
             </ImageView>
-            <Pane layoutX="55.0" layoutY="113.0" opacity="0.37" prefHeight="304.0" prefWidth="350.0" style="-fx-background-color: #fff;" />
-            <JFXTextField fx:id="campoUsuarioLogin" focusColor="#31af91" labelFloat="true" layoutX="107.0" layoutY="174.0" onAction="#onEnter" prefHeight="42.0" prefWidth="270.0" promptText="Nombre" unFocusColor="WHITE" />
-            <ImageView fitHeight="22.0" fitWidth="18.0" layoutX="79.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
+            <Pane layoutX="-8.0" layoutY="-2.0" opacity="0.3" prefHeight="597.0" prefWidth="467.0" style="-fx-background-color: #333;" />
+            <Text fill="WHITE" layoutX="167.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XYZ S.A Inmobiliaria">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <JFXButton fx:id="botonLogin" layoutX="160.0" layoutY="409.0" onAction="#consultarUsuario" prefHeight="42.0" prefWidth="140.0" ripplerFill="BLACK" style="-fx-background-color: #31af91; -fx-background-radius: 50px;" text="Ingresar" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXTextField fx:id="campoUsuarioLogin" focusColor="WHITE" labelFloat="true" layoutX="111.0" layoutY="231.0" onAction="#onEnter" prefHeight="42.0" prefWidth="270.0" promptText="Nombre" style="-fx-text-inner-color: white; -fx-prompt-text-fill: #eee;" unFocusColor="#c2c2c2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="80.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/user2.png" />
                </image>
             </ImageView>
-            <JFXPasswordField fx:id="campoPasswordLogin" focusColor="#31af91" labelFloat="true" layoutX="108.0" layoutY="255.0" onAction="#onEnter" prefHeight="42.0" prefWidth="270.0" promptText="Contraseña" unFocusColor="WHITE" />
-            <ImageView fitHeight="24.0" fitWidth="16.0" layoutX="79.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+            <JFXPasswordField fx:id="campoPasswordLogin" focusColor="WHITE" labelFloat="true" layoutX="111.0" layoutY="317.0" onAction="#onEnter" prefHeight="42.0" prefWidth="270.0" promptText="Contraseña" style="-fx-text-inner-color: white; -fx-prompt-text-fill: #eee;" unFocusColor="#c3c3c3">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXPasswordField>
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="79.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/password2.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="botonLogin" layoutX="80.0" layoutY="348.0" onAction="#consultarUsuario" prefHeight="42.0" prefWidth="299.0" style="-fx-background-color: #31af91;" text="Ingresar" textFill="WHITE" />
-            <ImageView fitHeight="130.0" fitWidth="130.0" layoutX="155.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="111.0" fitWidth="130.0" layoutX="165.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/userlogin.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="535.0" prefHeight="31.0" prefWidth="341.0" style="-fx-border-color: white; -fx-border-width: 1 0 0 0;" text="YXZ S.A. Sitema de Gestion del Talento Humano 1.0" textFill="WHITE" />
-            <Text fx:id="mensajeAdvertencia" fill="#ff2e2e" layoutX="55.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="350.0">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="535.0" prefHeight="31.0" prefWidth="341.0" text="SIGET - Sitema de Gestion del Talento Humano 1.0" textFill="WHITE" />
+            <Text fx:id="mensajeAdvertencia" fill="#f8c5c5" layoutX="55.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="350.0">
                <font>
                   <Font size="14.0" />
                </font>

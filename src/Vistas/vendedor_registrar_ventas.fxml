@@ -11,29 +11,29 @@
    <children>
       <Pane layoutY="-6.0" prefHeight="635.0" prefWidth="700.0">
          <children>
-            <JFXTextField fx:id="nombreCliente" labelFloat="true" layoutX="154.0" layoutY="59.0" prefHeight="37.0" prefWidth="177.0" promptText="Nombre Cliente" styleClass="textfieldVendedor">
+            <JFXTextField fx:id="nombreCliente" labelFloat="true" layoutX="18.0" layoutY="68.0" prefHeight="37.0" prefWidth="177.0" promptText="Nombre Cliente" styleClass="textfieldVendedor">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="idCliente" labelFloat="true" layoutX="337.0" layoutY="59.0" prefHeight="37.0" prefWidth="133.0" promptText="Cédula Cliente" styleClass="textfieldVendedor">
+            <JFXTextField fx:id="idCliente" labelFloat="true" layoutX="254.0" layoutY="68.0" prefHeight="37.0" prefWidth="133.0" promptText="Cédula Cliente" styleClass="textfieldVendedor">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="telefonoCliente" labelFloat="true" layoutX="482.0" layoutY="59.0" prefHeight="37.0" prefWidth="126.0" promptText="Teléfono Cliente" styleClass="textfieldVendedor">
+            <JFXTextField fx:id="telefonoCliente" labelFloat="true" layoutX="447.0" layoutY="68.0" prefHeight="37.0" prefWidth="126.0" promptText="Teléfono Cliente" styleClass="textfieldVendedor">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXButton fx:id="iniciar" layoutX="628.0" layoutY="59.0" onAction="#iniciarVenta" prefHeight="37.0" prefWidth="59.0" style="-fx-background-color: #31af91;" text="Iniciar" textFill="WHITE" />
-            <JFXTextField fx:id="cantidadProducto" labelFloat="true" layoutX="313.0" layoutY="310.0" prefHeight="37.0" prefWidth="68.0" promptText="Cantidad" styleClass="textfieldVendedor">
+            <JFXButton fx:id="iniciar" layoutX="632.0" layoutY="69.0" onAction="#iniciarVenta" prefHeight="37.0" prefWidth="59.0" style="-fx-background-color: #31af91;" text="Iniciar" textFill="WHITE" />
+            <JFXTextField fx:id="cantidadProducto" labelFloat="true" layoutX="309.0" layoutY="318.0" prefHeight="37.0" prefWidth="68.0" promptText="Cantidad" styleClass="textfieldVendedor">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXButton fx:id="anadir" layoutX="402.0" layoutY="311.0" onAction="#anadirProducto" prefHeight="37.0" prefWidth="79.0" style="-fx-background-color: #31af91;" text="Añadir" textFill="WHITE" />
-            <JFXTextField fx:id="buscador" labelFloat="true" layoutX="548.0" layoutY="311.0" prefHeight="37.0" prefWidth="141.0" promptText="Buscar ID/Nombre" styleClass="textfieldVendedor">
+            <JFXButton fx:id="anadir" layoutX="400.0" layoutY="318.0" onAction="#anadirProducto" prefHeight="37.0" prefWidth="79.0" style="-fx-background-color: #31af91;" text="Añadir" textFill="WHITE" />
+            <JFXTextField fx:id="buscador" labelFloat="true" layoutX="546.0" layoutY="318.0" prefHeight="37.0" prefWidth="141.0" promptText="Buscar ID/Nombre" styleClass="textfieldVendedor">
                <font>
                   <Font size="13.0" />
                </font>
@@ -78,19 +78,19 @@
                   <Image url="@../Imagenes/buscar.png" />
                </image>
             </ImageView>
-            <Label layoutX="14.0" layoutY="46.0" prefHeight="17.0" prefWidth="85.0" text="Vendedor:" textFill="#31af91" />
-            <Label fx:id="datosVendedor" layoutX="15.0" layoutY="61.0" prefHeight="37.0" prefWidth="133.0" textFill="#4d4d4d" />
-            <Label fx:id="idProducto" layoutX="18.0" layoutY="325.0" prefHeight="25.0" prefWidth="85.0" textAlignment="CENTER" textFill="#4d4d4d">
+            <Label layoutX="177.0" layoutY="23.0" prefHeight="17.0" prefWidth="85.0" text="Vendedor:" textFill="#31af91" />
+            <Label fx:id="datosVendedor" layoutX="243.0" layoutY="13.0" prefHeight="37.0" prefWidth="186.0" textFill="#4d4d4d" />
+            <Label fx:id="idProducto" layoutX="22.0" layoutY="324.0" prefHeight="25.0" prefWidth="98.0" textAlignment="CENTER" textFill="#4d4d4d">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="nombreProducto" layoutX="138.0" layoutY="325.0" prefHeight="25.0" prefWidth="133.0" textAlignment="CENTER" textFill="#4d4d4d">
+            <Label fx:id="nombreProducto" layoutX="134.0" layoutY="324.0" prefHeight="25.0" prefWidth="141.0" textAlignment="CENTER" textFill="#4d4d4d">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="18.0" layoutY="303.0" prefHeight="25.0" prefWidth="98.0" text="ID Producto" textAlignment="CENTER" textFill="#31af91">
+            <Label layoutX="25.0" layoutY="303.0" prefHeight="25.0" prefWidth="98.0" text="ID Producto" textAlignment="CENTER" textFill="#31af91">
                <font>
                   <Font size="16.0" />
                </font>
@@ -100,31 +100,31 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <JFXButton fx:id="nuevo" layoutX="294.0" layoutY="15.0" onAction="#clienteNuevo" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #31af91;" text="Nuevo" textFill="WHITE" />
-            <JFXButton fx:id="existente" layoutX="390.0" layoutY="15.0" onAction="#clienteExistente" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #31af91;" text="Existente" textFill="WHITE" />
-            <Label layoutX="227.0" layoutY="16.0" prefHeight="31.0" prefWidth="59.0" text="Cliente:" textFill="#31af91">
+            <JFXButton fx:id="nuevo" layoutX="500.0" layoutY="15.0" onAction="#clienteNuevo" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #31af91;" text="Nuevo" textFill="WHITE" />
+            <JFXButton fx:id="existente" layoutX="596.0" layoutY="15.0" onAction="#clienteExistente" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #31af91;" text="Existente" textFill="WHITE" />
+            <Label layoutX="433.0" layoutY="16.0" prefHeight="31.0" prefWidth="59.0" text="Cliente:" textFill="#31af91">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="errorNombreCliente" layoutX="154.0" layoutY="98.0" prefHeight="31.0" prefWidth="177.0" textFill="#ff7070">
+            <Label fx:id="errorNombreCliente" layoutX="15.0" layoutY="112.0" prefHeight="25.0" prefWidth="177.0" textFill="#ff7070">
                <font>
-                  <Font size="15.0" />
+                  <Font size="9.0" />
                </font>
             </Label>
-            <Label fx:id="errorIdCliente" layoutX="337.0" layoutY="98.0" prefHeight="31.0" prefWidth="133.0" textFill="#ff7070">
+            <Label fx:id="errorIdCliente" layoutX="250.0" layoutY="112.0" prefHeight="25.0" prefWidth="160.0" textFill="#ff7070">
                <font>
-                  <Font size="15.0" />
+                  <Font size="9.0" />
                </font>
             </Label>
-            <Label fx:id="errorTelefonoCliente" layoutX="482.0" layoutY="98.0" prefHeight="31.0" prefWidth="126.0" textFill="#ff7070">
+            <Label fx:id="errorTelefonoCliente" layoutX="444.0" layoutY="112.0" prefHeight="25.0" prefWidth="160.0" textFill="#ff7070">
                <font>
-                  <Font size="15.0" />
+                  <Font size="9.0" />
                </font>
             </Label>
-            <Label fx:id="errorCantidadProducto" layoutX="313.0" layoutY="351.0" prefHeight="31.0" prefWidth="68.0" textFill="#ff7070">
+            <Label fx:id="errorCantidadProducto" layoutX="309.0" layoutY="355.0" prefHeight="31.0" prefWidth="160.0" textFill="#ff7070">
                <font>
-                  <Font size="15.0" />
+                  <Font size="9.0" />
                </font>
             </Label>
          </children>

@@ -343,18 +343,20 @@ CREATE TABLE ordenes_trabajo
 	id SERIAL,
 	id_jefe_taller VARCHAR(50) NOT NULL,
 	id_articulo INTEGER NOT NULL,
+	id_ejemplar INTEGER NOT NULL,
 	descripcion VARCHAR(2000),
 	cantidad INTEGER NOT NULL,
 	fecha_creacion TIMESTAMP NOT NULL,
-	fecha_entrega TIMESTAMP NOT NULL,
+	fecha_entrega DATE NOT NULL,
+	estado VARCHAR(30) NOT NULL,
 	
 	CONSTRAINT ordenes_trabajo_pk PRIMARY KEY (id),
 
 	CONSTRAINT ordenes_trabajo_fk1 FOREIGN KEY (id_jefe_taller)
 		REFERENCES empleados (id) ON DELETE CASCADE,
 
-	CONSTRAINT ordenes_trabajo_fk2 FOREIGN KEY (id_articulo)
-		REFERENCES inventario (id) ON DELETE CASCADE
+	CONSTRAINT ordenes_trabajo_fk2 FOREIGN KEY (id_articulo, id_ejemplar)
+		REFERENCES ejemplares (id_item, numero_de_ejemplar) ON DELETE CASCADE
 );
 
 DROP SEQUENCE IF EXISTS ordenes_trabajo_sequence CASCADE;
@@ -363,9 +365,9 @@ CREATE SEQUENCE ordenes_trabajo_sequence
   increment 1;
 
 -----------------------------------------------------------------------------------------------------------------
-INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '7777777777', 2, 'Orden 2345 mesa etc', 5, '2019-02-10 08:00:00', '2019-05-10 08:00:00');
-
-INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '8888888888', 3, 'Orden 35 asiento xy', 7, '2019-03-10 08:00:00', '2019-05-10 08:00:00');
-
-INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '9999999999', 4, 'Orden 33 puerta et al.', 3, '2019-03-10 08:00:00', '2019-05-10 08:00:00');
+INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '7777777777', 2, 2, 'Orden 2345 mesa etc', 5, '2019-02-10 08:00:00', '2019-05-10','recibida');
+INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '8888888888', 2, 3, 'Orden 35 asiento xy', 7, '2019-03-10 08:00:00', '2019-05-10', 'desarrollo');
+INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '9999999999', 4, 7, 'Orden 33 puerta et al.', 3, '2019-03-10 08:00:00', '2019-05-10', 'finalizada');
 -----------------------------------------------------------------------------------------------------------------
+create or replace view ordenes_trabajo_view as select ordenes_trabajo.id, nombre, id_articulo, descripcion, cantidad, fecha_creacion, fecha_entrega, ordenes_trabajo.estado from ordenes_trabajo inner join empleados on ordenes_trabajo.id_jefe_taller=empleados.id;
+

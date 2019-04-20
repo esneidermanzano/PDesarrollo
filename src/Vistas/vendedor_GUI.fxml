@@ -42,6 +42,16 @@
                   <Font size="15.0" />
                </font>
             </Button>
+             <MenuButton fx:id="botonTema" layoutX="132.0" layoutY="528.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: transparent; -fx-pref-width: 50px;" styleClass="botonTema">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagenes/tema.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </MenuButton>
+         
          </children>
       </Pane>
    </left>
@@ -49,7 +59,7 @@
       <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="950.0" BorderPane.alignment="CENTER">
          <children>
             <Pane prefHeight="30.0" prefWidth="300.0" styleClass="panelRaiz" />
-            <Pane onMouseDragged="#moverPanel" onMousePressed="#copiarCoordenadas" prefHeight="30.0" prefWidth="700.0">
+            <Pane onMouseDragged="#moverPanel" onMousePressed="#copiarCoordenadas" prefHeight="30.0" prefWidth="700.0" styleClass="panelSuperior">
                <children>
                   <Button fx:id="atras" layoutX="9.0" layoutY="2.0" mnemonicParsing="false" onAction="#retroceder" opacity="0.6" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/atras.png');" styleClass="controles" />
                   <Button fx:id="minimizar" layoutX="632.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimizarAplicacion" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/minimize.png');" styleClass="controles" />

@@ -15,6 +15,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -29,7 +31,7 @@ import javafx.util.Duration;
 public class ControlRaizVendedor {
 	private Stage escenario;
 	private double x, y;
-	private String cargo;
+	private String cargo, tema;
 
     @FXML private Button cerrar;
     @FXML private Button minimizar;
@@ -44,6 +46,8 @@ public class ControlRaizVendedor {
     @FXML private Button botonCerrarSesion;
     @FXML private Button botonCotizacion;
     @FXML private JFXButton registrarVenta;
+    @FXML private MenuButton botonTema;
+
 
     //Para retroceder hacia la pantalla inicial:
     @FXML
@@ -58,6 +62,32 @@ public class ControlRaizVendedor {
 		this.cargo = cargo_id[0];
 		identificadorGerente.setText(cargo_id[1]);  //AGREGO VALLE
 		atras.setVisible(false);
+		
+		tema = "/Estilos/vendedor.css";
+		MenuItem tema1 = new MenuItem("Escarlata");
+		MenuItem tema2 = new MenuItem("Olivo");
+		MenuItem tema3= new MenuItem("Blunan");
+		MenuItem tema4 = new MenuItem("DarkSoul");
+		
+		tema1.setOnAction(event -> {
+			cambiarTema("/Estilos/gerente.css");
+		});
+		tema2.setOnAction(event -> {
+			cambiarTema("/Estilos/vendedor.css");
+		});
+		tema3.setOnAction(event -> {
+			cambiarTema("/Estilos/jefeTaller.css");
+		});
+		tema4.setOnAction(event -> {
+			cambiarTema("/Estilos/dark.css");
+		});
+		botonTema.getItems().addAll(tema1, tema2, tema3, tema4);
+	}
+	
+	public void cambiarTema(String piel){
+		panelRaiz.getScene().getStylesheets().remove(tema);
+    	tema = piel;
+    	panelRaiz.getScene().getStylesheets().add(tema);
 	}
 	
     public void setStage(Stage escenario) {

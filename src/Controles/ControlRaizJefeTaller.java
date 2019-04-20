@@ -164,7 +164,7 @@ public class ControlRaizJefeTaller {
         stage.setIconified(true);
     }
     
-    @FXML
+   /* @FXML
     void registroOrdenes(ActionEvent event) throws IOException {
     	FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/Vistas/jefetaller_registro_ordenes.fxml"));
@@ -174,7 +174,7 @@ public class ControlRaizJefeTaller {
 		atras.setVisible(true);
     	titulo.setText("Registrar orden de trabajo");
 
-    }
+    }*/
     @FXML
     void actualizarOrdenes(){
     	cambiarVentana("/Vistas/jefe_taller_listar_ordenes.fxml");

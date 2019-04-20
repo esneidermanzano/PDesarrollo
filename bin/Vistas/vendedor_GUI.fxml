@@ -41,6 +41,7 @@
             <Label fx:id="identificadorGerente" layoutX="75.0" layoutY="201.0" prefHeight="17.0" prefWidth="118.0" textFill="WHITE" />
             <Label layoutX="44.0" layoutY="201.0" text="Id." textFill="WHITE" />
             <JFXButton fx:id="botonCotizacion" layoutX="43.0" layoutY="268.0" onAction="#realizarCotizacion" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Realizar cotizacion" textFill="GREY" />
+            <JFXButton fx:id="registrarVenta" layoutX="43.0" layoutY="313.0" onAction="#registrarVenta" prefHeight="23.0" prefWidth="215.0" styleClass="botonesPanel" text="Registrar Venta" textFill="GREY" />
          </children>
       </Pane>
    </left>

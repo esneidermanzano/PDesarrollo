@@ -43,6 +43,7 @@ public class ControlRaizVendedor {
 
     @FXML private Button botonCerrarSesion;
     @FXML private Button botonCotizacion;
+    @FXML private JFXButton registrarVenta;
 
     //Para retroceder hacia la pantalla inicial:
     @FXML
@@ -105,6 +106,7 @@ public class ControlRaizVendedor {
 		efectoCambio(loader);
 		ControlResgistrarCotizacion controlador= loader.getController();
 		controlador.iniciar(identificadorGerente.getText());
+		atras.setVisible(true);
     }	
     
     @FXML
@@ -148,4 +150,16 @@ public class ControlRaizVendedor {
     	Stage stage = (Stage)((Button)event.getSource()).getScene().getWindow();
         stage.setIconified(true);
     }
+    
+    @FXML
+    void registrarVenta(ActionEvent event) {
+    	titulo.setText("Registro de venta");
+    	FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/Vistas/vendedor_registrar_ventas.fxml"));
+		efectoCambio(loader);
+		ControlVendedorRegistrarVentas controlador= loader.getController();
+		controlador.iniciar(nombreVendedor.getText(), identificadorGerente.getText());
+		atras.setVisible(true);
+    }
+        
 }

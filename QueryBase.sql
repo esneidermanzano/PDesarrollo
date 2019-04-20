@@ -189,13 +189,13 @@ CREATE TABLE clientes
 );
 
 -----------------------------------------------------------------------------------------------------------------
-INSERT INTO clientes VALUES('c1', 'Marcela Arias', '7177777');
-INSERT INTO clientes VALUES('c2', 'James Cuero', '7277777');
-INSERT INTO clientes VALUES('c3', 'Ingrid Roa', '7377777');
-INSERT INTO clientes VALUES('c4', 'Francisco Morales', '7477777');
-INSERT INTO clientes VALUES('c5', 'Vanesa Narvaez', '7577777');
-INSERT INTO clientes VALUES('c6', 'Ramiro Salazar', '7677777');
-INSERT INTO clientes VALUES('c7', 'Juana Miranda', '7777777');
+INSERT INTO clientes VALUES('1', 'Marcela Arias', '7177777');
+INSERT INTO clientes VALUES('2', 'James Cuero', '7277777');
+INSERT INTO clientes VALUES('3', 'Ingrid Roa', '7377777');
+INSERT INTO clientes VALUES('4', 'Francisco Morales', '7477777');
+INSERT INTO clientes VALUES('5', 'Vanesa Narvaez', '7577777');
+INSERT INTO clientes VALUES('6', 'Ramiro Salazar', '7677777');
+INSERT INTO clientes VALUES('7', 'Juana Miranda', '7777777');
 -----------------------------------------------------------------------------------------------------------------
 
 -- PROCESO CONTROLADOR/LOGIC/DAO
@@ -222,9 +222,9 @@ CREATE SEQUENCE ventas_sequence
   increment 1;
 
 -----------------------------------------------------------------------------------------------------------------
-INSERT INTO ventas VALUES(nextval('ventas_sequence'), '4444444444', 'c1', '2019-03-13 19:10:25-07');
-INSERT INTO ventas VALUES(nextval('ventas_sequence'), '5555555555', 'c2', '2019-03-13 19:10:25-07');
-INSERT INTO ventas VALUES(nextval('ventas_sequence'), '6666666666', 'c3', '2019-03-13 19:10:25-07');
+INSERT INTO ventas VALUES(nextval('ventas_sequence'), '4444444444', '1', '2019-03-13 19:10:25-07');
+INSERT INTO ventas VALUES(nextval('ventas_sequence'), '5555555555', '2', '2019-03-13 19:10:25-07');
+INSERT INTO ventas VALUES(nextval('ventas_sequence'), '6666666666', '3', '2019-03-13 19:10:25-07');
 -----------------------------------------------------------------------------------------------------------------
 
 -- PROCESO CONTROLADOR/LOGIC/DAO
@@ -370,4 +370,3 @@ INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '8888888
 INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '9999999999', 4, 7, 'Orden 33 puerta et al.', 3, '2019-03-10 08:00:00', '2019-05-10', 'finalizada');
 -----------------------------------------------------------------------------------------------------------------
 create or replace view ordenes_trabajo_view as select ordenes_trabajo.id, nombre, id_articulo, descripcion, cantidad, fecha_creacion, fecha_entrega, ordenes_trabajo.estado from ordenes_trabajo inner join empleados on ordenes_trabajo.id_jefe_taller=empleados.id;
-

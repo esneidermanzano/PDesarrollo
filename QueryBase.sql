@@ -189,13 +189,13 @@ CREATE TABLE clientes
 );
 
 -----------------------------------------------------------------------------------------------------------------
-INSERT INTO clientes VALUES('c1', 'Marcela Arias', '7177777');
-INSERT INTO clientes VALUES('c2', 'James Cuero', '7277777');
-INSERT INTO clientes VALUES('c3', 'Ingrid Roa', '7377777');
-INSERT INTO clientes VALUES('c4', 'Francisco Morales', '7477777');
-INSERT INTO clientes VALUES('c5', 'Vanesa Narvaez', '7577777');
-INSERT INTO clientes VALUES('c6', 'Ramiro Salazar', '7677777');
-INSERT INTO clientes VALUES('c7', 'Juana Miranda', '7777777');
+INSERT INTO clientes VALUES('1', 'Marcela Arias', '7177777');
+INSERT INTO clientes VALUES('2', 'James Cuero', '7277777');
+INSERT INTO clientes VALUES('3', 'Ingrid Roa', '7377777');
+INSERT INTO clientes VALUES('4', 'Francisco Morales', '7477777');
+INSERT INTO clientes VALUES('5', 'Vanesa Narvaez', '7577777');
+INSERT INTO clientes VALUES('6', 'Ramiro Salazar', '7677777');
+INSERT INTO clientes VALUES('7', 'Juana Miranda', '7777777');
 -----------------------------------------------------------------------------------------------------------------
 
 -- PROCESO CONTROLADOR/LOGIC/DAO
@@ -222,9 +222,9 @@ CREATE SEQUENCE ventas_sequence
   increment 1;
 
 -----------------------------------------------------------------------------------------------------------------
-INSERT INTO ventas VALUES(nextval('ventas_sequence'), '4444444444', 'c1', '2019-03-13 19:10:25-07');
-INSERT INTO ventas VALUES(nextval('ventas_sequence'), '5555555555', 'c2', '2019-03-13 19:10:25-07');
-INSERT INTO ventas VALUES(nextval('ventas_sequence'), '6666666666', 'c3', '2019-03-13 19:10:25-07');
+INSERT INTO ventas VALUES(nextval('ventas_sequence'), '4444444444', '1', '2019-03-13 19:10:25-07');
+INSERT INTO ventas VALUES(nextval('ventas_sequence'), '5555555555', '2', '2019-03-13 19:10:25-07');
+INSERT INTO ventas VALUES(nextval('ventas_sequence'), '6666666666', '3', '2019-03-13 19:10:25-07');
 -----------------------------------------------------------------------------------------------------------------
 
 -- PROCESO CONTROLADOR/LOGIC/DAO
@@ -343,20 +343,18 @@ CREATE TABLE ordenes_trabajo
 	id SERIAL,
 	id_jefe_taller VARCHAR(50) NOT NULL,
 	id_articulo INTEGER NOT NULL,
-	id_ejemplar INTEGER NOT NULL,
 	descripcion VARCHAR(2000),
 	cantidad INTEGER NOT NULL,
 	fecha_creacion TIMESTAMP NOT NULL,
-	fecha_entrega DATE NOT NULL,
-	estado VARCHAR(30) NOT NULL,
+	fecha_entrega TIMESTAMP NOT NULL,
 	
 	CONSTRAINT ordenes_trabajo_pk PRIMARY KEY (id),
 
 	CONSTRAINT ordenes_trabajo_fk1 FOREIGN KEY (id_jefe_taller)
 		REFERENCES empleados (id) ON DELETE CASCADE,
 
-	CONSTRAINT ordenes_trabajo_fk2 FOREIGN KEY (id_articulo, id_ejemplar)
-		REFERENCES ejemplares (id_item, numero_de_ejemplar) ON DELETE CASCADE
+	CONSTRAINT ordenes_trabajo_fk2 FOREIGN KEY (id_articulo)
+		REFERENCES inventario (id) ON DELETE CASCADE
 );
 
 DROP SEQUENCE IF EXISTS ordenes_trabajo_sequence CASCADE;
@@ -365,9 +363,9 @@ CREATE SEQUENCE ordenes_trabajo_sequence
   increment 1;
 
 -----------------------------------------------------------------------------------------------------------------
-INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '7777777777', 2, 2, 'Orden 2345 mesa etc', 5, '2019-02-10 08:00:00', '2019-05-10','recibida');
-INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '8888888888', 2, 3, 'Orden 35 asiento xy', 7, '2019-03-10 08:00:00', '2019-05-10', 'desarrollo');
-INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '9999999999', 4, 7, 'Orden 33 puerta et al.', 3, '2019-03-10 08:00:00', '2019-05-10', 'finalizada');
------------------------------------------------------------------------------------------------------------------
-create or replace view ordenes_trabajo_view as select ordenes_trabajo.id, nombre, id_articulo, descripcion, cantidad, fecha_creacion, fecha_entrega, ordenes_trabajo.estado from ordenes_trabajo inner join empleados on ordenes_trabajo.id_jefe_taller=empleados.id;
+INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '7777777777', 2, 'Orden 2345 mesa etc', 5, '2019-02-10 08:00:00', '2019-05-10 08:00:00');
 
+INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '8888888888', 3, 'Orden 35 asiento xy', 7, '2019-03-10 08:00:00', '2019-05-10 08:00:00');
+
+INSERT INTO ordenes_trabajo VALUES(nextval('ordenes_trabajo_sequence'), '9999999999', 4, 'Orden 33 puerta et al.', 3, '2019-03-10 08:00:00', '2019-05-10 08:00:00');
+-----------------------------------------------------------------------------------------------------------------

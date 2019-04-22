@@ -26,7 +26,7 @@
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXButton fx:id="iniciar" layoutX="558.0" layoutY="69.0" onAction="#iniciarVenta" prefHeight="37.0" prefWidth="133.0" styleClass="boton" text="Cargar/Registrar" textFill="WHITE" />
+            <JFXButton fx:id="iniciar" layoutX="550.0" layoutY="74.0" onAction="#iniciarVenta" prefHeight="25.0" prefWidth="133.0" styleClass="boton" text="Cargar/Registrar" textFill="WHITE" />
             <JFXTextField fx:id="cantidadProducto" labelFloat="true" layoutX="309.0" layoutY="318.0" prefHeight="37.0" prefWidth="68.0" promptText="Cantidad" styleClass="textfield">
                <font>
                   <Font size="16.0" />
@@ -127,6 +127,7 @@
                   <Font size="9.0" />
                </font>
             </Label>
+            <JFXButton fx:id="editar" layoutX="550.0" layoutY="100.0" onAction="#editar" prefHeight="25.0" prefWidth="133.0" styleClass="boton" text="Editar" textFill="WHITE" />
          </children>
       </Pane>
    </children>

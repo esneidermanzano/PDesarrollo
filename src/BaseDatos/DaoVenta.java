@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+
+import Clases.Cliente;
 
 public class DaoVenta {
 	
@@ -38,6 +41,54 @@ public class DaoVenta {
 		       
 		return salida + 1;        
 		        
+	}
+	
+	public int registrarVenta(String idVendedor, String idCliente, Timestamp fecha) {
+		
+		int salida = 0;
+		String SQL;
+        
+        SQL = "INSERT INTO ventas VALUES(nextval('ventas_sequence'), '" + idVendedor + "', '" + idCliente + "', '" + fecha + "')";
+        
+         try{
+        	 
+            Connection conn = fachada.getConnetion();
+            Statement sentencia = conn.createStatement();
+            salida = sentencia.executeUpdate(SQL);
+                                  
+         }catch(SQLException e){
+        	 System.out.println(e);
+         }catch(Exception e){
+        	 System.out.println(e);
+         }
+            
+         return salida;
+         
+	}
+	
+	public int registrarDetalleVenta(String idVenta, String idItem, String idEjemplar, String cantidad) {
+		
+		System.out.print("id1: " + idEjemplar + " id2: " + idItem);
+		
+		int salida = 0;
+		String SQL;
+        
+        SQL = "INSERT INTO detalle_ventas VALUES(" + idVenta + ", " + idEjemplar + ", " + idItem + ", " + cantidad + ")";
+        
+         try{
+        	 
+            Connection conn = fachada.getConnetion();
+            Statement sentencia = conn.createStatement();
+            salida = sentencia.executeUpdate(SQL);
+                                  
+         }catch(SQLException e){
+        	 System.out.println(e);
+         }catch(Exception e){
+        	 System.out.println(e);
+         }
+            
+         return salida;
+         
 	}
 	
 	public ArrayList<String> obtenerAns()

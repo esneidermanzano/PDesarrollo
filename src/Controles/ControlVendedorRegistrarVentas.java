@@ -1,10 +1,12 @@
 package Controles;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
 import BaseDatos.DaoCliente;
-import BaseDatos.DaoEmpleado;
 import BaseDatos.DaoInventario;
 import BaseDatos.DaoVenta;
 import Clases.Cliente;
@@ -56,6 +58,7 @@ public class ControlVendedorRegistrarVentas {
     @FXML private Label idProducto;
     @FXML private JFXButton existente;
     @FXML private JFXButton nuevo;
+    @FXML private JFXButton editar;
     
     @FXML private Label errorNombreCliente;
     @FXML private Label errorIdCliente;
@@ -149,6 +152,13 @@ public class ControlVendedorRegistrarVentas {
     	}
     			
     	);
+    	tablaVenta.getSelectionModel().selectedItemProperty().addListener((obs,viejo,nuevo)->{
+    		if(nuevo != null) {
+    			quitarProducto.setDisable(false);
+    		}
+    	}
+    			
+    	);
   	}
   	
     public void iniciar(String nombre, String cedula) {
@@ -175,6 +185,7 @@ public class ControlVendedorRegistrarVentas {
     	anadir.setDisable(true);  
     	quitarProducto.setDisable(true);
     	imprimirFactura.setDisable(true);
+    	editar.setDisable(true);
     }
     
     public boolean validar() {
@@ -190,8 +201,14 @@ public class ControlVendedorRegistrarVentas {
     		int registro = DC.registrarCliente(C);
     		if(registro == 1) {
     			V.mostrarMensaje(1, "Cliente registrado con éxito", "Registro de cliente");
+    			nombreCliente.setEditable(false);
+            	telefonoCliente.setEditable(false);
+            	idCliente.setEditable(false);
     			tablaProductos.setDisable(false);
     	    	buscador.setDisable(false);
+    	    	iniciar.setDisable(true);
+    	    	editar.setDisable(false);
+    	    	existente.setDisable(true);
     		}else {
     			V.mostrarMensaje(3, "La cédula ingresada ya está registrada", "Error al registrar cliente");
     		}    		
@@ -208,8 +225,12 @@ public class ControlVendedorRegistrarVentas {
             	telefonoCliente.setText(C.getTelefono());
             	nombreCliente.setEditable(false);
             	telefonoCliente.setEditable(false);
+            	idCliente.setEditable(false);
             	tablaProductos.setDisable(false);
             	buscador.setDisable(false);
+            	iniciar.setDisable(true);
+            	editar.setDisable(false);
+            	nuevo.setDisable(true);
     		}else {
     			V.mostrarMensaje(3, "El cliente no está registrado", "Error al cargar cliente");
     		}
@@ -261,6 +282,7 @@ public class ControlVendedorRegistrarVentas {
         		tablaVenta.refresh();
         		calcularTotal();
         		tablaVenta.setDisable(false);
+        		imprimirFactura.setDisable(false);
     		}else {
     			V.mostrarMensaje(3, "No hay suficientes existencias", "Error al registrar producto");
     		}
@@ -269,6 +291,7 @@ public class ControlVendedorRegistrarVentas {
     		tablaVenta.refresh();
     		calcularTotal();
     		tablaVenta.setDisable(false);
+    		imprimirFactura.setDisable(false);
     	}
     }
 
@@ -300,12 +323,60 @@ public class ControlVendedorRegistrarVentas {
 
     @FXML
     void quitarProducto(ActionEvent event) {
-
+    	ItemCotizacion I = tablaVenta.getSelectionModel().getSelectedItem();
+    	productosVenta.remove(I);
+    	tablaVenta.refresh();
+    	calcularTotal();
+    	if(productosVenta.size() == 0) {
+    		quitarProducto.setDisable(true);
+    		imprimirFactura.setDisable(true);
+    	}
+    }
+    
+    public boolean comprobar(int resultados[]) {
+    	int P = 1;
+    	for(int x=0; x<resultados.length; x++) {
+    		if(resultados[x] != P) {
+    			return false;
+    		}
+    	}
+    	return true;
+    }
+    
+    public void reiniciar() {
+    	iniciar(nombre,cedula);
+		nombreCliente.setText("");
+		telefonoCliente.setText("");
+		idCliente.setText("");
+		nombreCliente.setEditable(true);
+		telefonoCliente.setEditable(true);
+		idCliente.setEditable(true);
+		idProducto.setText("");
+		nombreProducto.setText("");
+		cantidadProducto.setText("");
+		total.setText("");
+		nuevo.setDisable(false);
+		existente.setDisable(false);
     }
 
     @FXML
     void imprimirFactura(ActionEvent event) {
-
+    	Date fecha = new Date();
+    	long tiempo = fecha.getTime();
+    	Timestamp time = new Timestamp(tiempo);
+    	
+    	int resultados[] = new int[productosVenta.size() + 1];
+    	resultados[0] = DV.registrarVenta(cedula, idCliente.getText(), time);
+		for(int x=0; x<productosVenta.size(); x++) {
+			ItemCotizacion I = productosVenta.get(x);
+			resultados[x + 1] = DV.registrarDetalleVenta(idVenta.getText(), I.getIdentificador1(), I.getIdentificador2(), "" + I.getCantidad());
+		}
+		
+		if(comprobar(resultados)) {
+			V.mostrarMensaje(1, "La venta se ha registrado con éxito", "Registro de venta");
+			reiniciar();
+		}
+				
     }
     
     public void borrarError() {
@@ -339,5 +410,23 @@ public class ControlVendedorRegistrarVentas {
     	tipoCliente = true;
     	borrarError();
     }
-
+    
+    @FXML
+    void editar(ActionEvent event) {
+    	editar.setDisable(true);
+    	nombreCliente.setEditable(true);
+    	telefonoCliente.setEditable(true);
+    	idCliente.setEditable(true);
+    	tablaProductos.setDisable(true);
+    	cantidadProducto.setDisable(true);
+    	anadir.setDisable(true);
+    	tablaVenta.setDisable(true);
+    	quitarProducto.setDisable(true);
+    	imprimirFactura.setDisable(true);
+    	if(tipoCliente) {
+    		clienteExistente(new ActionEvent());
+    	}else {
+    		clienteNuevo(new ActionEvent());
+    	}
+    }
 }

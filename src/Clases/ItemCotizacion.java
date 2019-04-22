@@ -53,5 +53,5 @@ public class ItemCotizacion {
 	public double getValorTotal() {
 		return valorTotal;
 	}
-	
+		
 }

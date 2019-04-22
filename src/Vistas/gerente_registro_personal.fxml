@@ -8,43 +8,43 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="700.0" style="-fx-background-color: white;" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlGerenteRegistrarEmpleados">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="700.0" styleClass="panelCentral" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlGerenteRegistrarEmpleados">
    <children>
-      <JFXTextField fx:id="campoNombre" labelFloat="true" layoutX="159.0" layoutY="36.0" prefHeight="37.0" prefWidth="333.0" promptText="Nombre" styleClass="textfieldGerente">
+      <JFXTextField fx:id="campoNombre" labelFloat="true" layoutX="159.0" layoutY="36.0" prefHeight="37.0" prefWidth="333.0" promptText="Nombre" styleClass="textfield">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="campoId" labelFloat="true" layoutX="159.0" layoutY="101.0" prefHeight="37.0" prefWidth="333.0" promptText="Identificación" styleClass="textfieldGerente">
+      <JFXTextField fx:id="campoId" labelFloat="true" layoutX="159.0" layoutY="120.0" prefHeight="37.0" prefWidth="333.0" promptText="Identificación" styleClass="textfield">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="campoPassword" labelFloat="true" layoutX="159.0" layoutY="166.0" prefHeight="37.0" prefWidth="333.0" promptText="Password" styleClass="textfieldGerente">
+      <JFXTextField fx:id="campoPassword" labelFloat="true" layoutX="157.0" layoutY="205.0" prefHeight="37.0" prefWidth="333.0" promptText="Password" styleClass="textfield">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="campoTelefono" labelFloat="true" layoutX="159.0" layoutY="233.0" prefHeight="37.0" prefWidth="333.0" promptText="Telefono" styleClass="textfieldGerente">
+      <JFXTextField fx:id="campoTelefono" labelFloat="true" layoutX="157.0" layoutY="281.0" prefHeight="37.0" prefWidth="333.0" promptText="Telefono" styleClass="textfield">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="campoCorreo" labelFloat="true" layoutX="159.0" layoutY="296.0" prefHeight="37.0" prefWidth="333.0" promptText="E-mail" styleClass="textfieldGerente">
+      <JFXTextField fx:id="campoCorreo" labelFloat="true" layoutX="159.0" layoutY="363.0" prefHeight="37.0" prefWidth="333.0" promptText="E-mail" styleClass="textfield">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXComboBox fx:id="ComboBoxCargo" layoutX="51.0" layoutY="385.0" prefHeight="29.0" prefWidth="120.0" promptText="Cargo" styleClass="comboBoxGerente" />
-      <JFXComboBox fx:id="ComboBoxSede" layoutX="193.0" layoutY="385.0" prefHeight="29.0" prefWidth="120.0" promptText="Sede" styleClass="comboBoxGerente" />
-      <JFXComboBox fx:id="ComboBoxGenero" layoutX="335.0" layoutY="385.0" prefHeight="29.0" prefWidth="120.0" promptText="Genero" styleClass="comboBoxGerente" />
-      <JFXComboBox fx:id="ComboBoxEstadoCivil" layoutX="480.0" layoutY="385.0" prefHeight="29.0" prefWidth="120.0" promptText="Estado Civil" styleClass="comboBoxGerente" />
-      <JFXButton fx:id="botonRegistrar" layoutX="249.0" layoutY="466.0" onAction="#registrarEmpleado" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Registrar" textFill="WHITE" />
-      <Label fx:id="errorNombre" layoutX="159.0" layoutY="73.0" prefHeight="15.0" prefWidth="300.0" textFill="ff7070" />
-      <Label fx:id="errorId" layoutX="155.0" layoutY="138.0" prefHeight="15.0" prefWidth="300.0" textFill="ff7070" />
-      <Label fx:id="errorPass" layoutX="159.0" layoutY="203.0" prefHeight="15.0" prefWidth="300.0" textFill="ff7070" />
-      <Label fx:id="errorTelefono" layoutX="159.0" layoutY="270.0" prefHeight="15.0" prefWidth="300.0" textFill="ff7070" />
-      <Label fx:id="errorMail" layoutX="159.0" layoutY="333.0" prefHeight="15.0" prefWidth="300.0" textFill="ff7070" />
-      <Label fx:id="errorEmpty" layoutX="124.0" layoutY="421.0" prefHeight="17.0" prefWidth="403.0" textFill="ff7070" />
+      <JFXComboBox fx:id="ComboBoxCargo" layoutX="61.0" layoutY="457.0" prefHeight="29.0" prefWidth="120.0" promptText="Cargo" styleClass="comboBox" />
+      <JFXComboBox fx:id="ComboBoxSede" layoutX="203.0" layoutY="457.0" prefHeight="29.0" prefWidth="120.0" promptText="Sede" styleClass="comboBox" />
+      <JFXComboBox fx:id="ComboBoxGenero" layoutX="345.0" layoutY="457.0" prefHeight="29.0" prefWidth="120.0" promptText="Genero" styleClass="comboBox" />
+      <JFXComboBox fx:id="ComboBoxEstadoCivil" layoutX="490.0" layoutY="457.0" prefHeight="29.0" prefWidth="120.0" promptText="Estado Civil" styleClass="comboBox" />
+      <JFXButton fx:id="botonRegistrar" layoutX="259.0" layoutY="550.0" onAction="#registrarEmpleado" prefHeight="47.0" prefWidth="153.0" styleClass="boton" text="Registrar" />
+      <Label fx:id="errorNombre" layoutX="159.0" layoutY="73.0" prefHeight="15.0" prefWidth="300.0" styleClass="textLabelError" textFill="ff7070" />
+      <Label fx:id="errorId" layoutX="155.0" layoutY="157.0" prefHeight="15.0" prefWidth="300.0" styleClass="textLabelError" textFill="ff7070" />
+      <Label fx:id="errorPass" layoutX="157.0" layoutY="242.0" prefHeight="15.0" prefWidth="300.0" styleClass="textLabelError" textFill="ff7070" />
+      <Label fx:id="errorTelefono" layoutX="157.0" layoutY="318.0" prefHeight="15.0" prefWidth="300.0" styleClass="textLabelError" textFill="ff7070" />
+      <Label fx:id="errorMail" layoutX="159.0" layoutY="400.0" prefHeight="15.0" prefWidth="300.0" styleClass="textLabelError" textFill="ff7070" />
+      <Label fx:id="errorEmpty" layoutX="134.0" layoutY="493.0" prefHeight="17.0" prefWidth="403.0" styleClass="textLabelError" textFill="ff7070" />
    </children>
 </AnchorPane>

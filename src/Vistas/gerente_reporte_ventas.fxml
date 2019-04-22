@@ -8,7 +8,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlGerenteReporteVentas">
    <children>
-      <Pane prefHeight="635.0" prefWidth="700.0">
+      <Pane prefHeight="635.0" prefWidth="700.0" styleClass="panelCentral">
          <children>
             <BarChart fx:id="salesCountGraph" layoutX="66.0" layoutY="91.0" prefHeight="454.0" prefWidth="568.0">
               <xAxis>
@@ -18,8 +18,8 @@
                 <NumberAxis fx:id="y" side="LEFT" />
               </yAxis>
             </BarChart>
-            <JFXComboBox fx:id="ComboBoxYear" layoutX="180.0" layoutY="40.0" prefHeight="29.0" prefWidth="120.0" promptText="Año" styleClass="comboBoxGerente" />
-            <JFXButton fx:id="botonGenerar" layoutX="359.0" layoutY="31.0" onAction="#generar" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Generar Reporte" textFill="WHITE" />
+            <JFXComboBox fx:id="ComboBoxYear" layoutX="180.0" layoutY="40.0" prefHeight="29.0" prefWidth="120.0" promptText="Año" styleClass="comboBox" />
+            <JFXButton fx:id="botonGenerar" layoutX="359.0" layoutY="31.0" onAction="#generar" prefHeight="47.0" prefWidth="153.0" styleClass="boton" text="Generar Reporte" />
          </children>
       </Pane>
    </children>

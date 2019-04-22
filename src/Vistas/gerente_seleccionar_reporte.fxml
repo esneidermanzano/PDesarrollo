@@ -6,12 +6,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controles.ControlGerenteIndiceReportes">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlGerenteIndiceReportes">
    <children>
-      <Pane prefHeight="635.0" prefWidth="700.0">
+      <Pane prefHeight="635.0" prefWidth="700.0" styleClass="panelCentral">
          <children>
-            <JFXButton fx:id="reporte_ventas_mensuales" layoutX="178.0" layoutY="81.0" onAction="#cargarInterfazReporteVentas" prefHeight="48.0" prefWidth="344.0" style="-fx-background-color: #ff7070;" text="Reporte de Ventas mensuales por año" textFill="WHITE">
+            <JFXButton fx:id="reporte_ventas_mensuales" layoutX="178.0" layoutY="81.0" onAction="#cargarInterfazReporteVentas" prefHeight="48.0" prefWidth="344.0" styleClass="boton" text="Reporte de Ventas mensuales por año" textFill="#0d0d0d">
                <font>
                   <Font size="16.0" />
                </font>

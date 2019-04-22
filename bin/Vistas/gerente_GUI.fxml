@@ -84,7 +84,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
-          <MenuButton fx:id="botonTema" layoutX="132.0" layoutY="528.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: transparent; -fx-pref-width: 50px;" styleClass="botonTema">
+          <MenuButton fx:id="botonTema" layoutX="132.0" layoutY="539.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: transparent; -fx-pref-width: 50px;" styleClass="botonTema">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -93,6 +93,15 @@
                   </ImageView>
                </graphic>
             </MenuButton>
+            <JFXButton fx:id="botonReportes" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="1.0" layoutY="476.0" onAction="#reportes" prefHeight="23.0" prefWidth="215.0" ripplerFill="BLACK" styleClass="botonesPanel" text="Reportes" textFill="GREY">
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagenes/info-sede.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
          
          </children>
       </Pane>

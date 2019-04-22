@@ -8,27 +8,32 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="635.0" prefWidth="700.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlMenuInicial">
+<AnchorPane prefHeight="635.0" prefWidth="700.0" styleClass="panelCentral" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlMenuInicial">
    <children>
-      <Label layoutX="35.0" layoutY="18.0" text="Bienvenido" textFill="#797979">
+      <Label layoutX="33.0" styleClass="textLabelInicio" text="Bienvenido a SIGET" textFill="#797979">
          <font>
-            <Font size="37.0" />
+            <Font name="Century Gothic" size="30.0" />
          </font>
       </Label>
-      <ImageView fitHeight="182.0" fitWidth="188.0" layoutX="498.0" layoutY="426.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="114.0" fitWidth="130.0" layoutX="270.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/logo.png" />
          </image>
       </ImageView>
-      <Label fx:id="info" layoutX="35.0" layoutY="72.0" prefHeight="343.0" prefWidth="582.0" textFill="#797979">
+      <Label fx:id="info" layoutX="33.0" layoutY="218.0" prefHeight="253.0" prefWidth="582.0" styleClass="textLabelInicio" textFill="#797979">
          <font>
-            <Font size="17.0" />
+            <Font size="16.0" />
          </font>
       </Label>
-      <ImageView fitHeight="354.0" fitWidth="343.0" layoutX="155.0" layoutY="92.0" opacity="0.05" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="253.0" fitWidth="519.0" layoutX="181.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Imagenes/info.png" />
+            <Image url="@../Imagenes/esquina.png" />
          </image>
       </ImageView>
+      <Label layoutX="255.0" layoutY="178.0" styleClass="textLabelInicio" text="XYZ S.A Inmobiliaria" textFill="#797979">
+         <font>
+            <Font name="Calibri Light" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

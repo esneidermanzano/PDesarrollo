@@ -59,7 +59,9 @@
 .tituloPanel{
 	-fx-fill: #31af91;
 }
-
+.textLabelInicio{
+	-fx-text-fill: #797979;
+}
 .textLabel { 
 	-fx-text-fill: #31af91;
 } 

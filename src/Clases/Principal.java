@@ -22,7 +22,7 @@ public class Principal extends Application {
 	 private static Stage escenarioVendedor;
 	 private static Stage escenarioJefeTaller;
 	 private static Stage escenarioAdministrador;
-	 private static Image icono = new Image("/Imagenes/logoIcono.png");
+	 private static Image icono = new Image("/Imagenes/userlogin.png");
 	 
 	 public Image getIcono() {
 		 return icono;

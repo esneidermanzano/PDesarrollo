@@ -89,6 +89,22 @@
 	 -jfx-focus-color:#0099e6;
 	 -fx-text-inner-color: #eee;
 }
+
+.combo-box .cell {
+     -fx-text-fill: white;
+}
+
+.combo-box-popup .list-view{
+    -fx-background-color: #2b2b2b;
+}
+
+.combo-box-popup .list-view .list-cell{
+    -fx-background-color: #2b2b2b;
+}
+.comboBox .list-view .list-cell:hover {
+    -fx-text-fill: #fff;
+    -fx-background-color:#0099e6;
+}
 .texto { -fx-fill: #eee; } 
 
 .tabla .table-column {

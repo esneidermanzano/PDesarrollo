@@ -80,7 +80,10 @@
 	 -jfx-unfocus-color: #31af91;
 	 -jfx-focus-color:#808080;
 }
-
+.comboBox .list-view .list-cell:hover {
+    -fx-text-fill: #fff;
+    -fx-background-color:#31af91;
+}
 .tabla .table-column {
   -fx-alignment: CENTER;
 }

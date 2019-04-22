@@ -7,9 +7,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 
-<BorderPane fx:id="panelRaiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="665.0" prefWidth="1000.0" style="-fx-background-color: #fff;" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlRaizGerente">
+<BorderPane fx:id="panelRaiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="665.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlRaizGerente">
    <left>
-      <Pane prefHeight="499.0" prefWidth="300.0" style="-fx-background-color: #d13438;" BorderPane.alignment="CENTER">
+      <Pane prefHeight="499.0" prefWidth="300.0" styleClass="panelRaiz" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="67.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -26,7 +26,7 @@
                   <Font size="16.0" />
                </font>
             </Text>
-            <JFXButton fx:id="botonRegistroPersonal" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="1.0" layoutY="206.0" onAction="#registrarPersonal" prefHeight="23.0" prefWidth="215.0" ripplerFill="BLACK" styleClass="botonesPanel" text="Registro de Personal" textFill="GREY">
+            <JFXButton fx:id="botonRegistroPersonal" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="1.0" layoutY="206.0" onAction="#registrarPersonal" prefHeight="23.0" prefWidth="215.0" ripplerFill="BLACK" styleClass="botonesPanel" text="Registro de Personal" textFill="#686565">
                <graphic>
                   <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -34,7 +34,7 @@
                      </image>
                   </ImageView>
                </graphic></JFXButton>
-            <JFXButton fx:id="botonRegistroPersonal1" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="251.0" onAction="#registrarItems" prefHeight="23.0" prefWidth="215.0" ripplerFill="BLACK" styleClass="botonesPanel" text="Registro de Items" textFill="GREY">
+            <JFXButton fx:id="botonRegistroPersonal1" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="251.0" onAction="#registrarItems" prefHeight="23.0" prefWidth="215.0" ripplerFill="BLACK" styleClass="botonesPanel" text="Registro de Items" textFill="#686565">
                <graphic>
                   <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -42,7 +42,7 @@
                      </image>
                   </ImageView>
                </graphic></JFXButton>
-            <JFXButton fx:id="botonRegistroSedes" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="1.0" layoutY="296.0" onAction="#registroSedes" prefHeight="23.0" prefWidth="215.0" ripplerFill="BLACK" styleClass="botonesPanel" text="Registro de Sedes" textFill="GREY">
+            <JFXButton fx:id="botonRegistroSedes" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="1.0" layoutY="296.0" onAction="#registroSedes" prefHeight="23.0" prefWidth="215.0" ripplerFill="BLACK" styleClass="botonesPanel" text="Registro de Sedes" textFill="#686565">
                <graphic>
                   <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -50,7 +50,7 @@
                      </image>
                   </ImageView>
                </graphic></JFXButton>
-            <JFXButton fx:id="botonActualizaritems" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="1.0" layoutY="341.0" onAction="#actualizarItems" prefHeight="23.0" prefWidth="215.0" ripplerFill="BLACK" styleClass="botonesPanel" text="Actualizar Items" textFill="GREY">
+            <JFXButton fx:id="botonActualizaritems" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="1.0" layoutY="341.0" onAction="#actualizarItems" prefHeight="23.0" prefWidth="215.0" ripplerFill="BLACK" styleClass="botonesPanel" text="Actualizar Items" textFill="#686565">
                <graphic>
                   <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -58,7 +58,7 @@
                      </image>
                   </ImageView>
                </graphic></JFXButton>
-            <JFXButton fx:id="botonConsultarPersonal" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="1.0" layoutY="386.0" onAction="#consultarPersonal" prefHeight="23.0" prefWidth="215.0" ripplerFill="BLACK" styleClass="botonesPanel" text="Consultar Personal" textFill="GREY">
+            <JFXButton fx:id="botonConsultarPersonal" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="1.0" layoutY="386.0" onAction="#consultarPersonal" prefHeight="23.0" prefWidth="215.0" ripplerFill="BLACK" styleClass="botonesPanel" text="Consultar Personal" textFill="#686565">
                <graphic>
                   <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -66,7 +66,7 @@
                      </image>
                   </ImageView>
                </graphic></JFXButton>
-            <JFXButton fx:id="botonConsultarSedes" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="1.0" layoutY="431.0" onAction="#consultarSedes" prefHeight="23.0" prefWidth="215.0" ripplerFill="BLACK" styleClass="botonesPanel" text="Consultar Sedes" textFill="GREY">
+            <JFXButton fx:id="botonConsultarSedes" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="1.0" layoutY="431.0" onAction="#consultarSedes" prefHeight="23.0" prefWidth="215.0" ripplerFill="BLACK" styleClass="botonesPanel" text="Consultar Sedes" textFill="#686565">
                <graphic>
                   <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -74,6 +74,15 @@
                      </image>
                   </ImageView>
                </graphic></JFXButton>
+            <JFXButton fx:id="botonReportes" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="1.0" layoutY="476.0" onAction="#reportes" prefHeight="23.0" prefWidth="215.0" ripplerFill="BLACK" styleClass="botonesPanel" text="Reportes" textFill="#686565">
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagenes/reporte.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
             <ImageView fitHeight="15.0" fitWidth="18.0" layoutX="97.0" layoutY="597.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/cerrarSesion.png" />
@@ -93,15 +102,6 @@
                   </ImageView>
                </graphic>
             </MenuButton>
-            <JFXButton fx:id="botonReportes" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="1.0" layoutY="476.0" onAction="#reportes" prefHeight="23.0" prefWidth="215.0" ripplerFill="BLACK" styleClass="botonesPanel" text="Reportes" textFill="GREY">
-               <graphic>
-                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Imagenes/info-sede.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
          
          </children>
       </Pane>
@@ -109,13 +109,13 @@
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="950.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: #d13438;" />
-            <Pane onMouseDragged="#moverPanel" onMousePressed="#copiarCoordenadas" prefHeight="30.0" prefWidth="700.0">
+            <Pane prefHeight="30.0" prefWidth="300.0" styleClass="panelRaiz" />
+            <Pane onMouseDragged="#moverPanel" onMousePressed="#copiarCoordenadas" prefHeight="30.0" prefWidth="700.0" styleClass="panelSuperior">
                <children>
-                  <Button fx:id="atras" layoutX="12.0" layoutY="1.0" mnemonicParsing="false" onAction="#retroceder" opacity="0.6" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/atras.png');" styleClass="controles" />
+                  <Button fx:id="atras" layoutX="12.0" layoutY="1.0" mnemonicParsing="false" onAction="#retroceder" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/atras.png');" styleClass="controles" />
                   <Button fx:id="minimizar" layoutX="632.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimizarAplicacion" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/minimize.png');" styleClass="controles" />
                   <Button fx:id="cerrar" layoutX="667.0" layoutY="2.0" mnemonicParsing="false" onAction="#cerrarAplicacion" prefHeight="25.0" prefWidth="25.0" style="-fx-graphic: url('/Imagenes/close.png');" styleClass="controles" />
-                  <Text fx:id="titulo" fill="#ff7070" layoutX="90.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="519.13671875">
+                  <Text fx:id="titulo" fill="#ff7070" layoutX="90.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="tituloPanel" textAlignment="CENTER" wrappingWidth="519.13671875">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -127,6 +127,6 @@
       </HBox>
    </top>
    <center>
-      <Pane fx:id="panelCentral" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
+      <Pane fx:id="panelCentral" prefHeight="200.0" prefWidth="200.0" styleClass="panelCentral" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

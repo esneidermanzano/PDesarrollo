@@ -15,6 +15,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -32,7 +34,7 @@ import javafx.util.Duration;
 public class ControlRaizGerente {
 	private Stage escenario;
 	private double x, y;
-	private String cargo;
+	private String cargo, tema;
 
     @FXML private Button cerrar;
     @FXML private Button minimizar;
@@ -51,6 +53,7 @@ public class ControlRaizGerente {
     @FXML private JFXButton botonReportes; 
     @FXML private Button atras;
     @FXML private Button botonCerrarSesion;
+    @FXML private MenuButton botonTema;
 
     //Para retroceder hacia la pantalla inicial:
     @FXML
@@ -58,13 +61,40 @@ public class ControlRaizGerente {
     	menuInicial();
     	atras.setVisible(false);
     	titulo.setText("");
-    }   
+    	
+    }
     
 	public void initialize(String nombre, String cargo){
 		nombreGerente.setText(nombre);
 		this.cargo = cargo;
 		atras.setVisible(false);
+		
+		tema = "/Estilos/gerente.css";
+		MenuItem tema1 = new MenuItem("Escarlata");
+		MenuItem tema2 = new MenuItem("Olivo");
+		MenuItem tema3= new MenuItem("Blunan");
+		MenuItem tema4 = new MenuItem("DarkSoul");
+		
+		tema1.setOnAction(event -> {
+			cambiarTema("/Estilos/gerente.css");
+		});
+		tema2.setOnAction(event -> {
+			cambiarTema("/Estilos/vendedor.css");
+		});
+		tema3.setOnAction(event -> {
+			cambiarTema("/Estilos/jefeTaller.css");
+		});
+		tema4.setOnAction(event -> {
+			cambiarTema("/Estilos/dark.css");
+		});
+		botonTema.getItems().addAll(tema1, tema2, tema3, tema4);
 	}
+	public void cambiarTema(String piel){
+		panelRaiz.getScene().getStylesheets().remove(tema);
+    	tema = piel;
+    	panelRaiz.getScene().getStylesheets().add(tema);
+	}   
+	
 	
     public void setStage(Stage escenario) {
     	this.escenario = escenario;

@@ -84,6 +84,7 @@ public class Principal extends Application {
 				escenarioGerente.setScene(EG);
 				escenarioGerente.initStyle(StageStyle.UNDECORATED);		
 				escenarioGerente.show();
+				EG.getStylesheets().add("/Estilos/gerente.css");
 				CRG.menuInicial();	
 				break;
 		 	case "Vendedor":

@@ -11,24 +11,23 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlGerenteConsultarSedes">
    <children>
-      <Pane prefHeight="643.0" prefWidth="700.0">
+      <Pane prefHeight="643.0" prefWidth="700.0" styleClass="panelCentral">
          <children>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-            <JFXTextField fx:id="buscarNombre" layoutX="270.0" layoutY="502.0" promptText="Búsqueda por nombre" styleClass="textfieldGerente">
+            <JFXTextField fx:id="buscarNombre" layoutX="270.0" layoutY="502.0" promptText="Búsqueda por nombre" styleClass="textfield">
                <font>
                   <Font size="15.0" />
                </font></JFXTextField>
-            <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="209.0" layoutY="525.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="23.0" fitWidth="25.0" layoutX="222.0" layoutY="510.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/buscar.png" />
                </image>
             </ImageView>
-            <Button layoutX="477.0" layoutY="521.0" mnemonicParsing="false" onAction="#actualizar_sede" prefHeight="55.0" prefWidth="135.0" style="-fx-background-color: #ff7070;" text="Actualizar" textFill="WHITE" />
-            <JFXTextField fx:id="buscarId" layoutX="271.0" layoutY="548.0" promptText="Búsqueda por ID" styleClass="textfieldGerente">
+            <Button layoutX="477.0" layoutY="521.0" mnemonicParsing="false" onAction="#actualizar_sede" prefHeight="55.0" prefWidth="135.0" styleClass="boton" text="Actualizar" />
+            <JFXTextField fx:id="buscarId" layoutX="271.0" layoutY="548.0" promptText="Búsqueda por ID" styleClass="textfield">
                <font>
                   <Font size="15.0" />
                </font></JFXTextField>
-            <GridPane layoutX="369.0" layoutY="56.0" prefHeight="333.0" prefWidth="331.0">
+            <GridPane layoutX="378.0" layoutY="56.0" prefHeight="333.0" prefWidth="322.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="149.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.0" minWidth="10.0" prefWidth="171.0" />
@@ -43,76 +42,81 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Nombre">
+                  <Label styleClass="textLabelNegro" text="Nombre">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label text="Identificación" GridPane.rowIndex="1">
+                  <Label styleClass="textLabelNegro" text="Identificación" GridPane.rowIndex="1">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label text="Teléfono" GridPane.rowIndex="2">
+                  <Label styleClass="textLabelNegro" text="Teléfono" GridPane.rowIndex="2">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label text="Dirección" GridPane.rowIndex="3">
+                  <Label styleClass="textLabelNegro" text="Dirección" GridPane.rowIndex="3">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label text="Tamaño" GridPane.rowIndex="4">
+                  <Label styleClass="textLabelNegro" text="Tamaño" GridPane.rowIndex="4">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label text="Núm. de empleados" GridPane.rowIndex="5">
+                  <Label styleClass="textLabelNegro" text="Núm. de empleados" GridPane.rowIndex="5">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label text="Fecha de apertura" GridPane.rowIndex="6">
+                  <Label styleClass="textLabelNegro" text="Fecha de apertura" GridPane.rowIndex="6">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="labelNombre" text="Label" GridPane.columnIndex="1">
+                  <Label fx:id="labelNombre" styleClass="textLabelNegro" text="Label" GridPane.columnIndex="1">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="labelId" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Label fx:id="labelId" styleClass="textLabelNegro" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="labelTelefono" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Label fx:id="labelTelefono" styleClass="textLabelNegro" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="labelDireccion" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <Label fx:id="labelDireccion" styleClass="textLabelNegro" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="labelTamano" layoutX="50.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <Label fx:id="labelTamano" layoutX="50.0" styleClass="textLabelNegro" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="labelNumEmpleados" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <Label fx:id="labelNumEmpleados" styleClass="textLabelNegro" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="labelFechaApertura" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <Label fx:id="labelFechaApertura" styleClass="textLabelNegro" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
                </children>
             </GridPane>
-            <TableView fx:id="tablaIndiceSedes" layoutX="4.0" layoutY="1.0" prefHeight="457.0" prefWidth="362.0" styleClass="tablaGerente">
+            <TableView fx:id="tablaIndiceSedes" layoutX="4.0" layoutY="1.0" prefHeight="457.0" prefWidth="362.0" styleClass="tabla">
               <columns>
                 <TableColumn fx:id="columnaNombres" prefWidth="174.0" text="Nombre de la Sede" />
                 <TableColumn fx:id="columnaIdentificacion" prefWidth="168.0" text="Identificación" />
               </columns>
             </TableView>
-            <Label layoutX="417.0" layoutY="6.0" text="Detalles de la Sede" textFill="#ff7070">
+            <Label layoutX="417.0" layoutY="6.0" styleClass="textLabel" text="Detalles de la Sede" textFill="#ff7070">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="labelAvisoTomaSede" layoutX="20.0" layoutY="468.0" prefHeight="17.0" prefWidth="300.0" textFill="#ee0606" />
+            <Label fx:id="labelAvisoTomaSede" layoutX="20.0" layoutY="468.0" prefHeight="17.0" prefWidth="300.0" styleClass="textLabelError" textFill="#ee0606" />
+            <ImageView fitHeight="23.0" fitWidth="25.0" layoutX="222.0" layoutY="552.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/buscar.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>

@@ -47,7 +47,8 @@ public class ControlRaizGerente {
     @FXML private JFXButton botonActualizarPersonal;
     @FXML private JFXButton botonActualizaritems;
     @FXML private JFXButton botonConsultarPersonal;    
-    @FXML private JFXButton botonConsultarSedes;    
+    @FXML private JFXButton botonConsultarSedes;
+    @FXML private JFXButton botonReportes; 
     @FXML private Button atras;
     @FXML private Button botonCerrarSesion;
 
@@ -107,6 +108,12 @@ public class ControlRaizGerente {
     void registrarPersonal(ActionEvent event) throws IOException {
     	cambiarVentana("/Vistas/gerente_registro_personal.fxml");	
     	titulo.setText("Registro de personal");
+    }
+    
+    @FXML
+    void reportes(ActionEvent event) throws IOException {
+    	cambiarVentana("/Vistas/gerente_seleccionar_reporte.fxml");	
+    	titulo.setText("Selección de Reporte");
     }
 
     @FXML

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class DaoVenta {
 	
@@ -37,6 +38,48 @@ public class DaoVenta {
 		       
 		return salida + 1;        
 		        
+	}
+	
+	public ArrayList<String> obtenerAns()
+	{
+		ArrayList<String> ans = new ArrayList<String>();
+		String sql_select = "SELECT DISTINCT extract(year from fecha) as yyyy FROM ventas;";
+		
+		try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            
+            while(tabla.next()){
+            	ans.add(tabla.getString(1));
+               // System.out.println(resultado_consulta);
+             }
+            
+        }
+		catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+		
+		return ans;
+	}
+	
+	public ResultSet obtenerNumVentasMes(String yyyy)
+	{
+		String sql_select = "SELECT to_char(fecha, 'Month') as month, extract(year from fecha) as yyyy, COUNT(id) as \"NumVentas\" FROM ventas WHERE extract(year from fecha) = "+yyyy+" GROUP BY 1,2 ORDER BY to_date(to_char(fecha, 'Month'), 'Month') ASC;";
+		
+		ResultSet tabla = null;
+		
+		try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            tabla = sentencia.executeQuery(sql_select);
+            
+        }
+		catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+		
+		return tabla;
 	}
 	
 }

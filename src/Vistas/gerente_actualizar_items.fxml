@@ -1,58 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlGerenteActualizarItems">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlGerenteActualizarItems">
    <children>
-      <Pane prefHeight="635.0" prefWidth="700.0" style="-fx-background-color: white;">
+      <Pane prefHeight="635.0" prefWidth="700.0" styleClass="panelCentral">
          <children>
-            <Text fx:id="campoNombre" fill="#797979" layoutX="140.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="203.0">
+            <Text fx:id="campoNombre" fill="#797979" layoutX="140.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" wrappingWidth="203.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <Text fill="#797979" layoutX="77.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:">
+            <Text fill="#797979" layoutX="77.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" text="Nombre:">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <Text fill="#797979" layoutX="77.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Idetificador:">
+            <Text fill="#797979" layoutX="77.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" text="Idetificador:">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <Text fx:id="textoIdentificador" fill="#797979" layoutX="165.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="89.0">
+            <Text fx:id="textoIdentificador" fill="#797979" layoutX="165.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" wrappingWidth="89.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <Text fill="#797979" layoutX="427.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de registro:">
+            <Text fill="#797979" layoutX="427.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" text="Fecha de registro:">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <Text fx:id="textoFecha" fill="#797979" layoutX="552.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="89.0">
+            <Text fx:id="textoFecha" fill="#797979" layoutX="552.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto" wrappingWidth="89.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <JFXComboBox fx:id="campoColor" layoutX="267.0" layoutY="149.0" prefHeight="37.0" prefWidth="167.0" promptText="Color" styleClass="comboBoxGerente" />
-            <JFXTextField fx:id="campoPrecio" labelFloat="true" layoutX="184.0" layoutY="243.0" prefHeight="23.0" prefWidth="333.0" promptText="Precio por unidad" styleClass="textfieldGerente">
+            <JFXComboBox fx:id="campoColor" layoutX="267.0" layoutY="149.0" prefHeight="37.0" prefWidth="167.0" promptText="Color" styleClass="comboBox" />
+            <JFXTextField fx:id="campoPrecio" labelFloat="true" layoutX="184.0" layoutY="243.0" prefHeight="23.0" prefWidth="333.0" promptText="Precio por unidad" styleClass="textfield">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>            
-            <JFXTextField fx:id="campoExistencias" labelFloat="true" layoutX="185.0" layoutY="334.0" prefHeight="23.0" prefWidth="333.0" promptText="Existencias" styleClass="textfieldGerente">
+            <JFXTextField fx:id="campoExistencias" labelFloat="true" layoutX="185.0" layoutY="334.0" prefHeight="23.0" prefWidth="333.0" promptText="Existencias" styleClass="textfield">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXTextField>
-            <JFXComboBox fx:id="campoSede" layoutX="267.0" layoutY="442.0" prefHeight="37.0" prefWidth="167.0" promptText="Sede" styleClass="comboBoxGerente" />
-            <JFXButton fx:id="botonActualizar" layoutX="274.0" layoutY="542.0" onAction="#actualizarItem" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Actualizar" textFill="WHITE" />
+            <JFXComboBox fx:id="campoSede" layoutX="267.0" layoutY="442.0" prefHeight="37.0" prefWidth="167.0" promptText="Sede" styleClass="comboBox" />
+            <JFXButton fx:id="botonActualizar" layoutX="274.0" layoutY="542.0" onAction="#actualizarItem" prefHeight="47.0" prefWidth="153.0" styleClass="boton" text="Actualizar" />
          </children>
       </Pane>
    </children>

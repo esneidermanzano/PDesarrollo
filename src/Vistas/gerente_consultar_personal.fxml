@@ -10,22 +10,22 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlGerenteConsultarPersonal">
    <children>
-      <Pane prefHeight="635.0" prefWidth="700.0">
+      <Pane prefHeight="635.0" prefWidth="700.0" styleClass="panelCentral">
          <children>
-            <JFXTextField fx:id="buscarId" layoutX="105.0" layoutY="70.0" promptText="Búsqueda por ID" styleClass="textfieldGerente">
+            <JFXTextField fx:id="buscarId" layoutX="105.0" layoutY="70.0" promptText="Búsqueda por ID" styleClass="textfield">
                <font>
                   <Font size="15.0" />
                </font></JFXTextField>
-            <JFXTextField fx:id="buscarNombre" layoutX="105.0" layoutY="19.0" promptText="Búsqueda por nombre" styleClass="textfieldGerente">
+            <JFXTextField fx:id="buscarNombre" layoutX="105.0" layoutY="19.0" promptText="Búsqueda por nombre" styleClass="textfield">
                <font>
                   <Font size="15.0" />
                </font></JFXTextField>
-            <JFXButton fx:id="editar" layoutX="462.0" layoutY="33.0" onAction="#cargarInterfazAP" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Editar Empleado" textFill="WHITE">
+            <JFXButton fx:id="editar" layoutX="462.0" layoutY="33.0" onAction="#cargarInterfazAP" prefHeight="47.0" prefWidth="153.0" styleClass="boton" text="Editar Empleado">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXButton>
-            <TableView fx:id="tablaIndiceEmpleados" layoutY="120.0" prefHeight="515.0" prefWidth="345.0" styleClass="tablaGerente">
+            <TableView fx:id="tablaIndiceEmpleados" layoutY="120.0" prefHeight="515.0" prefWidth="345.0" styleClass="tabla">
               <columns>
                 <TableColumn fx:id="columnaNombres" minWidth="0.0" prefWidth="167.0" text="Nombre del Empleado" />
                 <TableColumn fx:id="columnaIdentificacion" minWidth="0.0" prefWidth="152.0" text="Identificación" />
@@ -34,7 +34,7 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Label layoutX="419.0" layoutY="113.0" prefHeight="38.0" prefWidth="199.0" text="Detalles del Empleado" textFill="#ff7070">
+            <Label layoutX="419.0" layoutY="113.0" prefHeight="38.0" prefWidth="199.0" styleClass="textLabel" text="Detalles del Empleado" textFill="#ff7070">
                <font>
                   <Font size="20.0" />
                </font>
@@ -56,81 +56,86 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label prefHeight="21.0" prefWidth="90.0" text="Nombre">
+                  <Label prefHeight="21.0" prefWidth="90.0" styleClass="textLabelNegro" text="Nombre">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label text="Identificación" GridPane.rowIndex="1">
+                  <Label styleClass="textLabelNegro" text="Identificación" GridPane.rowIndex="1">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label text="Teléfono" GridPane.rowIndex="2">
+                  <Label styleClass="textLabelNegro" text="Teléfono" GridPane.rowIndex="2">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label text="Estado" GridPane.rowIndex="3">
+                  <Label styleClass="textLabelNegro" text="Estado" GridPane.rowIndex="3">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label text="Sede" GridPane.rowIndex="4">
+                  <Label styleClass="textLabelNegro" text="Sede" GridPane.rowIndex="4">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label text="Correo" GridPane.rowIndex="5">
+                  <Label styleClass="textLabelNegro" text="Correo" GridPane.rowIndex="5">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label text="Perfil" GridPane.rowIndex="6">
+                  <Label styleClass="textLabelNegro" text="Perfil" GridPane.rowIndex="6">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label text="Estado civil" GridPane.rowIndex="7">
+                  <Label styleClass="textLabelNegro" text="Estado civil" GridPane.rowIndex="7">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label text="Género" GridPane.rowIndex="8">
+                  <Label styleClass="textLabelNegro" text="Género" GridPane.rowIndex="8">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="labelNombre" text="Label" GridPane.columnIndex="1">
+                  <Label fx:id="labelNombre" styleClass="textLabelNegro" text="Label" GridPane.columnIndex="1">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="labelId" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Label fx:id="labelId" styleClass="textLabelNegro" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="labelTelefono" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Label fx:id="labelTelefono" styleClass="textLabelNegro" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="labelEstado" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <Label fx:id="labelEstado" styleClass="textLabelNegro" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="labelSede" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <Label fx:id="labelSede" styleClass="textLabelNegro" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="labelCorreo" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <Label fx:id="labelCorreo" styleClass="textLabelNegro" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="labelPerfil" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <Label fx:id="labelPerfil" styleClass="textLabelNegro" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="labelEstadoCivil" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                  <Label fx:id="labelEstadoCivil" styleClass="textLabelNegro" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="labelGenero" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                  <Label fx:id="labelGenero" styleClass="textLabelNegro" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
                </children>
             </GridPane>
-            <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="38.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="23.0" fitWidth="25.0" layoutX="63.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/buscar.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="23.0" fitWidth="25.0" layoutX="63.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/buscar.png" />
                </image>

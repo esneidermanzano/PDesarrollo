@@ -11,61 +11,56 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../Estilos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlActSedes2">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlActSedes2">
    <children>
-      <Pane layoutX="7.0" prefHeight="635.0" prefWidth="700.0" style="-fx-background-color: white;">
+      <Pane layoutX="7.0" prefHeight="635.0" prefWidth="700.0" styleClass="panelCentral">
          <children>
             <ImageView fitHeight="281.0" fitWidth="382.0" layoutX="301.0" layoutY="340.0" opacity="0.11" pickOnBounds="true" smooth="false">
                <image>
                   <Image url="@../Imagenes/sede.png" />
                </image>
             </ImageView>
-            <Label fx:id="avisoTamano" layoutX="159.0" layoutY="428.0" prefHeight="17.0" prefWidth="333.0" textFill="RED" />
-            <JFXTextField fx:id="nombre" labelFloat="true" layoutX="159.0" layoutY="123.0" prefHeight="30.0" prefWidth="333.0" promptText="Nombre Sede" styleClass="textfieldGerente">
+            <Label fx:id="avisoTamano" layoutX="159.0" layoutY="476.0" prefHeight="17.0" prefWidth="333.0" styleClass="textLabelError" textFill="RED" />
+            <JFXTextField fx:id="nombre" labelFloat="true" layoutX="159.0" layoutY="112.0" prefHeight="30.0" prefWidth="333.0" promptText="Nombre Sede" styleClass="textfield">
                <font>
                   <Font size="16.0" />
                </font></JFXTextField>
-            <JFXTextField fx:id="telefono" labelFloat="true" layoutX="160.0" layoutY="237.0" prefHeight="30.0" prefWidth="333.0" promptText="Telefono" styleClass="textfieldGerente">
+            <JFXTextField fx:id="telefono" labelFloat="true" layoutX="160.0" layoutY="253.0" prefHeight="30.0" prefWidth="333.0" promptText="Telefono" styleClass="textfield">
                <font>
                   <Font size="16.0" />
                </font></JFXTextField>
-            <JFXTextField fx:id="direccion" labelFloat="true" layoutX="160.0" layoutY="312.0" prefHeight="30.0" prefWidth="333.0" promptText="Dirección" styleClass="textfieldGerente">
+            <JFXTextField fx:id="direccion" labelFloat="true" layoutX="160.0" layoutY="339.0" prefHeight="30.0" prefWidth="333.0" promptText="Dirección" styleClass="textfield">
                <font>
                   <Font size="16.0" />
                </font></JFXTextField>
-            <JFXTextField fx:id="tamanoSede" labelFloat="true" layoutX="156.0" layoutY="387.0" prefHeight="37.0" prefWidth="153.0" promptText="Tamaño de sede" styleClass="textfieldGerente">
+            <JFXTextField fx:id="tamanoSede" labelFloat="true" layoutX="156.0" layoutY="435.0" prefHeight="37.0" prefWidth="153.0" promptText="Tamaño de sede" styleClass="textfield">
                <font>
                   <Font size="16.0" />
                </font></JFXTextField>
-            <JFXTextField fx:id="nEmpleados" editable="false" labelFloat="true" layoutX="341.0" layoutY="387.0" prefHeight="37.0" prefWidth="153.0" promptText="N° Empleados" styleClass="textfieldGerente">
+            <JFXTextField fx:id="nEmpleados" editable="false" labelFloat="true" layoutX="341.0" layoutY="435.0" prefHeight="37.0" prefWidth="153.0" promptText="N° Empleados" styleClass="textfield">
                <font>
                   <Font size="16.0" />
                </font></JFXTextField>
-            <JFXButton fx:id="actualizar" layoutX="250.0" layoutY="468.0" mnemonicParsing="false" onAction="#obtenerDatos" prefHeight="47.0" prefWidth="153.0" style="-fx-background-color: #ff7070;" text="Actualizar" textFill="WHITE" />
-            <Label layoutX="156.0" layoutY="74.0" prefHeight="25.0" prefWidth="110.0" text="Identificador:" textFill="#ff7070">
+            <JFXButton fx:id="actualizar" layoutX="249.0" layoutY="538.0" mnemonicParsing="false" onAction="#obtenerDatos" prefHeight="47.0" prefWidth="153.0" styleClass="boton" text="Actualizar" />
+            <Label layoutX="156.0" layoutY="47.0" prefHeight="25.0" prefWidth="110.0" styleClass="textLabel" text="Identificador:" textFill="#ff7070">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="identificador" layoutX="258.0" layoutY="73.0" text="&quot;identificador&quot;" textFill="#ff7070">
+            <Label fx:id="identificador" layoutX="258.0" layoutY="46.0" styleClass="textLabel" text="&quot;identificador&quot;" textFill="#ff7070">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <DatePicker fx:id="apertura" disable="true" layoutX="318.0" layoutY="189.0" />
-            <Label layoutX="159.0" layoutY="186.0" text="Fecha apertura" textFill="#aeaeae">
+            <DatePicker fx:id="apertura" disable="true" layoutX="318.0" layoutY="199.0" />
+            <Label layoutX="159.0" layoutY="196.0" styleClass="textLabelNegro" text="Fecha apertura" textFill="#aeaeae">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="28.0" layoutY="-3.0" prefHeight="60.0" prefWidth="320.0" text="Actualizar datos de sede" textFill="#ff7070">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Label>
-            <Label fx:id="avisoTelefono" layoutX="160.0" layoutY="276.0" prefHeight="17.0" prefWidth="333.0" textFill="RED" />
-            <Label fx:id="avisoDireccion" layoutX="159.0" layoutY="351.0" prefHeight="17.0" prefWidth="333.0" textFill="RED" />
-            <Label fx:id="avisoNombre" layoutX="159.0" layoutY="164.0" prefHeight="17.0" prefWidth="333.0" textFill="RED" />
+            <Label fx:id="avisoTelefono" layoutX="160.0" layoutY="292.0" prefHeight="17.0" prefWidth="333.0" styleClass="textLabelError" textFill="RED" />
+            <Label fx:id="avisoDireccion" layoutX="159.0" layoutY="378.0" prefHeight="17.0" prefWidth="333.0" styleClass="textLabelError" textFill="RED" />
+            <Label fx:id="avisoNombre" layoutX="159.0" layoutY="153.0" prefHeight="17.0" prefWidth="333.0" styleClass="textLabelError" textFill="RED" />
          </children>
       </Pane>
    </children>

@@ -37,7 +37,8 @@ public class ControlLogin {
     		mensajeAdvertencia.setText("");
     		if(!campoPasswordLogin.getText().equals("")) {
     			consultador = new DaoEmpleado();
-        		if(consultador.consultarUsuario(usuario)) {
+    			int resultado = consultador.consultarUsuario(usuario);
+        		if(resultado == 1) {
         			perfil = consultador.consultarContrasena(campoUsuarioLogin.getText(), campoPasswordLogin.getText());	
     		         if(perfil[0] != null){
     		        	 if (perfil[0].equals("Gerente")) {
@@ -77,9 +78,13 @@ public class ControlLogin {
         			}else{
         				mensajeAdvertencia.setText("La contraseña es incorrecta");
         			}
-        		}else {
+        		}else if(resultado == 2){
+        			mensajeAdvertencia.setText("El usuario NO esta activo");
+        		} else if(resultado == 0){
         			mensajeAdvertencia.setText("Usuario no valido");
-        		}  
+        		} else {
+        			mensajeAdvertencia.setText("Error, intentelo mas tarde");
+        		}
     		}else {
     			mensajeAdvertencia.setText("Digite una contraseña");
     		}

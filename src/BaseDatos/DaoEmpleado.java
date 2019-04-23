@@ -254,11 +254,13 @@ public class DaoEmpleado {
     }
 	
 	//============= Consulta un usuario segun su nombre ================
-	public boolean consultarUsuario(String nomUsuario){
+	// -1 error, 0 no encontrado, 1 valido, 2 no activo 
+	public int consultarUsuario(String nomUsuario){
 		String sql_select;
-        String resultado = "";
+        String resultado="";
+        int activo = 0;
         
-        sql_select = "SELECT nombre FROM empleados WHERE nombre = ?";
+        sql_select = "SELECT nombre, activo FROM empleados WHERE nombre = ?";
          try{
         	 
             Connection conn = fachada.getConnetion();
@@ -267,19 +269,25 @@ public class DaoEmpleado {
             sentencia.setString(1,nomUsuario);
             ResultSet tabla = sentencia.executeQuery();
             
-            while(tabla.next()){            	
-               resultado = tabla.getString(1);              
+            while(tabla.next()){
+               resultado = tabla.getString(1);   
+               activo = tabla.getInt(2);
             }            
             sentencia.close();
          }
-         catch(SQLException e){ System.out.println(e); }
-         catch(Exception e){ System.out.println(e); }
+         catch(SQLException e){ System.out.println(e); return -1;}
+         catch(Exception e){ System.out.println(e); return -1;}
          
+         System.out.println(activo == 1);
          if(resultado != ""){
-        	 return true;
-         } else {
-        	 return false;
-         }  
+        	 if(activo == 1) {
+        		 return 1;
+        	 }else {
+        		 return 2;
+        	 }
+         }else {
+        	 return 0;
+         }
 	}
 	
 	//============= Consulta si nombre y password son correctos ================

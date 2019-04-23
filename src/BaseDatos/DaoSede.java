@@ -304,7 +304,34 @@ public class DaoSede {
 		
 		return sedes;
 	}
-
+	
+	public String[] consultarDatosFactura(String ID) {
+		
+		String SQL = "SELECT sedes.nombre, sedes.telefono, direccion FROM empleados JOIN sedes ON sedes.id = id_sede WHERE empleados.id = '" + ID + "'";
+		String salida[] = new String[3];
+		       
+		try{
+			
+			Connection conn = fachada.getConnetion();
+		    System.out.println("consultando en la bd");
+		    Statement sentencia = conn.createStatement();
+		    ResultSet tabla = sentencia.executeQuery(SQL);
+		    
+		    while(tabla.next()){            	
+		    	salida[0] = tabla.getString(1);
+		    	salida[1] = tabla.getString(2);
+		    	salida[2] = tabla.getString(3);
+		    } 
+		                               
+		}catch(SQLException e){
+			System.out.println(e);
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		       
+		return salida; 
+		
+	}
 	
 public void cerrarConexionBD(){
         fachada.closeConection(fachada.getConnetion());

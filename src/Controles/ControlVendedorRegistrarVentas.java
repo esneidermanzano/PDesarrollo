@@ -1,13 +1,19 @@
 package Controles;
 
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+
+import java.net.URL;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.HashMap;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
 import BaseDatos.DaoCliente;
+import BaseDatos.DaoEmpleado;
 import BaseDatos.DaoInventario;
+import BaseDatos.DaoSede;
 import BaseDatos.DaoVenta;
 import Clases.Cliente;
 import Clases.Item;
@@ -23,6 +29,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class ControlVendedorRegistrarVentas {
 	
@@ -68,6 +81,7 @@ public class ControlVendedorRegistrarVentas {
     private DaoVenta DV = new DaoVenta();
     private DaoCliente DC = new DaoCliente();
     private DaoInventario DI = new DaoInventario();
+    private DaoSede DS = new DaoSede();
     private Validador V = new Validador();
     private boolean tipoCliente;
     
@@ -366,7 +380,38 @@ public class ControlVendedorRegistrarVentas {
 		nuevo.setDisable(false);
 		existente.setDisable(false);
     }
-
+    
+    void factura() {
+    	    	
+    	String[] datosSede = DS.consultarDatosFactura(cedula);
+    	JasperReport reporte;
+        URL path = getClass().getResource("/Reportes/Invoice.jasper"); 
+        
+        try {
+        	
+        	HashMap parametros = new HashMap();
+	        parametros.put("id_factura", idVenta.getText());
+	        parametros.put("nombre_cliente", nombreCliente.getText());
+	        parametros.put("cedula_cliente", idCliente.getText());
+	        parametros.put("cedula_vendedor", cedula);
+	        parametros.put("nombre_vendedor", nombre);
+	        parametros.put("direccion_sede", datosSede[2]);
+	        parametros.put("telefono_sede", datosSede[1]);
+	        //parametros.put("nombre_sede", datosSede[0]);	        	        
+	        parametros.put("total", total.getText());
+	        
+	        reporte = (JasperReport) JRLoader.loadObject(path); 
+	        JasperPrint jprint = JasperFillManager.fillReport(reporte, parametros, new JRBeanCollectionDataSource(productosVenta)); 
+	        JasperViewer viewer = new JasperViewer(jprint, false); 
+	        viewer.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
+	        viewer.setVisible(true); 
+            
+        } catch (JRException ex) {
+        	System.out.println(ex.getMessage());
+        }
+        
+    }
+    
     @FXML
     void imprimirFactura(ActionEvent event) {
     	Date fecha = new Date();
@@ -382,6 +427,7 @@ public class ControlVendedorRegistrarVentas {
 		
 		if(comprobar(resultados)) {
 			V.mostrarMensaje(1, "La venta se ha registrado con éxito", "Registro de venta");
+			//factura();
 			reiniciar();
 		}
 				

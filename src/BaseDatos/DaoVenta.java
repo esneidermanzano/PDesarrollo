@@ -7,8 +7,6 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
-import Clases.Cliente;
-
 public class DaoVenta {
 	
 	static FachadaDB fachada;

@@ -253,6 +253,65 @@ public class DaoEmpleado {
       
     }
 	
+	//============= Consulta un usuario segun su nombre ================
+	public boolean consultarUsuario(String nomUsuario){
+		String sql_select;
+        String resultado = "";
+        
+        sql_select = "SELECT nombre FROM empleados WHERE nombre = ?";
+         try{
+        	 
+            Connection conn = fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            PreparedStatement sentencia = conn.prepareStatement(sql_select);
+            sentencia.setString(1,nomUsuario);
+            ResultSet tabla = sentencia.executeQuery();
+            
+            while(tabla.next()){            	
+               resultado = tabla.getString(1);              
+            }            
+            sentencia.close();
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+         
+         if(resultado != ""){
+        	 return true;
+         } else {
+        	 return false;
+         }  
+	}
+	
+	//============= Consulta si nombre y password son correctos ================
+	public String[] consultarContrasena(String nomUsuario, String passUsuario) {
+        String sql_select;
+        String[] resultado=new  String[2];
+        
+        sql_select="SELECT perfil,id FROM empleados WHERE nombre=? AND password=CRYPT(?, password)";
+         try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            PreparedStatement sentencia = conn.prepareStatement(sql_select);
+            sentencia.setString(1,nomUsuario);
+            sentencia.setString(2,passUsuario);
+            ResultSet tabla = sentencia.executeQuery();
+            
+            while(tabla.next()){            
+            	 resultado[0] = tabla.getString(1);
+                 resultado[1]= tabla.getString(2);//CAMBIO VALLE
+            }           
+         }
+  
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+
+         return resultado;
+
+	}
+
+	
+	
+	
 	public void cerrarConexionBD(){
         fachada.closeConection(fachada.getConnetion());
     }	

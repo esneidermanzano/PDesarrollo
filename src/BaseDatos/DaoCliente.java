@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import Clases.Cliente;
-import Clases.Empleado;
 
 public class DaoCliente {
 	

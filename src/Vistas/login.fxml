@@ -55,12 +55,12 @@
                   <Image url="@../Imagenes/userlogin.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="535.0" prefHeight="31.0" prefWidth="341.0" text="SIGET - Sitema de Gestion del Talento Humano 1.0" textFill="WHITE" />
-            <Text fx:id="mensajeAdvertencia" fill="#f8c5c5" layoutX="55.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="350.0">
+            <Label fx:id="mensajeAdvertencia" alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="483.0" prefHeight="31.0" prefWidth="341.0" textAlignment="CENTER" textFill="#ffb2b2">
                <font>
                   <Font size="14.0" />
                </font>
-            </Text>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="535.0" prefHeight="31.0" prefWidth="341.0" text="SIGET - Sitema de Gestion del Talento Humano 1.0" textFill="WHITE" />
          </children></Pane>
    </children>
 </AnchorPane>

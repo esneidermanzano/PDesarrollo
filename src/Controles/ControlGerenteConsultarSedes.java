@@ -2,9 +2,7 @@ package Controles;
 
 import com.jfoenix.controls.JFXTextField;
 
-import BaseDatos.DaoEmpleado;
 import BaseDatos.DaoSede;
-import Clases.Empleado;
 import Clases.Sede;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,19 +21,15 @@ import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
 import java.io.IOException;
-import java.util.function.Function;
 import java.util.function.Predicate;
 
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.application.Application;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 
 public class ControlGerenteConsultarSedes {
 	@FXML

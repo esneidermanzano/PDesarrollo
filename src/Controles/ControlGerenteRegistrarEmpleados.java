@@ -2,7 +2,6 @@ package Controles;
 
 import java.util.ArrayList;
 
-import javax.swing.MutableComboBoxModel;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -16,7 +15,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
-import javafx.beans.value.*;
 
 public class ControlGerenteRegistrarEmpleados {
 	private DaoSede daoSede;

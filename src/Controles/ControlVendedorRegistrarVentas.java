@@ -148,6 +148,12 @@ public class ControlVendedorRegistrarVentas {
     			nombreProducto.setText(nuevo.getNombre());
     			cantidadProducto.setDisable(false);
     			anadir.setDisable(false);
+    		}else {
+    			idProducto.setText("");
+    			nombreProducto.setText("");
+    			cantidadProducto.setText("");
+    			cantidadProducto.setDisable(true);
+    			anadir.setDisable(true);
     		}
     	}
     			
@@ -155,6 +161,8 @@ public class ControlVendedorRegistrarVentas {
     	tablaVenta.getSelectionModel().selectedItemProperty().addListener((obs,viejo,nuevo)->{
     		if(nuevo != null) {
     			quitarProducto.setDisable(false);
+    		}else {
+    			quitarProducto.setDisable(true);
     		}
     	}
     			

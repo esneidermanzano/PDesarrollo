@@ -65,9 +65,7 @@ public class DaoVenta {
 	}
 	
 	public int registrarDetalleVenta(String idVenta, String idItem, String idEjemplar, String cantidad) {
-		
-		System.out.print("id1: " + idEjemplar + " id2: " + idItem);
-		
+				
 		int salida = 0;
 		String SQL;
         

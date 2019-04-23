@@ -86,7 +86,7 @@ public class DaoVenta {
          return salida;
          
 	}
-	
+		
 	public ArrayList<String> obtenerAns()
 	{
 		ArrayList<String> ans = new ArrayList<String>();

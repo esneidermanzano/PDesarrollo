@@ -284,7 +284,7 @@ public class ControlResgistrarCotizacion {
     	loader.setLocation(getClass().getResource("/Vistas/menu_inicio.fxml"));
     	efectoCambio(loader, (Pane)((Button)event.getSource()).getParent());
     	ControlMenuInicial C = loader.getController();
-    	C.iniciar("vendedor");
+    	C.iniciar("Vendedor");
     }
     @FXML
     void imprimir(ActionEvent event) {

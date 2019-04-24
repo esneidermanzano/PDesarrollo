@@ -165,13 +165,13 @@ public class ControlGerenteReporteVentas2 {
 			    		if(!series.getData().isEmpty()) {
 				    		if(group.getSelectedToggle().getUserData().equals("barras")){
 				    			graficoBarras.getData().clear();
-				    			xAxis.setCategories(ejex);
+				    			//xAxis.setCategories(ejex);
 				    			graficoBarras.setTitle(mensaje);
 				    			graficoBarras.getData().addAll(series);
 				    		}else {
 				    			if(group.getSelectedToggle().getUserData().equals("linea")){
 				    				graficoLineas.getData().clear();
-				    				xAxisl.setCategories(ejex);
+				    				//xAxisl.setCategories(ejex);
 				    				graficoLineas.setTitle(mensaje);
 				    				graficoLineas.getData().addAll(series);
 				        		}else {

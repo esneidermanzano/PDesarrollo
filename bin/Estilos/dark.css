@@ -209,3 +209,6 @@
 .axis:left, .axis:bottom {
 	-fx-tick-label-fill: #eee;
 }
+.chart-bar {
+    -fx-background-color: #0099e6; 
+}

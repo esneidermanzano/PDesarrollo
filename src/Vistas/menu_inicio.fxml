@@ -30,7 +30,7 @@
             <Image url="@../Imagenes/esquina.png" />
          </image>
       </ImageView>
-      <Label layoutX="255.0" layoutY="178.0" styleClass="textLabelInicio" text="XYZ S.A Inmobiliaria" textFill="#797979">
+      <Label layoutX="207.0" layoutY="178.0" styleClass="textLabelInicio" text="XYZ S.A Expertos en Comodidad" textFill="#797979">
          <font>
             <Font name="Calibri Light" size="20.0" />
          </font>

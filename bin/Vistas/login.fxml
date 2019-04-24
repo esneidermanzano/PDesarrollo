@@ -20,7 +20,7 @@
                </image>
             </ImageView>
             <Pane layoutX="-8.0" layoutY="-2.0" opacity="0.3" prefHeight="597.0" prefWidth="467.0" style="-fx-background-color: #333;" />
-            <Text fill="WHITE" layoutX="167.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XYZ S.A Inmobiliaria">
+            <Text fill="WHITE" layoutX="129.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XYZ S.A Expertos en Comodidad">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -60,7 +60,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="535.0" prefHeight="31.0" prefWidth="341.0" text="SIGET - Sitema de Gestion del Talento Humano 1.0" textFill="WHITE" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="535.0" prefHeight="31.0" prefWidth="341.0" text="SIGET - Sistema de Gestion del Talento Humano 1.0" textFill="WHITE" />
          </children></Pane>
    </children>
 </AnchorPane>

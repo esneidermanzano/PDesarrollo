@@ -28,6 +28,8 @@ public class ControlMenuInicial {
     	    	break;
     		case "Administrador":
     			mensaje += "\n\t- Gestionar la información de los usuarios gerentes.\n";
+    			mensaje += "\n\t- Gestionar la información de los usuarios vendedores.\n";
+    			mensaje += "\n\t- Gestionar la información de los usuarios jefes de taller.\n";
     	    	break;
     	}
     	    	

@@ -135,10 +135,9 @@ public class DaoVenta {
 		return tabla;
 	}
 	
-	public XYChart.Series obtenerDias(LocalDate localDate, LocalDate localDate2,int tipo){
-		XYChart.Series series = new XYChart.Series();
-		series.setName("ventas " + localDate +"a" + localDate2);
+	public ResultSet obtenerDias(LocalDate localDate, LocalDate localDate2,int tipo){
 		
+		 ResultSet tabla = null;
 		String sql_select = "SELECT EXTRACT(DAY FROM fecha) AS dia,COUNT(*) FROM ventas "+
 								"WHERE DATE(fecha) BETWEEN '"+ localDate +"' AND '"+localDate2+ 
 								"' GROUP BY fecha " +
@@ -166,17 +165,13 @@ public class DaoVenta {
             Connection conn= fachada.getConnetion();
             System.out.println("consultando en la bd");
             Statement sentencia = conn.createStatement();
-            ResultSet tabla = sentencia.executeQuery(sql_select);
-            
-            while(tabla.next()){
-            	series.getData().add(new XYChart.Data(tabla.getString(1), tabla.getInt(2)));
-             }
-            
+            tabla = sentencia.executeQuery(sql_select);
+                        
         }
 		catch(SQLException e){ System.out.println(e); }
         catch(Exception e){ System.out.println(e); }
 		
-		return series;
+		return tabla;
 	}
 	
 	public  ObservableList<PieChart.Data> obtenerObjetos(LocalDate localDate, LocalDate localDate2,int tipo){

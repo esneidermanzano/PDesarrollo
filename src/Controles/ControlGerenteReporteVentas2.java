@@ -1,5 +1,7 @@
 package Controles;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 
@@ -8,6 +10,7 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -79,6 +82,7 @@ public class ControlGerenteReporteVentas2 {
 
 	@FXML
 	void mostrarGLinea(ActionEvent event) {
+		graficoLineas.getData().clear();
 		graficoTorta.setVisible(false);
 		graficoBarras.setVisible(false);
 		graficoLineas.setVisible(true);
@@ -86,6 +90,7 @@ public class ControlGerenteReporteVentas2 {
 
 	@FXML
 	void mostrarGBarras(ActionEvent event) {
+		graficoBarras.getData().clear();
 		graficoLineas.setVisible(false);
 		graficoTorta.setVisible(false);
 		graficoBarras.setVisible(true);
@@ -93,6 +98,7 @@ public class ControlGerenteReporteVentas2 {
 
 	@FXML
 	void mostrarGTorta(ActionEvent event) {
+		graficoTorta.getData().clear();
 		graficoLineas.setVisible(false);
 		graficoBarras.setVisible(false);
 		graficoTorta.setVisible(true);
@@ -142,18 +148,32 @@ public class ControlGerenteReporteVentas2 {
 			    	if(tipo==0) {
 			    		aviso.setText("¡Seleccione el tipo de reporte!");
 			    	}else {
-			    		XYChart.Series serie = reporte.obtenerDias(fechaI,fechaF,tipo);
-			    		System.out.println(serie.getData().isEmpty());
-			    		if(!serie.getData().isEmpty()) {
+			    		ResultSet tabla = reporte.obtenerDias(fechaI,fechaF,tipo);
+			    		ObservableList<String> ejex = FXCollections.observableArrayList();
+			    		XYChart.Series series = new XYChart.Series();
+			    		series.setName("ventas " + fechaI +"a" + fechaF);
+			    		 try {
+							while(tabla.next()){
+							 	series.getData().add(new XYChart.Data(tabla.getString(1), tabla.getInt(2)));
+							 	ejex.add(tabla.getString(1));
+							  }
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+			    		
+			    		if(!series.getData().isEmpty()) {
 				    		if(group.getSelectedToggle().getUserData().equals("barras")){
 				    			graficoBarras.getData().clear();
+				    			xAxis.setCategories(ejex);
 				    			graficoBarras.setTitle(mensaje);
-				    			graficoBarras.getData().addAll(serie);
+				    			graficoBarras.getData().addAll(series);
 				    		}else {
 				    			if(group.getSelectedToggle().getUserData().equals("linea")){
 				    				graficoLineas.getData().clear();
+				    				xAxisl.setCategories(ejex);
 				    				graficoLineas.setTitle(mensaje);
-				    				graficoLineas.getData().addAll(serie);
+				    				graficoLineas.getData().addAll(series);
 				        		}else {
 				        			ObservableList<PieChart.Data> datos  =reporte.obtenerObjetos(fechaI, fechaF,tipo);
 				        			if(!datos.isEmpty()) {

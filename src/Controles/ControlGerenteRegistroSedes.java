@@ -107,7 +107,7 @@ public class ControlGerenteRegistroSedes {
     	direccion = validador.ajustar(direccion);
     	campoDireccion.setText(direccion);
     	
-    	if(direccion.matches(".*[+$%&'?!=¡¿/].*")) {
+    	if(direccion.matches(".*[+$%&'?!=¡¿/*].*")) {
     		errorDireccion.setText(("Caracter no aceptado"));
 			return false;
     	}

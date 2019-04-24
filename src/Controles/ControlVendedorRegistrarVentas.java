@@ -385,7 +385,7 @@ public class ControlVendedorRegistrarVentas {
     	    	
     	String[] datosSede = DS.consultarDatosFactura(cedula);
     	JasperReport reporte;
-        URL path = getClass().getResource("/Reportes/Invoice.jasper"); 
+        URL path = getClass().getResource("/Reportes/Invoice2.jasper"); 
         
         try {
         	
@@ -397,7 +397,7 @@ public class ControlVendedorRegistrarVentas {
 	        parametros.put("nombre_vendedor", nombre);
 	        parametros.put("direccion_sede", datosSede[2]);
 	        parametros.put("telefono_sede", datosSede[1]);
-	        //parametros.put("nombre_sede", datosSede[0]);	        	        
+	        parametros.put("nombre_sede", datosSede[0]);	        	        
 	        parametros.put("total", total.getText());
 	        
 	        reporte = (JasperReport) JRLoader.loadObject(path); 
@@ -427,7 +427,7 @@ public class ControlVendedorRegistrarVentas {
 		
 		if(comprobar(resultados)) {
 			V.mostrarMensaje(1, "La venta se ha registrado con éxito", "Registro de venta");
-			//factura();
+			factura();
 			reiniciar();
 		}
 				

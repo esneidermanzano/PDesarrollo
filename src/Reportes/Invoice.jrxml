@@ -192,7 +192,7 @@
 				<textElement verticalAlignment="Middle">
 					<font size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Dirección:]]></text>
+				<text><![CDATA[DirecciÃ³n:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="83" y="52" width="20" height="20" uuid="71bc9241-f105-460f-aea5-1b7d275b3439"/>

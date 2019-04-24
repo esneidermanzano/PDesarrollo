@@ -1,0 +1,119 @@
+.panelSuperior{
+	-fx-background-color:  #fff;
+}
+.panelRaiz{
+	-fx-background-color:  #006699;
+}
+
+.panelCentral{
+	-fx-background-color:  white;
+}
+
+.controles{
+	-fx-alignment: center ;
+	-fx-background-color:transparent;
+	-fx-border-color: transparent; 
+	-fx-border-width: 0 0 2 0;
+	-fx-pref-height:25px;
+	-fx-pref-width:25px;
+}
+.controles:hover{
+	-fx-cursor: hand;
+	-fx-border-color: #808080; 
+	-fx-border-width: 0 0 2 0;
+}
+
+.menu-item:focused {
+     -fx-background-color: #0099e6;
+}
+.context-menu {
+    -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+}
+
+#botonCerrarSesion{
+	-fx-background-color:transparent;
+	-fx-border-width:  0 1 0 0;
+	-fx-border-color: transparent; 
+}
+#botonCerrarSesion:hover{
+	-fx-border-width:  0 1 0 0;
+	-fx-border-color: #fff;
+	-fx-cursor: hand;
+
+}
+
+.botonesPanel{
+	-fx-background-radius: 0px;
+	-fx-background-color:#006699;
+	-fx-padding:  0px 0px 0px 50px;
+	-fx-pref-width: 300px;
+	-fx-pref-height: 45px;
+	-fx-text-fill: white;
+    -fx-font-size:14px;
+    }
+
+.botonesPanel:hover {
+	-fx-background-color: #0099e6;
+}
+
+.boton{
+	-fx-background-color: #0099e6;
+	-fx-text-fill: white;
+
+}
+.tituloPanel{
+	-fx-fill: #0099e6;
+}
+.textLabelInicio{
+	-fx-text-fill: #797979;
+}
+.textLabel { 
+	-fx-text-fill: #0099e6;
+} 
+
+.textLabelNegro { 
+	-fx-text-fill: #4d4d4d;
+} 
+.textLabelError { 
+	-fx-text-fill: #ff4040;
+} 
+
+.textfield, .comboBox{
+	 -fx-prompt-text-fill: #bbb;
+	 -jfx-unfocus-color: #0099e6;
+	 -jfx-focus-color:#808080;
+
+}
+.comboBox .list-view .list-cell:hover {
+    -fx-text-fill: #fff;
+    -fx-background-color:#0099e6;
+}
+.tabla .table-column {
+  -fx-alignment: CENTER;
+}
+
+.tabla{
+  -fx-focus-color: white;
+  -fx-selection-bar:#0099e6;
+  -fx-selection-bar-non-focused:#6bc0eb;
+  -fx-font-size: 13px;
+  -fx-padding: 0.5em;
+}
+
+.tabla .column-header, .tabla .filler{
+    -fx-background-color: #eee;    
+    -fx-size: 25;
+    -fx-border-color: -fx-box-border;
+    -fx-border-width: 0 0 3 0;
+    -fx-border-insets: 0;
+}
+
+.table-view{
+-fx-border-color: #fff;}
+.botonTema > .arrow-button {
+    -fx-padding: 0;
+}
+
+.botonTema > .arrow-button > .arrow {
+    -fx-padding: 0;
+}

@@ -121,7 +121,10 @@ public class ControlGerenteActualizarItems {
 	    	}else {
 	    		existencias = validador.ajustar(existencias);
 	    		campoExistencias.setText(existencias);
-	    		if(existencias.matches("[0-9]*")) {	    		
+	    		if(existencias.matches("[0-9]*")) {
+	    			if(existencias.matches("[0]*")) {
+	    				campoExistencias.setText("0");
+	    			}
 	    		}else {
 	    			valido=2;
 	    			mensaje = "Las existencias deben ser un valor numerico";

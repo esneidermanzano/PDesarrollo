@@ -95,7 +95,7 @@ public class ControlGerenteRegistroSedes {
         			return false;
     			}
     		}else {
-    			errorTelefono.setText(("El telefonosolo son números"));    			
+    			errorTelefono.setText(("El telefono solo son números"));    			
     			return false;
     			}
     	}

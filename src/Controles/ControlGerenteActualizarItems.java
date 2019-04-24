@@ -122,6 +122,10 @@ public class ControlGerenteActualizarItems {
 	    		existencias = validador.ajustar(existencias);
 	    		campoExistencias.setText(existencias);
 	    		if(existencias.matches("[0-9]*")) {
+	    			if(existencias.length()>10) {
+	    				valido=1;
+	    				mensaje = "Las existencias no deben tener mas de 10 numeros";
+	    			}
 	    			if(existencias.matches("[0]*")) {
 	    				campoExistencias.setText("0");
 	    			}

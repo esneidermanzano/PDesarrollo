@@ -14,6 +14,7 @@ import BaseDatos.DaoInventario;
 import BaseDatos.DaoSede;
 
 import Clases.Item;
+import Clases.Validador;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -34,7 +35,8 @@ public class ControlGerenteActualizarItems {
 	private DaoInventario consultaInventario;
 	private DaoSede consultaSede;
 	private Item producto;
-   
+	private Validador validador;
+
     @FXML private JFXComboBox<String> campoColor;
     @FXML private JFXComboBox<String> campoSede;    
 
@@ -51,6 +53,7 @@ public class ControlGerenteActualizarItems {
 	    public void initialize() {
 	    	consultaInventario = new DaoInventario();
 	    	consultaSede = new DaoSede();
+	    	validador = new Validador();
 	    	//botonActualizar.setDisable(true);
 	    	campoColor.setItems(consultaInventario.obtenerColores());
 	    	ArrayList<String> valores = consultaSede.obtenerNombresDeSedes();			
@@ -86,20 +89,43 @@ public class ControlGerenteActualizarItems {
 	    @FXML
 	    void actualizarItem(ActionEvent event) {
 	    	int valido = 0;
+	    	String mensaje = "";
 	    	String precio = campoPrecio.getText();
 	    	String existencias = campoExistencias.getText();
 
 	    	if(precio.replace(" ", "").equals("")) {
+	    		mensaje = "El precio no puede estar vacio";
 	    		valido = 1;
 	    	}else {
-	    		if(precio.matches("[0-9]*")) {	    		
-	    		}else {valido=1;}
+	    		precio = validador.ajustar(precio);
+	    		campoPrecio.setText(precio);
+	    		if(precio.matches("[0-9]*")) {
+	    			if(precio.length()>10) {
+	    				valido=1;
+	    				mensaje = "El precio no tener mas de 10 numeros";
+	    			}
+	    			if(precio.matches("[0]*")) {
+	    				mensaje = "El precio no puede ser cero";
+	    				valido=1;
+	    			}
+	    			
+	    		}else {
+	    			valido=1;
+	    			mensaje = "El precio Debe ser un valor numerico";
+	    		}
 	    	}
+	    	
 	    	if(existencias.replace(" ", "").equals("")) {
-	    		valido = 2;
+	    		valido = 1;
+	    		mensaje = "Las existencias no beden ser vacias";
 	    	}else {
+	    		existencias = validador.ajustar(existencias);
+	    		campoExistencias.setText(existencias);
 	    		if(existencias.matches("[0-9]*")) {	    		
-	    		}else {valido=2;}
+	    		}else {
+	    			valido=2;
+	    			mensaje = "Las existencias deben ser un valor numerico";
+	    		}
 	    	}
 	    	
 	    	if(valido == 0) {
@@ -135,10 +161,8 @@ public class ControlGerenteActualizarItems {
 					}
 	        	}
 	    	}else {    		    	
-	    		switch(valido) {
-	    		case 1: mostrarMensaje("Error", "Error: El precio es incorrecto");break;
-	    		case 2: mostrarMensaje("Error", "Las existencias no son validas");break;	    		
-	    		}    		        	
+	    		mostrarMensaje("Error", mensaje);    		
+	    		  		        	
 	    	}
 	    }
 		   

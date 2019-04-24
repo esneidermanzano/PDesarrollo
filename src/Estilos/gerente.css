@@ -115,3 +115,6 @@
 .botonTema > .arrow-button > .arrow {
     -fx-padding: 0;
 }
+.rectangulo{
+	-fx-fill:#ff7070;
+}

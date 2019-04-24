@@ -180,3 +180,32 @@
 .botonTema > .arrow-button > .arrow {
     -fx-padding: 0;
 }
+
+
+.rectangulo{
+	-fx-fill:#2b2b2b;
+}
+.chart-pie-label-line {
+    -fx-stroke: #0099e6;
+    -fx-fill: #8b4513;
+}
+
+.chart-pie-label {
+    -fx-fill: #eee;
+} 
+.chart-legend {
+   -fx-background-color:  #2d2d2d;
+}
+.chart-legend-item{
+    -fx-text-fill: #eee;
+}
+.axis-label {
+  -fx-text-fill: #eee;
+}
+.chart-plot-background {
+    -fx-background-color: #444;
+}
+.default-color0.chart-series-line { -fx-stroke: #0099e6; }
+.axis:left, .axis:bottom {
+	-fx-tick-label-fill: #eee;
+}

@@ -8,7 +8,7 @@ public class FachadaDB {
         Statement instruccion;
         ResultSet tabla;
         FachadaDB(){
-            url="jdbc:postgresql://localhost:5432/postgresD";
+            url="jdbc:postgresql://localhost:5432/postgres";
             usuario="postgres";
             password="root";
         }

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controles.ControlGerenteReporteVentas2">
+   <children>
+      <Pane prefHeight="635.0" prefWidth="700.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff9696" height="31.0" layoutX="66.0" layoutY="105.0" stroke="#ff9696" strokeType="INSIDE" width="563.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff9696" height="31.0" layoutX="66.0" layoutY="167.0" stroke="#ff9696" strokeType="INSIDE" width="563.0" />
+            <Button fx:id="botonMostrarGrafico" layoutX="508.0" layoutY="578.0" mnemonicParsing="false" onAction="#mostrarGrafico" prefHeight="31.0" prefWidth="111.0" style="-fx-background-color: #ff7070;" text="Mostrar grafico" textFill="WHITE" />
+            <DatePicker fx:id="fechaInicial" layoutX="65.0" layoutY="46.0" />
+            <DatePicker fx:id="fechaFinal" layoutX="262.0" layoutY="46.0" />
+            <RadioButton fx:id="rbgraficoLinea" layoutX="94.0" layoutY="112.0" mnemonicParsing="false" onAction="#mostrarGLinea" text="Linea" textFill="WHITE">
+               <toggleGroup>
+                  <ToggleGroup fx:id="group" />
+               </toggleGroup></RadioButton>
+            <PieChart fx:id="graficoTorta" layoutX="41.0" layoutY="207.0" prefHeight="356.0" prefWidth="633.0" visible="false" />
+            <LineChart fx:id="graficoLineas" layoutX="41.0" layoutY="207.0" prefHeight="356.0" prefWidth="633.0" visible="false">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" fx:id="xAxisl" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="yAxisl" side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <BarChart fx:id="graficoBarras" layoutX="41.0" layoutY="207.0" prefHeight="356.0" prefWidth="633.0" visible="false">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" fx:id="xAxis" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="yAxis" side="LEFT" />
+              </yAxis>
+            </BarChart>
+            <RadioButton fx:id="rbgraficoBarras" layoutX="281.0" layoutY="113.0" mnemonicParsing="false" onAction="#mostrarGBarras" text="Barras" textFill="WHITE" toggleGroup="$group" />
+            <RadioButton fx:id="rbgraficoTorta" layoutX="510.0" layoutY="113.0" mnemonicParsing="false" onAction="#mostrarGTorta" text="Torta" textFill="WHITE" toggleGroup="$group" />
+            <RadioButton fx:id="rbNVenta" layoutX="92.0" layoutY="174.0" mnemonicParsing="false" text="Número de ventas" textFill="WHITE">
+               <toggleGroup>
+                  <ToggleGroup fx:id="group2" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="rbVTventa" layoutX="255.0" layoutY="174.0" mnemonicParsing="false" text="Valores totales de ventas" textFill="WHITE" toggleGroup="$group2" />
+            <RadioButton fx:id="rbCPodructosV" layoutX="424.0" layoutY="174.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="203.0" text="Cantidad de productos vendidos" textFill="WHITE" toggleGroup="$group2" />
+            <Label layoutX="65.0" layoutY="21.0" text="Fecha Inicial" textFill="#ff7070">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="262.0" layoutY="20.0" text="Fecha Final" textFill="#ff7070">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="65.0" layoutY="81.0" text="Tipo de gráfico:" textFill="#ff7070">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="65.0" layoutY="143.0" prefHeight="21.0" prefWidth="119.0" text="Tipo de reporte:" textFill="#ff7070">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="botonReporteAno" layoutX="517.0" layoutY="44.0" mnemonicParsing="false" onAction="#reportePorAno" prefHeight="31.0" prefWidth="111.0" style="-fx-background-color: #ff7070;" text="Reporte por año" textFill="WHITE" />
+            <Label fx:id="aviso" layoutX="66.0" layoutY="574.0" prefHeight="34.0" prefWidth="430.0" text="  " textFill="#f20909">
+               <font>
+                  <Font name="Bell MT" size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

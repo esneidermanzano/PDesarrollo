@@ -5,7 +5,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.ArrayList;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 
 public class DaoVenta {
 	
@@ -127,6 +133,95 @@ public class DaoVenta {
         catch(Exception e){ System.out.println(e); }
 		
 		return tabla;
+	}
+	
+	public XYChart.Series obtenerDias(LocalDate localDate, LocalDate localDate2,int tipo){
+		XYChart.Series series = new XYChart.Series();
+		series.setName("ventas " + localDate +"a" + localDate2);
+		
+		String sql_select = "SELECT EXTRACT(DAY FROM fecha) AS dia,COUNT(*) FROM ventas "+
+								"WHERE DATE(fecha) BETWEEN '"+ localDate +"' AND '"+localDate2+ 
+								"' GROUP BY fecha " +
+								"ORDER BY DATE(fecha)  ASC ;";
+		
+		if(tipo==2) {
+		 sql_select="WITH p_vendidos_dia AS (SELECT numero_de_ejemplar,id_item,fecha,SUM(cantidad) AS cant "+ 
+											"FROM ventas JOIN detalle_ventas ON ventas.id=detalle_ventas.id_venta WHERE DATE(ventas.fecha) BETWEEN '"+ localDate +"' AND '"+localDate2+"' GROUP BY numero_de_ejemplar,id_item,fecha ORDER BY fecha ASC),"+
+						" p_vendidos_dia_consumatotal AS( SELECT EXTRACT(DAY FROM fecha),SUM(cantidad*valor_venta) "+
+														 "FROM p_vendidos_dia JOIN inventario ON p_vendidos_dia.id_item=inventario.id NATURAL JOIN ejemplares GROUP BY fecha ORDER BY fecha ASC) "+
+					"SELECT * FROM p_vendidos_dia_consumatotal;";
+				 
+				 
+		}else {
+			if(tipo==3) {
+				sql_select = "SELECT nombre,count(*) FROM ejemplares NATURAL JOIN "+
+						"(SELECT numero_de_ejemplar,id_item,nombre "+
+						"FROM ventas JOIN detalle_ventas ON ventas.id=detalle_ventas.id_venta JOIN inventario ON id_item=inventario.id WHERE DATE(fecha) BETWEEN '"+ localDate +"' AND '"+localDate2+ "') as p_vendidos"+
+						" GROUP BY nombre;";
+			}
+			
+		}	
+		
+		try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            
+            while(tabla.next()){
+            	series.getData().add(new XYChart.Data(tabla.getString(1), tabla.getInt(2)));
+             }
+            
+        }
+		catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+		
+		return series;
+	}
+	
+	public  ObservableList<PieChart.Data> obtenerObjetos(LocalDate localDate, LocalDate localDate2,int tipo){
+		 ObservableList<PieChart.Data> datos  =  FXCollections.observableArrayList();
+		
+		 String sql_select = "SELECT EXTRACT(DAY FROM fecha) AS dia,COUNT(*) FROM ventas "+
+					"WHERE DATE(fecha) BETWEEN '"+ localDate +"' AND '"+localDate2+ 
+					"' GROUP BY fecha " +
+					"ORDER BY DATE(fecha)  ASC ;";
+		 String ayuda="día ";
+		 
+		if(tipo==2) {
+			sql_select="WITH p_vendidos_dia AS (SELECT numero_de_ejemplar,id_item,fecha,SUM(cantidad) AS cant "+ 
+											"FROM ventas JOIN detalle_ventas ON ventas.id=detalle_ventas.id_venta WHERE DATE(ventas.fecha) BETWEEN '"+ localDate +"' AND '"+localDate2+"' GROUP BY numero_de_ejemplar,id_item,fecha ORDER BY fecha ASC),"+
+						" p_vendidos_dia_consumatotal AS( SELECT EXTRACT(DAY FROM fecha),SUM(cantidad*valor_venta) "+
+														 "FROM p_vendidos_dia JOIN inventario ON p_vendidos_dia.id_item=inventario.id NATURAL JOIN ejemplares GROUP BY fecha ORDER BY fecha ASC) "+
+					"SELECT * FROM p_vendidos_dia_consumatotal;";
+				
+		}else {
+			if(tipo==3) {
+				sql_select = "SELECT nombre,count(*) FROM ejemplares NATURAL JOIN "+
+						"(SELECT numero_de_ejemplar,id_item,nombre "+
+						"FROM ventas JOIN detalle_ventas ON ventas.id=detalle_ventas.id_venta JOIN inventario ON id_item=inventario.id WHERE DATE(fecha) BETWEEN '"+ localDate +"' AND '"+localDate2+ "') as p_vendidos"+
+						" GROUP BY nombre;";
+				ayuda="";
+			}
+			
+		
+		}	
+		try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+           System.out.println(tabla);
+            while(tabla.next()){
+            	 
+            	datos.add(new PieChart.Data(ayuda+tabla.getString(1) ,tabla.getInt(2)));
+            	
+             }
+        }
+		catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+		
+		return datos;
 	}
 	
 }

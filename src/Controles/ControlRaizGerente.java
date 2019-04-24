@@ -138,8 +138,8 @@ public class ControlRaizGerente {
     
     @FXML
     void reportes(ActionEvent event) throws IOException {
-    	cambiarVentana("/Vistas/gerente_seleccionar_reporte.fxml");	
-    	titulo.setText("Selección de Reporte");
+    	cambiarVentana("/Vistas/gerente_reporte_ventas2.fxml");	
+    	titulo.setText("Reporte de Ventas");
     }
 
     @FXML

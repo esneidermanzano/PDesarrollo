@@ -12,6 +12,7 @@ import com.jfoenix.controls.JFXTextField;
 import BaseDatos.DaoInventario;
 import BaseDatos.DaoOrdenTrabajo;
 import Clases.Item;
+import Clases.Validador;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -30,6 +31,7 @@ import javafx.scene.text.Text;
 public class ControlJefeTallerRegistroOrdenes {
 		private DaoInventario consultador;
 		private DaoOrdenTrabajo consultadorOrden;
+		private Validador validador;
 	 	private Item producto;
 	 	private String identificador;
 	 	
@@ -63,6 +65,7 @@ public class ControlJefeTallerRegistroOrdenes {
 	    public void initialize() {
 	    	consultador = new DaoInventario();
 	    	consultadorOrden = new DaoOrdenTrabajo();
+	    	validador = new Validador();
 	    	FilteredList<Item> filteredData = new FilteredList<>(consultador.obtenerItems(), p -> true);	    	
 	    	SortedList<Item> sortedData = new SortedList<>(filteredData);
 	    	
@@ -151,20 +154,37 @@ public class ControlJefeTallerRegistroOrdenes {
 	    	LocalDate localDate = campoFecha.getValue();
 	    	String fecha = "";
 			boolean valido = true;
+			
+			informacion = validador.ajustar(informacion);		
+			campoDescripcion.setText(informacion);
 			if(informacion.replace(" ", "").equals("")) {
 				errorDescripcion.setText(("Debe agregar una descripcion"));
 				valido = false;
+			}else {
+				
 			}
+			
 			if(cantidad.equals("")) {
 				errorCantidad.setText(("El campo cantidad no puede estar vacio"));
 				valido = false;
 	    	}else {
-	    		if(cantidad.matches("[0-9]*")) {	    		
+	    		cantidad = validador.ajustar(cantidad);
+	    		campoCantidad.setText(cantidad);
+	    		if(cantidad.matches("[0-9]*")) {
+	    			if(cantidad.length()>10) {
+	    				errorCantidad.setText(("No debe tener mas de 10 números"));
+	    				valido = false;
+	    			}
+	    			if(cantidad.matches("[0]*")) {
+	    				errorCantidad.setText(("No debe ser de cero"));
+	    				valido = false;
+	    			}
 	    		}else {
 	    			errorCantidad.setText(("El campo cantidad debe ser numerico"));
 	    			valido = false;
 	    		}
 	    	}
+			
 	    	if(localDate == null) {
 	    		errorFecha.setText(("El campo Fecha esta vacio"));
 	    		valido = false;
@@ -204,13 +224,6 @@ public class ControlJefeTallerRegistroOrdenes {
 				}
 	    		
 	    	}
-	    	/*
-	    	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-	    	LocalDate now = LocalDate.now();
-	    	System.out.println(now);
-
-	    	System.out.println(dtf.format(now));
-	    	*/
 
 	    }
 }

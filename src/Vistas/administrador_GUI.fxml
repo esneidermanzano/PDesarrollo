@@ -37,7 +37,7 @@
                </font>
             </Button>
             <JFXButton fx:id="botonConsulta" layoutX="66.0" layoutY="272.0" onAction="#consulta" prefHeight="20.0" prefWidth="168.0" styleClass="botonesPanel" text="Consulta y Actualización" textFill="GREY" />
-            <JFXButton fx:id="botonRegistro" layoutX="66.0" layoutY="230.0" onAction="#registro" prefHeight="20.0" prefWidth="168.0" styleClass="botonesPanel" text="Registro de Gerentes" textFill="GREY" />
+            <JFXButton fx:id="botonRegistro" layoutX="66.0" layoutY="230.0" onAction="#registro" prefHeight="20.0" prefWidth="168.0" styleClass="botonesPanel" text="Registro de Personal" textFill="GREY" />
          </children>
       </Pane>
    </left>

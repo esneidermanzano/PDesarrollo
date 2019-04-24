@@ -72,7 +72,7 @@ public class ControlAdminRegistrar {
     public void initialize() {
     	initEscuchas();
     	ComboBoxCargo.getItems().addAll("Gerente", "Vendedor", "Jefe de taller");
-    	ComboBoxEstadoCivil.getItems().addAll("Soltero", "Casado", "UniÃ³n libre");
+    	ComboBoxEstadoCivil.getItems().addAll("Soltero", "Casado", "Unión libre");
     	ComboBoxGenero.getItems().addAll("Masculino", "Femenino", "No definido");
     	daoSede = new DaoSede();
     	gerente = new DaoEmpleado();

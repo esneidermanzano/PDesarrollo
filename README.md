@@ -1,7 +1,7 @@
 # PDesarrollo
 
 Proyecto en java para la venta de muebles y elementos de oficina, cuenta con sistema de facturacion, 
-inventario, roles y e impresion de facturas
+inventario, roles y e impresion de facturas. Para mas información de este proyecto revise [Estandares.pdf](https://github.com/esneidermanzano/PDesarrollo/blob/master/Estandares.pdf)
 
 ## Tecnologias que implementa<br/>
 
@@ -12,3 +12,16 @@ inventario, roles y e impresion de facturas
 * Scene Builder 2.0 de oracle
 * Libreria jfoenix-8.0.8 para los efectos
 * Librería postgresql-42.2.5, driver de postgres para java 
+
+
+## Capturas
+Login
+<p align="center">
+    <img  src="https://github.com/esneidermanzano/PDesarrollo/blob/master/captura-login.png?raw=true">
+  </p>
+
+Vista del Gerente con el thema oscuro
+  <p align="center">
+    <img  src="https://github.com/esneidermanzano/PDesarrollo/blob/master/captura-gerente.png?raw=true">
+  </p>
+  
